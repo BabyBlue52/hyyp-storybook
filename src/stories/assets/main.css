@@ -1,0 +1,48 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital@1&family=Poppins:wght@200;400;500;600;700&display=swap');
+
+root {
+    --black: #100409;
+    
+    --gunMetal: #37515F;   
+    --gunMetal_light: #52798E;
+    --error: #FF4D4D;
+    --hyyp_primary: #E4959E;
+    --success: #59D96C;
+    
+}
+* {
+    transition: all 0.3s ease-in-out;
+}
+html, body {
+    font-family: 'Open Sans', sans-serif;
+    font-family: 'Poppins', sans-serif;
+}
+
+button {
+    cursor: pointer;
+    border-radius: 5px;
+}
+button:active {
+    transform: scale(0.95);
+}
+p {
+    font-family: 'Poppins', sans-serif;
+}
+a, a:link, a:hover, a:focus, a:active, a:visited {
+    color: var(--black);
+    text-decoration: none;
+    font-size: 0.8rem;
+    cursor: pointer;
+}
+
+.disabled {
+    cursor: not-allowed;
+    user-select: none;
+    opacity: 0.67;
+}   
+
+.noSelect {
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+}
