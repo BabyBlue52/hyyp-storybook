@@ -2,24 +2,13 @@ import BackButton from './BackButton';
 
 import { action } from '@storybook/addon-actions';
 
-export default {
-    component: BackButton,
+export default  {
     title: 'Back Button',
+    component: BackButton,
 };
 
-const Template = args => ({
-    components: { BackButton },
-    setup() {
-        return {args};
+export const Basic = {
+    args: {
+      title: 'Back to Calendar',
     },
-    template: '<BackButton v-bind="args"/>'
-})
-// export const actionsData = {
-
-// }
-
-export const Default = Template.bind({});
-Default.args = {
-    title: 'Back to Calendar',
-    // enabled: true
-}
+};

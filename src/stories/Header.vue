@@ -13,9 +13,25 @@
         <div class="right">
             <div v-if="userAuth" class="user-auth ">
                 <Link :text="'Account'"/>
-                <Avatar :userInitials="userInitials"/>
+                <v-menu>
+                <template v-slot:activator="{ props }">
+                    <Avatar :userInitials="userInitials" v-bind="props"/>
+                </template>
+                <v-list>
+                    <v-list-item
+                    v-for="(item, index) in items"
+                    :key="index"
+                    :value="index"
+                    >
+                    <v-list-item-title>{{ item.title }}</v-list-item-title>
+                    </v-list-item>
+                </v-list>
+                </v-menu>
+              
+
             </div>
             <div v-else class="login">
+                
                 <Link :text="'Sign In'"/>
                 <Link :text="'Sign up'"/>
             </div>
@@ -37,6 +53,11 @@
             isPremium: Boolean,
             userAuth: Boolean,
         },
+        data: () => ({
+            items: [
+                {title: 'Log Out'}
+            ]
+        }),
         methods: {
             onClick() {
                 console.log('clicked');

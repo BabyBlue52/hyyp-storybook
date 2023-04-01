@@ -1,6 +1,6 @@
 <template>
     <div class="link" @mouseenter="retreat" @mouseleave="reset">
-        <a href="">{{ text }}</a>
+        <a>{{ text }}</a>
         <div :class="[isHover ? 'retreat' : 'static']"></div>
     </div>
 </template>
