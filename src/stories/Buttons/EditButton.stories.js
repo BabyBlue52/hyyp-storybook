@@ -5,6 +5,9 @@ import { action } from '@storybook/addon-actions';
 export default {
     component: EditButton,
     title: 'Edit Button',
+    argTypes: {
+        onToggle: Boolean
+    }
 };
 
 const Template = args => ({
@@ -14,9 +17,7 @@ const Template = args => ({
     },
     template: '<EditButton v-bind="args"/>'
 })
-// export const actionsData = {
 
-// }
 
 export const Default = Template.bind({});
 Default.args = {

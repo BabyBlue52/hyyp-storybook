@@ -1,0 +1,29 @@
+import Notification from './Notification';
+
+export default {
+    component: Notification,
+    title: 'Notification',   
+    argTypes: {
+        variant: {
+            options:['Success','Error','System'],
+            control: { type: 'radio' },
+        },
+            
+    },
+    
+}
+
+const Template = args => ({
+    components: { Notification },
+    setup() {
+        return {args};
+    },
+    template: '<Notification v-bind="args" />',
+})
+
+export const Basic = Template.bind({
+    args: {
+        variant: 'success',
+      },
+    status: 'success',
+})
