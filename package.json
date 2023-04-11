@@ -12,6 +12,7 @@
     "@mdi/font": "7.0.96",
     "@storybook/addon-controls": "^7.0.2",
     "roboto-fontface": "*",
+    "storybook-addon-variants": "^0.2.0",
     "vue": "^3.2.38",
     "vuetify": "^3.0.0",
     "webfontloader": "^1.0.0"

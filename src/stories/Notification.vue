@@ -63,7 +63,7 @@ export default {
 .toast-wrapper {
     display: flex;
     position: absolute;
-    bottom: 5%;
+    bottom: 2.5%;
     left: calc(50vw - 250px);
     width: 500px;
     height: 80px;
@@ -108,7 +108,7 @@ export default {
     min-width: 78px;
     height: 76px;
     border-radius: 5px 0 0 5px;
-    background: #F8F8F8;
+    background: #FBF8F8;
     color: #707070;
 }
 .toast-msg {

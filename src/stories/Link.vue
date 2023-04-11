@@ -29,13 +29,13 @@
 
 <style scoped>
     .link {
-        display: flex;
         flex-direction: column;
         width: max-content;
         height: max-content;
         margin: 0 10px;
         overflow: hidden;
-        display: block;
+        display: inline-flex;
+        font-weight: 700;
     }
     .link:focus {
         transform: scale(0.95);
@@ -44,23 +44,22 @@
         position: relative;
         height: 2px;
         background: #E4959E;
-        animation: static .7s ease-in-out both;
-        transform: scaleX(-1);
+        animation: static .35s ease-in-out both;
         width: 100%;
     }
     div.retreat {
-        transform: scaleX(-1);
         position: relative;
         height: 2px;
         background: #E4959E;
-        animation: retreat .7s ease-in-out both;
+        animation: retreat .35s ease-in-out both;
+        width: 100%;
     }
     @keyframes retreat {
-        from { left: 0;}
-        to { left: 100%;}
+        from { opacity: 100%;}
+        to { opacity: 0%;}
     }
     @keyframes static {
-        from { left: 100%;}
-        to { left: 0;}
+        from { opacity: 0%;}
+        to { opacity: 100%;}
     }
 </style>
