@@ -2,7 +2,8 @@
 
 root {
     --black: #100409;
-    
+    --grey: #F6F6F6;
+
     --gunMetal: #37515F;   
     --gunMetal_light: #52798E;
     --error: #FF4D4D;
@@ -69,4 +70,29 @@ a, a:link, a:hover, a:focus, a:active, a:visited {
     justify-content: center;
     align-items: center;
     overflow: hidden;
+}
+.d-flex {
+    display: flex;
+    width: 100%;
+}
+.row  {
+    flex-direction: row;
+}
+.column {
+    flex-direction: column;
+}
+/* Edits to Vuetify */
+.hyyp-input-sm {
+    display: flex;
+    max-width: 210px;
+    align-items: center;
+}
+input {
+    position: relative;
+    border: 1px solid #666666;
+    border-radius: 5px;
+    height: max-content;
+    padding: 5px 10px;
+    padding-top: 20px;
+    min-width: 100%;
 }

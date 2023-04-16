@@ -35,7 +35,7 @@
         margin: 0 10px;
         overflow: hidden;
         display: inline-flex;
-        font-weight: 700;
+        font-weight: 600;
     }
     .link:focus {
         transform: scale(0.95);
