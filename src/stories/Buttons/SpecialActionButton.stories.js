@@ -4,7 +4,7 @@ import { action } from '@storybook/addon-actions';
 
 export default {
     component: SpecialActionButton,
-    title: 'Special Action Button',
+    title: 'Buttons / Special Action Button',
 };
 
 const Template = args => ({

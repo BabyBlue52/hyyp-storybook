@@ -4,7 +4,7 @@ import { action } from '@storybook/addon-actions';
 
 export default {
     component: InvertedButton,
-    title: 'Inverted Button',
+    title: 'Buttons / Inverted Button',
 };
 
 const Template = args => ({

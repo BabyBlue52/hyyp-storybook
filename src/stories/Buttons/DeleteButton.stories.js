@@ -4,7 +4,7 @@ import { action } from '@storybook/addon-actions';
 
 export default {
     component: DeleteButton,
-    title: 'Delete Button',
+    title: 'Buttons / Delete Button',
 };
 
 const Template = args => ({

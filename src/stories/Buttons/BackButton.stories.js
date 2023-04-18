@@ -3,7 +3,7 @@ import BackButton from './BackButton';
 import { action } from '@storybook/addon-actions';
 
 export default  {
-    title: 'Back Button',
+    title: 'Buttons / Back Button',
     component: BackButton,
 };
 

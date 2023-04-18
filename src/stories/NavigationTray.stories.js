@@ -1,18 +1,16 @@
-import CloseButton from './CloseButton';
-
-import { action } from '@storybook/addon-actions';
+import NavigationTray from './NavigationTray';
 
 export default {
-    component: CloseButton,
-    title: 'Buttons / Close Button',
-};
+    component: NavigationTray,
+    title: 'Nav Tray'
+}
 
 const Template = args => ({
-    components: { CloseButton },
+    components: { NavigationTray },
     setup() {
         return {args};
     },
-    template: '<CloseButton v-bind="args"/>'
+    template: '<NavigationTray v-bind="args"/>'
 })
 // export const actionsData = {
 

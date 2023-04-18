@@ -4,7 +4,7 @@ import { action } from '@storybook/addon-actions';
 
 export default {
     component: SaveButton,
-    title: 'Save Button',
+    title: 'Buttons / Save Button',
 };
 
 const Template = args => ({

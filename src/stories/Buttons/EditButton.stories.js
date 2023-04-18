@@ -4,7 +4,7 @@ import { action } from '@storybook/addon-actions';
 
 export default {
     component: EditButton,
-    title: 'Edit Button',
+    title: 'Buttons / Edit Button',
     argTypes: {
         onToggle: Boolean
     }
