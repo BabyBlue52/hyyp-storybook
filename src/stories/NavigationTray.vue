@@ -72,12 +72,12 @@
         width: 250px;
         max-width: 33vw;
         height: 100vh;
-        background: #FBF8F8;
+        background: #F6F6F6;
     }
     .nav-tray-item {
         display: flex;
-        height: clamp(50px, 8vh, 100px);
-        border-left: 10px solid transparent;
+        height: clamp(60px, 8vh, 100px);
+        border-left: 8px solid transparent;
         transition: 500ms ease-in-out all;
     }
     .nav-tray-item:hover {
@@ -104,7 +104,7 @@
         font-size: .9rem;
     }
     .selected {
-        border-left: 10px solid #E4959E;
+        border-left: 8px solid #E4959E;
         transition: 500ms ease-in-out all;
         background: rgb(228, 149, 158,0.2)
     }

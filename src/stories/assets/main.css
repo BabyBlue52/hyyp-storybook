@@ -81,6 +81,7 @@ a, a:link, a:hover, a:focus, a:active, a:visited {
 .column {
     flex-direction: column;
 }
+100
 /* Edits to Vuetify */
 .hyyp-input-sm {
     display: flex;

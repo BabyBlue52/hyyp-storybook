@@ -41,7 +41,6 @@
 </template>
 
 <script>
-
     import Link from './Link.vue';
     import Avatar from './Avatar.vue'
 

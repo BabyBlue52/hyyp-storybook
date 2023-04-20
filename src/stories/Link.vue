@@ -36,6 +36,7 @@
         overflow: hidden;
         display: inline-flex;
         font-weight: 600;
+        text-transform: capitalize;
     }
     .link:focus {
         transform: scale(0.95);
