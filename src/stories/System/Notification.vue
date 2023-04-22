@@ -1,7 +1,7 @@
 <template>
     <v-btn
       @click="$event => isOpen = !isOpen"
-    > open notification </v-btn>
+    > toggle notification </v-btn>
     
     <div class="toast-wrapper" :class="[isOpen ? 'show' : 'hide']">
         

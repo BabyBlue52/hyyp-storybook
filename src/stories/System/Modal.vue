@@ -27,7 +27,7 @@
     </div>
 </template>
 <script>
-    import Link from './Link.vue';
+    import Link from '../Link.vue';
     
     export default {
         name: 'Modal',

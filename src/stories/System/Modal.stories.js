@@ -4,7 +4,7 @@ import { action } from '@storybook/addon-actions';
 export default {
   component: Modal,
   //👇 Our exports that end in "Data" are not stories.
-  title: 'Modal',
+  title: 'System / Modal',
 }
 
 const Template = args => ({

@@ -2,7 +2,7 @@ import NavigationTray from './NavigationTray';
 
 export default {
     component: NavigationTray,
-    title: 'Nav Tray'
+    title: 'System / Nav Tray'
 }
 
 const Template = args => ({

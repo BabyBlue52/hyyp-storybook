@@ -3,7 +3,7 @@
         <div class="left">
             <div class="logo">
                 <img src="./assets/hyyp.svg"/>
-                <div v-if="isPremium" class="pro-badge">
+                <div v-if="isPremium" class="pro-badge noSelect">
                     <span>Pro</span>
                 </div>
             </div>
@@ -54,7 +54,9 @@
         },
         data: () => ({
             items: [
-                {title: 'Log Out'}
+                {title: 'Profile'},
+                {title: 'Sign Out'},
+                {title: 'Go Premium'}
             ]
         }),
         methods: {
@@ -109,6 +111,7 @@
         border-radius: 5px;
 
         font-size: .8rem;
+        font-weight: 600;
         text-transform: uppercase;
         background: #f0f0f0;
     }

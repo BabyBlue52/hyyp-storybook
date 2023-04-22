@@ -2,7 +2,7 @@ import Notification from './Notification';
 
 export default {
     component: Notification,
-    title: 'Notification',   
+    title: 'System / Notification',   
     argTypes: {
         variant: {
             options:['Success','Error','System'],
