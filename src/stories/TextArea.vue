@@ -1,19 +1,14 @@
 <template>
     <!-- Work into Group Component -->
-    <div class="hyyp-input-sm row">
-    <div v-if="hasIcon" class="icon">
-        <v-icon :icon= 'icon' ></v-icon>
-    </div>
-    <div class="d-flex column">
+    <div class="d-flex column" style="max-width:500px">
         <label>{{ label }}</label>
-        <v-text-field
-        ></v-text-field>
+        <v-textarea variant="outlined"></v-textarea>
     </div>
-</div>
+
 </template>
 <script>
     export default {
-        name: 'TextInput',
+        name: 'TextArea',
         props: {
             label: String,
             hasIcon: Boolean,
@@ -24,25 +19,18 @@
     }
 </script>
 <style scoped>
-    input {
+    textarea {
         position: relative;
-        border: 1px solid #666666;
+        /* border: 1px solid #666666; */
         border-radius: 5px;
-        height: max-content;
+        /* outline: 1px solid #666; */
         width: 100%;
+        max-width: 500px;
         padding: 5px 10px;
         padding-top: 20px;
         background-color: white;  
         font-size: .9rem;
     }
-    .v-field__input {
-        outline: 1px solid #666;
-        background: white;
-        max-height: 1rem;
-        padding: 0 !important;
-        margin: 0;
-    }
-    
     .v-field--variant-filled .v-field__overlay {
         background: none;
     }
