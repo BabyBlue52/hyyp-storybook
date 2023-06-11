@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@mdi/font": "7.0.96",
-    "@storybook/addon-controls": "^7.0.5",
+    "@storybook/addon-controls": "^7.0.20",
     "@tiptap/pm": "^2.0.3",
     "@tiptap/starter-kit": "^2.0.3",
     "@tiptap/vue-3": "^2.0.3",
@@ -22,17 +22,17 @@
     "webfontloader": "^1.0.0"
   },
   "devDependencies": {
-    "@storybook/addon-essentials": "^7.0.5",
-    "@storybook/addon-interactions": "^7.0.5",
-    "@storybook/addon-links": "^7.0.5",
-    "@storybook/blocks": "^7.0.5",
+    "@storybook/addon-essentials": "^7.0.20",
+    "@storybook/addon-interactions": "^7.0.20",
+    "@storybook/addon-links": "^7.0.20",
+    "@storybook/blocks": "^7.0.20",
     "@storybook/testing-library": "^0.1.0",
-    "@storybook/vue3": "^7.0.5",
-    "@storybook/vue3-vite": "^7.0.5",
+    "@storybook/vue3": "^7.0.20",
+    "@storybook/vue3-vite": "^7.0.20",
     "@vitejs/plugin-vue": "^3.0.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "storybook": "^7.0.5",
+    "storybook": "^7.0.20",
     "vite": "^3.1.9",
     "vite-plugin-vuetify": "^1.0.0-alpha.12"
   }

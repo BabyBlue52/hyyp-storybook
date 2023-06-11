@@ -270,6 +270,7 @@ button.is-active > svg {
   padding: 5px 20px;
   background: #323232;
   border-radius: 10px 10px 0 0;
+  max-width: 1000px;
 }
 
   </style>

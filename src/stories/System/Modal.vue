@@ -61,27 +61,10 @@
         font-size: 0.9rem;
     }
     
-    div.modal-container {
-        position: relative;
-        display: flex;
-        flex-direction: column;
-        height: max-content;
-        width: 450px;
-        padding: 20px;
-        background-color: white;
-        border-radius: 8px;
-    }
     .link {
         margin: 0;
     }
-    .slideIn {
-        animation: slideIn 300ms ease-in-out;
-        opacity: 1;
-    }
-    .slideOut {
-        animation: slideOut 300ms ease-in-out;
-        opacity: 0;
-    }
+    
     div.modal-content {
         padding: 10px;
     }
@@ -103,7 +86,6 @@
         bottom: 3px;
         width: 30px;
         height: 30px;
-
     }
     button.email {
         background: #37515F;
@@ -112,39 +94,13 @@
     button.email:hover {
         background:  #52798E;
     }
-    .close-btn {
-        height: 20px;
-        width: 20px;
+    button.close-btn {
         margin: 0;
         padding: 0;
         background: none;
     }
-    .close-btn:hover > svg {
-        opacity: 0.5;
-    }
     .button-section {
         margin: 20px 0;
     }
-    @keyframes slideIn {
-        from {
-            transform: translateY(100%);
-            opacity: 0;
-        }
-
-        to {
-            transform: translateY(0%);
-            opacity: 1;
-        }
-    }
-    @keyframes slideOut {
-        from {
-            transform: translateY(0%);
-            opacity: 1;
-        }
-
-        to {
-            transform: translateY(100%);
-            opacity: 0;
-        }
-    }
+    
 </style>

@@ -17,17 +17,23 @@
     .tag {
         position: relative;
         display: flex;
+        align-items: center;
         width: max-content;
-        padding: 2px 20px;
+        padding: 5px 20px 5px 15px;
         border-radius: 20px;
         background: rgba(228, 149, 158,0.5);
         cursor: pointer;
+        
     }
     .tag:hover {
         background: rgba(228, 149, 158,1);
     }
     p {
         font-weight: 400;
+        max-width: 200px;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
         margin-right: 10px;
     }
     .tag:hover > p {
@@ -36,6 +42,7 @@
     svg {
         position: absolute;
         right: 2px;
+        bottom: 1px;
         transform: scale(0.8);
     }
 </style>

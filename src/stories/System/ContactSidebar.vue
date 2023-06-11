@@ -1,0 +1,302 @@
+<template>
+    <div class="toggle">
+        <v-btn @click="handleToggle()">Toggle Contact Sidebar</v-btn>
+    </div>
+    <div :class="[openSidebar ? '' : 'closed']" class="hyyp-sidebar">
+        <div class="sidebar-title">
+            <button class="close-btn" @click="handleToggle()">
+                <svg clip-rule="evenodd" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m12 10.93 5.719-5.72c.146-.146.339-.219.531-.219.404 0 .75.324.75.749 0 .193-.073.385-.219.532l-5.72 5.719 5.719 5.719c.147.147.22.339.22.531 0 .427-.349.75-.75.75-.192 0-.385-.073-.531-.219l-5.719-5.719-5.719 5.719c-.146.146-.339.219-.531.219-.401 0-.75-.323-.75-.75 0-.192.073-.384.22-.531l5.719-5.719-5.72-5.719c-.146-.147-.219-.339-.219-.532 0-.425.346-.749.75-.749.192 0 .385.073.531.219z"/></svg>
+            </button>
+        </div>
+        <!-- Static -->
+        <div v-if="!editMode">
+            <!-- Profile Pic -->
+            <div class="d-flex profile">
+                <div v-if="!imgUrl"> </div>
+                <img :src=profile.imgUrl alt="profile pic" class="profile-pic"/>
+                <div class="inline ">
+                    <h4>{{ profile.username }}</h4>
+                    <p>{{ profile.role }}</p>
+                </div>
+            </div>
+            <!-- Phone Number -->
+            <div class="section">
+                <div class="d-flex ">
+                    <div class="icon">
+                        <v-icon icon="mdi-phone-outline"></v-icon>
+                    </div>
+                    <p id="phone">{{ profile.phone }}</p>
+                </div>
+            </div>
+
+            <!-- Email -->
+            <div class="section">
+                <div class="d-flex ">
+                    <div class="icon">
+                        <v-icon icon="mdi-email-outline"></v-icon>
+                    </div>
+                    <p id="phone">{{ profile.email }}</p>
+                </div>
+            </div>
+
+            <!-- Last Worked With -->
+            <div class="section">
+                <div class="d-flex ">
+                    <div class="icon">
+                        <v-icon icon="mdi-briefcase-outline"></v-icon>
+                    </div>
+                    <p id="phone">Last Worked With:</p>
+                </div>
+                <div class="blank"></div>
+            </div>
+        </div>
+
+        <!-- Dynamic -->
+        <div v-else class="edit-mode">
+            <!-- Profile -->
+            <div class=" profile ">
+                <div v-if="!imgUrl"> </div>
+                <div class="center">
+                    <img :src=profile.imgUrl alt="profile pic" class="profile-pic"/>
+                    <span class="edit-mode">Edit Mode</span>
+                </div>
+                <!-- User Name -->
+                <div class="section">
+                    <div class="d-flex">
+                        <div class="icon">
+                            <v-icon icon="mdi-account-outline"></v-icon>
+                        </div>
+                        <TextInput style="width:220px"/>
+                    </div>
+                </div>
+                <!-- User Role -->
+                <div class="section">
+                    <div class="d-flex">
+                        <div class="icon">
+                            <v-icon icon="mdi-account-outline"></v-icon>
+                        </div>
+                        <TextInput style="width:220px"/>
+                    </div>
+                </div>
+            </div>
+            <!-- Phone Number -->
+            <div class="section">
+                <div class="d-flex">
+                    <div class="icon">
+                        <v-icon icon="mdi-phone-outline"></v-icon>
+                    </div>
+                    <TextInput style="width:220px"/>
+                </div>
+            </div>
+
+            <!-- Email -->
+            <div class="section">
+                <div class="d-flex ">
+                    <div class="icon">
+                        <v-icon icon="mdi-email-outline"></v-icon>
+                    </div>
+                    <TextInput style="width:220px"/>
+                </div>
+            </div>
+
+            <!-- Last Worked With -->
+            <!-- <div class="section">
+                <div class="d-flex ">
+                    <div class="icon">
+                        <v-icon icon="mdi-briefcase-outline"></v-icon>
+                    </div>
+                    <p>Last Worked With:</p>
+                </div>
+                <div class="blank"></div>
+            </div> -->
+        </div>
+        
+        <!-- Sidebar Button  -->
+        <div v-if="!editMode">
+            <button class="full-width-btn" @click="toggleEditMode()"> Edit Contact</button>
+        </div>
+        <div v-else class="">
+            <button class="full-width-save-btn" @click="toggleEditMode()"> Save Changes</button>
+        </div>
+    </div>
+    
+</template>
+<script>
+    import TextInput from '../TextInput.vue'
+
+    export default {
+        name: 'Contact Sidebar',
+        components: { TextInput },
+        props: {
+            openSidebar: Boolean,
+            editMode: Boolean,
+            userInitials: String,
+            imgUrl: String,
+            username: String,
+            role: String,
+            phone: String,
+        },
+        data() {
+            return {
+                openSidebar: true,
+                editMode: false,
+                profile: {
+                    userInitials: "NC",
+                    imgUrl: "https://plus.unsplash.com/premium_photo-1675034359203-c30acdb21eb2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80",
+                    username: "Noelle Chapman",
+                    role: "Cake Decorator",
+                    phone: "(460)-101-7698",
+                    email: "noelle.chapman@example.com"
+                }
+            };
+        },
+        methods: {
+            handleToggle() {
+
+                // If user closes sidebar in edit mode reset back to static
+                if (this.openSidebar == false) {
+                    this.editMode == false 
+                    this.openSidebar = !this.openSidebar
+                } else {
+                    this.openSidebar = !this.openSidebar;
+                }
+            },
+            toggleEditMode() {
+                this.editMode = !this.editMode
+            }
+        },
+        computed: {
+          
+        }
+    }
+</script>
+<style scoped>
+    .hyyp-sidebar {
+        position: absolute;
+        right: 0;
+        width: clamp(10vw, 350px, 500px);
+        height: 95vh;
+        padding: 20px 30px;
+        border: 1px solid salmon;
+        
+        -webkit-box-shadow: -9px 3px 14px -1px rgba(0,0,0,0.05);
+        -moz-box-shadow: -9px 3px 14px -1px rgba(0,0,0,0.05);
+        box-shadow: -9px 3px 14px -1px rgba(0,0,0,0.05);
+    }
+    .closed {
+        position: absolute;
+        right: -450px;
+        width: clamp(10vw, 350px, 500px);
+        height: 95vh;
+
+        -webkit-box-shadow: -9px 3px 14px -1px rgba(0,0,0,0.05);
+        -moz-box-shadow: -9px 3px 14px -1px rgba(0,0,0,0.05);
+        box-shadow: -9px 3px 14px -1px rgba(0,0,0,0.05);
+    }
+    .profile {
+        position: relative;
+        padding-top: 40px;
+    }
+    .inline {
+        display: flex;
+        flex-direction: column;
+        vertical-align: middle;
+        padding-top: 10px;
+    }
+    .center {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        margin: 0 auto ;
+    }
+    img.profile-pic {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 5px solid white;
+        margin-right: 20px;
+        margin-bottom: 20px;
+    }
+    button.full-width-btn {
+        width: 100%;
+        position: absolute;
+        bottom: 0;
+        right: 0px;
+        background: #37515F;
+        color: white;
+        padding: 15px 0px;
+    }
+    button.full-width-btn:hover {
+        background: #52798E;
+    }
+    button.full-width-save-btn {
+        width: 100%;
+        position: absolute;
+        bottom: 0;
+        right: 0px;
+        background: #59D96C;
+        color: #100409;
+        padding: 15px 0px;
+    }
+    /* Disabled */
+    button.disabled {
+        width: 200px;
+        max-width: 200px;
+        height: 48px;
+        border-radius: 5px;
+        background-color: #c8c8c8;;
+        border: 2px solid transparent;
+        color: #666;
+    }
+    button.close-btn {
+        width: max-content;
+        height: max-content;
+        margin: 0;
+        padding: 0;
+        background: none;
+        position: absolute;
+        right: 0%;
+    }
+    span.edit-mode {
+        clear: none;
+        position: absolute;
+        top: 80px;
+        right: 25px;
+        width: max-content;
+        height: max-content;
+        margin-right: -10px;
+        padding: 2px 10px;
+        border-radius: 5px;
+
+        font-size: .8rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        background: rgba(228, 149, 158, 0.5);
+    }
+    .section {
+        border: 1px solid salmon;
+        padding: 20px 0;
+    }
+    .section > p {
+        white-space: wrap;
+    }
+    .icon {
+        padding: 0px 15px;
+        position: relative;
+        top: 5px;
+    }
+    .blank {
+        background: #ccc;
+        width: 80%;
+        height: 150px;
+        margin-top: 20px;
+        margin-left: 20%;
+    }
+    input.v-field__input {
+        width: 200px;
+    }
+    .section > .d-flex > p {
+        margin-top: 10px;
+    }
+</style>

@@ -43,6 +43,7 @@
         position: relative;
         top: 5px;
         margin-left: 5px;
+        font-size: 0.8rem;
     }
 
 </style>

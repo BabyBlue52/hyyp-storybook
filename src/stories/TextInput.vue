@@ -29,7 +29,7 @@
         border: 1px solid #666666;
         border-radius: 5px;
         height: max-content;
-        width: 100%;
+        min-width: 100%;
         padding: 5px 10px;
         padding-top: 20px;
         background-color: white;  
@@ -41,6 +41,7 @@
         max-height: 1rem;
         padding: 0 !important;
         margin: 0;
+        min-width: 100%;
     }
     
     .v-field--variant-filled .v-field__overlay {

@@ -20,7 +20,7 @@
     }
     
 </script>
-<style scoped>
+<style>
     button.default-btn {
         width: 200px;
         max-width: 200px;
@@ -46,6 +46,6 @@
     p {
         font-family: 'Poppins', sans-serif;
         line-height: 1rem;
-        color: inherit
+        color: inherit;
     }
 </style>
