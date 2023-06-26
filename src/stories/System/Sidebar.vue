@@ -57,9 +57,9 @@
         height: 95vh;
         padding: 0 20px;
         
-        -webkit-box-shadow: -9px 3px 14px -1px rgba(0,0,0,0.05);
-        -moz-box-shadow: -9px 3px 14px -1px rgba(0,0,0,0.05);
-        box-shadow: -9px 3px 14px -1px rgba(0,0,0,0.05);
+        -webkit-box-shadow: -9px 3px 14px -1px rgba(0,0,0,0.10);
+        -moz-box-shadow: -9px 3px 14px -1px rgba(0,0,0,0.10);
+        box-shadow: -9px 3px 14px -1px rgba(0,0,0,0.10);
 
     }
     .closed {
@@ -68,9 +68,9 @@
         width: clamp(10vw, 350px, 500px);
         height: 95vh;
 
-        -webkit-box-shadow: -9px 3px 14px -1px rgba(0,0,0,0.05);
-        -moz-box-shadow: -9px 3px 14px -1px rgba(0,0,0,0.05);
-        box-shadow: -9px 3px 14px -1px rgba(0,0,0,0.05);
+        -webkit-box-shadow: -9px 3px 14px -1px rgba(0,0,0,0.10);
+        -moz-box-shadow: -9px 3px 14px -1px rgba(0,0,0,0.10);
+        box-shadow: -9px 3px 14px -1px rgba(0,0,0,0.10);
 
     }
     h4 {

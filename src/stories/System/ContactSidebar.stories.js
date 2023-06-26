@@ -19,3 +19,8 @@ export const Default = Template.bind({})
 Default.args = {
     // text: 'Sidebar!'
 }
+
+export const EditMode = Template.bind({})
+EditMode.args = {
+    editMode: true
+}

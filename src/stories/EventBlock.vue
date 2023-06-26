@@ -1,5 +1,5 @@
 <template>
-    <div v-if="isBooked">
+    <div v-if="isBooked" :class="[isHighlighted ? 'selected' : '']" >
         <div class="date-wrapper">
             <div class="top-bar"></div>
             <div class="event-header">
@@ -17,12 +17,12 @@
             </div>
             <!-- End Loop -->
             <div v-if="hiddenEvents" class="additional-events">
-                <p>And {{ extraEvents }} more </p>
+                <p>And {{ hiddenEvents.extraEvents }} more </p>
                 <Link :text="'expand'"/>
             </div>
         </div>
     </div>
-    <div v-else>
+    <div v-else :class="[isHighlighted ? 'selected' : '']" >
         <div class="empty">
             <div class="top-bar"></div>
             <div class="event-header">
@@ -39,6 +39,7 @@
         components: { Link },
         props: {
             isBooked: Boolean,
+            isHighlighted: Boolean,
         },
         computed: {
             window: () => window,
@@ -71,7 +72,7 @@
                     endTime: '14:30',
                 },
                 {
-                    name: 'Event 3',
+                    name: 'Event 4',
                     startTime: '10:00',
                     endTime: '14:30',
                 },
@@ -107,7 +108,7 @@
         height: clamp( 250px, 10vh, 330px);
         border: 1px solid #100409;
         padding: 10px;
-        color: #100409;
+        color: inherit;
         opacity: 0.5;
     }
     .empty > .top-bar{
@@ -158,7 +159,26 @@
         font-size: 12px;
         margin-left: 10px;
     }
-    .empty {
+    .selected {
+        position: absolute;
+        transform: scale(1..05);
+        color: #100409;
 
+        -webkit-box-shadow: -9px 3px 14px -1px rgba(0,0,0,0.10);
+        -moz-box-shadow: -9px 3px 14px -1px rgba(0,0,0,0.10);
+        box-shadow: -9px 3px 14px -1px rgba(0,0,0,0.10);
+    }
+    .selected > .empty {
+        border: 1px solid #59d96c;
+    }
+    .selected > .empty > .top-bar {
+        background: #59d96c;
+    }
+    .selected > .date-wrapper {
+        
+        border: 1px solid #59d96c;
+    }
+    .selected > .date-wrapper > .top-bar {
+        background: #59d96c;
     }
 </style>

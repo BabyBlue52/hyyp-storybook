@@ -39,9 +39,19 @@
                 </div>
             </div>
 
-            <!-- Last Worked With -->
+            <!-- Location  -->
             <div class="section">
                 <div class="d-flex ">
+                    <div class="icon">
+                        <v-icon icon="mdi-map-marker"></v-icon>
+                    </div>
+                    <p id="phone">{{ profile.location }}</p>
+                </div>
+            </div>
+
+            <!-- Last Worked With -->
+            <div class="section">
+                <div class="d-flex">
                     <div class="icon">
                         <v-icon icon="mdi-briefcase-outline"></v-icon>
                     </div>
@@ -54,38 +64,38 @@
         <!-- Dynamic -->
         <div v-else class="edit-mode">
             <!-- Profile -->
-            <div class=" profile ">
+            <div class="profile">
                 <div v-if="!imgUrl"> </div>
                 <div class="center">
                     <img :src=profile.imgUrl alt="profile pic" class="profile-pic"/>
                     <span class="edit-mode">Edit Mode</span>
                 </div>
-                <!-- User Name -->
-                <div class="section">
-                    <div class="d-flex">
-                        <div class="icon">
-                            <v-icon icon="mdi-account-outline"></v-icon>
-                        </div>
-                        <TextInput style="width:220px"/>
-                    </div>
-                </div>
-                <!-- User Role -->
-                <div class="section">
-                    <div class="d-flex">
-                        <div class="icon">
-                            <v-icon icon="mdi-account-outline"></v-icon>
-                        </div>
-                        <TextInput style="width:220px"/>
-                    </div>
-                </div>
             </div>
+            <!-- Name -->
+            <div class="section">
+                    <div class="d-flex">
+                        <div class="icon">
+                            <v-icon icon="mdi-account-outline"></v-icon>
+                        </div>
+                        <TextInput style="width:220px" label="name"/>
+                    </div>
+                </div>
+                <!--  Role -->
+                <div class="section">
+                    <div class="d-flex">
+                        <div class="icon">
+                            <v-icon icon="mdi-account-outline"></v-icon>
+                        </div>
+                        <TextInput style="width:220px" label="role"/>
+                    </div>
+                </div>
             <!-- Phone Number -->
             <div class="section">
                 <div class="d-flex">
                     <div class="icon">
                         <v-icon icon="mdi-phone-outline"></v-icon>
                     </div>
-                    <TextInput style="width:220px"/>
+                    <TextInput style="width:220px" label="phone number"/>
                 </div>
             </div>
 
@@ -95,20 +105,19 @@
                     <div class="icon">
                         <v-icon icon="mdi-email-outline"></v-icon>
                     </div>
-                    <TextInput style="width:220px"/>
+                    <TextInput style="width:220px" label="email"/>
                 </div>
             </div>
 
-            <!-- Last Worked With -->
-            <!-- <div class="section">
-                <div class="d-flex ">
+            <!-- Location -->
+            <div class="section">
+                <div class="d-flex">
                     <div class="icon">
-                        <v-icon icon="mdi-briefcase-outline"></v-icon>
+                        <v-icon icon="mdi-map-marker"></v-icon>
                     </div>
-                    <p>Last Worked With:</p>
+                    <TextInput style="width:220px" label="location"/>
                 </div>
-                <div class="blank"></div>
-            </div> -->
+            </div>
         </div>
         
         <!-- Sidebar Button  -->
@@ -146,6 +155,7 @@
                     username: "Noelle Chapman",
                     role: "Cake Decorator",
                     phone: "(460)-101-7698",
+                    location: "Austin, TX",
                     email: "noelle.chapman@example.com"
                 }
             };
@@ -177,11 +187,10 @@
         width: clamp(10vw, 350px, 500px);
         height: 95vh;
         padding: 20px 30px;
-        border: 1px solid salmon;
         
-        -webkit-box-shadow: -9px 3px 14px -1px rgba(0,0,0,0.05);
-        -moz-box-shadow: -9px 3px 14px -1px rgba(0,0,0,0.05);
-        box-shadow: -9px 3px 14px -1px rgba(0,0,0,0.05);
+        -webkit-box-shadow: -9px 3px 14px -1px rgba(0,0,0,0.10);
+        -moz-box-shadow: -9px 3px 14px -1px rgba(0,0,0,0.10);
+        box-shadow: -9px 3px 14px -1px rgba(0,0,0,0.10);
     }
     .closed {
         position: absolute;
@@ -189,9 +198,9 @@
         width: clamp(10vw, 350px, 500px);
         height: 95vh;
 
-        -webkit-box-shadow: -9px 3px 14px -1px rgba(0,0,0,0.05);
-        -moz-box-shadow: -9px 3px 14px -1px rgba(0,0,0,0.05);
-        box-shadow: -9px 3px 14px -1px rgba(0,0,0,0.05);
+        -webkit-box-shadow: -9px 3px 14px -1px rgba(0,0,0,0.10);
+        -moz-box-shadow: -9px 3px 14px -1px rgba(0,0,0,0.10);
+        box-shadow: -9px 3px 14px -1px rgba(0,0,0,0.10);
     }
     .profile {
         position: relative;
@@ -274,17 +283,16 @@
         text-transform: uppercase;
         background: rgba(228, 149, 158, 0.5);
     }
-    .section {
-        border: 1px solid salmon;
-        padding: 20px 0;
+    .edit-mode > .section {
+        padding:  0;
     }
-    .section > p {
+    .section > .d-flex > p {
+        padding-top: 12px;
         white-space: wrap;
     }
     .icon {
-        padding: 0px 15px;
         position: relative;
-        top: 5px;
+        padding: 20px 15px 0px 15px;
     }
     .blank {
         background: #ccc;

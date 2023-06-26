@@ -20,3 +20,14 @@ export const Default = Template.bind({});
 Default.args = {
     isBooked: true
 }
+
+export const Empty = Template.bind({});
+Empty.args = {
+    isBooked: false
+}
+
+export const Highlighted = Template.bind({});
+Highlighted.args = {
+    isHighlighted: true,
+    isBooked: true
+}
