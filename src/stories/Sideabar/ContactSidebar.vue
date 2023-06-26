@@ -148,7 +148,6 @@
         data() {
             return {
                 openSidebar: true,
-                editMode: false,
                 profile: {
                     userInitials: "NC",
                     imgUrl: "https://plus.unsplash.com/premium_photo-1675034359203-c30acdb21eb2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80",
@@ -230,7 +229,7 @@
     button.full-width-btn {
         width: 100%;
         position: absolute;
-        bottom: 0;
+        bottom: 10px;
         right: 0px;
         background: #37515F;
         color: white;
@@ -242,7 +241,7 @@
     button.full-width-save-btn {
         width: 100%;
         position: absolute;
-        bottom: 0;
+        bottom: 10px;
         right: 0px;
         background: #59D96C;
         color: #100409;

@@ -4,7 +4,7 @@ import { action } from '@storybook/addon-actions';
 export default {
   component: ContactSidebar,
   //👇 Our exports that end in "Data" are not stories.
-  title: 'System / Contact Sidebar',
+  title: 'Sidebar / Contact Sidebar',
 }
 
 const Template = args => ({

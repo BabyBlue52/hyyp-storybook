@@ -4,7 +4,7 @@ import Sidebar from './Sidebar.vue';
 export default {
   component: Sidebar,
   //👇 Our exports that end in "Data" are not stories.
-  title: 'System / Sidebar',
+  title: 'Sidebar / Timeline',
 }
 
 const Template = args => ({

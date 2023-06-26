@@ -207,9 +207,8 @@
   
   <style scoped>
   /* Basic editor styles */
-  
   .ProseMirror > * + * {
-  margin-top: 0.75em;
+    margin-top: 0.75em;
   }
 .ProseMirror h1,
 .ProseMirror h2,
@@ -270,6 +269,7 @@ button.is-active > svg {
   padding: 5px 20px;
   background: #323232;
   border-radius: 10px 10px 0 0;
+  width: 100%;
   max-width: 1000px;
 }
 

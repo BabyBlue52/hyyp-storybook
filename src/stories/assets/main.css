@@ -149,10 +149,11 @@ div.modal-container {
     min-width: max-content;
 }
 .ProseMirror {
-    padding: 5px 10px;
+    padding: 10px;
     border: 3px solid #333;
     border-radius: 0 0 5px 5px;
     max-width: 1000px;
+    min-height: 200px;
 }
 
 .ProseMirror ul,
