@@ -2,7 +2,7 @@ import LocationCard from './LocationCard';
 
 
 export default  {
-    title: 'Location Card',
+    title: 'System / Location Card',
     component: LocationCard,
 };
 

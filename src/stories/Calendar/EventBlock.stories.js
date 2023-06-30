@@ -2,7 +2,7 @@ import EventBlock from './EventBlock';
 
 export default {
     component: EventBlock,
-    title: 'Calendar Event Block'
+    title: 'Calendar / Event Block'
 }
 
 const Template = args => ({
@@ -12,22 +12,23 @@ const Template = args => ({
     },
     template: '<EventBlock v-bind="args"/>'
 })
-// export const actionsData = {
-
-// }
 
 export const Default = Template.bind({});
 Default.args = {
-    isBooked: true
+    event: "empty"
 }
 
-export const Empty = Template.bind({});
-Empty.args = {
-    isBooked: false
+export const Populated = Template.bind({});
+Populated.args = {
+    event: "booked"
+}
+
+export const Today = Template.bind({});
+Today.args = {
+    event: "today"
 }
 
 export const Highlighted = Template.bind({});
 Highlighted.args = {
-    isHighlighted: true,
-    isBooked: true
+    event: "highlighted"
 }

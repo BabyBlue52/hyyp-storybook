@@ -3,9 +3,10 @@
         <div class="left">
             <div class="logo">
                 <img src="./assets/hyyp.svg"/>
-                <div v-if="isPremium" class="pro-badge noSelect">
+                <div v-if="isPremium === true" class="pro-badge noSelect">
                     <span>Pro</span>
                 </div>
+                <div v-else></div>
             </div>
             
             <Link :text="'Browse Venues'"/>
@@ -49,7 +50,7 @@
         components: { Link, Avatar },
         props: {
             userInitials: String,
-            isPremium: Boolean,
+            isPremium: Boolean, 
             userAuth: Boolean,
         },
         data: () => ({
@@ -57,7 +58,7 @@
                 {title: 'Profile'},
                 {title: 'Sign Out'},
                 {title: 'Go Premium'}
-            ]
+            ],
         }),
         methods: {
             onClick() {
@@ -70,11 +71,13 @@
 
 <style scoped>
     div.header-wrapper {
+        position: fixed;
+        top: 10px;
         display: flex;
         justify-content: space-between;
         align-items: center;
         border-bottom: .5px solid #ccc;
-        max-width: 100%;
+        width: calc(100% - 50px);
         padding: 0 2%;
         padding-bottom: 8px;
     }   

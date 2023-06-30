@@ -33,6 +33,7 @@
         font-weight: 600;
         text-align: center;
         margin: auto 0;
+        text-transform: uppercase;
     }   
     .user-icon > img {
         width: inherit;
