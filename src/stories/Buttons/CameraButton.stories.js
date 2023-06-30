@@ -1,20 +1,20 @@
-import EditButton from './EditButton';
+import CameraButton from './CameraButton';
 // import { action } from '@storybook/addon-actions';
 
 export default {
-    component: EditButton,
-    title: 'Buttons / Edit Button',
+    component: CameraButton,
+    title: 'Buttons / Choose Image Button',
     argTypes: {
         onToggle: Boolean
     }
 };
 
 const Template = args => ({
-    components: { EditButton },
+    components: { CameraButton },
     setup() {
         return {args};
     },
-    template: '<EditButton v-bind="args"/>'
+    template: '<CameraButton v-bind="args"/>'
 })
 
 

@@ -60,19 +60,21 @@
                 <div class="blank"></div>
             </div>
         </div>
-
         <!-- Dynamic -->
         <div v-else class="edit-mode">
             <!-- Profile -->
             <div class="profile">
-                <div v-if="!imgUrl"> </div>
-                <div class="center">
-                    <img :src=profile.imgUrl alt="profile pic" class="profile-pic"/>
-                    <span class="edit-mode">Edit Mode</span>
+                <div v-if="!profile.imgUrl">DK</div>
+                <div v-else class="center">
+                    
+                        <CameraButton/>
+                    
+                    
                 </div>
             </div>
+            <div style="display: flex; flex-direction: column; max-height:600px; overflow: scroll;">
             <!-- Name -->
-            <div class="section">
+                <div class="section">
                     <div class="d-flex">
                         <div class="icon">
                             <v-icon icon="mdi-account-outline"></v-icon>
@@ -89,37 +91,46 @@
                         <TextInput style="width:220px" label="role"/>
                     </div>
                 </div>
-            <!-- Phone Number -->
-            <div class="section">
-                <div class="d-flex">
-                    <div class="icon">
-                        <v-icon icon="mdi-phone-outline"></v-icon>
+                <!-- Phone Number -->
+                <div class="section">
+                    <div class="d-flex">
+                        <div class="icon">
+                            <v-icon icon="mdi-phone-outline"></v-icon>
+                        </div>
+                        <TextInput style="width:220px" label="phone number"/>
                     </div>
-                    <TextInput style="width:220px" label="phone number"/>
+                </div>
+
+                <!-- Email -->
+                <div class="section">
+                    <div class="d-flex ">
+                        <div class="icon">
+                            <v-icon icon="mdi-email-outline"></v-icon>
+                        </div>
+                        <TextInput style="width:220px" label="email"/>
+                    </div>
+                </div>
+
+                <!-- Location -->
+                <div class="section">
+                    <div class="d-flex">
+                        <div class="icon">
+                            <v-icon icon="mdi-map-marker"></v-icon>
+                        </div>
+                        <TextInput style="width:220px" label="location"/>
+                    </div>
                 </div>
             </div>
-
-            <!-- Email -->
-            <div class="section">
-                <div class="d-flex ">
-                    <div class="icon">
-                        <v-icon icon="mdi-email-outline"></v-icon>
-                    </div>
-                    <TextInput style="width:220px" label="email"/>
-                </div>
-            </div>
-
-            <!-- Location -->
-            <div class="section">
-                <div class="d-flex">
-                    <div class="icon">
-                        <v-icon icon="mdi-map-marker"></v-icon>
-                    </div>
-                    <TextInput style="width:220px" label="location"/>
+            <div claass="section ">
+                <div class="d-flex delete">
+                    <a class="text-center">
+                        <button>
+                            <p>Delete Contact?</p>
+                        </button>
+                    </a>
                 </div>
             </div>
         </div>
-        
         <!-- Sidebar Button  -->
         <div v-if="!editMode">
             <button class="full-width-btn" @click="toggleEditMode()"> Edit Contact</button>
@@ -131,11 +142,12 @@
     
 </template>
 <script>
-    import TextInput from '../TextInput.vue'
+    import TextInput from '../TextInput.vue';
+    import CameraButton from '../Buttons/CameraButton.vue';
 
     export default {
         name: 'Contact Sidebar',
-        components: { TextInput },
+        components: { TextInput, CameraButton },
         props: {
             openSidebar: Boolean,
             editMode: Boolean,
@@ -184,7 +196,7 @@
         position: absolute;
         right: 0;
         width: clamp(10vw, 350px, 500px);
-        height: 95vh;
+        height: 100%;
         padding: 20px 30px;
         
         -webkit-box-shadow: -9px 3px 14px -1px rgba(0,0,0,0.10);
@@ -195,7 +207,7 @@
         position: absolute;
         right: -450px;
         width: clamp(10vw, 350px, 500px);
-        height: 95vh;
+        height: 100%;
 
         -webkit-box-shadow: -9px 3px 14px -1px rgba(0,0,0,0.10);
         -moz-box-shadow: -9px 3px 14px -1px rgba(0,0,0,0.10);
@@ -204,6 +216,7 @@
     .profile {
         position: relative;
         padding-top: 40px;
+        background: #ffffff;
     }
     .inline {
         display: flex;
@@ -223,29 +236,34 @@
         border-radius: 50%;
         object-fit: cover;
         border: 5px solid white;
-        margin-right: 20px;
+        margin-right: 10px;
         margin-bottom: 20px;
+        margin-left: 20px;
     }
     button.full-width-btn {
+        display: bock;
         width: 100%;
         position: absolute;
-        bottom: 10px;
+        bottom: 58px;
         right: 0px;
         background: #37515F;
         color: white;
         padding: 15px 0px;
+        z-index: 999;
     }
     button.full-width-btn:hover {
         background: #52798E;
     }
     button.full-width-save-btn {
+        display: block;
         width: 100%;
         position: absolute;
-        bottom: 10px;
+        bottom: 58px;
         right: 0px;
         background: #59D96C;
         color: #100409;
         padding: 15px 0px;
+        z-index: 999;
     }
     /* Disabled */
     button.disabled {
@@ -265,22 +283,6 @@
         background: none;
         position: absolute;
         right: 0%;
-    }
-    span.edit-mode {
-        clear: none;
-        position: absolute;
-        top: 80px;
-        right: 25px;
-        width: max-content;
-        height: max-content;
-        margin-right: -10px;
-        padding: 2px 10px;
-        border-radius: 5px;
-
-        font-size: .8rem;
-        font-weight: 600;
-        text-transform: uppercase;
-        background: rgba(228, 149, 158, 0.5);
     }
     .edit-mode > .section {
         padding:  0;
@@ -305,5 +307,16 @@
     }
     .section > .d-flex > p {
         margin-top: 10px;
+    }
+    .delete {
+        display: flex;
+        justify-content: center;
+    }
+    .delete > a {
+        width: max-content;
+        margin-top: 10px;
+        font-weight: 500;
+        color: #ff4d4d;
+        border-bottom: 1px solid #ff4d4d;
     }
 </style>
