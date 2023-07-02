@@ -50,7 +50,7 @@
         height: 35px;
         border: none;
         border-radius: 50%;
-        background:#E4959E;;
+        background:#E4959E;
     }
     button.active > svg {
         position:relative;

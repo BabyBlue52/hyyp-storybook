@@ -14,7 +14,7 @@
     "@tiptap/pm": "^2.0.3",
     "@tiptap/starter-kit": "^2.0.3",
     "@tiptap/vue-3": "^2.0.3",
-    "pinia": "^2.0.34",
+    "pinia": "^2.1.4",
     "roboto-fontface": "*",
     "storybook-addon-variants": "^0.2.0",
     "vue": "^3.2.38",
