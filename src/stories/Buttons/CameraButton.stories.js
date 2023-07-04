@@ -3,7 +3,7 @@ import CameraButton from './CameraButton';
 
 export default {
     component: CameraButton,
-    title: 'Buttons / Choose Image Button',
+    title: 'Buttons / File Upload Button',
     argTypes: {
         onToggle: Boolean
     }

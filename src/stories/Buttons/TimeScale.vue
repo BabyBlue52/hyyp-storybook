@@ -58,6 +58,7 @@ export default {
     max-height: 56px;
     border: 1px solid #ccc;
     border-radius: 5px;
+    padding: 0px 20px;
 }
 
 .list__item {
@@ -68,7 +69,7 @@ export default {
 .label--checkbox,
 .label--radio {
     position: relative;
-    top:-20px;
+    top: -15px;
     display: flex;
     flex-direction: column-reverse;
     margin: 0.5rem;
@@ -82,7 +83,7 @@ export default {
 }
 .radio {
     position: relative;
-    margin: .5rem 0 0;
+    margin: .25rem 0 0;
     cursor: pointer;
 }
 
@@ -97,11 +98,11 @@ export default {
     transform: scale(0, 0);
     content: "";
     position: absolute;
-    top: 0px;
+    top: 3px;
     left: 38%;
     z-index: 1;
-    width: 0.5rem;
-    height: 0.5rem;
+    width: 0.4rem;
+    height: 0.4rem;
     background: #E4959E;
     border-radius: 50%;
 }
