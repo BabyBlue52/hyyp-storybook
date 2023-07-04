@@ -6,8 +6,12 @@
             <input type="file" ref="file" @change="readFile"/>
             <v-icon icon="mdi-camera" color="white" size="20px"></v-icon>
         </button>
+        <!-- Error Handling -->
         <div v-if="displayError" style="height:10px">
             <span class="error">File size must be under 8MB</span>
+        </div> 
+        <div v-if="displayFormatError" style="height:10px">
+            <span class="error">File must be either .PNG of .JPG</span>
         </div>    
     </div>
     
@@ -26,14 +30,18 @@ export default {
             let size = file.size
             let maxSize = 4000000; // Limit size to 8MB
             let extn = file.type.split('/')[1];
-            let valid = ["gif", "png", "jpg", "jpeg"];
+            let valid = ["png", "jpg", "jpeg"];
     
             if ( valid.includes(extn) && size > maxSize ) {
                 console.log('file too big')
                 this.displayError = true
+            } if (!valid.includes(extn)){
+                this.displayFormatError = true;
+
             } else {
                 this.url = URL.createObjectURL(file);
                 this.displayError = false;
+                this.displayFormatError = false;
                 this.$emit('image-changed', this.url)
                 console.log(this.url)
             }
@@ -44,7 +52,8 @@ export default {
         return {
             placeholder: "https://plus.unsplash.com/premium_photo-1675034359203-c30acdb21eb2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80",
             url: null,
-            displayError: false
+            displayError: false,
+            displayFormatError: false
         }
     },
     emit: ['image-changed']
@@ -120,6 +129,7 @@ span.error {
     position: relative;
     top: -20px;
     height: max-content;
+    white-space: nowrap;
     padding: 5px 10px 0 20px;
     text-align: center;
     font-size: 0.67rem;
