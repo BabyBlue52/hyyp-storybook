@@ -1,17 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans&family=Poppins:wght@200;400;500;600;700&display=swap');
+@import "./variables.scss";
 
-root {
-    --black: #100409;
-    --grey: #F6F6F6;
-
-    --gunMetal: #37515F;   
-    --gunMetal_light: #52798E;
-    --error: #FF4D4D;
-    --hyyp_primary: #E4959E;
-    --success: #59D96C;
-    
-    --paragraph: 0.9rem;
-}
 * {
     transition: all 0.3s ease-in-out;
 }
@@ -36,7 +25,7 @@ p {
     font-size: 0.9rem;
 }
 a, a:link, a:hover, a:focus, a:active, a:visited {
-    color: var(--black);
+    color: $black;
     text-decoration: none;
     font-size: 0.8rem;
     cursor: pointer;
@@ -63,7 +52,7 @@ input {
     height: 100vh;
     width: 100vw;
     z-index: 1;
-    background: rgba(0,0,0, 0.33);
+    background: rgba($black, 0.33);
 }
 .toggle {
     position: relative;
@@ -164,39 +153,4 @@ div.modal-container {
 .ProseMirror blockquote {
     padding-left: 1rem;
     border-left: 2px solid rgba(13, 13, 13, 0.1);
-}
-
-
-/* Animations */
-
-.slideIn {
-    animation: slideIn 300ms ease-in-out;
-    opacity: 1;
-}
-.slideOut {
-    animation: slideOut 300ms ease-in-out;
-    opacity: 0;
-    display: none;
-} 
-@keyframes slideIn {
-    from {
-        transform: translateY(100%);
-        opacity: 0;
-    }
-
-    to {
-        transform: translateY(0%);
-        opacity: 1;
-    }
-}
-@keyframes slideOut {
-    from {
-        transform: translateY(0%);
-        opacity: 1;
-    }
-
-    to {
-        transform: translateY(100%);
-        opacity: 0;
-    }
 }

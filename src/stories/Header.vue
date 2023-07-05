@@ -2,7 +2,7 @@
     <div class="header-wrapper">
         <div class="left">
             <div class="logo">
-                <img src="./assets/hyyp.svg" />
+                <img src="../assets/hyyp.svg" />
                 <div v-if="isPremium === true" class="pro-badge noSelect">
                     <span>Pro</span>
                 </div>

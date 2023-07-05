@@ -2,19 +2,18 @@
     <div class="image-controller">
         <img alt="profile pic" class="profile-pic" :src="[ url === null ? placeholder : url]" />
         <button class="camera-btn">
-            <v-tooltip>Edit Mode</v-tooltip>
-            <input type="file" ref="file" @change="readFile"/>
-            <v-icon icon="mdi-camera" color="white" size="20px"></v-icon>
-        </button>
+                <v-tooltip>Edit Mode</v-tooltip>
+                <input type="file" ref="file" @change="readFile"/>
+                <v-icon icon="mdi-camera" color="white" size="20px"></v-icon>
+            </button>
         <!-- Error Handling -->
         <div v-if="displayError" style="height:10px">
             <span class="error">File size must be under 8MB</span>
-        </div> 
+        </div>
         <div v-if="displayFormatError" style="height:10px">
             <span class="error">File must be either .PNG of .JPG</span>
-        </div>    
+        </div>
     </div>
-    
 </template>
 
 <script>
@@ -28,22 +27,23 @@ export default {
         async readFile() {
             const file = this.$refs.file.files[0];
             let size = file.size
-            let maxSize = 4000000; // Limit size to 8MB
+            let maxSize = 64000000; // Limit size to 8MB
             let extn = file.type.split('/')[1];
             let valid = ["png", "jpg", "jpeg"];
-    
-            if ( valid.includes(extn) && size > maxSize ) {
-                console.log('file too big')
-                this.displayError = true
-            } if (!valid.includes(extn)){
-                this.displayFormatError = true;
 
-            } else {
+            if (valid.includes(extn) && size < maxSize) {
                 this.url = URL.createObjectURL(file);
                 this.displayError = false;
                 this.displayFormatError = false;
                 this.$emit('image-changed', this.url)
                 console.log(this.url)
+            }
+            if (!valid.includes(extn)) {
+                this.displayFormatError = true;
+
+            } if (size > maxSize) {
+                console.log('file too big')
+                this.displayError = true
             }
         }
 
@@ -77,7 +77,7 @@ button.camera-btn {
     align-items: center;
     width: 35px;
     height: 35px;
-    border: 3px solid white;
+    outline: 3px solid white;
     border-radius: 50%;
     background: #37515F;
     position: relative;
@@ -117,7 +117,6 @@ img.profile-pic {
     max-height: 100px;
     border-radius: 50%;
     object-fit: cover;
-    
     border: 2px solid #E4959E;
 }
 
@@ -125,6 +124,7 @@ img.profile-pic {
     position: relative;
     top: 1px;
 }
+
 span.error {
     position: relative;
     top: -20px;

@@ -116,7 +116,7 @@
         position: relative;
         display: flex;
         flex-direction: column;
-        width: clamp(calc(80vw / 7), 16vw, 250px);
+        width: clamp( 200px,calc(80vw / 7), 250px);
         height: 300px;
         border: 1px solid #37515F;
         padding: 10px;

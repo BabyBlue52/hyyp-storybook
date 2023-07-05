@@ -3,7 +3,7 @@ import TimeScale from './TimeScale';
 
 export default {
     component: TimeScale,
-    title: 'Buttons / Time Scale Selector',
+    title: 'Calendar / Time Scale Selector',
 
 };
 

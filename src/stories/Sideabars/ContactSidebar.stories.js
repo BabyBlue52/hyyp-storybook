@@ -1,21 +1,26 @@
-import Sidebar from './Sidebar.vue';
+import ContactSidebar from './ContactSidebar.vue';
 // import { action } from '@storybook/addon-actions';
 
 export default {
-  component: Sidebar,
+  component: ContactSidebar,
   //👇 Our exports that end in "Data" are not stories.
-  title: 'Sidebar / Timeline',
+  title: 'Sidebars / Contact Sidebar',
 }
 
 const Template = args => ({
-    components: { Sidebar },
+    components: { ContactSidebar },
     setup() {
         return args
     },
-    template: '<Sidebar />'
+    template: '<ContactSidebar v-bind="args" />'
 })
 
 export const Default = Template.bind({})
 Default.args = {
     // text: 'Sidebar!'
+}
+
+export const EditMode = Template.bind({})
+EditMode.args = {
+    editMode: true
 }

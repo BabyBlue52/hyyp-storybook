@@ -1,5 +1,5 @@
 
-import '../src/stories/assets/main.css';
+import '../src/assets/main.scss';
 
 import { setup } from "@storybook/vue3";
 import { registerPlugins } from "../src/plugins";
