@@ -5,6 +5,8 @@ Fonte
 */
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans&family=Poppins:wght@200;400;500;600;700&display=swap");
 
+$openSans: 'Open Sans', sans-serif;
+$poppins: 'Poppins', sans-serif;
 /*
 =================
 Colors
@@ -12,7 +14,7 @@ Colors
 */
 $black: #100409;
 $grey: #f6f6f6;
-
+$grey_mid: #999999;
 $gunMetal: #37515f;
 $gunMetal_light: #52798e;
 $error: #ff4d4d;
@@ -25,6 +27,10 @@ Design Units
 =================
 */
 $paragraph: 0.9rem;
+
+$light: 400;
+$medium: 500;
+$heavy: 700;
 
 /*
  =================

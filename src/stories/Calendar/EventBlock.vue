@@ -117,7 +117,7 @@
         display: flex;
         flex-direction: column;
         width: clamp( 200px,calc(80vw / 7), 250px);
-        height: 300px;
+        height: 280px;
         border: 1px solid #37515F;
         padding: 10px;
         color: #37515F;

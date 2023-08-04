@@ -10,7 +10,7 @@
                 <v-icon icon="mdi-link-variant"></v-icon>
                 <div class="content">
                     <h3>Share this Calendar</h3>
-                    <p>Let the public know about upcoming events.</p>
+                    <p>Let the public know about these upcoming events.</p>
                     <div class="clipboard">
                         <input v-model="link" ref="link" />
                     </div>
@@ -62,13 +62,15 @@
                 element.select();
                 element.setSelectionRange(0, 99999);
                 document.execCommand('copy');
-                
             } 
-        }
+        },
+        emits: ['link'],
     }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
+    @import "../../assets/variables.scss";
+
     input:focus {
         outline: none;
     }
@@ -98,6 +100,7 @@
     .content > p {
         text-align: center;
         font-size: 0.8rem;
+     
     }
     .clipboard {
         display: flex;
