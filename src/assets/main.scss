@@ -18,7 +18,10 @@ button:active {
     transform: scale(0.95);
 }
 
-
+h1 {
+    font-size: $header;
+    font-weight: $heavy;
+}
 p {
     font-family: $poppins;
     font-size: 0.9rem;
@@ -74,13 +77,19 @@ input {
     display: flex;
     width: 100%;
 }
+.d-flex.center {
+    flex-direction: column;
+    align-items: center;
+}
 .row  {
     flex-direction: row;
 }
 .column {
     flex-direction: column;
 }
-
+label {
+    text-transform: capitalize;
+}
 /* Modals */
 div.modal-container {
     position: relative;
@@ -92,9 +101,17 @@ div.modal-container {
     background-color: white;
     border-radius: 8px;
     z-index: 9;
+    div.modal-content {
+        width: calc(100% - 40px);
+        padding: 10px;
+        margin: 0 auto;
+    }
 }
 /* Buttons */
-.close-btn > svg{
+button.close-btn {
+    position: relative;
+    svg{
+        
     height: 20px;
     width: 20px;
     margin: 0;
@@ -103,25 +120,48 @@ div.modal-container {
     position: absolute;
     left: calc(100% - 30px);
 }
+}
 
-.close-btn:hover > svg {
+button.close-btn:hover > svg {
     opacity: 0.5;
+}
+
+button.full-width {
+    width: 100%;
+    height: 48px;
+    background: #37515F;
+    color: white;
+    font-weight: $medium;
+    font-size: $paragraph;
+}
+button.full-width:hover {
+    background:  #52798E;
 }
 /* Edits to Vuetify */
 .hyyp-input-sm {
     display: flex;
-    max-width: 210px;
+    min-width: 50%;
     align-items: center;
+}
+.v-textarea .v-field__input {
+    -webkit-mask-image: none !important;
+    mask-image: none !important;
+}
+.v-textarea {
+    font-size: $paragraph;
 }
 .v-field__input {
     border: 1px solid #666;
     background: white;
-    padding: 4px 8px !important;
+    padding: 6px 8px !important;
     margin: 0;
     border-radius: 2.5px;
     font-size: 0.9rem;
     min-height: 1rem !important;
-    min-width: 100%;
+    min-width: 100px;
+    &:disabled {
+        opacity: 0.5;
+    }
 }
 .v-list {
     width: 120px;

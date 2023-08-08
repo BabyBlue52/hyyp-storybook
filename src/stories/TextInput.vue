@@ -4,9 +4,9 @@
     <div v-if="hasIcon" class="icon">
         <v-icon :icon= 'icon' ></v-icon>
     </div>
-    <div class="d-flex column">
+    <div class="d-flex column" style="margin: 0px 10px;">
         <label>{{ label }}</label>
-        <v-text-field
+        <v-text-field :disabled="disabled" :placeholder="placeholder"
         ></v-text-field>
     </div>
 </div>
@@ -17,6 +17,8 @@
         props: {
             label: String,
             hasIcon: Boolean,
+            disabled: Boolean,
+            placeholder: String
         },
         data() {
         
@@ -29,12 +31,13 @@
         border: 1px solid #666666;
         border-radius: 5px;
         height: max-content;
-        min-width: 100%;
+        min-width: 200px;
         padding: 5px 10px;
         padding-top: 20px;
         background-color: white;  
         font-size: .9rem;
     }
+    
     .v-field__input {
         outline: 1px solid #666;
         background: white;

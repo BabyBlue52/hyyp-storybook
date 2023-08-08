@@ -19,7 +19,7 @@
                     <button><span><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"/></svg></span>
                         Continue with Facebook
                     </button>
-                    <button class="email">Continue with Email</button>
+                    <button class="full-width">Continue with Email</button>
                 </div>
                 <p> By continuing you agree to our <Link :text="'Terms of Service'"/>. <br/>Read our <Link :text="'Privacy Policy.'"/> </p>
             </div>
@@ -44,6 +44,7 @@
         },
         methods: {
             handleToggle(){
+                console.log('clicked')
                 this.isOpen = !this.isOpen
             }   
         }
@@ -65,9 +66,7 @@
         margin: 0;
     }
     
-    div.modal-content {
-        padding: 10px;
-    }
+    
     button {
         position: relative;
         display: flex;
@@ -87,11 +86,12 @@
         width: 30px;
         height: 30px;
     }
-    button.email {
+    button.full-width {
+        width: 100%;
         background: #37515F;
         color: white;
     }
-    button.email:hover {
+    button.full-width:hover {
         background:  #52798E;
     }
     button.close-btn {

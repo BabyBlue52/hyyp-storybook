@@ -1,8 +1,8 @@
 <template>
     <!-- Work into Group Component -->
-    <div class="d-flex column" style="max-width:500px">
+    <div class="d-flex column" style=" margin: 0 10px;">
         <label>{{ label }}</label>
-        <v-textarea variant="outlined"></v-textarea>
+        <v-textarea variant="outlined" :placeholder="placeholder"></v-textarea>
     </div>
 
 </template>
@@ -12,6 +12,7 @@
         props: {
             label: String,
             hasIcon: Boolean,
+            placeholder: String
         },
         data() {
         
@@ -21,15 +22,12 @@
 <style scoped>
     textarea {
         position: relative;
-        /* border: 1px solid #666666; */
         border-radius: 5px;
-        /* outline: 1px solid #666; */
         width: 100%;
         max-width: 500px;
         padding: 5px 10px;
         padding-top: 20px;
-        background-color: white;  
-        font-size: .9rem;
+        background-color: white;    
     }
     .v-field--variant-filled .v-field__overlay {
         background: none;
