@@ -1,7 +1,7 @@
 <template>
     <!-- Work into Group Component -->
     <div class="d-flex column" style=" margin: 0 10px;">
-        <label>{{ label }}</label>
+        <!-- <label>{{ label }}</label> -->
         <v-textarea variant="outlined" :placeholder="placeholder"></v-textarea>
     </div>
 
