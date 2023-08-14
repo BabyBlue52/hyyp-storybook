@@ -2,7 +2,7 @@ import BookingModal from './BookingModal';
 
 export default {
     component: BookingModal,
-    title: 'System / Booking Modal'
+    title: 'Calendar / Booking Modal'
 }
 
 const Template = args => ({

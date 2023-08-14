@@ -27,7 +27,7 @@ h4 {
 }
 p {
     font-family: $poppins;
-    font-size: 0.9rem;
+    font-size: $paragraph;
 }
 
 a, a:link, a:hover, a:focus, a:active, a:visited {
@@ -152,6 +152,9 @@ button.full-width:hover {
 }
 .v-textarea {
     font-size: $paragraph;
+    ::placeholder {
+        font-size: $paragraph;
+    }
 }
 .v-field__input {
     border: 1px solid #666;

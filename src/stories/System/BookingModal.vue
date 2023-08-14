@@ -25,13 +25,13 @@
                         <TextInput label="last name" />
                     </div>
                     <div class="row">
-                        <TextInput label="email" />
+                        <TextInput label="email" type="email"/>
                     </div>
                     <div class="row">
-                        <TextInput label="Phone" placeholder="+1" />
+                        <TextInput label="Phone" placeholder="+1" type="phone"/>
                     </div>
                     <div class="row">
-                        <TextArea label="message" placeholder="Leave A Message for them or just say hi👋 " />
+                        <TextArea label="message" placeholder="Leave a message for them or just say hi👋 " />
                     </div>
                     <div class="row">
                         <button class="full-width">Submit Request</button>

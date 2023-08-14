@@ -64,6 +64,7 @@
             border-radius: 2px;
             font-size: 0.7rem;
             background: transparent;
+            cursor: pointer;
             &:focus-visible {
                 outline: none;
                 border-bottom: 2px solid $black;

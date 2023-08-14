@@ -174,6 +174,7 @@
     }
     p {
       font-weight: 500;
+      padding-bottom: 10px;
     }
     span {
       opacity: 0.33;

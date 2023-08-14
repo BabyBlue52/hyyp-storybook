@@ -19,7 +19,7 @@
         }
     }
 </script>
-<style scoped>
+<style scoped lang="scss">
     textarea {
         position: relative;
         border-radius: 5px;
@@ -27,7 +27,7 @@
         max-width: 500px;
         padding: 5px 10px;
         padding-top: 20px;
-        background-color: white;    
+        background-color: white;
     }
     .v-field--variant-filled .v-field__overlay {
         background: none;
