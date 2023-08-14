@@ -26,10 +26,18 @@ export default {
     methods: {
         async readFile() {
             const file = this.$refs.file.files[0];
+            // Check if a file was selected
+            if (!file) {
+                // Handle canceled upload
+                this.url = this.url;
+                return;
+            }
+
             let size = file.size
             let maxSize = 64000000; // Limit size to 8MB
             let extn = file.type.split('/')[1];
             let valid = ["png", "jpg", "jpeg"];
+           
 
             if (valid.includes(extn) && size < maxSize) {
                 this.url = URL.createObjectURL(file);

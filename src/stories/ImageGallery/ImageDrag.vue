@@ -1,43 +1,44 @@
 <template>
-    <div class="flex m-10">
+      <p>Image Gallery <span>max: 4 photos</span></p>
       <draggable class="dragArea" :list="list" @change="log">
-       
       <div class="drag-element" v-for="(item, index) in list" :key="index">
         <input type="file" @change="readFile(index)" ref="fileInputs" />
+        
         <div v-if="item.url">
+          <h4>Replace</h4>
           <img  :src="item.url" alt="Uploaded Image" />
-          <button @click="removeItem(index)">X</button>
+          <button @click="removeItem(index)"><Link text="Remove Item"/></button>
           <p>{{ index +1 }}</p>
-          </div>
+        </div>
         <div v-else>
+          
           <!-- Placeholder content -->
           <svg width="220" height="125" viewBox="0 0 220 125" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <rect width="220" height="125" rx="5" fill="white"/>
-        <rect width="220" height="125" rx="5" fill="#DCE6F2"/>
-        <rect x="1" y="1" width="218" height="123" rx="4" stroke="#37515F" stroke-opacity="0.5" stroke-width="2" stroke-dasharray="14 14"/>
-        <g clip-path="url(#clip0_659_24276)">
-        <path d="M120.56 61H111.76V51H108.24V61H99.4399V65H108.24V75H111.76V65H120.56V61Z" fill="#37515F"/>
-        </g>
-        <defs>
-        <clipPath id="clip0_659_24276">
-        <rect width="21.12" height="24" fill="white" transform="translate(99.4399 51)"/>
-        </clipPath>
-        </defs>
+            <rect width="220" height="125" rx="5" fill="white"/>
+            <rect width="220" height="125" rx="5" fill="#DCE6F2"/>
+            <rect x="1" y="1" width="218" height="123" rx="4" stroke="#37515F" stroke-opacity="0.5" stroke-width="2" stroke-dasharray="14 14"/>
+            <g clip-path="url(#clip0_659_24276)">
+            <path d="M120.56 61H111.76V51H108.24V61H99.4399V65H108.24V75H111.76V65H120.56V61Z" fill="#37515F"/>
+            </g>
+            <defs>
+            <clipPath id="clip0_659_24276">
+            <rect width="21.12" height="24" fill="white" transform="translate(99.4399 51)"/>
+            </clipPath>
+            </defs>
           </svg>
+        </div>
       </div>
-    </div>
       </draggable>
-    </div>
   </template> 
   <script>
     import { defineComponent } from 'vue'
     import { VueDraggableNext } from 'vue-draggable-next'
-
+    import Link from '../Link.vue'
 
     export default defineComponent({
-      
       components: {
         draggable: VueDraggableNext,
+        Link
       },
       props: {
         placeholder: String,
@@ -98,10 +99,12 @@
         width: 100%;
         max-width: 950px;
         flex-wrap: wrap;
+        
         .drag-element {
             position: relative;
             display: flex;
             margin: 8px;
+            margin-bottom: 30px;
             cursor: pointer;
             img {
                 height: 125px;
@@ -112,7 +115,23 @@
                     opacity: 0.8;
                 }
             }
-            button, p {
+            h4 {
+              z-index: 2;
+              position: absolute;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              top: 0;
+              width: 100%;
+              height: 100%;
+              text-align: center;
+              background: rgba(255,255,255,0.75);
+              opacity: 0;
+              transform: 200ms ease-in-out all;
+              cursor: pointer;
+              user-select: none;
+            }
+            p {
                 position: absolute;
                 top: -5px;
                 left: -5px;
@@ -127,8 +146,8 @@
                 line-height: 1.33rem;
                 color: #100409;
                 user-select: none;
+                z-index: 4;
             }
-
             input {
                 border: 2px solid salmon;
                 position: absolute;  
@@ -137,15 +156,28 @@
                 height: calc(100% - 5px);
                 cursor: pointer;
                 opacity: 0;
+                z-index: 3;
+                
             }   
             button {
-              z-index: 99;
-              opacity: 0;
-              &:hover {
-                opacity: 1;
-                transform: scale(1.33);
-                background: #FF4D4D;              }
-            }
+              position: absolute;
+              top: calc(100% - 5px);
+              left: -5px;
+            } 
+            &:hover {
+                h4 {
+                  opacity: 0.8;
+                  transform: 200ms ease-in-out all;
+                }
+              }
         }
+    }
+    p {
+      font-weight: 500;
+    }
+    span {
+      opacity: 0.33;
+      padding-left: 5px;
+      font-style: italic;
     }
 </style>
