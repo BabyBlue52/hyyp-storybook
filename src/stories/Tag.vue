@@ -42,7 +42,7 @@
     svg {
         position: absolute;
         right: 2px;
-        bottom: 4px;
+        bottom: 1px;
         transform: scale(0.8);
     }
 </style>

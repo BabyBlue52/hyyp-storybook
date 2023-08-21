@@ -1,5 +1,5 @@
 {
-  "name": "hyyp-vuetify",
+  "name": "hyyp-storybook",
   "version": "0.0.0",
   "scripts": {
     "dev": "vite",

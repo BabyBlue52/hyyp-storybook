@@ -5,15 +5,15 @@
     <div :class="[openSidebar ? '' : 'closed']" class="hyyp-sidebar">
         <div class="sidebar-title">
             <button class="close-btn" @click="handleToggle()">
-                    <svg clip-rule="evenodd" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m12 10.93 5.719-5.72c.146-.146.339-.219.531-.219.404 0 .75.324.75.749 0 .193-.073.385-.219.532l-5.72 5.719 5.719 5.719c.147.147.22.339.22.531 0 .427-.349.75-.75.75-.192 0-.385-.073-.531-.219l-5.719-5.719-5.719 5.719c-.146.146-.339.219-.531.219-.401 0-.75-.323-.75-.75 0-.192.073-.384.22-.531l5.719-5.719-5.72-5.719c-.146-.147-.219-.339-.219-.532 0-.425.346-.749.75-.749.192 0 .385.073.531.219z"/></svg>
-                </button>
+                            <svg clip-rule="evenodd" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m12 10.93 5.719-5.72c.146-.146.339-.219.531-.219.404 0 .75.324.75.749 0 .193-.073.385-.219.532l-5.72 5.719 5.719 5.719c.147.147.22.339.22.531 0 .427-.349.75-.75.75-.192 0-.385-.073-.531-.219l-5.719-5.719-5.719 5.719c-.146.146-.339.219-.531.219-.401 0-.75-.323-.75-.75 0-.192.073-.384.22-.531l5.719-5.719-5.72-5.719c-.146-.147-.219-.339-.219-.532 0-.425.346-.749.75-.749.192 0 .385.073.531.219z"/></svg>
+                        </button>
         </div>
         <!-- Static -->
         <div v-if="!editMode">
             <!-- Profile Pic -->
             <div class="d-flex profile">
                 <div v-if="!imgUrl"> </div>
-                <img :src=profile.imgUrl alt="profile pic" class="profile-pic" />
+                <img v-else :src=profile.imgUrl alt="profile pic" class="profile-pic" />
                 <div class="inline ">
                     <h4>{{ profile.username }}</h4>
                     <p>{{ profile.role }}</p>
@@ -72,7 +72,7 @@
     
                 </div>
             </div>
-            <div style="display: flex; flex-direction: column; max-height:600px; overflow: scroll;">
+            <div style="" class="form-content">
                 <!-- Name -->
                 <div class="section">
                     <div class="d-flex">
@@ -86,7 +86,7 @@
                 <div class="section">
                     <div class="d-flex">
                         <div class="icon">
-                            <v-icon icon="mdi-account-outline"></v-icon>
+                            <v-icon icon="mdi-clipboard-outline"></v-icon>
                         </div>
                         <TextInput style="width:220px" label="role" />
                     </div>
@@ -124,10 +124,10 @@
             <div claass="section ">
                 <div class="d-flex delete">
                     <a class="text-center">
-                            <button>
-                                <p>Delete Contact?</p>
-                            </button>
-                        </a>
+                                    <button>
+                                        <p>Delete Contact?</p>
+                                    </button>
+                                </a>
                 </div>
             </div>
         </div>
@@ -267,7 +267,7 @@ button.full-width-save-btn {
     display: block;
     width: 100%;
     position: absolute;
-    bottom: 58px;
+    bottom: 48px;
     right: 0px;
     background: #59D96C;
     color: #100409;
@@ -297,24 +297,32 @@ button.close-btn {
     position: absolute;
     right: 0%;
 }
-span.edit-mode {
-        position: absolute;
-        left: 200px;
-        top: 80px;
-        clear: none;
-        width: max-content;
-        height: max-content;
-        padding: 2px 10px;
-        border-radius: 5px;
 
-        font-size: .8rem;
-        font-weight: 600;
-        text-transform: uppercase;
-        background: rgba(228, 149, 158, 0.5);
-        user-select: none;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-    }
+span.edit-mode {
+    position: absolute;
+    left: 200px;
+    top: 80px;
+    clear: none;
+    width: max-content;
+    height: max-content;
+    padding: 2px 10px;
+    border-radius: 5px;
+    font-size: .8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    background: rgba(228, 149, 158, 0.5);
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+}
+
+.form-content {
+    display: flex;
+    flex-direction: column;
+    max-height: 600px;
+    overflow: scroll;
+}
+
 .edit-mode>.section {
     padding: 0;
 }
@@ -356,5 +364,15 @@ input.v-field__input {
     font-weight: 500;
     color: #ff4d4d;
     border-bottom: 1px solid #ff4d4d;
+}
+
+@media screen {
+    .form-content {
+        display: flex;
+        flex-direction: column;
+        max-height: 600px;
+        overflow: scroll;
+        /* border: 1px solid sandybrown */
+    }
 }
 </style>

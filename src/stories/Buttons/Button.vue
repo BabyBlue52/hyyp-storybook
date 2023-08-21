@@ -1,5 +1,5 @@
 <template>
-    <button :class="[enabled ? 'default-btn' : 'disabled']"  @click="onClick()">
+    <button :class="[disabled ? 'disabled' : 'default-btn']"  @click="onClick()">
         <p>{{title}}</p>
     </button>
 </template>
@@ -9,7 +9,7 @@
         name: 'Button',
         props: {
             title: String,
-            enabled: Boolean
+            disabled: Boolean
         },
         methods: {
             onClick() {

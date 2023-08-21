@@ -108,7 +108,7 @@
             cursor: pointer;
             img {
                 height: 125px;
-                width: 220px;
+                min-width: 220px;
                 border-radius: 5px;
                 object-fit: cover;
                 &:hover {

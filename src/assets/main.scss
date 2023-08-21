@@ -112,17 +112,16 @@ div.modal-container {
 }
 /* Buttons */
 button.close-btn {
-    position: relative;
-    svg{
-        
-    height: 20px;
-    width: 20px;
-    margin: 0;
-    padding: 0;
-    background: none;
-    position: absolute;
-    left: calc(100% - 30px);
-}
+    position: relative;f
+    svg{ 
+        height: 20px;
+        width: 20px;
+        margin: 0;
+        padding: 0;
+        background: none;
+        position: absolute;
+        left: calc(100% - 30px);
+    }
 }
 
 button.close-btn:hover > svg {
@@ -183,6 +182,27 @@ button.full-width:hover {
 .v-btn.v-btn--density-default {
     min-width: max-content;
 }
+
+// Edits to V-Checkbox
+.v-selection-control {
+    max-width: max-content;
+    .v-label {
+        font-size: $small !important;
+        max-width: max-content;
+        margin-right: 10px;
+    }
+    .mdi:before, .mdi-set {
+        font-size: $paragraph;
+    }
+    
+}
+.v-input__control {
+    max-width: max-content;
+}
+
+.v-input__details{
+    display: none !important;
+} 
 .ProseMirror {
     padding: 10px;
     border: 3px solid #333;
@@ -194,6 +214,12 @@ button.full-width:hover {
 .ProseMirror ul,
 .ProseMirror ol {
   padding: 0 1rem !important;
+  li > ol {
+    list-style-type: lower-alpha;
+    li > ol {
+        list-style-type: lower-roman;
+    }
+  }
 }
 
 .ProseMirror blockquote {

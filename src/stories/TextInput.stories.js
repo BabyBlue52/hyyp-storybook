@@ -12,7 +12,7 @@ const Template = args => ({
     setup() {
         return args
     },
-    template: '<TextInput v-bind="args" />'
+    template: '<div style="max-width:300px"><TextInput v-bind="args" /></div>'
 })
 
 export const Default = Template.bind({})

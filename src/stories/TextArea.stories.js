@@ -12,7 +12,7 @@ const Template = args => ({
     setup() {
         return args
     },
-    template: '<TextArea v-bind="args" />'
+    template: '<div style="max-width: 300px"><TextArea v-bind="args" /></div>'
 })
 
 export const Default = Template.bind({})
