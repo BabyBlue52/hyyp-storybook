@@ -86,6 +86,7 @@ input {
 }
 .row  {
     flex-direction: row;
+    margin: 10px 0;
 }
 .column {
     flex-direction: column;
@@ -112,7 +113,7 @@ div.modal-container {
 }
 /* Buttons */
 button.close-btn {
-    position: relative;f
+    position: relative; 
     svg{ 
         height: 20px;
         width: 20px;
@@ -151,6 +152,7 @@ button.full-width:hover {
 }
 .v-textarea {
     font-size: $paragraph;
+    margin: 20px 0;
     ::placeholder {
         font-size: $paragraph;
     }
@@ -163,7 +165,7 @@ button.full-width:hover {
     border-radius: 2.5px;
     font-size: 0.9rem;
     min-height: 1rem !important;
-    min-width: 100px;
+    min-width: 100% ;
     &:disabled {
         opacity: 0.5;
     }
@@ -182,7 +184,9 @@ button.full-width:hover {
 .v-btn.v-btn--density-default {
     min-width: max-content;
 }
-
+.v-input__control {
+    min-width: 100%;
+}
 // Edits to V-Checkbox
 .v-selection-control {
     max-width: max-content;

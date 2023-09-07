@@ -6,7 +6,7 @@
     </div>
     <div class="d-flex column" style="margin: 0px 10px;">
         <label>{{ label }}</label>
-        <v-text-field :disabled="disabled" :placeholder="placeholder"
+        <v-text-field :disabled="disabled" :placeholder="placeholder" :style="style"
         ></v-text-field>
     </div>
 </div>
@@ -18,14 +18,12 @@
             label: String,
             hasIcon: Boolean,
             disabled: Boolean,
-            placeholder: String
+            placeholder: String,
+            style: String
         },
-        data() {
-        
-        }
     }
 </script>
-<style scoped>
+<style scoped lang="scss">
     input {
         position: relative;
         border: 1px solid #666666;
@@ -71,4 +69,8 @@
     .icon > svg > path{
         fill: inherit
     }
+    .column {
+        width: 100%;
+    }
+    
 </style>

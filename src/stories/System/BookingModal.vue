@@ -33,6 +33,7 @@
                     <div class="row">
                         <TextArea label="message" placeholder="Leave a message for them or just say hi👋 " />
                     </div>
+
                     <div class="row">
                         <button class="full-width">Submit Request</button>
                     </div>
@@ -84,6 +85,7 @@ small {
     display: flex;
     justify-content: space-between;
     width: 100%;
+    margin: 5px 0;
 }
 
 div.starting-time {
@@ -113,10 +115,10 @@ div.starting-time {
         font-size: 0.7rem;
     }
 }
-
 div.spacer {
     position: relative;
     width: 0px;
     margin: 0 5px;
 }
+
 </style>

@@ -7,7 +7,7 @@
 
 <script>
  export default {
-        title: 'hyypAvatar',
+        title: 'hyypAvatar-lg',
         props: {
             userInitials: String,
             size: String,
@@ -15,7 +15,6 @@
         }, data() {
             return {
                 userInitials: "DK",
-                size: 80,
                 src:"https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
             }
         }
@@ -29,8 +28,8 @@
         align-items: center;
         justify-content: center;
 
-        height: 35px;
-        width: 35px;
+        height: 80px;
+        width: 80px;
         border-radius: 50%;
         border: none;
         background-color: #f0f0f0;        

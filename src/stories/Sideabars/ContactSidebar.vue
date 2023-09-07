@@ -1,12 +1,12 @@
 <template>
     <div class="toggle">
-        <v-btn @click="handleToggle()">Toggle Contact Sidebar</v-btn>
+        <v-btn @click="handleToggle()">Toggle Sidebar</v-btn>
     </div>
     <div :class="[openSidebar ? '' : 'closed']" class="hyyp-sidebar">
         <div class="sidebar-title">
             <button class="close-btn" @click="handleToggle()">
-                            <svg clip-rule="evenodd" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m12 10.93 5.719-5.72c.146-.146.339-.219.531-.219.404 0 .75.324.75.749 0 .193-.073.385-.219.532l-5.72 5.719 5.719 5.719c.147.147.22.339.22.531 0 .427-.349.75-.75.75-.192 0-.385-.073-.531-.219l-5.719-5.719-5.719 5.719c-.146.146-.339.219-.531.219-.401 0-.75-.323-.75-.75 0-.192.073-.384.22-.531l5.719-5.719-5.72-5.719c-.146-.147-.219-.339-.219-.532 0-.425.346-.749.75-.749.192 0 .385.073.531.219z"/></svg>
-                        </button>
+                                <svg clip-rule="evenodd" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m12 10.93 5.719-5.72c.146-.146.339-.219.531-.219.404 0 .75.324.75.749 0 .193-.073.385-.219.532l-5.72 5.719 5.719 5.719c.147.147.22.339.22.531 0 .427-.349.75-.75.75-.192 0-.385-.073-.531-.219l-5.719-5.719-5.719 5.719c-.146.146-.339.219-.531.219-.401 0-.75-.323-.75-.75 0-.192.073-.384.22-.531l5.719-5.719-5.72-5.719c-.146-.147-.219-.339-.219-.532 0-.425.346-.749.75-.749.192 0 .385.073.531.219z"/></svg>
+                            </button>
         </div>
         <!-- Static -->
         <div v-if="!editMode">
@@ -79,7 +79,7 @@
                         <div class="icon">
                             <v-icon icon="mdi-account-outline"></v-icon>
                         </div>
-                        <TextInput style="width:220px" label="name" />
+                        <TextInput style="min-width:220px" label="name" />
                     </div>
                 </div>
                 <!--  Role -->
@@ -88,7 +88,7 @@
                         <div class="icon">
                             <v-icon icon="mdi-clipboard-outline"></v-icon>
                         </div>
-                        <TextInput style="width:220px" label="role" />
+                        <TextInput style="min-width:220px" label="role" />
                     </div>
                 </div>
                 <!-- Phone Number -->
@@ -97,7 +97,7 @@
                         <div class="icon">
                             <v-icon icon="mdi-phone-outline"></v-icon>
                         </div>
-                        <TextInput style="width:220px" label="phone number" />
+                        <TextInput style="min-width:220px" label="phone number" />
                     </div>
                 </div>
     
@@ -107,7 +107,7 @@
                         <div class="icon">
                             <v-icon icon="mdi-email-outline"></v-icon>
                         </div>
-                        <TextInput style="width:220px" label="email" />
+                        <TextInput style="min-width:220px" label="email" />
                     </div>
                 </div>
     
@@ -117,17 +117,17 @@
                         <div class="icon">
                             <v-icon icon="mdi-map-marker"></v-icon>
                         </div>
-                        <TextInput style="width:220px" label="location" />
+                        <TextInput style="min-width:220px" label="location" />
                     </div>
                 </div>
             </div>
             <div claass="section ">
                 <div class="d-flex delete">
                     <a class="text-center">
-                                    <button>
-                                        <p>Delete Contact?</p>
-                                    </button>
-                                </a>
+                                        <button>
+                                            <p>Delete Contact?</p>
+                                        </button>
+                                    </a>
                 </div>
             </div>
         </div>
@@ -345,8 +345,8 @@ span.edit-mode {
     margin-left: 20%;
 }
 
-input.v-field__input {
-    width: 200px;
+div.v-field__input {
+    min-width: 220px !important;
 }
 
 .section>.d-flex>p {
