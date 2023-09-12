@@ -122,7 +122,7 @@ export default {
 .wrapper {
     overflow-y: scroll;
     padding: 0px 20px 10px 20px;
-    max-height: 60vh; 
+    max-height: 58vh; 
 }
 
 label {
@@ -157,7 +157,7 @@ button.close-btn {
     h3 {
         margin-bottom: 20px;
         padding: 5px 10px;
-        font-size: 24px;
+        font-size: calc(50% + 1vw);
         background: $grey;
         font-family: $poppins, sans-serif;
         font-weight: 600;

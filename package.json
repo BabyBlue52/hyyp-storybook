@@ -19,6 +19,7 @@
     "storybook-addon-variants": "^0.2.0",
     "vue": "^3.2.38",
     "vue-draggable-next": "^2.2.1",
+    "vue3-easy-data-table": "^1.5.47",
     "vuetify": "^3.0.0",
     "webfontloader": "^1.0.0"
   },
