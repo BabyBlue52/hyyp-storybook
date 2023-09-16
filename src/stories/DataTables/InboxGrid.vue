@@ -9,26 +9,38 @@
         :headers="headers"
         :items="items"
         :themeColor="themeColor"
+        @clickRow="toggleRead"
+        
+        :sort-by="sortBy"
+        :sort-type="sortType"
+
     />
     </div>
 
   </template>
   
   <script lang="ts" setup>
-    import type { Header, Item, BodyRowClassNameFunction } from "vue3-easy-data-table";
+    import type { Header, Item, BodyRowClassNameFunction, SortType } from "vue3-easy-data-table";
     import { ref } from "vue";
+
+    const sortBy = ""
+    const sortType: SortType = "desc"
 
     const itemsSelected = ref<Item[]>([]);
     const headers: Header[] = [
-            { text: "Sender", value: "sender", width: 200 },
+            { text: "Sender", value: "sender", sortable: true, width: 200 },
             { text: "Message", value: "message", width: 400},
-            { text: "Date", value: "date", width: 200},
+            { text: "Date", value: "date", sortable: true, width: 200},
     ];
 
     const items: Item[] = [
         { sender: "Stephen Curry", message: "GSW", date: 30, opened: true},
         { sender: "Lebron James", message: "LAL", date: 6, opened: false},
-        { sender: "Kevin Durant", message: "BKN", date: 7, opened: false},
+        { sender: "Kevin Durant", message: "BKN", date: 7, opened: true},
+        { sender: "Giannis Antetokounmpo", message: "MIL", date: 11, opened: false},
+        { sender: "Stephen Curry", message: "GSW", date: 30, opened: true},
+        { sender: "Lebron James", message: "LAL", date: 6, opened: false},
+        { sender: "Kevin Durant", message: "BKN", date: 7, opened: true},
         { sender: "Giannis Antetokounmpo", message: "MIL", date: 11, opened: false},
     ];
 
@@ -37,14 +49,19 @@
         return 'read';
     };
     const themeColor = "#37515f"
+
+    const toggleRead = () => {
+        window.alert("clicked")
+    }
   </script>
   
 <style lang="scss">
 .hyyp-inbox {
     border: 1px solid salmon;
+    
     .customize-table {
     --easy-table-border: #fff;
-    --easy-table-row-border: 1px solid #f6f6f6;
+    --easy-table-row-border: 1px solid #dcdcdc;
 
     --easy-table-header-font-size: 11px;
     --easy-table-header-font-weight: 400;
@@ -61,7 +78,7 @@
     --easy-table-body-row-height: 50px;
     --easy-table-body-row-font-size: 14px;
 
-    --easy-table-body-row-hover-background-color:#ffecee;
+    --easy-table-body-row-hover-background-color:#F2CED3;
     
     --easy-table-body-item-padding: 10px 15px;
 
@@ -89,9 +106,12 @@
     }
     .unread {
         --easy-table-body-row-background-color: #fff;
+        td {
+            font-weight: 600;
+        }
     }
     .read {
-        --easy-table-body-row-background-color: #f6f6f6;
+        --easy-table-body-row-background-color: #f0f0f0;
     }
     .vue3-easy-data-table__footer[data-v-32683533] {
         justify-content: flex-start;
