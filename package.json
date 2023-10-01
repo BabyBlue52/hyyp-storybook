@@ -6,7 +6,8 @@
     "build": "vite build",
     "preview": "vite preview",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "postinstall": "patch-package"
   },
   "dependencies": {
     "@mdi/font": "7.0.96",
@@ -15,6 +16,7 @@
     "@tiptap/starter-kit": "^2.0.3",
     "@tiptap/vue-3": "^2.0.3",
     "cli-table3": "^0.6.3",
+    "patch-package": "^8.0.0",
     "pinia": "^2.1.4",
     "roboto-fontface": "*",
     "storybook-addon-variants": "^0.2.0",
