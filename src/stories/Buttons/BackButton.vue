@@ -59,7 +59,7 @@
     }   
     svg {
         position:relative;
-        top: 2px;
+        top: 4px;
         width: 24px;
         height: 18px;
         margin-right: 5px;
