@@ -1,9 +1,9 @@
 <template>
     <button class="close-btn" @mouseenter="arrowSlide" @mouseleave="reset">
         <div>
-            <svg xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd"><path d="M12 11.293l10.293-10.293.707.707-10.293 10.293 10.293 10.293-.707.707-10.293-10.293-10.293 10.293-.707-.707 10.293-10.293-10.293-10.293.707-.707 10.293 10.293z"/></svg>
+            <v-icon icon="mdi-close" color="#37515F" size="20px"></v-icon>
         </div>
-        <span>Close</span>
+        
     </button>
 </template>
 
@@ -21,35 +21,29 @@
     }    
 </script>
 
-<style scoped>
+<style scoped lang="scss" >
     button.close-btn {
+        position: relative;
         display: flex;
         justify-content: center;
         align-items: center;
         width: max-content;
-        min-width: 80px;
+        min-width: max-content;
+        padding: 2px;
         border: none;
         background: none;
         color: #37515F;
         fill: #37515F;
-    }
-    button.close-btn:hover {
-        background: #f0f0f0;
+        &:hover {
+            background: #f0f0f0;
+        }
     }
     span {
         position:relative;
-        /* top: 5px; */
         padding-left: 5px;
         padding-right: 5px;
         font-weight: bold;
         user-select: none;
     }
-    svg {
-        position:relative;
-        width: 24px;
-        height: 24px;
-        margin-right: 2px;
-        stroke-width: 2px;
-        transform: scale(0.67);
-    }
+    
 </style>

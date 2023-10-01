@@ -21,6 +21,12 @@
             placeholder: String,
             style: String
         },
+        data() {
+            return {
+                label: 'Default Label'
+            }
+            
+        }
     }
 </script>
 <style scoped lang="scss">

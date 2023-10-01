@@ -15,7 +15,9 @@
             placeholder: String
         },
         data() {
-        
+            return {
+                label: 'Default Label'
+            }   
         }
     }
 </script>
