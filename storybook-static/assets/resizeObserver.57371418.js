@@ -1,0 +1,2 @@
+import{f,P as m,w as R,W as c}from"./vue.esm-bundler.12598c06.js";import{I as g,r as u}from"./theme.d5a2f491.js";function d(o){let i=arguments.length>1&&arguments[1]!==void 0?arguments[1]:"content";const r=f(),t=f();if(g){const n=new ResizeObserver(e=>{o==null||o(e,n),e.length&&(i==="content"?t.value=e[0].contentRect:t.value=e[0].target.getBoundingClientRect())});m(()=>{n.disconnect()}),R(r,(e,s)=>{s&&(n.unobserve(u(s)),t.value=void 0),e&&n.observe(u(e))},{flush:"post"})}return{resizeRef:r,contentRect:c(t)}}export{d as u};
+//# sourceMappingURL=resizeObserver.57371418.js.map

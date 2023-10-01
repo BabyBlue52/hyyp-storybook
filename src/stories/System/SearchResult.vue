@@ -5,8 +5,8 @@
                 <div class="location">
                     <div class="icon">
                         <button @click="getCurrentLocation">
-                                            <v-icon icon="mdi-map-marker" color="#37515F"></v-icon>
-                                        </button>
+                                                    <v-icon icon="mdi-map-marker" color="#37515F"></v-icon>
+                                                </button>
                     </div>
                     <input type="text" placeholder="Enter Location" id="location" />
                 </div>
@@ -30,12 +30,10 @@
 </template>
 
 <script>
-
-
 export default {
     name: 'Search Result',
     methods: {
-     
+
 
     }
 }
@@ -71,10 +69,8 @@ export default {
             align-items: center;
             height: 40px;
             width: 40px;
-           
-                position: relative;
-                bottom: 1px;
-           
+            position: relative;
+            bottom: 1px;
         }
         input {
             position: relative;

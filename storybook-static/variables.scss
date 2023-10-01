@@ -1,0 +1,72 @@
+/*
+=================
+Fonte
+=================
+*/
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans&family=Poppins:wght@200;400;500;600;700&display=swap");
+
+$openSans: 'Open Sans', sans-serif;
+$poppins: 'Poppins', sans-serif;
+/*
+=================
+Colors
+=================
+*/
+$black: #100409;
+$grey: #f6f6f6;
+$grey_mid: #999999;
+$gunMetal: #37515f;
+$gunMetal_light: #52798e;
+$error: #ff4d4d;
+$hyyp_primary: #e4959e;
+$success: #59d96c;
+
+/*
+=================
+Design Units
+=================
+*/
+$small: 0.75rem;
+$paragraph: 0.85rem;
+$header: 28px;
+$light: 400;
+$medium: 500;
+$heavy: 700;
+
+/*
+ =================
+Animations 
+=================
+*/
+
+.slideIn {
+  animation: slideIn 300ms ease-in-out;
+  opacity: 1;
+}
+.slideOut {
+  animation: slideOut 300ms ease-in-out;
+  opacity: 0;
+  display: none;
+}
+@keyframes slideIn {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0%);
+    opacity: 1;
+  }
+}
+@keyframes slideOut {
+  from {
+    transform: translateY(0%);
+    opacity: 1;
+  }
+
+  to {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+}

@@ -1,0 +1,232 @@
+@import "./variables.scss";
+
+* {
+    transition: all 0.3s ease-in-out;
+}
+html, body {
+    font-family: $openSans;
+    font-family: $poppins;
+    overflow: hidden;
+}
+
+button {
+    cursor: pointer;
+    border-radius: 5px;
+    
+}
+button:active {
+    transform: scale(0.95);
+}
+
+h1 {
+    font-size: $header;
+    font-weight: $heavy;
+}
+h4 {
+    font-weight: $medium;
+}
+p {
+    font-family: $poppins;
+    font-size: $paragraph;
+}
+
+a, a:link, a:hover, a:focus, a:active, a:visited {
+    color: $black;
+    text-decoration: none;
+    font-size: 0.8rem;
+    cursor: pointer;
+}
+input {
+    font-size: .9rem;
+}
+.disabled {
+    cursor: not-allowed;
+    user-select: none;
+    opacity: 0.67;
+}   
+
+.noSelect {
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+}
+
+.locked {
+    position: absolute;
+    top:0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    z-index: 1;
+    background: rgba($black, 0.33);
+}
+.toggle {
+    position: relative;
+    width: 200px;
+    z-index: 999;   
+}
+.centered {
+    position: absolute;
+    top:0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+.d-flex {
+    display: flex;
+    width: 100%;
+}
+.d-flex.center {
+    flex-direction: column;
+    align-items: center;
+}
+.row  {
+    flex-direction: row;
+    margin: 10px 0;
+}
+.column {
+    flex-direction: column;
+}
+label {
+    text-transform: capitalize;
+}
+/* Modals */
+div.modal-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: max-content;
+    width: 450px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    z-index: 9;
+    div.modal-content {
+        width: calc(100% - 40px);
+        padding: 10px;
+        margin: 0 auto;
+    }
+}
+/* Buttons */
+button.close-btn {
+    position: relative; 
+    svg{ 
+        height: 20px;
+        width: 20px;
+        margin: 0;
+        padding: 0;
+        background: none;
+        position: absolute;
+        left: calc(100% - 30px);
+    }
+}
+
+button.close-btn:hover > svg {
+    opacity: 0.5;
+}
+
+button.full-width {
+    width: 100%;
+    height: 48px;
+    background: #37515F;
+    color: white;
+    font-weight: $medium;
+    font-size: $paragraph;
+}
+button.full-width:hover {
+    background:  #52798E;
+}
+/* Edits to Vuetify */
+.hyyp-input-sm {
+    display: flex;
+    min-width: 50%;
+    align-items: center;
+}
+.v-textarea .v-field__input {
+    -webkit-mask-image: none !important;
+    mask-image: none !important;
+}
+.v-textarea {
+    font-size: $paragraph;
+    margin: 20px 0;
+    ::placeholder {
+        font-size: $paragraph;
+    }
+}
+.v-field__input {
+    border: 1px solid #666;
+    background: white;
+    padding: 6px 8px !important;
+    margin: 0;
+    border-radius: 2.5px;
+    font-size: 0.9rem;
+    min-height: 1rem !important;
+    min-width: 100% ;
+    &:disabled {
+        opacity: 0.5;
+    }
+}
+.v-list {
+    width: 120px;
+    padding: 5 px 0 !important;
+}
+.v-list-item--density-default.v-list-item--one-line {
+    min-height: 1rem !important;
+    
+}
+.v-list-item-title {
+    font-size: 0.8rem !important;
+}
+.v-btn.v-btn--density-default {
+    min-width: max-content;
+}
+.v-input__control {
+    min-width: 100%;
+}
+// Edits to V-Checkbox
+.v-selection-control {
+    max-width: max-content;
+    .v-label {
+        font-size: $small !important;
+        max-width: max-content;
+        margin-right: 10px;
+    }
+    .mdi:before, .mdi-set {
+        font-size: $paragraph;
+    }
+    
+}
+.v-input__control {
+    max-width: max-content;
+}
+
+.v-input__details{
+    display: none !important;
+} 
+.ProseMirror {
+    padding: 10px;
+    border: 3px solid #333;
+    border-radius: 0 0 5px 5px;
+    max-width: 1000px;
+    min-height: 200px;
+}
+
+.ProseMirror ul,
+.ProseMirror ol {
+  padding: 0 1rem !important;
+  li > ol {
+    list-style-type: lower-alpha;
+    li > ol {
+        list-style-type: lower-roman;
+    }
+  }
+}
+
+.ProseMirror blockquote {
+    padding-left: 1rem;
+    border-left: 2px solid rgba(13, 13, 13, 0.1);
+}
