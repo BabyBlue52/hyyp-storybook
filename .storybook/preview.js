@@ -13,7 +13,7 @@ setup((app) => {
 export const globalTypes = {
   theme: {
     name: "Theme",
-    description: "Global theme for components",
+    description: "Global theme for hyyp components",
     defaultValue: DEFAULT_THEME,
     toolbar: {
       icon: "paintbrush",
@@ -26,11 +26,19 @@ export const globalTypes = {
       dynamicTitle: true,
     },
   },
+  parameters: {
+    
+  }
 };
 
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },
   layout: "fullscreen",
+  options: {
+    storySort: {
+      order: ['HYYP','Buttons','System', 'Sidebars', 'Datatables', '*']
+    }
+  }
 };
 
 export const decorators = [withVuetifyTheme];

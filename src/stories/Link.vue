@@ -1,6 +1,6 @@
 <template>
     <div class="link" @mouseenter="retreat" @mouseleave="reset">
-        <a>{{ text }}</a>
+        <a v-bind:href="url">{{ text }}</a>
         <div :class="[isHover ? 'retreat' : 'static']"></div>
     </div>
 </template>
@@ -10,6 +10,7 @@
         title: 'hyypLink',
         props: {
             text: String,
+            url: String
         },
         data() {
             return {

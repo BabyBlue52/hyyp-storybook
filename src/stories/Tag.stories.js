@@ -2,7 +2,7 @@ import Tag from './Tag';
 
 
 export default  {
-    title: 'Tag',
+    title: 'System / Tag',
     component: Tag,
 };
 
