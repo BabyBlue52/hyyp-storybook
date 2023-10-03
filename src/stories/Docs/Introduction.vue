@@ -64,6 +64,7 @@ export default {
         width: 120px;
     }
     .header {
+        z-index: 2;
         position: fixed;
         top: 10px;
         width: inherit;
