@@ -64,6 +64,7 @@ export default {
         width: 120px;
     }
     .header {
+        display: flex;
         position: fixed;
         top: 10px;
         width: inherit;
@@ -72,6 +73,7 @@ export default {
         align-items: center;
         border-bottom: 1px solid #ccc;
         background: white;
+        z-index: 10;
     }
     .content {
         display: flex;
