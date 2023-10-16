@@ -10,5 +10,6 @@
   import HelloWorld from '@/components/HelloWorld.vue'
 </script>
 <style lang="scss">
-  @import "./assets/main.scss" 
+  @import "./assets/main.scss";
+  @import "./assets/variables.scss";
 </style>

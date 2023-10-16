@@ -60,7 +60,7 @@
             min-height: 2rem;
             margin: 5px 10px;
             padding: 2.5px 10px 0 10px;
-            border: 1px solid $grey_mid;
+            border: 1px solid $grey_dark;
             border-radius: 2px;
             font-size: 0.7rem;
             background: transparent;
