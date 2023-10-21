@@ -60,7 +60,7 @@
         name: 'Calendar Event Block',
         components: { Link },
         props: {
-            event: ''
+            event: String
         },
         computed: {
             window: () => window,

@@ -100,7 +100,7 @@ button.icon-btn {
     border-radius: 20px;
     transition: all ease-in-out 750ms;
     &:hover {
-        background: rgba($hyyp_primary, 0.5);
+        background: rgba($primary, 0.5);
         transition: all ease-in-out 750ms;
     }
     i.v-icon,
@@ -121,7 +121,7 @@ button.icon-btn {
     align-items: center;
     height: 40px;
     padding-right: 20px;
-    color: $grey_mid;
+    color: $grey_dark;
     font-weight: $medium;
     font-style: italic;
     p {

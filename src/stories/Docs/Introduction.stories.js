@@ -6,6 +6,6 @@ export default  {
     component: Intro,
 };
 
-export const Default = {
+export const WelcomePage = {
   
 };

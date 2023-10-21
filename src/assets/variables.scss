@@ -14,13 +14,14 @@ Colors
 */
 $black: #100409;
 $grey: #f6f6f6;
-$grey_mid: #999999;
+$grey_mid: #CCCCCC;
+$grey_dark: #999999;
 $gunMetal: #37515f;
 $gunMetal_light: #52798e;
 $error: #ff4d4d;
-$hyyp_primary: #e4959e;
+$primary: #e4959e;
 $success: #59d96c;
-
+$success_darken:  #2AB73F;
 /*
 =================
 Design Units
@@ -32,6 +33,8 @@ $header: 28px;
 $light: 400;
 $medium: 500;
 $heavy: 700;
+
+$border-radius: 5px;
 
 /*
  =================
