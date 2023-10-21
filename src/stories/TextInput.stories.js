@@ -1,4 +1,4 @@
-import TextInput from './TextInput.vue';
+import TextInput from './TextInput';
 import { action } from '@storybook/addon-actions';
 
 export default {
