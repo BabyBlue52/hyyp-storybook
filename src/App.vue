@@ -1,13 +1,13 @@
 <template>
   <v-app>
     <v-main>
-      <HelloWorld />
+      <Docs />
     </v-main>
   </v-app>
 </template>
 
 <script setup>
-  import HelloWorld from '@/components/HelloWorld.vue'
+  import Docs from '@/components/Introduction.vue'
 </script>
 <style lang="scss">
   @import "./assets/main.scss";
