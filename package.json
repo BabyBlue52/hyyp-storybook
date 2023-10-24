@@ -14,11 +14,7 @@
     "@storybook/addon-backgrounds": "^7.5.1",
     "@storybook/addon-controls": "^7.4.6",
     "@storybook/addon-measure": "^7.5.1",
-    "@storybook/addon-outline": "^7.5.1",
-    "@storybook/addon-toolbars": "^7.5.1",
-    "@storybook/addon-viewport": "^7.5.1",
     "@storybook/global": "^5.0.0",
-    "@storybook/instrumenter": "^7.5.1",
     "@tiptap/core": "^2.1.11",
     "@tiptap/pm": "^2.0.3",
     "@tiptap/starter-kit": "^2.0.3",
@@ -27,7 +23,6 @@
     "cli-table3": "^0.6.3",
     "patch-package": "^8.0.0",
     "pinia": "^2.1.4",
-    "polished": "^4.2.2",
     "roboto-fontface": "*",
     "storybook-addon-variants": "^0.2.0",
     "tiptap": "^1.32.2",
@@ -54,8 +49,12 @@
     "vite-plugin-vuetify": "^1.0.0-alpha.12"
   },
   "externals": {
+    "polished": "polished",
     "@storybook/global": "@storybook/global",
     "@storybook/addon-backgrounds": "@storybook/addon-backgrounds",
-    "@storybook/addon-measure": "@storybook/addon-measure"
+    "@storybook/addon-measure": "@storybook/addon-measure",
+    "@storybook/outline": "@storybook/addon-outline",
+    "@storybook/addon-toolbars": "@storybook/addon-toolbars",
+    "@storybook/addon-viewport": "@storybook/addon-viewport"
   }
 }
