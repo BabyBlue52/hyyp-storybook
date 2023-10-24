@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@mdi/font": "7.2.96",
-    "@storybook/addon-actions": "^7.4.6",
+    "@storybook/addon-actions": "^7.5.1",
     "@storybook/addon-backgrounds": "^7.5.1",
     "@storybook/addon-controls": "^7.4.6",
     "@storybook/addon-measure": "^7.5.1",
