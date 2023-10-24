@@ -1,4 +1,4 @@
-import EventBlock from './EventBlock';
+import EventBlock from '../../components/Calendar/EventBlock';
 
 export default {
     component: EventBlock,

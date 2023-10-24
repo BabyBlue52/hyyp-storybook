@@ -1,4 +1,4 @@
-import Modal from './Modal.vue';
+import Modal from '../../components/System/Modal';
 import { action } from '@storybook/addon-actions';
 
 export default {

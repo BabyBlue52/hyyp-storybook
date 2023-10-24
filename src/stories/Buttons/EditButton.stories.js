@@ -1,4 +1,4 @@
-import EditButton from './EditButton';
+import EditButton from '../../components/Buttons/EditButton';
 // import { action } from '@storybook/addon-actions';
 
 export default {

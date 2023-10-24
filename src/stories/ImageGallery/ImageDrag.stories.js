@@ -1,4 +1,4 @@
-import ImageDrag from './ImageDrag';
+import ImageDrag from '../../components/ImageGallery/ImageDrag';
 
 
 export default  {

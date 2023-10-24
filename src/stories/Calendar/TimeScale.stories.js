@@ -1,4 +1,4 @@
-import TimeScale from './TimeScale';
+import TimeScale from '../../components/Calendar/TimeScale';
 // import { action } from '@storybook/addon-actions';
 
 export default {

@@ -1,4 +1,4 @@
-import LargeImage from './LargeImage';
+import LargeImage from '../../components/ImageGallery/LargeImage';
 
 
 export default  {

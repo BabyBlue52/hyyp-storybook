@@ -1,2 +1,0 @@
-import{e as s}from"./vue.esm-bundler.12598c06.js";import{p as n,v as a}from"./theme.d5a2f491.js";const r=[null,"default","comfortable","compact"],d=n({density:{type:String,default:"default",validator:e=>r.includes(e)}},"density");function l(e){let t=arguments.length>1&&arguments[1]!==void 0?arguments[1]:a();return{densityClasses:s(()=>`${t}--density-${e.density}`)}}export{d as m,l as u};
-//# sourceMappingURL=density.b64379e4.js.map

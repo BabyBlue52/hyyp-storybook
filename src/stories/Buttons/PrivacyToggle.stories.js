@@ -1,4 +1,4 @@
-import PrivacyToggle from './PrivacyToggle';
+import PrivacyToggle from '../../components/Buttons/PrivacyToggle';
 
 import { action } from '@storybook/addon-actions';
 

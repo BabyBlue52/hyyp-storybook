@@ -1,4 +1,4 @@
-import SaveButton from './SaveButton';
+import SaveButton from '../../components/Buttons/SaveButton';
 
 import { action } from '@storybook/addon-actions';
 

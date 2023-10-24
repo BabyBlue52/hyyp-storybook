@@ -1,4 +1,4 @@
-import CloseButton from './CloseButton';
+import CloseButton from '../../components/Buttons/CloseButton';
 
 import { action } from '@storybook/addon-actions';
 

@@ -1,4 +1,4 @@
-import Sidebar from './Sidebar.vue';
+import Sidebar from '../../components/Sidebars/Sidebar.vue';
 // import { action } from '@storybook/addon-actions';
 
 export default {

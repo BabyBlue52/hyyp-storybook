@@ -1,4 +1,4 @@
-import BookingModal from './BookingModal';
+import BookingModal from '../../components/System/BookingModal';
 
 export default {
     component: BookingModal,

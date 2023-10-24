@@ -1,4 +1,4 @@
-import BackButton from './BackButton';
+import BackButton from '../../components/Buttons/BackButton';
 
 import { action } from '@storybook/addon-actions';
 

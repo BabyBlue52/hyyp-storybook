@@ -1,4 +1,4 @@
-import ShareLinkModal from './ShareLinkModal.vue';
+import ShareLinkModal from '../../components/System/ShareLinkModal.vue';
 // import { action } from '@storybook/addon-actions';
 
 export default {

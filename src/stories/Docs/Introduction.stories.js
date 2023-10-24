@@ -1,4 +1,4 @@
-import Intro from './Introduction';
+import Intro from '../../components/Docs/Introduction';
 
 
 export default  {

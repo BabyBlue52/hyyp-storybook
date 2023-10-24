@@ -1,4 +1,4 @@
-import DeleteButton from './DeleteButton';
+import DeleteButton from '../../components/Buttons/DeleteButton';
 
 import { action } from '@storybook/addon-actions';
 

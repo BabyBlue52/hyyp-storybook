@@ -1,4 +1,4 @@
-import NavigationTray from './NavigationTray';
+import NavigationTray from '../../components/System/NavigationTray';
 
 export default {
     component: NavigationTray,

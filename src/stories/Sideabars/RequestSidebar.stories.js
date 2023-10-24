@@ -1,4 +1,4 @@
-import RequestSidebar from './RequestSidebar.vue';
+import RequestSidebar from '../../components/Sidebars/RequestSidebar.vue';
 // import { action } from '@storybook/addon-actions';
 
 export default {

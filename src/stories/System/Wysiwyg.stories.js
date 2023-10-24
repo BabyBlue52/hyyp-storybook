@@ -1,4 +1,4 @@
-import Wysiwyg from './Wysiwyg';
+import Wysiwyg from '../../components/System/Wysiwyg';
 
 export default {
     component: Wysiwyg,

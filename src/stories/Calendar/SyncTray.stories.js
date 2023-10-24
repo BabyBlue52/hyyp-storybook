@@ -1,4 +1,4 @@
-import SyncTray from './SyncTray';
+import SyncTray from '../../components/Calendar/SyncTray';
 // import { action } from '@storybook/addon-actions';
 
 export default {

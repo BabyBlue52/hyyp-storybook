@@ -1,4 +1,4 @@
-import Notification from './Notification';
+import Notification from '../../components/System/Notification.vue';
 
 export default {
     component: Notification,

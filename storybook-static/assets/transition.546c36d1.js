@@ -1,2 +1,0 @@
-import{h as p,B as m,a3 as c}from"./vue.esm-bundler.12598c06.js";import{p as f}from"./theme.d5a2f491.js";const y=f({transition:{type:[Boolean,String,Object],default:"fade-transition",validator:o=>o!==!0}},"transition"),b=(o,n)=>{let{slots:r}=n;const{transition:t,disabled:s,...a}=o,{component:e=c,...i}=typeof t=="object"?t:{};return p(e,m(typeof t=="string"?{name:s?"":t}:i,a,{disabled:s}),r)};export{b as M,y as m};
-//# sourceMappingURL=transition.546c36d1.js.map

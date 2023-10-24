@@ -1,4 +1,4 @@
-import InvertedButton from './InvertedButton';
+import InvertedButton from '../../components/Buttons/InvertedButton';
 
 import { action } from '@storybook/addon-actions';
 

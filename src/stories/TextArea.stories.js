@@ -1,4 +1,4 @@
-import TextArea from './TextArea.vue';
+import TextArea from '../components/TextArea.vue';
 import { action } from '@storybook/addon-actions';
 
 export default {

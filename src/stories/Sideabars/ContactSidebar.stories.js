@@ -1,4 +1,4 @@
-import ContactSidebar from './ContactSidebar.vue';
+import ContactSidebar from '../../components/Sidebars/ContactSidebar.vue';
 // import { action } from '@storybook/addon-actions';
 
 export default {

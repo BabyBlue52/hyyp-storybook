@@ -1,4 +1,4 @@
-import InboxGrid from './InboxGrid';
+import InboxGrid from '../../components/DataTables/InboxGrid';
 import { action } from '@storybook/addon-actions';
 
 
