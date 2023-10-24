@@ -1,3 +1,2 @@
 [build]
-  command = "npm i yarn run build-storybook"
   publish = "storybook-static"
