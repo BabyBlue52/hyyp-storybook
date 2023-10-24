@@ -88,10 +88,6 @@ export default {
         ]
     }),
     methods: {
-        onChange() {
-
-        }
-
     }
 }
 </script>
@@ -128,7 +124,6 @@ div.organization {
             height: 60px;
             width: 60px;
             padding: 5px;
-            svg {}
         }
         .content {
             margin-left: 20px;
