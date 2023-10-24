@@ -2,7 +2,7 @@
 node_modules
 /dist
 .yarn
-
+storybook-static
 # local env files
 .env.local
 .env.*.local
