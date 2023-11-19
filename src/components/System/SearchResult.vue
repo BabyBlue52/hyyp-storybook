@@ -94,6 +94,10 @@ export default {
 
 <style scoped lang="scss">
 @import "../../assets/variables";
+h2 {
+    font-size: 1.2rem;
+    font-weight: 600;
+}
 div.container {
     overflow-y: scroll;
     width: calc(60vw + 25px);
