@@ -43,7 +43,7 @@
         height: 30px;
         border: none;
         padding: 20px;
-        border-radius: 10px;
+        border-radius: 5px;
         color: #37515F;
         cursor: pointer;
     }
