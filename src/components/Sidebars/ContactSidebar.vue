@@ -198,7 +198,7 @@ export default {
     right: 0;
     width: clamp(10vw, 350px, 500px);
     height: 100%;
-    padding: 20px 30px;
+    padding: 20px 30px 0 30px;
     -webkit-box-shadow: -9px 3px 14px -1px rgba(0, 0, 0, 0.10);
     -moz-box-shadow: -9px 3px 14px -1px rgba(0, 0, 0, 0.10);
     box-shadow: -9px 3px 14px -1px rgba(0, 0, 0, 0.10);
