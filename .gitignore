@@ -3,6 +3,9 @@ node_modules
 /dist
 .yarn
 storybook-static
+#Allow Netlify CI/CD
+.pnp.cjs
+
 # local env files
 .env.local
 .env.*.local
