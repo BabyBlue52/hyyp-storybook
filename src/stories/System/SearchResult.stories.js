@@ -3,7 +3,6 @@ import SearchResult from '../../components/System/SearchResult';
 export default {
     component: SearchResult,
     title: 'System / Search Result',
-    decorators: [() => ({ template: '<div><story></div>'})]
 }
 
 const Template = args => ({
