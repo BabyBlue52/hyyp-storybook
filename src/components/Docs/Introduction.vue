@@ -14,7 +14,7 @@
                 <p>
                     This Component Library has been written in Vue3 in order to better integrate with the hyyp back-end architecture.
                 </p><br/>
-                <small> This page will act as the official document of the most up to date componets within the product known as hyyp</small>
+                <small> This page will act as the official document of the most up to date components within the product known as hyyp.</small>
                 
                 <hr/>
             </blockquote>
@@ -26,6 +26,19 @@
                     <Link :text="'here'" :url="'https://github.com/BabyBlue52/hyyp-storybook'" />
                 </p>
             </blockquote>
+            <blockquote class="npm" @click="copyText">
+                <div v-if="isCopied == false">
+                    <p>
+                    <span>bun add hyyp-storybook@latest</span>
+                    
+                    <span><svg clip-rule="evenodd" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m6 18h-3c-.48 0-1-.379-1-1v-14c0-.481.38-1 1-1h14c.621 0 1 .522 1 1v3h3c.621 0 1 .522 1 1v14c0 .621-.522 1-1 1h-14c-.48 0-1-.379-1-1zm1.5-10.5v13h13v-13zm9-1.5v-2.5h-13v13h2.5v-9.5c0-.481.38-1 1-1z" fill-rule="nonzero"/></svg></span>
+                    </p>
+                </div>
+                <div v-else>
+                    <p><span>Copied!</span></p>
+                </div>
+            </blockquote>
+
     
         </div>
     </div>
@@ -38,17 +51,48 @@
 
 <script>
 import Link from "../Link.vue";
+const cli = "bun add hyyp-storybook@latest"
 
 export default {
     name: 'Intro Page',
     components: { Link },
+    props: {
+        isCopied: Boolean
+    },
+    data() {
+        return {
+            isCopied: false
+        }
+    },
+    methods: {
+        copyText() {
+            this.toggleText();
+            navigator.clipboard.writeText(cli);
+        },
+        toggleText() {
+            this.isCopied = true
+            setTimeout(() => {
+                this.isCopied = !this.isCopied
+                
+            }, 2000);
+          
+        }
+    }
 }
 </script>
 
 <style scoped lang="scss">
+.v-main {
+    overflow:hidden;
+}
 .wrapper {
-    width: 100%;
-    height: 100vh;
+    display: flex;
+    position: fixed;
+    left:0;
+    top: 0px;
+    width: calc(100% - 80px);
+    height: 100%;
+    padding: 50px;
     h1 {
         position: relative;
         top: 12px;
@@ -68,7 +112,7 @@ export default {
         z-index: 2;
         position: fixed;
         top: 10px;
-        width: inherit;
+        width: calc(100% - 120px);
         display: flex;
         justify-content: flex-start;
         align-items: center;
@@ -78,13 +122,14 @@ export default {
     }
     .content {
         display: flex;
-        width: 100%;
+        width: calc(100% + 160px);
         height: 100%;
         position: relative;
         top: 50px;
         flex-direction: column;
         margin: 20px auto;
         padding: 50px;
+        padding-top: 100px;
         background: #fbf8f8;
         blockquote {
             width: 500px;
@@ -94,6 +139,26 @@ export default {
             padding: 10px;
             background: #f0f0f0;
             text-align: center;
+            
+        }
+        .npm {
+            height: 42px;
+            padding: 10px;
+            color: #fbf8f8;
+            background: darken(#37515F, 35%);
+            border-radius: 5px;
+            text-align: center;
+            font-weight: bold;
+            cursor: pointer;
+            svg {
+                position: relative;
+                top: 5px;
+                width: 16px;
+                height: 16px; 
+                margin: 0 10px;
+                fill: white;
+
+            }
         }
     }
     hr {
