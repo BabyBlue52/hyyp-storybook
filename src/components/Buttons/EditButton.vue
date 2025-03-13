@@ -1,5 +1,5 @@
 <template>
-    <button :class="[isActive ? 'active' :'edit-btn']" @click="$event => isActive = !isActive" v-tooltip="'Edit Mode'">
+    <button :class="[isActive ? 'active' :'edit-btn']" @click="$event => isActive = !isActive" v-tooltip="[isActive ? 'Enabled' : 'Edit Mode']">
         <svg clip-rule="evenodd" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m4.481 15.659c-1.334 3.916-1.48 4.232-1.48 4.587 0 .528.46.749.749.749.352 0 .668-.137 4.574-1.492zm1.06-1.061 3.846 3.846 11.321-11.311c.195-.195.293-.45.293-.707 0-.255-.098-.51-.293-.706-.692-.691-1.742-1.74-2.435-2.432-.195-.195-.451-.293-.707-.293-.254 0-.51.098-.706.293z" fill-rule="nonzero"/></svg>
         <div v-if="isActive == true"> 
             <v-tooltip activator="parent" location="right">Edit Mode Enabled</v-tooltip>
