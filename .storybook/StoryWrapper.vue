@@ -1,6 +1,6 @@
 <template>
     <v-app :theme="themeName">
-      <v-main style="margin: 1% 20px;max-width: 95%">
+      <v-main style="display: relative;margin: 1% 20px;max-width: 95%;">
         <slot name="story"></slot>
       </v-main>
     </v-app>

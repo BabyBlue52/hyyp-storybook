@@ -46,7 +46,7 @@ import Link from './Link.vue';
 import Avatar from './Avatar.vue'
 
 export default {
-    name: 'Hyyp Header',
+    name: 'HyypHeader',
     components: { Link, Avatar },
     props: {
         userInitials: String,
@@ -76,7 +76,7 @@ div.header-wrapper {
     justify-content: space-between;
     align-items: center;
     border-bottom: .5px solid #ccc;
-    width: calc(100% - 50px);
+    width: 100%;
     padding: 0 2%;
     padding-bottom: 8px;
 }

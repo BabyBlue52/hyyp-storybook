@@ -7,11 +7,11 @@
 
 <script>
  export default {
-        title: 'hyypAvatar',
+        name: 'hyypAvatar',
         props: {
-            userInitials: String,
-            size: String,
-            src: String
+            // userInitials: String,
+            // size: String,
+            // src: String
         }, data() {
             return {
                 userInitials: "DK",

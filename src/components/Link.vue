@@ -7,7 +7,7 @@
 
 <script>
     export default {
-        title: 'hyypLink',
+        name: 'hyypLink',
         props: {
             text: String,
             url: String
