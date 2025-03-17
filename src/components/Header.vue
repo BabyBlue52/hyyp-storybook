@@ -67,18 +67,19 @@ export default {
     }
 }
 </script>
-
 <style scoped>
 div.header-wrapper {
     position: fixed;
-    top: 10px;
+    top: 0px;
+    left: 0px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     border-bottom: .5px solid #ccc;
     width: 100%;
-    padding: 0 2%;
-    padding-bottom: 8px;
+    padding: 5px 40px;
+    z-index: 99;
+    background: white;
 }
 
 div.right,
@@ -104,20 +105,20 @@ div.logo {
 }
 
 div.logo>img {
-    height: 50px;
+    height: 40px;
 }
 
 div.pro-badge {
     clear: none;
     position: relative;
-    top: 30px;
-    right: 5px;
+    top: 20px;
+    left: 1px;
     width: max-content;
     height: max-content;
     margin-right: -10px;
-    padding: 2px 10px;
+    padding: 2px 8px;
     border-radius: 5px;
-    font-size: .8rem;
+    font-size: .67rem;
     font-weight: 600;
     text-transform: uppercase;
     background: #f0f0f0;
