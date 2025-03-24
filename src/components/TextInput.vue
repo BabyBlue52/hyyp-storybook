@@ -3,7 +3,7 @@
     <div v-if="hasIcon" class="icon">
         <v-icon :icon= 'icon' ></v-icon>
     </div>
-    <div class="d-flex column" style="margin: 0px 10px;">
+    <div class="d-flex column">
         <label>{{ label }}</label>
         <v-text-field :disabled="disabled" :style="style"
         ></v-text-field>
