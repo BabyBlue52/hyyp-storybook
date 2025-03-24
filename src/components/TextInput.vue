@@ -1,12 +1,11 @@
 <template>
-    <!-- Work into Group Component -->
     <div class="hyyp-input-sm row">
     <div v-if="hasIcon" class="icon">
         <v-icon :icon= 'icon' ></v-icon>
     </div>
     <div class="d-flex column" style="margin: 0px 10px;">
         <label>{{ label }}</label>
-        <v-text-field :disabled="disabled" :placeholder="placeholder" :style="style"
+        <v-text-field :disabled="disabled" :style="style"
         ></v-text-field>
     </div>
 </div>
@@ -18,7 +17,6 @@
             label: String,
             hasIcon: Boolean,
             disabled: Boolean,
-            placeholder: String,
             style: String
         },
         data() {
