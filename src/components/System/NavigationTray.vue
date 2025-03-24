@@ -78,23 +78,22 @@ export default {
 }
 </script>
 
-<style scoped>
-.nav-tray-wrapper {
+<style scoped>.nav-tray-wrapper {
     width: 180px;
     max-width: 33vw;
-    height: 100vh;
+    height: 100%;
     background: #F6F6F6;
 }
 
 .nav-tray-item {
     display: flex;
-    height: clamp(60px, 8vh, 100px);
+    height: 60px;
+    width: 100%;
     border-left: 8px solid transparent;
-    transition: 500ms ease-in-out all;
 }
 
 .nav-tray-item:hover {
-    background: rgb(228, 149, 158, 0.2)
+    background: rgb(51, 51, 51, 0.15)
 }
 
 .nav-tray-icon {
@@ -121,7 +120,7 @@ a {
 }
 
 .selected {
-    border-left: 8px solid #E4959E;
+    border-left: 5px solid #E4959E;
     transition: 500ms ease-in-out all;
     background: rgb(228, 149, 158, 0.2)
 }
