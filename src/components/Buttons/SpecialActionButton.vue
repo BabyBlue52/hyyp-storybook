@@ -1,19 +1,18 @@
 <template>
-    <button class="spac-btn"  @click="onClick()">
+    <button class="spac-btn" >
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="currentColor" d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2Z"/></svg>
-        <span>Add Event</span>
+        <span>{{ text }}</span>
     </button>
     
 </template>
 <script >
     
     export default {
-        name: 'Special Action Button',
-        
+        name: 'specialActionButton',
+        props: {
+            text: String,
+        },
         methods: {
-            onClick() {
-                console.log('clicked');
-            }
 
         }
     }    
@@ -31,6 +30,7 @@
         border-radius: 5px;
         padding-right: 10px;
         font-weight: bold;
+        text-transform: capitalize;
     }
 
     svg {
@@ -41,7 +41,7 @@
     }
     span {
         position: relative;
-        top: 5px;
+        top: 4px;
         margin-left: 5px;
         font-size: 0.8rem;
     }
