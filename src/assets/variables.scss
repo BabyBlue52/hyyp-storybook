@@ -12,10 +12,16 @@ $poppins: 'Poppins', sans-serif;
 Colors
 =================
 */
-$black: #100409;
+
+$offWhite_hover: rgb(233.125, 233.125, 239.375);
+
 $grey: #f6f6f6;
-$grey_mid: #CCCCCC;
-$grey_dark: #999999;
+$grey_20: #CCCCCC;
+$grey_40: #AAAAAA;
+$grey_60: #999999;
+$grey_80: #666666;
+$black: #100409;
+
 $gunMetal: #37515f;
 $gunMetal_light: #52798e;
 $error: #ff4d4d;
@@ -27,15 +33,24 @@ $success_darken:  #2AB73F;
 Design Units
 =================
 */
+$label: 0.67rem;
 $small: 0.75rem;
-$paragraph: 0.85rem;
-$header: 28px;
+$paragraph: 0.9rem;
+$subhead: 1.2rem;
+$header: 1.75rem;
+$pageTitle: 2.5rem;
 $light: 400;
 $medium: 500;
 $heavy: 700;
 
 $border-radius: 5px;
 
+// Map Page Separators
+$cardHolder: 25vw;
+$mapWidth: calc(100vw - $cardHolder);
+
+// Header Area Height
+$headRoom: 50px;
 /*
  =================
 Animations 
@@ -73,3 +88,9 @@ Animations
     opacity: 0;
   }
 }
+
+
+
+
+
+

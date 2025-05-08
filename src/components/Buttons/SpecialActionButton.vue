@@ -14,6 +14,11 @@
         },
         methods: {
 
+        },
+        data() {
+          return {
+            text: "Add New"
+          }
         }
     }    
 </script>
