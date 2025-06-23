@@ -234,9 +234,11 @@ button.close-btn {
 }
 
 small {
+    display: block;
     position: relative;
     top: -10px;
     opacity: 0.5;
     font-family: $openSans;
+    text-align: left;
 }
 </style>

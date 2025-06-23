@@ -22,9 +22,11 @@
 </script>
 <style>
     button.default-btn {
-        width: 200px;
+        display: flex;
+        justify-content: center;
+        padding: 10px 20px;
         max-width: 200px;
-        height: 48px;
+        max-height: 40px;
         border-radius: 5px;
         background-color: #37515F;
         border: 2px solid transparent;
