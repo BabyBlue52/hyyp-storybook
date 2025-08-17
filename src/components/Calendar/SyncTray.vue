@@ -121,7 +121,7 @@ button.icon-btn {
     align-items: center;
     height: 40px;
     padding-right: 20px;
-    color: $grey_dark;
+    color: #666;
     font-weight: $medium;
     font-style: italic;
     p {
