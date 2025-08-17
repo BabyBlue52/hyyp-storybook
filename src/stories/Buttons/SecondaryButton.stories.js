@@ -1,18 +1,18 @@
-import InlineButton from '../../components/Buttons/InlineButton';
+import SecondaryButton from '../../components/Buttons/SecondaryButton';
 
 import { action } from '@storybook/addon-actions';
 
 export default {
-    component: InlineButton,
-    title: 'Buttons / Inline Button',
+    component: SecondaryButton,
+    title: 'Buttons / Secondary Button',
 };
 
 const Template = args => ({
-    components: { InlineButton },
+    components: { SecondaryButton },
     setup() {
         return {args};
     },
-    template: '<InlineButton v-bind="args"/>'
+    template: '<SecondaryButton v-bind="args"/>'
 })
 // export const actionsData = {
 
@@ -20,6 +20,6 @@ const Template = args => ({
 
 export const Default = Template.bind({});
 Default.args = {
-    title: 'Default Button',
+    title: 'Secondary Button',
     enabled: true
 }
