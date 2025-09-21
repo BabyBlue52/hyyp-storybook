@@ -1,5 +1,4 @@
 
-
 import { dirname, join } from "path";
 
 /** @type { import('@storybook/vue3-vite').StorybookConfig } */
