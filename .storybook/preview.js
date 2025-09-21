@@ -1,6 +1,6 @@
 
 import '../src/assets/main.scss';
-import { setup } from "@storybook/vue3";
+import { setup } from "@storybook/vue3-vite";
 import { registerPlugins } from "../src/plugins";
 import { withVuetifyTheme, DEFAULT_THEME } from "./withVuetifyTheme.decorator";
 

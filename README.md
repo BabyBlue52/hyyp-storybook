@@ -42,3 +42,9 @@ pnpm build
 ### Customize configuration
 
 See [Configuration Reference](https://vitejs.dev/config/).
+```
+# npm
+npm run storybook
+```
+# Run the Storybook to have a local version of the Component Library
+## References to the SASS in variables.scss will not work, please revert them to their vanilla CSS

@@ -1,5 +1,5 @@
 import InboxGrid from '../../components/DataTables/InboxGrid';
-import { action } from '@storybook/addon-actions';
+import { action } from 'storybook/actions';
 
 
 export default {

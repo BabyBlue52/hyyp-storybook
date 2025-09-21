@@ -1,5 +1,5 @@
 import EditButton from '../../components/Buttons/EditButton';
-// import { action } from '@storybook/addon-actions';
+// import { action } from 'storybook/actions';
 
 export default {
     component: EditButton,

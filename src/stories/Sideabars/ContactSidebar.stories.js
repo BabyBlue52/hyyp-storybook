@@ -1,5 +1,5 @@
 import ContactSidebar from '../../components/Sidebars/ContactSidebar.vue';
-// import { action } from '@storybook/addon-actions';
+// import { action } from 'storybook/actions';
 
 export default {
   component: ContactSidebar,

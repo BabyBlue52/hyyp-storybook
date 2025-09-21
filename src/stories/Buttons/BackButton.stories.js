@@ -1,6 +1,6 @@
 import BackButton from '../../components/Buttons/BackButton';
 
-import { action } from '@storybook/addon-actions';
+import { action } from 'storybook/actions';
 
 export default  {
     title: 'Buttons / Back Button',
