@@ -1,6 +1,6 @@
 import PrivacyToggle from '../../components/Buttons/PrivacyToggle';
 
-import { action } from 'storybook/actions';
+import { action } from '@storybook/addon-actions';
 
 export default  {
     title: 'Buttons / Privacy Toggle',

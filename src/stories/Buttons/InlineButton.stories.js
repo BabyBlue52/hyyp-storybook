@@ -1,6 +1,6 @@
 import InlineButton from '../../components/Buttons/InlineButton';
 
-import { action } from 'storybook/actions';
+import { action } from '@storybook/addon-actions';
 
 export default {
     component: InlineButton,

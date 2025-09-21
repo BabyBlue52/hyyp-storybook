@@ -1,6 +1,6 @@
 import SecondaryButton from '../../components/Buttons/SecondaryButton';
 
-import { action } from 'storybook/actions';
+import { action } from '@storybook/addon-actions';
 
 export default {
     component: SecondaryButton,

@@ -1,5 +1,5 @@
 import TextArea from '../components/TextArea.vue';
-import { action } from 'storybook/actions';
+import { action } from '@storybook/addon-actions';
 
 export default {
   component: TextArea,

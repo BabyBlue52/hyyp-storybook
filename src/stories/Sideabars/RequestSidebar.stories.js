@@ -1,5 +1,5 @@
 import RequestSidebar from '../../components/Sidebars/RequestSidebar.vue';
-// import { action } from 'storybook/actions';
+// import { action } from '@storybook/addon-actions';
 
 export default {
   component: RequestSidebar,

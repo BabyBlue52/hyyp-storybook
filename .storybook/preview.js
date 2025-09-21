@@ -1,6 +1,6 @@
 
 import '../src/assets/main.scss';
-import { setup } from "@storybook/vue3-vite";
+import { setup } from "@storybook/vue3";
 import { registerPlugins } from "../src/plugins";
 import { withVuetifyTheme, DEFAULT_THEME } from "./withVuetifyTheme.decorator";
 
@@ -31,7 +31,6 @@ export const globalTypes = {
 };
 
 export const parameters = {
-  actions: { argTypesRegex: "^on[A-Z].*" },
   layout: "fullscreen",
   options: {
     storySort: {

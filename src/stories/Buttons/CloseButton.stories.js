@@ -1,6 +1,6 @@
 import CloseButton from '../../components/Buttons/CloseButton';
 
-import { action } from 'storybook/actions';
+import { action } from '@storybook/addon-actions';
 
 export default {
     component: CloseButton,

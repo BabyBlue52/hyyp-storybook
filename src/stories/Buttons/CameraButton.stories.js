@@ -1,5 +1,5 @@
 import CameraButton from '../../components/Buttons/CameraButton';
-// import { action } from 'storybook/actions';
+// import { action } from '@storybook/addon-actions';
 
 export default {
     component: CameraButton,

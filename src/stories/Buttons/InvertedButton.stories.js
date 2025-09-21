@@ -1,6 +1,6 @@
 import InvertedButton from '../../components/Buttons/InvertedButton';
 
-import { action } from 'storybook/actions';
+import { action } from '@storybook/addon-actions';
 
 export default {
     component: InvertedButton,
