@@ -10,6 +10,7 @@ const config = {
   ],
   "addons": [
     '@storybook/addon-actions',
+    '@storybook/addon-controls',
     '@storybook/addon-docs'
   ],
   "framework": {

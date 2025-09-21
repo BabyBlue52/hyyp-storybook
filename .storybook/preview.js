@@ -32,6 +32,7 @@ export const globalTypes = {
 
 export const parameters = {
   layout: "fullscreen",
+  actions: { argTypesRegex: "^on[A-Z].*" },
   options: {
     storySort: {
       order: ['HYYP','Buttons','System', 'Sidebars', 'Datatables', '*']

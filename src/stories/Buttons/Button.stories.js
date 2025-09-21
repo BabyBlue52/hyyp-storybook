@@ -20,6 +20,5 @@ const Template = args => ({
 
 export const Default = Template.bind({});
 Default.args = {
-    title: 'Default Button',
-    enabled: true
+    title: 'Default Button'
 }
