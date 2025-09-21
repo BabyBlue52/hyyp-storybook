@@ -1,10 +1,11 @@
 [build]
-  command = "npm run build-storybook"
+  command = "npm ci && npm run build-storybook"
   publish = "storybook-static"
 
 [build.environment]
   NODE_VERSION = "18"
   NPM_VERSION = "9"
+  NPM_FLAGS = "--production=false"
 
 [[redirects]]
   from = "/*"
