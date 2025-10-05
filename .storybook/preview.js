@@ -35,7 +35,7 @@ export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },
   options: {
     storySort: {
-      order: ['HYYP','Buttons','System', 'Sidebars', 'Datatables', '*']
+      order: ['HYYP','Buttons','System', 'Modals',  'Sidebars', 'Datatables', '*']
     }
   }
 };

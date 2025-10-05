@@ -1,20 +1,20 @@
-import Modal from '@/components/Modals/Modal.vue';
+import LoginModal from '@/components/Modals/LoginModal.vue';
 
 export default {
-  component: Modal,
+  component: LoginModal,
   //👇 Our exports that end in "Data" are not stories.
-  title: 'Modals / Default Modal',
+  title: 'Modals / Login Modal',
 }
 
 const Template = args => ({
-    components: { Modal },
+    components: { LoginModal },
     setup() {
         return args
     },
-    template: '<Modal v-bind="args" />'
+    template: '<LoginModal v-bind="args" />'
 })
 
 export const SignInPrompt = Template.bind({})
 SignInPrompt.args = {
-    text: 'Modal!'
+    text: 'Login Modal!'
 }

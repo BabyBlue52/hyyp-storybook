@@ -9,21 +9,18 @@
             <div class="share-header">
                 <v-icon icon="mdi-link-variant"></v-icon>
                 <div class="content">
-                    <h3>Share this Calendar</h3>
+                    <h3>Share This Event</h3>
                     <p>Let the public know about these upcoming events.</p>
                     <div class="clipboard">
                         <input v-model="link" ref="link" />
                     </div>
                 
-                    <div class="d-flex ">
-                        <div class="left" >
-                            <Button v-if="isCopied" title="Copied!" enabled="true"/>
-                            <Button v-else="!isCopied" title="Copy to Clipboard" enabled="true"  @click="copyToClipboard()"/>
-                        </div>
+                    <div class="d-flex share-buttons">
                         
-                        <div class="right">
-                            <InvertedButton title="Close" enabled="true"  @click="handleToggle()"/>
-                        </div>
+                            <Button v-if="isCopied" title="Copied!" enabled="true"/>
+                            <Button v-else title="Copy to Clipboard" enabled="true"  @click="copyToClipboard()"/>
+                            <!-- <InlineButton text="Close" enabled="true"  @click="handleToggle()"/> -->
+                        
                     </div>
                 </div>
             </div>
@@ -32,11 +29,11 @@
 </template>
 <script>
     import  Button from '@/components/Buttons/Button.vue';
-    import  InvertedButton from '@/components/Buttons/InvertedButton.vue';
+    // import  InlineButton from '@/components/Buttons/InlineButton.vue';
 
     export default {
         name: 'ShareLinkModal',
-        components: { Button, InvertedButton },
+        components: { Button },
         props: {
             isOpen: Boolean,
             link: String,
@@ -55,13 +52,19 @@
                 this.isOpen = !this.isOpen
                 this.isCopied = !this.isCopied;
             },
-            copyToClipboard() {
-                this.isCopied = !this.isCopied;
-                // Use refs and v-model to allow input interaction
-                const element = this.$refs.link;
-                element.select();
-                element.setSelectionRange(0, 99999);
-                document.execCommand('copy');
+            async copyToClipboard() {
+                try {
+                    // Copy to clipboard
+                    await navigator.clipboard.writeText(this.link);
+                    
+                    this.isCopied = true;
+                    
+                    setTimeout(() => {
+                        this.isCopied = false;
+                    }, 2000);
+                } catch (err) {
+                    console.error('Failed to copy: ', err);
+                }
             } 
         },
         emits: ['link'],
@@ -111,13 +114,26 @@
         margin: 30px 0;
         background: #f0f0f0;
         border-radius: 5px;
+        input {
+            width: 80%;
+            overflow: auto;
+            height: 100%;
+            margin: 0 auto;
+            border: none;
+            outline: none;
+            text-align: center;
+        }
     }
     .clipboard > p {
         text-transform: none;
         font-weight: medium;
     }
-    .left, .right {
-        margin:  10px;
+    .share-buttons {  
+        width: 100%;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
     }
     
 </style>

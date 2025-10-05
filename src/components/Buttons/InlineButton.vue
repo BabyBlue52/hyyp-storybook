@@ -1,6 +1,6 @@
 <template>
     <button :class="[disabled ? 'disabled' : 'inline-btn']"  @click="onClick()">
-        <p>{{title}}</p>
+        <p>{{text}}</p>
     </button>
 </template>
 
@@ -8,7 +8,7 @@
     export default {
         name: 'InlineButton',
         props: {
-            title: String,
+            text: String,
             disabled: Boolean
         },
         methods: {
@@ -24,7 +24,7 @@
     button.inline-btn {
         width: 200px;
         max-width: 200px;
-        height: 48px;
+        height: 40px;
         border-radius: 5px;
         background-color: white;
         border: 2px solid transparent;

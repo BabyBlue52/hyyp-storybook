@@ -24,7 +24,7 @@
     button.inverted-btn {
         width: 200px;
         max-width: 200px;
-        height: 48px;
+        height: 40px;
         border-radius: 5px;
         background-color: transparent;
         border: 2px solid #37515F;

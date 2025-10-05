@@ -30,7 +30,7 @@
     import Link from '@/components/UI/Link.vue';
     
     export default {
-        name: 'Modal',
+        name: 'LoginModal',
         components: { Link },
         props: {
             isOpen: Boolean,

@@ -59,7 +59,7 @@
 import { ref } from "vue";
 import Link from '@/components/UI/Link.vue';
 import Avatar from '@/components/UI/Avatar.vue'
-import Modal from '@/components/Modals/Modal.vue'
+import Modal from '@/components/Modals/LoginModal.vue'
 
 const isPopupVisible = ref(false);
 
