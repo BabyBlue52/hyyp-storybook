@@ -33,7 +33,7 @@
   <script>
     import { defineComponent } from 'vue'
     import { VueDraggableNext } from 'vue-draggable-next'
-    import Link from '../Link.vue'
+    import Link from '@/components/UI/Link.vue'
 
     export default defineComponent({
       components: {

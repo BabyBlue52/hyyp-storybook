@@ -142,8 +142,8 @@
 </template>
 
 <script>
-import TextInput from '../TextInput.vue';
-import CameraButton from '../Buttons/CameraButton.vue';
+import TextInput from '@/components/UI/TextInput.vue';
+import CameraButton from '@/components/Buttons/CameraButton.vue';
 
 export default {
     name: 'Contact Sidebar',

@@ -1,10 +1,9 @@
-import Modal from '../../components/System/Modal';
-import { action } from '@storybook/addon-actions';
+import Modal from '@/components/Modals/Modal.vue';
 
 export default {
   component: Modal,
   //👇 Our exports that end in "Data" are not stories.
-  title: 'System / Modal',
+  title: 'Modals / Default Modal',
 }
 
 const Template = args => ({

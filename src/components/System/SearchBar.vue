@@ -30,8 +30,8 @@
 </template>
 
 <script>
-import Button from "../Buttons/Button.vue";
-import TextInput from "../TextInput.vue";
+import Button from "@/components/Buttons/Button.vue";
+import TextInput from "@/components/UI/TextInput.vue";
 
 export default {
     name: 'Search Bar',

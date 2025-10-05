@@ -1,4 +1,4 @@
-@import "./variables.scss";
+@use "@/assets/variables.scss" as *;
 
 * {
     transition: all 0.3s ease-in-out;

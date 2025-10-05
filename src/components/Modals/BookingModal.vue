@@ -47,11 +47,12 @@
 </template>
 
 <script>
-import Avatar from '../Avatar.vue';
-import TimeDropDown from '../TimeDropdown.vue';
-import TextInput from '../TextInput.vue';
-import TextArea from '../TextArea.vue';
-import Button from '../Buttons/Button.vue';
+import Avatar from '@/components/UI/Avatar.vue';
+import TimeDropDown from '@/components/UI/TimeDropdown.vue';
+import TextInput from '@/components/UI/TextInput.vue';
+import TextArea from '@/components/UI/TextArea.vue';
+import Button from '@/components/Buttons/Button.vue';
+import Link from '@/components/UI/Link.vue';
 export default {
     name: 'Booking Modal',
     components: { Avatar, TimeDropDown, TextInput, TextArea, Button },
@@ -76,7 +77,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-@import '../../assets/variables.scss';
+@use '../../assets/variables.scss' as *;
 
 small {
     padding-bottom: 10px;

@@ -70,7 +70,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-@import "../../assets/variables.scss";
+@use "../../assets/variables.scss" as *;
 .time-scale {
   list-style: none;
   display: flex;

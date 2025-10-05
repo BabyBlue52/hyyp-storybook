@@ -50,7 +50,7 @@
 </template>
 
 <script>
-import Link from "../Link.vue";
+import Link from "@/components/UI/Link.vue";
 const cli = "git clone https://github.com/BabyBlue52/hyyp-storybook"
 
 export default {
@@ -82,6 +82,8 @@ export default {
 </script>
 
 <style scoped lang="scss">
+@use "sass:color";
+
 .v-main {
     overflow:hidden;
 }
@@ -145,7 +147,7 @@ export default {
             height: 42px;
             padding: 10px;
             color: #fbf8f8;
-            background: darken(#37515F, 35%);
+            background: color.adjust(#37515F, $lightness: -35%);
             border-radius: 5px;
             text-align: center;
             font-weight: bold;

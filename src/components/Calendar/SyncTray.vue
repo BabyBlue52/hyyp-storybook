@@ -62,7 +62,7 @@
 </template>
 
 <script>
-import ShareLinkModal from '../System/ShareLinkModal.vue';
+import ShareLinkModal from '@/components/Modals/ShareLinkModal.vue';
 
 export default {
     name: "SyncTray",
@@ -82,7 +82,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-@import "../../assets/variables.scss";
+@use "../../assets/variables.scss" as *;
 div.wrapper {
     display: flex;
     width: max-content;

@@ -31,8 +31,8 @@
     </div>
 </template>
 <script>
-    import  Button from '../Buttons/Button.vue';
-    import  InvertedButton from '../Buttons/InvertedButton.vue';
+    import  Button from '@/components/Buttons/Button.vue';
+    import  InvertedButton from '@/components/Buttons/InvertedButton.vue';
 
     export default {
         name: 'ShareLinkModal',
@@ -69,7 +69,7 @@
 </script>
 
 <style scoped lang="scss">
-    @import "../../assets/variables.scss";
+    @use "../../assets/variables.scss" as *;
 
     input:focus {
         outline: none;

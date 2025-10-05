@@ -54,12 +54,12 @@
 </template>
 
 <script>
-import TextInput from '../TextInput.vue';
-import TextArea from '../TextArea.vue';
-import AvatarLarge from '../AvatarLarge.vue';
-import Link from '../Link.vue';
-import Button from '../Buttons/Button.vue';
-import InlineButton from '../Buttons/InlineButton.vue';
+import TextInput from '@/components/UI/TextInput.vue';
+import TextArea from '@/components/UI/TextArea.vue';
+import AvatarLarge from '@/components/UI/AvatarLarge.vue';
+import Link from '@/components/UI/Link.vue';
+import Button from '@/components/Buttons/Button.vue';
+import InlineButton from '@/components/Buttons/InlineButton.vue';
 import { nextTick } from 'vue';
 
 export default {
@@ -118,7 +118,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-@import "../../assets/variables.scss";
+@use "../../assets/variables.scss" as *;
 .hyyp-sidebar {
     position: absolute;
     right: 0;

@@ -11,7 +11,7 @@
 </script>
 <style lang="scss">
   @import "./assets/main.scss";
-  @import "./assets/variables.scss";
+  @use "./assets/variables.scss" as *;
   
   .app {
     max-width: 95%;

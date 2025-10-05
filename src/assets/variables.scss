@@ -56,6 +56,7 @@ $headRoom: 50px;
 Animations 
 =================
 */
+$smooth: ease-in-out all 300ms;
 
 .slideIn {
   animation: slideIn 300ms ease-in-out;

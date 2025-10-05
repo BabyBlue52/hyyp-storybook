@@ -1,4 +1,4 @@
-import LocationCard from '../components/LocationCard.vue';
+import LocationCard from '@/components/LocationCard.vue';
 
 
 export default  {

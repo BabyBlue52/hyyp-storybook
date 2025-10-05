@@ -1,10 +1,10 @@
-import ShareLinkModal from '../../components/System/ShareLinkModal.vue';
+import ShareLinkModal from '@/components/Modals/ShareLinkModal.vue';
 // import { action } from '@storybook/addon-actions';
 
 export default {
   component: ShareLinkModal,
   //👇 Our exports that end in "Data" are not stories.
-  title: 'System / Sharing Modal',
+  title: 'Modals / Sharing Modal',
 }
 
 const Template = args => ({

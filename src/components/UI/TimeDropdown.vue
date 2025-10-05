@@ -48,7 +48,7 @@
   };
   </script>
 <style scoped lang="scss">
-    @import "../assets/variables.scss";
+    @use "@/assets/variables.scss" as *;
     div.drop-down {
         position: relative;
         width: calc(100% - 20px);

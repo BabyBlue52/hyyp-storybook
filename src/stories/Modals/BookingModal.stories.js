@@ -1,8 +1,8 @@
-import BookingModal from '../../components/System/BookingModal';
+import BookingModal from '@/components/Modals/BookingModal.vue';
 
 export default {
     component: BookingModal,
-    title: 'Calendar / Booking Modal'
+    title: 'Modals / Booking Modal'
 }
 
 const Template = args => ({

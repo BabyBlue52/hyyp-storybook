@@ -57,9 +57,9 @@
 
 <script  setup>
 import { ref } from "vue";
-import Link from './Link.vue';
-import Avatar from './Avatar.vue'
-import Modal from './System/Modal.vue'
+import Link from '@/components/UI/Link.vue';
+import Avatar from '@/components/UI/Avatar.vue'
+import Modal from '@/components/Modals/Modal.vue'
 
 const isPopupVisible = ref(false);
 

@@ -11,7 +11,7 @@
     <Link text="Open in Maps"/>
 </template>
 <script>
-    import Link from './Link.vue';
+    import Link from '@/components/UI/Link.vue';
     export default {
         name: 'Tag',
         components: { Link },

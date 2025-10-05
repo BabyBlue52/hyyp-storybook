@@ -42,8 +42,8 @@
 </template>
 
 <script>
-import Link from './Link.vue';
-import Avatar from './Avatar.vue'
+import Link from '@/components/UI/Link.vue';
+import Avatar from '@/components/UI/Avatar.vue'
 
 export default {
     name: 'HyypHeader',

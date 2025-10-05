@@ -15,11 +15,12 @@
     
 </script>
 <style lang="scss" scoped>
+@use "sass:color";
 .secondary-btn {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: lighten(#ccc, 10);
+    background: color.adjust(#ccc, $lightness: 10%);
     padding: 10px 30px;
     max-height: 30px;
     margin-right: 10px;
