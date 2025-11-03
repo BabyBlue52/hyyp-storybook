@@ -1,4 +1,4 @@
-import Tag from '@/components/Tag.vue';
+import Tag from '@/components/UI/Tag.vue';
 
 
 export default  {

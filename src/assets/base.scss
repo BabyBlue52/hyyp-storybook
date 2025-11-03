@@ -1,14 +1,19 @@
 @use "@/assets/variables.scss" as *;
-
+.sidebar-header img {
+    max-width: 120px;
+}
 * {
     transition: all 0.3s ease-in-out;
 }
 html, body {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     font-family: $openSans;
-    font-family: $poppins;
     overflow: hidden;
 }
-
 button {
     cursor: pointer;
     border-radius: 5px;
@@ -19,47 +24,112 @@ button:active {
 }
 
 h1 {
+    max-width: max-content;
+    text-align: left;
     font-size: $header;
-    font-weight: $heavy;
+    font-weight: 900;
+    color: $black;
+    white-space: nowrap;
+    line-height: 1.5rem;
 }
-h4 {
+h3, h4 {
     font-weight: $medium;
+    font-size: $subhead;
 }
 p {
     font-family: $poppins;
+    font-family: 'Poppins', sans-serif;
+    color: inherit;    
     font-size: $paragraph;
-    line-height: 1.2rem;
+    line-height: 1.1rem;
+    text-align: left;
 }
 
 a, a:link, a:hover, a:focus, a:active, a:visited {
     color: $black;
     text-decoration: none;
-    font-size: 0.8rem;
+    font-size: $paragraph;
     cursor: pointer;
 }
 input {
-    font-size: .9rem;
+    font-size: $paragraph;
 }
+small {
+    white-space: nowrap;
+}
+hr {
+    width: calc(100% - 40px);
+    margin: 0 auto 20px;
+    border: none;
+    border-bottom: .5px solid $grey_20;
+    opacity: 0.5;
+}
+.hyyp-input {
+    width: 100%;
+    input {
+        position: relative;
+        border: 1px solid $grey_80;
+        border-radius: 5px;
+        height: max-content;
+        min-height:  2rem;
+        min-width: 200px;
+        padding: 5px 10px;
+        padding-top: 20px;
+        background-color: white;
+        font-size: $paragraph;
+    }
+    
+    .v-field--variant-filled .v-field__overlay {
+        background: none;
+    }
+    
+    label {
+        position: relative;
+        z-index: 1;
+        top: 10px;
+        left: 8px;
+        width: max-content;
+        padding: 1px 5px;
+        background: white;
+        font-size: $label;
+        text-align: left;
+        text-transform: capitalize;
+        color: $grey_80;
+        display: flex;
+        justify-content: start;
+        text-align: left;
+    }
+} 
+// Layout
 .disabled {
     cursor: not-allowed;
     user-select: none;
     opacity: 0.67;
 }   
-
+.overlay {
+    position: absolute;
+    left:0;
+    top: 0;
+    z-index: 1;
+    width: 100%;
+    height: 550px;
+    background: rgba($black, 0.5)
+}
 .noSelect {
     user-select: none;
     -moz-user-select: none;
     -webkit-user-select: none;
 }
-
 .locked {
-    position: absolute;
-    top:0;
+    position: fixed;
+    top: 0;
     left: 0;
     height: 100vh;
     width: 100vw;
-    z-index: 1;
+    z-index: 9998;
     background: rgba($black, 0.33);
+    overflow: hidden;
+    touch-action: none;
 }
 .toggle {
     position: relative;
@@ -67,8 +137,8 @@ input {
     z-index: 999;   
 }
 .centered {
-    position: absolute;
-    top:0;
+    position: fixed;
+    top: 0;
     left: 0;
     height: 100vh;
     width: 100vw;
@@ -76,6 +146,7 @@ input {
     justify-content: center;
     align-items: center;
     overflow: hidden;
+    z-index: 9999;
 }
 .d-flex {
     display: flex;
@@ -86,32 +157,72 @@ input {
     align-items: center;
 }
 .row  {
-    flex-direction: row;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
     margin: 10px 0;
+    flex-direction: row;
+    gap: 10px;
 }
 .column {
+    max-height: max-content;
     flex-direction: column;
 }
-label {
-    text-transform: capitalize;
+.align-center {
+    align-items: center;
 }
-/* Modals */
-div.modal-container {
-    position: relative;
+.space-between {
+    justify-content: space-between;
+}
+.justify-left {
     display: flex;
-    flex-direction: column;
-    height: max-content;
-    width: 450px;
-    padding: 20px;
-    background-color: white;
-    border-radius: 8px;
-    z-index: 9;
-    div.modal-content {
-        width: calc(100% - 40px);
-        padding: 10px;
-        margin: 0 auto;
-    }
+    justify-content: flex-start;
 }
+.justify-right, .justift-end {
+    display: flex;
+    justify-content: flex-end;
+}
+.page-header {
+    max-width: max-content !important;
+    margin-right: 20px;
+    h2{ white-space: nowrap;}
+}
+.overflow-hidden {
+    height: 100%;
+    position:absolute;
+    overflow: hidden;
+}
+
+// Incidentals
+div.spacer {
+    height: 60px;
+}
+.bordered {
+    border: 1px solid salmon;
+}
+
+/*App Level Wrapper */
+.v-main {
+    overflow: hidden;
+}
+.hyyp-wrapper {
+    display: flex;
+    position: fixed;
+    top: calc($headRoom);
+    left: 0px;
+    width: 100%;
+    height: calc(100% - $headRoom);
+    overflow-y: auto;
+}
+div.logo {
+    display: flex;
+    margin-right: 20px;
+}
+
+div.logo>img {
+    height: 40px;
+}
+
 /* Buttons */
 button.close-btn {
     position: relative; 
@@ -133,38 +244,33 @@ button.close-btn:hover > svg {
 button.full-width {
     width: 100%;
     height: 48px;
-    background: #37515F;
+    background: $gunMetal;
     color: white;
     font-weight: $medium;
     font-size: $paragraph;
 }
 button.full-width:hover {
-    background:  #52798E;
+    background:  $gunMetal_light;
 }
 /* Edits to Vuetify */
-.hyyp-input-sm {
-    display: flex;
-    min-width: 50%;
-    align-items: center;
-}
 .v-textarea .v-field__input {
     -webkit-mask-image: none !important;
     mask-image: none !important;
 }
 .v-textarea {
     font-size: $paragraph;
-    margin: 20px 0;
+    margin: 4px 0 20px 0;
     ::placeholder {
         font-size: $paragraph;
     }
 }
 .v-field__input {
-    border: 1px solid #666;
+    border: 1px solid $grey_80;
     background: white;
     padding: 6px 8px !important;
     margin: 0;
     border-radius: 2.5px;
-    font-size: 0.9rem;
+    font-size: $paragraph;
     min-height: 1rem !important;
     min-width: 100% ;
     &:disabled {
@@ -210,7 +316,7 @@ button.full-width:hover {
 } 
 .ProseMirror {
     padding: 10px;
-    border: 3px solid #333;
+    border: 3px solid $black;
     border-radius: 0 0 5px 5px;
     max-width: 1000px;
     min-height: 200px;
@@ -228,6 +334,6 @@ button.full-width:hover {
 }
 
 .ProseMirror blockquote {
-    padding-left: 1rem;
+    padding-left: 12px;
     border-left: 2px solid rgba(13, 13, 13, 0.1);
 }

@@ -87,7 +87,7 @@
             </div>
             <hr/>
             <div class="filter-footer justify-end">
-                <InlineButton @click="clearAllFilters" title='Clear All' />
+                <InlineButton @click="clearAllFilters" text='Clear All' />
                 <Button :title="`Apply Filters (${appliedFiltersCount})`"  @click="handleClick"/>
             </div>
         </div>

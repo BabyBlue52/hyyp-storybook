@@ -1,8 +1,9 @@
 
-import '../src/assets/main.scss';
+import '../src/assets/base.scss';
 import { setup } from "@storybook/vue3";
 import { registerPlugins } from "../src/plugins";
 import { withVuetifyTheme, DEFAULT_THEME } from "./withVuetifyTheme.decorator";
+import logo from '../src/assets/hyyp.svg';
 
 setup((app) => {
   // Registers your app's plugins into Storybook
@@ -25,9 +26,6 @@ export const globalTypes = {
       dynamicTitle: true,
     },
   },
-  parameters: {
-    
-  }
 };
 
 export const parameters = {
@@ -37,7 +35,7 @@ export const parameters = {
     storySort: {
       order: ['HYYP','Buttons','System', 'Modals',  'Sidebars', 'Datatables', '*']
     }
-  }
+  },
 };
 
 export const decorators = [withVuetifyTheme];

@@ -7,6 +7,10 @@ Fonte
 
 $openSans: 'Open Sans', sans-serif;
 $poppins: 'Poppins', sans-serif;
+
+.poppins {
+  font-family: $poppins;
+}
 /*
 =================
 Colors
@@ -26,8 +30,10 @@ $gunMetal: #37515f;
 $gunMetal_light: #52798e;
 $error: #ff4d4d;
 $primary: #e4959e;
+$secondary: $gunMetal;
 $success: #59d96c;
 $success_darken:  #2AB73F;
+
 /*
 =================
 Design Units
@@ -38,7 +44,7 @@ $small: 0.75rem;
 $paragraph: 0.9rem;
 $subhead: 1.2rem;
 $header: 1.75rem;
-$pageTitle: 2.5rem;
+$pageTitle: 2.75rem;
 $light: 400;
 $medium: 500;
 $heavy: 700;
@@ -56,42 +62,43 @@ $headRoom: 50px;
 Animations 
 =================
 */
-$smooth: ease-in-out all 300ms;
+$smooth: all ease-in-out 300ms;
 
-.slideIn {
-  animation: slideIn 300ms ease-in-out;
-  opacity: 1;
-}
-.slideOut {
-  animation: slideOut 300ms ease-in-out;
-  opacity: 0;
-  display: none;
-}
-@keyframes slideIn {
-  from {
-    transform: translateY(100%);
-    opacity: 0;
-  }
 
-  to {
-    transform: translateY(0%);
+/*
+ =================
+Animations 
+=================
+*/
+
+.fadeIn {
+    animation: fadeIn 300ms ease-in-out;
     opacity: 1;
   }
-}
-@keyframes slideOut {
-  from {
-    transform: translateY(0%);
-    opacity: 1;
-  }
-
-  to {
-    transform: translateY(100%);
+  .fadeOut {
+    animation: fadeOut 300ms ease-in-out;
     opacity: 0;
+    display: none;
   }
-}
-
-
-
-
-
-
+  @keyframes fadeIn {
+    from {
+      transform: translateY(20px) scale(0.95);
+      opacity: 0;
+    }
+  
+    to {
+      transform: translateY(0) scale(1);
+      opacity: 1;
+    }
+  }
+  @keyframes fadeOut {
+    from {
+      transform: translateY(0) scale(1);
+      opacity: 1;
+    }
+  
+    to {
+      transform: translateY(20px) scale(0.95);
+      opacity: 0;
+    }
+  }

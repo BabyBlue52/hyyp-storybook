@@ -10,7 +10,7 @@
   import Docs from '@/components/Docs/Introduction.vue'
 </script>
 <style lang="scss">
-  @import "./assets/main.scss";
+  @import "./assets/base.scss";
   @use "./assets/variables.scss" as *;
   
   .app {

@@ -7,15 +7,20 @@ const config = {
     "../src/**/*.mdx",
     "../src/**/*.stories.@(js|jsx|mjs|ts|tsx)"
   ],
+
   "addons": [
     '@storybook/addon-actions',
     '@storybook/addon-controls',
-    '@storybook/addon-docs'
+    '@storybook/addon-docs',
+    "@storybook/addon-mdx-gfm",
+    "@chromatic-com/storybook"
   ],
+
   "framework": {
     "name": '@storybook/vue3-vite',
     "options": {}
   },
+
   "viteFinal": async (config) => {
     config.resolve.alias = {
       ...config.resolve.alias,
@@ -23,5 +28,6 @@ const config = {
     };
     return config;
   },
+
 };
 export default config;

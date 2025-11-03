@@ -2,7 +2,7 @@
     <!-- Work into Group Component -->
     <div class="d-flex column" style=" margin: 0 10px;">
         <!-- <label>{{ label }}</label> -->
-        <v-textarea variant="outlined" :placeholder="placeholder"></v-textarea>
+        <v-textarea variant="outlined" :placeholder="placeholder" ></v-textarea>
     </div>
 
 </template>
@@ -26,6 +26,7 @@
         position: relative;
         border-radius: 5px;
         width: 100%;
+        min-height: 140px;
         max-width: 500px;
         padding: 5px 10px;
         padding-top: 20px;
