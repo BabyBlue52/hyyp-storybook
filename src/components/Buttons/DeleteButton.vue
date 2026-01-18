@@ -1,26 +1,30 @@
 <template>
     <button class="delete-btn" @click="onClick">
-        <span>Delete Room</span>
+        <span>{{ text }}</span>
     </button>
 </template>
 
 <script>
     export default {
         name: 'BackButton',
+        props: {
+            text: String,
+            hasIcon: Boolean,
+        },
         data() {
             return {
                 isHover: false
             }
         },
         methods: {
-            onClick() {
-                window.alert('Are you sure?')
-            },
+            // onClick() {
+            //     window.alert('Are you sure?')
+            // },
         }
     }    
 </script>
 
-<style scoped>
+<style scoped lang="scss">
     button.delete-btn {
         display: flex;
         justify-content: center;
@@ -33,6 +37,7 @@
         background: none;
         color: #FF4D4D;
         line-height: 1rem;
+        font-size: $paragraph;
     }
     span {
         position:relative;
