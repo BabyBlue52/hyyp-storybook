@@ -37,7 +37,7 @@
         background: none;
         color: #FF4D4D;
         line-height: 1rem;
-        font-size: $paragraph;
+        font-size: .9rem;
     }
     span {
         position:relative;
