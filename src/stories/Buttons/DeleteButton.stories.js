@@ -1,6 +1,6 @@
 import DeleteButton from '../../components/Buttons/DeleteButton';
 
-import { action } from '@storybook/addon-actions';
+import { action } from 'storybook/actions';
 
 export default {
     component: DeleteButton,

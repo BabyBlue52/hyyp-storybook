@@ -1,5 +1,10 @@
+// This file has been automatically migrated to valid ESM format by Storybook.
 
+import { fileURLToPath } from "node:url";
 import { dirname, join } from "path";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 /** @type { import('@storybook/vue3-vite').StorybookConfig } */
 const config = {
@@ -9,16 +14,15 @@ const config = {
   ],
 
   "addons": [
-    '@storybook/addon-actions',
-    '@storybook/addon-controls',
-    '@storybook/addon-docs',
-    "@storybook/addon-mdx-gfm",
+    '@storybook/addon-links',
     "@chromatic-com/storybook"
   ],
 
   "framework": {
     "name": '@storybook/vue3-vite',
-    "options": {}
+    "options": {
+      docgen: false
+    }
   },
 
   "viteFinal": async (config) => {

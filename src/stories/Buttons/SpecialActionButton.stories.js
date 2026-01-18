@@ -1,6 +1,6 @@
 import SpecialActionButton from '../../components/Buttons/SpecialActionButton';
 
-import { action } from '@storybook/addon-actions';
+import { action } from 'storybook/actions';
 
 export default {
     component: SpecialActionButton,

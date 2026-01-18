@@ -1,44 +1,2490 @@
-[22:31:57.623] [DEBUG] Extracting storybook data...
-[22:31:57.623] [DEBUG] Getting Storybook info...
-[22:31:57.623] [DEBUG] Loading main config...
-[22:31:57.658] [ERROR] Error: Unable to find or evaluate .storybook/main.js: SB_CORE-SERVER_0007 (MainFileEvaluationError): Storybook couldn't evaluate your .storybook/main.js file.
+[14:48:10.665] [INFO] Storybook Upgrade - v9.1.17
+[14:48:10.677] [INFO] detect-projects-spinner-start: Detecting projects...
+[14:48:10.680] [DEBUG] Finding Storybook projects...
+[14:48:10.722] [DEBUG] Found 1 Storybook projects
+[14:48:10.722] [INFO] detect-projects-spinner: Detecting projects: 1 projects
+[14:48:10.723] [DEBUG] Getting Storybook data...
+[14:48:10.723] [DEBUG] Getting Storybook info...
+[14:48:10.723] [DEBUG] Loading main config...
+[14:48:10.765] [DEBUG] Getting stories paths...
+[14:48:10.775] [DEBUG] Getting package manager...
+[14:48:11.193] [DEBUG] Getting Storybook version...
+[14:48:11.194] [DEBUG] /.storybook - Validating before version... 8.6.14
+[14:48:11.194] [DEBUG] /.storybook - Validating upgrade compatibility...
+[14:48:11.194] [DEBUG] /.storybook - Fetching NPM version information...
+[14:48:11.194] [DEBUG] Getting CLI versions from NPM for storybook...
+[14:48:11.196] [DEBUG] Getting CLI versions from NPM for storybook@next...
+[14:48:11.975] [DEBUG] /.storybook - Evaluating blockers...
+[14:48:11.977] [DEBUG] Getting installed version for @storybook/experimental-addon-test...
+[14:48:12.244] [INFO] detect-projects-spinner-stop: 1 project detected
+[14:48:12.244] [DEBUG] Found 1 valid projects and 0 error projects
+[14:48:12.245] [INFO] Upgrading from 8.6.14 to 9.1.17
+[14:48:12.252] [INFO] upgrade-dependencies-task-start: Fetching versions to update package.json files..
+[14:48:12.252] [DEBUG] Updating dependencies in /.storybook...
+[14:48:12.258] [INFO] upgrade-dependencies-task: /package.json
+[14:48:12.258] [DEBUG] {
+  "upgradedDependencies": [
+    "storybook@9.1.17"
+  ]
+}
+[14:48:12.258] [DEBUG] {
+  "upgradedDevDependencies": [
+    "@storybook/addon-docs@9.1.17",
+    "@storybook/addon-links@9.1.17",
+    "@storybook/vue3-vite@9.1.17"
+  ]
+}
+[14:48:12.258] [DEBUG] {
+  "upgradedPeerDependencies": []
+}
+[14:48:12.258] [DEBUG] Using cached version for storybook...
+[14:48:12.259] [DEBUG] Getting CLI versions from NPM for @storybook/addon-docs...
+[14:48:12.903] [DEBUG] Getting CLI versions from NPM for @storybook/addon-links...
+[14:48:13.519] [DEBUG] Getting CLI versions from NPM for @storybook/vue3-vite...
+[14:48:14.475] [INFO] upgrade-dependencies-task-success: Updated package versions in package.json files
+[14:48:14.475] [INFO] detect-automigrations-task-start: Detecting automigrations...
+[14:48:14.476] [DEBUG] Starting automigration collection across 1 projects and 16 fixes...
+[14:48:14.483] [INFO] detect-automigrations-task: Checking automigrations for /.storybook...
+[14:48:14.483] [DEBUG] Processing project: /.storybook
+[14:48:14.483] [DEBUG] Checking fix eslintPlugin for project /.storybook...
+[14:48:14.485] [DEBUG] Checking fix addon-mdx-gfm-remove for project /.storybook...
+[14:48:14.485] [DEBUG] Checking fix addon-storysource-code-panel for project /.storybook...
+[14:48:14.485] [DEBUG] Checking fix upgrade-storybook-related-dependencies for project /.storybook...
+[14:48:14.485] [DEBUG] Checking for incompatible storybook packages...
+[14:48:14.487] [DEBUG] Getting installed version for @storybook/global...
+[14:48:14.487] [DEBUG] Getting installed version for @storybook/addon-actions...
+[14:48:14.488] [DEBUG] Getting installed version for @storybook/addon-controls...
+[14:48:14.488] [DEBUG] Getting installed version for @storybook/addon-mdx-gfm...
+[14:48:14.489] [DEBUG] Getting installed version for @chromatic-com/storybook...
+[14:48:14.996] [DEBUG] Getting CLI versions from NPM for @chromatic-com/storybook...
+[14:48:15.031] [DEBUG] Getting CLI versions from NPM for @storybook/addon-controls...
+[14:48:15.039] [DEBUG] Getting CLI versions from NPM for @storybook/addon-mdx-gfm...
+[14:48:15.079] [DEBUG] Getting CLI versions from NPM for @storybook/addon-actions...
+[14:48:15.120] [DEBUG] Getting CLI versions from NPM for @storybook/global...
+[14:48:15.949] [DEBUG] Checking fix initial-globals for project /.storybook...
+[14:48:15.960] [DEBUG] Checking fix addon-globals-api for project /.storybook...
+[14:48:15.963] [DEBUG] Checking fix addon-a11y-addon-test for project /.storybook...
+[14:48:15.963] [DEBUG] Checking fix consolidated-imports for project /.storybook...
+[14:48:15.964] [DEBUG] Checking fix addon-experimental-test for project /.storybook...
+[14:48:15.964] [DEBUG] Using cached installed version for @storybook/experimental-addon-test...
+[14:48:15.964] [DEBUG] Checking fix rnstorybook-config for project /.storybook...
+[14:48:15.964] [DEBUG] Checking fix remove-addon-interactions for project /.storybook...
+[14:48:15.964] [DEBUG] Checking fix renderer-to-framework for project /.storybook...
+[14:48:15.964] [DEBUG] Checking fix remove-essential-addons for project /.storybook...
+[14:48:15.964] [DEBUG] Checking fix addon-a11y-parameters for project /.storybook...
+[14:48:15.964] [DEBUG] Checking fix remove-docs-autodocs for project /.storybook...
+[14:48:15.966] [DEBUG] Checking fix wrap-require for project /.storybook...
+[14:48:15.974] [INFO] detect-automigrations-task: 
+Automigrations detected:
+[14:48:15.981] [INFO] detect-automigrations-task: ✔ addon-mdx-gfm-remove
+[14:48:15.990] [INFO] detect-automigrations-task: ✔ upgrade-storybook-related-dependencies
+[14:48:15.998] [INFO] detect-automigrations-task: ✔ remove-essential-addons
+[14:48:15.998] [INFO] detect-automigrations-task-success: 3 automigration(s) detected
+[14:49:13.145] [PROMPT] Select automigrations to run {"choice":["addon-mdx-gfm-remove","remove-essential-addons"]}
+[14:49:13.145] [INFO] automigrate-/.storybook-task-start: Running automigrations for /.storybook
+[14:49:13.152] [DEBUG] Uninstalling @storybook/addon-mdx-gfm
+[14:49:13.154] [DEBUG] Removing '@storybook/addon-mdx-gfm' from main.js addons field.
+[14:49:13.174] [INFO] automigrate-/.storybook-task: ✔ addon-mdx-gfm-remove
+[14:49:13.177] [DEBUG] Uninstalling @storybook/addon-actions
+[14:49:13.177] [DEBUG] Removing '@storybook/addon-actions' from main.js addons field.
+[14:49:13.181] [DEBUG] Uninstalling @storybook/addon-controls
+[14:49:13.181] [DEBUG] Removing '@storybook/addon-controls' from main.js addons field.
+[14:49:13.199] [INFO] automigrate-/.storybook-task: ✔ remove-essential-addons
+[14:49:13.199] [INFO] automigrate-/.storybook-task-success: Completed automigrations for /.storybook
+[14:49:13.199] [INFO] Installing dependencies...
+[14:49:13.199] [INFO] install-dependencies-task-start: Installing dependencies...
+[14:49:13.495] [INFO] ➤ YN0000: ┌ Resolution step
+[14:49:13.504] [INFO] install-dependencies-task: ➤ YN0000: ┌ Resolution step
+[14:49:14.646] [INFO] ➤ YN0002: │ @chromatic-com/storybook@npm:3.2.7 [b18e5] doesn't provide react (pecacc), requested by react-confetti
+[14:49:14.657] [INFO] install-dependencies-task: ➤ YN0002: │ @chromatic-com/storybook@npm:3.2.7 [b18e5] doesn't
+provide react (pecacc), requested by react-confetti
+[14:49:14.657] [INFO] ➤ YN0002: │ @storybook/addon-docs@npm:9.1.17 [b18e5] doesn't provide @types/react (p1f215), requested by @mdx-js/react
+➤ YN0002: │ @storybook/vue3-vite@npm:9.1.17 [b18e5] doesn't provide vue (p7bc4c), requested by @storybook/vue3
+➤ YN0002: │ @storybook/vue3-vite@npm:9.1.17 [b18e5] doesn't provide vue (pcb9ff), requested by vue-docgen-api
+➤ YN0002: │ hyyp-storybook@workspace:. doesn't provide sortablejs (pa8a54), requested by vue-draggable-next
+➤ YN0060: │ hyyp-storybook@workspace:. provides storybook (p59d17) with version 9.1.17, which doesn't satisfy what @chromatic-com/storybook requests
+➤ YN0060: │ hyyp-storybook@workspace:. provides vite (p72b5b) with version 6.3.6, which doesn't satisfy what vite-plugin-vuetify requests
+➤ YN0060: │ hyyp-storybook@workspace:. provides vue (pa9f0c) with version 3.5.21, which doesn't satisfy what tiptap requests
+➤ YN0002: │ hyyp-storybook@workspace:. doesn't provide vue-template-compiler (pf691d), requested by tiptap
+➤ YN0002: │ storybook@npm:9.1.17 [b18e5] doesn't provide @testing-library/dom (p09d88), requested by @testing-library/user-event
+➤ YN0002: │ vite-plugin-vuetify@npm:1.0.2 [b18e5] doesn't provide vue (p0f618), requested by @vuetify/loader-shared
+➤ YN0000: │ Some peer dependencies are incorrectly met; run yarn explain peer-requirements <hash> for details, where <hash> is the six-letter p-prefixed code
+➤ YN0000: └ Completed in 1s 153ms
+➤ YN0000: ┌ Fetch step
+➤ YN0013: │ @adobe/css-tools@npm:4.4.4 can't be found in the cache and will be fetched from the remote registry
+[14:49:14.672] [INFO] install-dependencies-task: ➤ YN0002: │ @storybook/addon-docs@npm:9.1.17 [b18e5] doesn't
+provide @types/react (p1f215), requested by @mdx-js/react
+➤ YN0002: │ @storybook/vue3-vite@npm:9.1.17 [b18e5] doesn't
+provide vue (p7bc4c), requested by @storybook/vue3
+➤ YN0002: │ @storybook/vue3-vite@npm:9.1.17 [b18e5] doesn't
+provide vue (pcb9ff), requested by vue-docgen-api
+➤ YN0002: │ hyyp-storybook@workspace:. doesn't provide sortablejs
+(pa8a54), requested by vue-draggable-next
+➤ YN0060: │ hyyp-storybook@workspace:. provides storybook (p59d17)
+with version 9.1.17, which doesn't satisfy what
+@chromatic-com/storybook requests
+➤ YN0060: │ hyyp-storybook@workspace:. provides vite (p72b5b) with
+version 6.3.6, which doesn't satisfy what vite-plugin-vuetify
+requests
+➤ YN0060: │ hyyp-storybook@workspace:. provides vue (pa9f0c) with
+version 3.5.21, which doesn't satisfy what tiptap requests
+➤ YN0002: │ hyyp-storybook@workspace:. doesn't provide
+vue-template-compiler (pf691d), requested by tiptap
+➤ YN0002: │ storybook@npm:9.1.17 [b18e5] doesn't provide
+@testing-library/dom (p09d88), requested by
+@testing-library/user-event
+➤ YN0002: │ vite-plugin-vuetify@npm:1.0.2 [b18e5] doesn't provide
+vue (p0f618), requested by @vuetify/loader-shared
+➤ YN0000: │ Some peer dependencies are incorrectly met; run yarn
+explain peer-requirements <hash> for details, where <hash> is the
+six-letter p-prefixed code
+➤ YN0000: └ Completed in 1s 153ms
+➤ YN0000: ┌ Fetch step
+➤ YN0013: │ @adobe/css-tools@npm:4.4.4 can't be found in the cache
+and will be fetched from the remote registry
+[14:49:14.672] [INFO] ➤ YN0013: │ @storybook/addon-docs@npm:9.1.17 can't be found in the cache and will be fetched from the remote registry
+➤ YN0013: │ @storybook/addon-links@npm:9.1.17 can't be found in the cache and will be fetched from the remote registry
+➤ YN0013: │ @storybook/builder-vite@npm:9.1.17 can't be found in the cache and will be fetched from the remote registry
+➤ YN0013: │ @storybook/csf-plugin@npm:9.1.17 can't be found in the cache and will be fetched from the remote registry
+➤ YN0013: │ @storybook/addon-docs@npm:9.1.17 can't be found in the cache and will be fetched from the remote registry
+➤ YN0013: │ @storybook/addon-links@npm:9.1.17 can't be found in the cache and will be fetched from the remote registry
+➤ YN0013: │ @storybook/builder-vite@npm:9.1.17 can't be found in the cache and will be fetched from the remote registry
+➤ YN0013: │ @storybook/csf-plugin@npm:9.1.17 can't be found in the cache and will be fetched from the remote registry
+➤ YN0013: │ @storybook/react-dom-shim@npm:9.1.17 can't be found in the cache and will be fetched from the remote registry
+➤ YN0013: │ @storybook/addon-links@npm:9.1.17 can't be found in the cache and will be fetched from the remote registry
+➤ YN0013: │ @storybook/builder-vite@npm:9.1.17 can't be found in the cache and will be fetched from the remote registry
+➤ YN0013: │ @storybook/csf-plugin@npm:9.1.17 can't be found in the cache and will be fetched from the remote registry
+➤ YN0013: │ @storybook/react-dom-shim@npm:9.1.17 can't be found in the cache and will be fetched from the remote registry
+➤ YN0013: │ @storybook/vue3-vite@npm:9.1.17 can't be found in the cache and will be fetched from the remote registry
+➤ YN0013: │ @storybook/builder-vite@npm:9.1.17 can't be found in the cache and will be fetched from the remote registry
+➤ YN0013: │ @storybook/csf-plugin@npm:9.1.17 can't be found in the cache and will be fetched from the remote registry
+➤ YN0013: │ @storybook/react-dom-shim@npm:9.1.17 can't be found in the cache and will be fetched from the remote registry
+➤ YN0013: │ @storybook/vue3-vite@npm:9.1.17 can't be found in the cache and will be fetched from the remote registry
+➤ YN0013: │ @storybook/vue3@npm:9.1.17 can't be found in the cache and will be fetched from the remote registry
+➤ YN0013: │ @storybook/csf-plugin@npm:9.1.17 can't be found in the cache and will be fetched from the remote registry
+➤ YN0013: │ @storybook/react-dom-shim@npm:9.1.17 can't be found in the cache and will be fetched from the remote registry
+➤ YN0013: │ @storybook/vue3-vite@npm:9.1.17 can't be found in the cache and will be fetched from the remote registry
+➤ YN0013: │ @storybook/vue3@npm:9.1.17 can't be found in the cache and will be fetched from the remote registry
+➤ YN0013: │ @testing-library/jest-dom@npm:6.9.1 can't be found in the cache and will be fetched from the remote registry
+➤ YN0013: │ @storybook/react-dom-shim@npm:9.1.17 can't be found in the cache and will be fetched from the remote registry
+➤ YN0013: │ @storybook/vue3-vite@npm:9.1.17 can't be found in the cache and will be fetched from the remote registry
+➤ YN0013: │ @storybook/vue3@npm:9.1.17 can't be found in the cache and will be fetched from the remote registry
+➤ YN0013: │ @testing-library/jest-dom@npm:6.9.1 can't be found in the cache and will be fetched from the remote registry
+➤ YN0013: │ @testing-library/user-event@npm:14.6.1 can't be found in the cache and will be fetched from the remote registry
+[14:49:14.688] [INFO] install-dependencies-task: ➤ YN0013: │ @storybook/addon-docs@npm:9.1.17 can't be found in the
+cache and will be fetched from the remote registry
+➤ YN0013: │ @storybook/addon-links@npm:9.1.17 can't be found in
+the cache and will be fetched from the remote registry
+➤ YN0013: │ @storybook/builder-vite@npm:9.1.17 can't be found in
+the cache and will be fetched from the remote registry
+➤ YN0013: │ @storybook/csf-plugin@npm:9.1.17 can't be found in the
+cache and will be fetched from the remote registry
+➤ YN0013: │ @storybook/addon-docs@npm:9.1.17 can't be found in the
+cache and will be fetched from the remote registry
+➤ YN0013: │ @storybook/addon-links@npm:9.1.17 can't be found in
+the cache and will be fetched from the remote registry
+➤ YN0013: │ @storybook/builder-vite@npm:9.1.17 can't be found in
+the cache and will be fetched from the remote registry
+➤ YN0013: │ @storybook/csf-plugin@npm:9.1.17 can't be found in the
+cache and will be fetched from the remote registry
+➤ YN0013: │ @storybook/react-dom-shim@npm:9.1.17 can't be found in
+the cache and will be fetched from the remote registry
+➤ YN0013: │ @storybook/addon-links@npm:9.1.17 can't be found in
+the cache and will be fetched from the remote registry
+➤ YN0013: │ @storybook/builder-vite@npm:9.1.17 can't be found in
+the cache and will be fetched from the remote registry
+➤ YN0013: │ @storybook/csf-plugin@npm:9.1.17 can't be found in the
+cache and will be fetched from the remote registry
+➤ YN0013: │ @storybook/react-dom-shim@npm:9.1.17 can't be found in
+the cache and will be fetched from the remote registry
+➤ YN0013: │ @storybook/vue3-vite@npm:9.1.17 can't be found in the
+cache and will be fetched from the remote registry
+➤ YN0013: │ @storybook/builder-vite@npm:9.1.17 can't be found in
+the cache and will be fetched from the remote registry
+➤ YN0013: │ @storybook/csf-plugin@npm:9.1.17 can't be found in the
+cache and will be fetched from the remote registry
+➤ YN0013: │ @storybook/react-dom-shim@npm:9.1.17 can't be found in
+the cache and will be fetched from the remote registry
+➤ YN0013: │ @storybook/vue3-vite@npm:9.1.17 can't be found in the
+cache and will be fetched from the remote registry
+➤ YN0013: │ @storybook/vue3@npm:9.1.17 can't be found in the cache
+and will be fetched from the remote registry
+➤ YN0013: │ @storybook/csf-plugin@npm:9.1.17 can't be found in the
+cache and will be fetched from the remote registry
+➤ YN0013: │ @storybook/react-dom-shim@npm:9.1.17 can't be found in
+the cache and will be fetched from the remote registry
+➤ YN0013: │ @storybook/vue3-vite@npm:9.1.17 can't be found in the
+cache and will be fetched from the remote registry
+➤ YN0013: │ @storybook/vue3@npm:9.1.17 can't be found in the cache
+and will be fetched from the remote registry
+➤ YN0013: │ @testing-library/jest-dom@npm:6.9.1 can't be found in
+the cache and will be fetched from the remote registry
+➤ YN0013: │ @storybook/react-dom-shim@npm:9.1.17 can't be found in
+the cache and will be fetched from the remote registry
+➤ YN0013: │ @storybook/vue3-vite@npm:9.1.17 can't be found in the
+cache and will be fetched from the remote registry
+➤ YN0013: │ @storybook/vue3@npm:9.1.17 can't be found in the cache
+and will be fetched from the remote registry
+➤ YN0013: │ @testing-library/jest-dom@npm:6.9.1 can't be found in
+the cache and will be fetched from the remote registry
+➤ YN0013: │ @testing-library/user-event@npm:14.6.1 can't be found
+in the cache and will be fetched from the remote registry
+[14:49:14.688] [INFO] ➤ YN0013: │ @storybook/vue3-vite@npm:9.1.17 can't be found in the cache and will be fetched from the remote registry
+➤ YN0013: │ @storybook/vue3@npm:9.1.17 can't be found in the cache and will be fetched from the remote registry
+➤ YN0013: │ @testing-library/jest-dom@npm:6.9.1 can't be found in the cache and will be fetched from the remote registry
+➤ YN0013: │ @testing-library/user-event@npm:14.6.1 can't be found in the cache and will be fetched from the remote registry
+➤ YN0013: │ @types/chai@npm:5.2.3 can't be found in the cache and will be fetched from the remote registry
+➤ YN0013: │ @storybook/vue3@npm:9.1.17 can't be found in the cache and will be fetched from the remote registry
+➤ YN0013: │ @testing-library/jest-dom@npm:6.9.1 can't be found in the cache and will be fetched from the remote registry
+➤ YN0013: │ @testing-library/user-event@npm:14.6.1 can't be found in the cache and will be fetched from the remote registry
+➤ YN0013: │ @types/chai@npm:5.2.3 can't be found in the cache and will be fetched from the remote registry
+➤ YN0013: │ @types/deep-eql@npm:4.0.2 can't be found in the cache and will be fetched from the remote registry
+➤ YN0013: │ @testing-library/jest-dom@npm:6.9.1 can't be found in the cache and will be fetched from the remote registry
+➤ YN0013: │ @testing-library/user-event@npm:14.6.1 can't be found in the cache and will be fetched from the remote registry
+➤ YN0013: │ @types/chai@npm:5.2.3 can't be found in the cache and will be fetched from the remote registry
+➤ YN0013: │ @types/deep-eql@npm:4.0.2 can't be found in the cache and will be fetched from the remote registry
+➤ YN0013: │ @vitest/expect@npm:3.2.4 can't be found in the cache and will be fetched from the remote registry
+➤ YN0013: │ @testing-library/user-event@npm:14.6.1 can't be found in the cache and will be fetched from the remote registry
+➤ YN0013: │ @types/chai@npm:5.2.3 can't be found in the cache and will be fetched from the remote registry
+➤ YN0013: │ @types/deep-eql@npm:4.0.2 can't be found in the cache and will be fetched from the remote registry
+➤ YN0013: │ @vitest/expect@npm:3.2.4 can't be found in the cache and will be fetched from the remote registry
+➤ YN0013: │ @vitest/mocker@npm:3.2.4 can't be found in the cache and will be fetched from the remote registry
+➤ YN0013: │ @types/chai@npm:5.2.3 can't be found in the cache and will be fetched from the remote registry
+➤ YN0013: │ @types/deep-eql@npm:4.0.2 can't be found in the cache and will be fetched from the remote registry
+➤ YN0013: │ @vitest/expect@npm:3.2.4 can't be found in the cache and will be fetched from the remote registry
+➤ YN0013: │ @vitest/mocker@npm:3.2.4 can't be found in the cache and will be fetched from the remote registry
+➤ YN0013: │ @vitest/pretty-format@npm:3.2.4 can't be found in the cache and will be fetched from the remote registry
+➤ YN0013: │ @types/deep-eql@npm:4.0.2 can't be found in the cache and will be fetched from the remote registry
+➤ YN0013: │ @vitest/expect@npm:3.2.4 can't be found in the cache and will be fetched from the remote registry
+➤ YN0013: │ @vitest/mocker@npm:3.2.4 can't be found in the cache and will be fetched from the remote registry
+➤ YN0013: │ @vitest/pretty-format@npm:3.2.4 can't be found in the cache and will be fetched from the remote registry
+➤ YN0013: │ @vitest/spy@npm:3.2.4 can't be found in the cache and will be fetched from the remote registry
+➤ YN0013: │ @vitest/expect@npm:3.2.4 can't be found in the cache and will be fetched from the remote registry
+➤ YN0013: │ @vitest/mocker@npm:3.2.4 can't be found in the cache and will be fetched from the remote registry
+➤ YN0013: │ @vitest/pretty-format@npm:3.2.4 can't be found in the cache and will be fetched from the remote registry
+➤ YN0013: │ @vitest/spy@npm:3.2.4 can't be found in the cache and will be fetched from the remote registry
+➤ YN0013: │ @vitest/utils@npm:3.2.4 can't be found in the cache and will be fetched from the remote registry
+➤ YN0013: │ @vitest/mocker@npm:3.2.4 can't be found in the cache and will be fetched from the remote registry
+➤ YN0013: │ @vitest/pretty-format@npm:3.2.4 can't be found in the cache and will be fetched from the remote registry
+➤ YN0013: │ @vitest/spy@npm:3.2.4 can't be found in the cache and will be fetched from the remote registry
+➤ YN0013: │ @vitest/utils@npm:3.2.4 can't be found in the cache and will be fetched from the remote registry
+➤ YN0013: │ aria-query@npm:5.3.2 can't be found in the cache and will be fetched from the remote registry
+➤ YN0013: │ @vitest/pretty-format@npm:3.2.4 can't be found in the cache and will be fetched from the remote registry
+➤ YN0013: │ @vitest/spy@npm:3.2.4 can't be found in the cache and will be fetched from the remote registry
+➤ YN0013: │ @vitest/utils@npm:3.2.4 can't be found in the cache and will be fetched from the remote registry
+➤ YN0013: │ aria-query@npm:5.3.2 can't be found in the cache and will be fetched from the remote registry
+➤ YN0013: │ assertion-error@npm:2.0.1 can't be found in the cache and will be fetched from the remote registry
+➤ YN0013: │ @vitest/spy@npm:3.2.4 can't be found in the cache and will be fetched from the remote registry
+➤ YN0013: │ @vitest/utils@npm:3.2.4 can't be found in the cache and will be fetched from the remote registry
+➤ YN0013: │ aria-query@npm:5.3.2 can't be found in the cache and will be fetched from the remote registry
+➤ YN0013: │ assertion-error@npm:2.0.1 can't be found in the cache and will be fetched from the remote registry
+➤ YN0013: │ chai@npm:5.3.3 can't be found in the cache and will be fetched from the remote registry
+➤ YN0013: │ @vitest/utils@npm:3.2.4 can't be found in the cache and will be fetched from the remote registry
+➤ YN0013: │ aria-query@npm:5.3.2 can't be found in the cache and will be fetched from the remote registry
+➤ YN0013: │ assertion-error@npm:2.0.1 can't be found in the cache and will be fetched from the remote registry
+➤ YN0013: │ chai@npm:5.3.3 can't be found in the cache and will be fetched from the remote registry
+➤ YN0013: │ check-error@npm:2.1.3 can't be found in the cache and will be fetched from the remote registry
+[14:49:14.703] [INFO] install-dependencies-task: ➤ YN0013: │ @storybook/vue3-vite@npm:9.1.17 can't be found in the
+cache and will be fetched from the remote registry
+➤ YN0013: │ @storybook/vue3@npm:9.1.17 can't be found in the cache
+and will be fetched from the remote registry
+➤ YN0013: │ @testing-library/jest-dom@npm:6.9.1 can't be found in
+the cache and will be fetched from the remote registry
+➤ YN0013: │ @testing-library/user-event@npm:14.6.1 can't be found
+in the cache and will be fetched from the remote registry
+➤ YN0013: │ @types/chai@npm:5.2.3 can't be found in the cache and
+will be fetched from the remote registry
+➤ YN0013: │ @storybook/vue3@npm:9.1.17 can't be found in the cache
+and will be fetched from the remote registry
+➤ YN0013: │ @testing-library/jest-dom@npm:6.9.1 can't be found in
+the cache and will be fetched from the remote registry
+➤ YN0013: │ @testing-library/user-event@npm:14.6.1 can't be found
+in the cache and will be fetched from the remote registry
+➤ YN0013: │ @types/chai@npm:5.2.3 can't be found in the cache and
+will be fetched from the remote registry
+➤ YN0013: │ @types/deep-eql@npm:4.0.2 can't be found in the cache
+and will be fetched from the remote registry
+➤ YN0013: │ @testing-library/jest-dom@npm:6.9.1 can't be found in
+the cache and will be fetched from the remote registry
+➤ YN0013: │ @testing-library/user-event@npm:14.6.1 can't be found
+in the cache and will be fetched from the remote registry
+➤ YN0013: │ @types/chai@npm:5.2.3 can't be found in the cache and
+will be fetched from the remote registry
+➤ YN0013: │ @types/deep-eql@npm:4.0.2 can't be found in the cache
+and will be fetched from the remote registry
+➤ YN0013: │ @vitest/expect@npm:3.2.4 can't be found in the cache
+and will be fetched from the remote registry
+➤ YN0013: │ @testing-library/user-event@npm:14.6.1 can't be found
+in the cache and will be fetched from the remote registry
+➤ YN0013: │ @types/chai@npm:5.2.3 can't be found in the cache and
+will be fetched from the remote registry
+➤ YN0013: │ @types/deep-eql@npm:4.0.2 can't be found in the cache
+and will be fetched from the remote registry
+➤ YN0013: │ @vitest/expect@npm:3.2.4 can't be found in the cache
+and will be fetched from the remote registry
+➤ YN0013: │ @vitest/mocker@npm:3.2.4 can't be found in the cache
+and will be fetched from the remote registry
+➤ YN0013: │ @types/chai@npm:5.2.3 can't be found in the cache and
+will be fetched from the remote registry
+➤ YN0013: │ @types/deep-eql@npm:4.0.2 can't be found in the cache
+and will be fetched from the remote registry
+➤ YN0013: │ @vitest/expect@npm:3.2.4 can't be found in the cache
+and will be fetched from the remote registry
+➤ YN0013: │ @vitest/mocker@npm:3.2.4 can't be found in the cache
+and will be fetched from the remote registry
+➤ YN0013: │ @vitest/pretty-format@npm:3.2.4 can't be found in the
+cache and will be fetched from the remote registry
+➤ YN0013: │ @types/deep-eql@npm:4.0.2 can't be found in the cache
+and will be fetched from the remote registry
+➤ YN0013: │ @vitest/expect@npm:3.2.4 can't be found in the cache
+and will be fetched from the remote registry
+➤ YN0013: │ @vitest/mocker@npm:3.2.4 can't be found in the cache
+and will be fetched from the remote registry
+➤ YN0013: │ @vitest/pretty-format@npm:3.2.4 can't be found in the
+cache and will be fetched from the remote registry
+➤ YN0013: │ @vitest/spy@npm:3.2.4 can't be found in the cache and
+will be fetched from the remote registry
+➤ YN0013: │ @vitest/expect@npm:3.2.4 can't be found in the cache
+and will be fetched from the remote registry
+➤ YN0013: │ @vitest/mocker@npm:3.2.4 can't be found in the cache
+and will be fetched from the remote registry
+➤ YN0013: │ @vitest/pretty-format@npm:3.2.4 can't be found in the
+cache and will be fetched from the remote registry
+➤ YN0013: │ @vitest/spy@npm:3.2.4 can't be found in the cache and
+will be fetched from the remote registry
+➤ YN0013: │ @vitest/utils@npm:3.2.4 can't be found in the cache
+and will be fetched from the remote registry
+➤ YN0013: │ @vitest/mocker@npm:3.2.4 can't be found in the cache
+and will be fetched from the remote registry
+➤ YN0013: │ @vitest/pretty-format@npm:3.2.4 can't be found in the
+cache and will be fetched from the remote registry
+➤ YN0013: │ @vitest/spy@npm:3.2.4 can't be found in the cache and
+will be fetched from the remote registry
+➤ YN0013: │ @vitest/utils@npm:3.2.4 can't be found in the cache
+and will be fetched from the remote registry
+➤ YN0013: │ aria-query@npm:5.3.2 can't be found in the cache and
+will be fetched from the remote registry
+➤ YN0013: │ @vitest/pretty-format@npm:3.2.4 can't be found in the
+cache and will be fetched from the remote registry
+➤ YN0013: │ @vitest/spy@npm:3.2.4 can't be found in the cache and
+will be fetched from the remote registry
+➤ YN0013: │ @vitest/utils@npm:3.2.4 can't be found in the cache
+and will be fetched from the remote registry
+➤ YN0013: │ aria-query@npm:5.3.2 can't be found in the cache and
+will be fetched from the remote registry
+➤ YN0013: │ assertion-error@npm:2.0.1 can't be found in the cache
+and will be fetched from the remote registry
+➤ YN0013: │ @vitest/spy@npm:3.2.4 can't be found in the cache and
+will be fetched from the remote registry
+➤ YN0013: │ @vitest/utils@npm:3.2.4 can't be found in the cache
+and will be fetched from the remote registry
+➤ YN0013: │ aria-query@npm:5.3.2 can't be found in the cache and
+will be fetched from the remote registry
+➤ YN0013: │ assertion-error@npm:2.0.1 can't be found in the cache
+and will be fetched from the remote registry
+➤ YN0013: │ chai@npm:5.3.3 can't be found in the cache and will be
+fetched from the remote registry
+➤ YN0013: │ @vitest/utils@npm:3.2.4 can't be found in the cache
+and will be fetched from the remote registry
+➤ YN0013: │ aria-query@npm:5.3.2 can't be found in the cache and
+will be fetched from the remote registry
+➤ YN0013: │ assertion-error@npm:2.0.1 can't be found in the cache
+and will be fetched from the remote registry
+➤ YN0013: │ chai@npm:5.3.3 can't be found in the cache and will be
+fetched from the remote registry
+➤ YN0013: │ check-error@npm:2.1.3 can't be found in the cache and
+will be fetched from the remote registry
+[14:49:14.704] [INFO] ➤ YN0013: │ aria-query@npm:5.3.2 can't be found in the cache and will be fetched from the remote registry
+➤ YN0013: │ assertion-error@npm:2.0.1 can't be found in the cache and will be fetched from the remote registry
+➤ YN0013: │ chai@npm:5.3.3 can't be found in the cache and will be fetched from the remote registry
+➤ YN0013: │ check-error@npm:2.1.3 can't be found in the cache and will be fetched from the remote registry
+➤ YN0013: │ css.escape@npm:1.5.1 can't be found in the cache and will be fetched from the remote registry
+➤ YN0013: │ assertion-error@npm:2.0.1 can't be found in the cache and will be fetched from the remote registry
+➤ YN0013: │ chai@npm:5.3.3 can't be found in the cache and will be fetched from the remote registry
+➤ YN0013: │ check-error@npm:2.1.3 can't be found in the cache and will be fetched from the remote registry
+➤ YN0013: │ css.escape@npm:1.5.1 can't be found in the cache and will be fetched from the remote registry
+➤ YN0013: │ deep-eql@npm:5.0.2 can't be found in the cache and will be fetched from the remote registry
+➤ YN0013: │ chai@npm:5.3.3 can't be found in the cache and will be fetched from the remote registry
+➤ YN0013: │ check-error@npm:2.1.3 can't be found in the cache and will be fetched from the remote registry
+➤ YN0013: │ css.escape@npm:1.5.1 can't be found in the cache and will be fetched from the remote registry
+➤ YN0013: │ deep-eql@npm:5.0.2 can't be found in the cache and will be fetched from the remote registry
+➤ YN0013: │ dom-accessibility-api@npm:0.6.3 can't be found in the cache and will be fetched from the remote registry
+➤ YN0013: │ check-error@npm:2.1.3 can't be found in the cache and will be fetched from the remote registry
+➤ YN0013: │ css.escape@npm:1.5.1 can't be found in the cache and will be fetched from the remote registry
+➤ YN0013: │ deep-eql@npm:5.0.2 can't be found in the cache and will be fetched from the remote registry
+➤ YN0013: │ dom-accessibility-api@npm:0.6.3 can't be found in the cache and will be fetched from the remote registry
+➤ YN0013: │ estree-walker@npm:3.0.3 can't be found in the cache and will be fetched from the remote registry
+➤ YN0013: │ css.escape@npm:1.5.1 can't be found in the cache and will be fetched from the remote registry
+➤ YN0013: │ deep-eql@npm:5.0.2 can't be found in the cache and will be fetched from the remote registry
+➤ YN0013: │ dom-accessibility-api@npm:0.6.3 can't be found in the cache and will be fetched from the remote registry
+➤ YN0013: │ estree-walker@npm:3.0.3 can't be found in the cache and will be fetched from the remote registry
+➤ YN0013: │ indent-string@npm:4.0.0 can't be found in the cache and will be fetched from the remote registry
+[14:49:14.717] [INFO] install-dependencies-task: ➤ YN0013: │ aria-query@npm:5.3.2 can't be found in the cache and
+will be fetched from the remote registry
+➤ YN0013: │ assertion-error@npm:2.0.1 can't be found in the cache
+and will be fetched from the remote registry
+➤ YN0013: │ chai@npm:5.3.3 can't be found in the cache and will be
+fetched from the remote registry
+➤ YN0013: │ check-error@npm:2.1.3 can't be found in the cache and
+will be fetched from the remote registry
+➤ YN0013: │ css.escape@npm:1.5.1 can't be found in the cache and
+will be fetched from the remote registry
+➤ YN0013: │ assertion-error@npm:2.0.1 can't be found in the cache
+and will be fetched from the remote registry
+➤ YN0013: │ chai@npm:5.3.3 can't be found in the cache and will be
+fetched from the remote registry
+➤ YN0013: │ check-error@npm:2.1.3 can't be found in the cache and
+will be fetched from the remote registry
+➤ YN0013: │ css.escape@npm:1.5.1 can't be found in the cache and
+will be fetched from the remote registry
+➤ YN0013: │ deep-eql@npm:5.0.2 can't be found in the cache and
+will be fetched from the remote registry
+➤ YN0013: │ chai@npm:5.3.3 can't be found in the cache and will be
+fetched from the remote registry
+➤ YN0013: │ check-error@npm:2.1.3 can't be found in the cache and
+will be fetched from the remote registry
+➤ YN0013: │ css.escape@npm:1.5.1 can't be found in the cache and
+will be fetched from the remote registry
+➤ YN0013: │ deep-eql@npm:5.0.2 can't be found in the cache and
+will be fetched from the remote registry
+➤ YN0013: │ dom-accessibility-api@npm:0.6.3 can't be found in the
+cache and will be fetched from the remote registry
+➤ YN0013: │ check-error@npm:2.1.3 can't be found in the cache and
+will be fetched from the remote registry
+➤ YN0013: │ css.escape@npm:1.5.1 can't be found in the cache and
+will be fetched from the remote registry
+➤ YN0013: │ deep-eql@npm:5.0.2 can't be found in the cache and
+will be fetched from the remote registry
+➤ YN0013: │ dom-accessibility-api@npm:0.6.3 can't be found in the
+cache and will be fetched from the remote registry
+➤ YN0013: │ estree-walker@npm:3.0.3 can't be found in the cache
+and will be fetched from the remote registry
+➤ YN0013: │ css.escape@npm:1.5.1 can't be found in the cache and
+will be fetched from the remote registry
+➤ YN0013: │ deep-eql@npm:5.0.2 can't be found in the cache and
+will be fetched from the remote registry
+➤ YN0013: │ dom-accessibility-api@npm:0.6.3 can't be found in the
+cache and will be fetched from the remote registry
+➤ YN0013: │ estree-walker@npm:3.0.3 can't be found in the cache
+and will be fetched from the remote registry
+➤ YN0013: │ indent-string@npm:4.0.0 can't be found in the cache
+and will be fetched from the remote registry
+[14:49:14.717] [INFO] ➤ YN0013: │ deep-eql@npm:5.0.2 can't be found in the cache and will be fetched from the remote registry
+➤ YN0013: │ dom-accessibility-api@npm:0.6.3 can't be found in the cache and will be fetched from the remote registry
+➤ YN0013: │ estree-walker@npm:3.0.3 can't be found in the cache and will be fetched from the remote registry
+➤ YN0013: │ indent-string@npm:4.0.0 can't be found in the cache and will be fetched from the remote registry
+➤ YN0013: │ loupe@npm:3.2.1 can't be found in the cache and will be fetched from the remote registry
+➤ YN0013: │ dom-accessibility-api@npm:0.6.3 can't be found in the cache and will be fetched from the remote registry
+➤ YN0013: │ estree-walker@npm:3.0.3 can't be found in the cache and will be fetched from the remote registry
+➤ YN0013: │ indent-string@npm:4.0.0 can't be found in the cache and will be fetched from the remote registry
+➤ YN0013: │ loupe@npm:3.2.1 can't be found in the cache and will be fetched from the remote registry
+➤ YN0013: │ magic-string@npm:0.30.21 can't be found in the cache and will be fetched from the remote registry
+➤ YN0013: │ estree-walker@npm:3.0.3 can't be found in the cache and will be fetched from the remote registry
+➤ YN0013: │ indent-string@npm:4.0.0 can't be found in the cache and will be fetched from the remote registry
+➤ YN0013: │ loupe@npm:3.2.1 can't be found in the cache and will be fetched from the remote registry
+➤ YN0013: │ magic-string@npm:0.30.21 can't be found in the cache and will be fetched from the remote registry
+➤ YN0013: │ min-indent@npm:1.0.1 can't be found in the cache and will be fetched from the remote registry
+➤ YN0013: │ indent-string@npm:4.0.0 can't be found in the cache and will be fetched from the remote registry
+➤ YN0013: │ loupe@npm:3.2.1 can't be found in the cache and will be fetched from the remote registry
+➤ YN0013: │ magic-string@npm:0.30.21 can't be found in the cache and will be fetched from the remote registry
+➤ YN0013: │ min-indent@npm:1.0.1 can't be found in the cache and will be fetched from the remote registry
+➤ YN0013: │ pathval@npm:2.0.1 can't be found in the cache and will be fetched from the remote registry
+[14:49:14.726] [INFO] install-dependencies-task: ➤ YN0013: │ deep-eql@npm:5.0.2 can't be found in the cache and
+will be fetched from the remote registry
+➤ YN0013: │ dom-accessibility-api@npm:0.6.3 can't be found in the
+cache and will be fetched from the remote registry
+➤ YN0013: │ estree-walker@npm:3.0.3 can't be found in the cache
+and will be fetched from the remote registry
+➤ YN0013: │ indent-string@npm:4.0.0 can't be found in the cache
+and will be fetched from the remote registry
+➤ YN0013: │ loupe@npm:3.2.1 can't be found in the cache and will
+be fetched from the remote registry
+➤ YN0013: │ dom-accessibility-api@npm:0.6.3 can't be found in the
+cache and will be fetched from the remote registry
+➤ YN0013: │ estree-walker@npm:3.0.3 can't be found in the cache
+and will be fetched from the remote registry
+➤ YN0013: │ indent-string@npm:4.0.0 can't be found in the cache
+and will be fetched from the remote registry
+➤ YN0013: │ loupe@npm:3.2.1 can't be found in the cache and will
+be fetched from the remote registry
+➤ YN0013: │ magic-string@npm:0.30.21 can't be found in the cache
+and will be fetched from the remote registry
+➤ YN0013: │ estree-walker@npm:3.0.3 can't be found in the cache
+and will be fetched from the remote registry
+➤ YN0013: │ indent-string@npm:4.0.0 can't be found in the cache
+and will be fetched from the remote registry
+➤ YN0013: │ loupe@npm:3.2.1 can't be found in the cache and will
+be fetched from the remote registry
+➤ YN0013: │ magic-string@npm:0.30.21 can't be found in the cache
+and will be fetched from the remote registry
+➤ YN0013: │ min-indent@npm:1.0.1 can't be found in the cache and
+will be fetched from the remote registry
+➤ YN0013: │ indent-string@npm:4.0.0 can't be found in the cache
+and will be fetched from the remote registry
+➤ YN0013: │ loupe@npm:3.2.1 can't be found in the cache and will
+be fetched from the remote registry
+➤ YN0013: │ magic-string@npm:0.30.21 can't be found in the cache
+and will be fetched from the remote registry
+➤ YN0013: │ min-indent@npm:1.0.1 can't be found in the cache and
+will be fetched from the remote registry
+➤ YN0013: │ pathval@npm:2.0.1 can't be found in the cache and will
+be fetched from the remote registry
+[14:49:14.726] [INFO] ➤ YN0013: │ loupe@npm:3.2.1 can't be found in the cache and will be fetched from the remote registry
+➤ YN0013: │ magic-string@npm:0.30.21 can't be found in the cache and will be fetched from the remote registry
+➤ YN0013: │ min-indent@npm:1.0.1 can't be found in the cache and will be fetched from the remote registry
+➤ YN0013: │ pathval@npm:2.0.1 can't be found in the cache and will be fetched from the remote registry
+➤ YN0013: │ redent@npm:3.0.0 can't be found in the cache and will be fetched from the remote registry
+[14:49:14.740] [INFO] install-dependencies-task: ➤ YN0013: │ loupe@npm:3.2.1 can't be found in the cache and will
+be fetched from the remote registry
+➤ YN0013: │ magic-string@npm:0.30.21 can't be found in the cache
+and will be fetched from the remote registry
+➤ YN0013: │ min-indent@npm:1.0.1 can't be found in the cache and
+will be fetched from the remote registry
+➤ YN0013: │ pathval@npm:2.0.1 can't be found in the cache and will
+be fetched from the remote registry
+➤ YN0013: │ redent@npm:3.0.0 can't be found in the cache and will
+be fetched from the remote registry
+[14:49:14.741] [INFO] ➤ YN0013: │ magic-string@npm:0.30.21 can't be found in the cache and will be fetched from the remote registry
+➤ YN0013: │ min-indent@npm:1.0.1 can't be found in the cache and will be fetched from the remote registry
+➤ YN0013: │ pathval@npm:2.0.1 can't be found in the cache and will be fetched from the remote registry
+➤ YN0013: │ redent@npm:3.0.0 can't be found in the cache and will be fetched from the remote registry
+➤ YN0013: │ storybook@npm:9.1.17 can't be found in the cache and will be fetched from the remote registry
+➤ YN0013: │ min-indent@npm:1.0.1 can't be found in the cache and will be fetched from the remote registry
+➤ YN0013: │ pathval@npm:2.0.1 can't be found in the cache and will be fetched from the remote registry
+➤ YN0013: │ redent@npm:3.0.0 can't be found in the cache and will be fetched from the remote registry
+➤ YN0013: │ storybook@npm:9.1.17 can't be found in the cache and will be fetched from the remote registry
+➤ YN0013: │ strip-indent@npm:3.0.0 can't be found in the cache and will be fetched from the remote registry
+[14:49:14.778] [INFO] install-dependencies-task: ➤ YN0013: │ magic-string@npm:0.30.21 can't be found in the cache
+and will be fetched from the remote registry
+➤ YN0013: │ min-indent@npm:1.0.1 can't be found in the cache and
+will be fetched from the remote registry
+➤ YN0013: │ pathval@npm:2.0.1 can't be found in the cache and will
+be fetched from the remote registry
+➤ YN0013: │ redent@npm:3.0.0 can't be found in the cache and will
+be fetched from the remote registry
+➤ YN0013: │ storybook@npm:9.1.17 can't be found in the cache and
+will be fetched from the remote registry
+➤ YN0013: │ min-indent@npm:1.0.1 can't be found in the cache and
+will be fetched from the remote registry
+➤ YN0013: │ pathval@npm:2.0.1 can't be found in the cache and will
+be fetched from the remote registry
+➤ YN0013: │ redent@npm:3.0.0 can't be found in the cache and will
+be fetched from the remote registry
+➤ YN0013: │ storybook@npm:9.1.17 can't be found in the cache and
+will be fetched from the remote registry
+➤ YN0013: │ strip-indent@npm:3.0.0 can't be found in the cache and
+will be fetched from the remote registry
+[14:49:14.778] [INFO] ➤ YN0013: │ pathval@npm:2.0.1 can't be found in the cache and will be fetched from the remote registry
+➤ YN0013: │ redent@npm:3.0.0 can't be found in the cache and will be fetched from the remote registry
+➤ YN0013: │ storybook@npm:9.1.17 can't be found in the cache and will be fetched from the remote registry
+➤ YN0013: │ strip-indent@npm:3.0.0 can't be found in the cache and will be fetched from the remote registry
+➤ YN0013: │ tinyrainbow@npm:2.0.0 can't be found in the cache and will be fetched from the remote registry
+➤ YN0013: │ redent@npm:3.0.0 can't be found in the cache and will be fetched from the remote registry
+➤ YN0013: │ storybook@npm:9.1.17 can't be found in the cache and will be fetched from the remote registry
+➤ YN0013: │ strip-indent@npm:3.0.0 can't be found in the cache and will be fetched from the remote registry
+➤ YN0013: │ tinyrainbow@npm:2.0.0 can't be found in the cache and will be fetched from the remote registry
+➤ YN0013: │ tinyspy@npm:4.0.4 can't be found in the cache and will be fetched from the remote registry
+➤ YN0013: │ storybook@npm:9.1.17 can't be found in the cache and will be fetched from the remote registry
+➤ YN0013: │ strip-indent@npm:3.0.0 can't be found in the cache and will be fetched from the remote registry
+➤ YN0013: │ tinyrainbow@npm:2.0.0 can't be found in the cache and will be fetched from the remote registry
+➤ YN0013: │ tinyspy@npm:4.0.4 can't be found in the cache and will be fetched from the remote registry
+➤ YN0013: │ typescript@npm:5.9.3 can't be found in the cache and will be fetched from the remote registry
+➤ YN0013: │ strip-indent@npm:3.0.0 can't be found in the cache and will be fetched from the remote registry
+➤ YN0013: │ tinyrainbow@npm:2.0.0 can't be found in the cache and will be fetched from the remote registry
+➤ YN0013: │ tinyspy@npm:4.0.4 can't be found in the cache and will be fetched from the remote registry
+➤ YN0013: │ typescript@npm:5.9.3 can't be found in the cache and will be fetched from the remote registry
+➤ YN0013: │ typescript@patch:typescript@npm%3A5.9.3#~builtin<compat/typescript>::version=5.9.3&hash=f3b441 can't be found in the cache and will be fetched from the disk
+[14:49:14.803] [INFO] install-dependencies-task: ➤ YN0013: │ pathval@npm:2.0.1 can't be found in the cache and will
+be fetched from the remote registry
+➤ YN0013: │ redent@npm:3.0.0 can't be found in the cache and will
+be fetched from the remote registry
+➤ YN0013: │ storybook@npm:9.1.17 can't be found in the cache and
+will be fetched from the remote registry
+➤ YN0013: │ strip-indent@npm:3.0.0 can't be found in the cache and
+will be fetched from the remote registry
+➤ YN0013: │ tinyrainbow@npm:2.0.0 can't be found in the cache and
+will be fetched from the remote registry
+➤ YN0013: │ redent@npm:3.0.0 can't be found in the cache and will
+be fetched from the remote registry
+➤ YN0013: │ storybook@npm:9.1.17 can't be found in the cache and
+will be fetched from the remote registry
+➤ YN0013: │ strip-indent@npm:3.0.0 can't be found in the cache and
+will be fetched from the remote registry
+➤ YN0013: │ tinyrainbow@npm:2.0.0 can't be found in the cache and
+will be fetched from the remote registry
+➤ YN0013: │ tinyspy@npm:4.0.4 can't be found in the cache and will
+be fetched from the remote registry
+➤ YN0013: │ storybook@npm:9.1.17 can't be found in the cache and
+will be fetched from the remote registry
+➤ YN0013: │ strip-indent@npm:3.0.0 can't be found in the cache and
+will be fetched from the remote registry
+➤ YN0013: │ tinyrainbow@npm:2.0.0 can't be found in the cache and
+will be fetched from the remote registry
+➤ YN0013: │ tinyspy@npm:4.0.4 can't be found in the cache and will
+be fetched from the remote registry
+➤ YN0013: │ typescript@npm:5.9.3 can't be found in the cache and
+will be fetched from the remote registry
+➤ YN0013: │ strip-indent@npm:3.0.0 can't be found in the cache and
+will be fetched from the remote registry
+➤ YN0013: │ tinyrainbow@npm:2.0.0 can't be found in the cache and
+will be fetched from the remote registry
+➤ YN0013: │ tinyspy@npm:4.0.4 can't be found in the cache and will
+be fetched from the remote registry
+➤ YN0013: │ typescript@npm:5.9.3 can't be found in the cache and
+will be fetched from the remote registry
+➤ YN0013: │
+typescript@patch:typescript@npm%3A5.9.3#~builtin<compat/typescript>::version=5.9.3&hash=f3b441
+can't be found in the cache and will be fetched from the disk
+[14:49:14.804] [INFO] ➤ YN0013: │ tinyrainbow@npm:2.0.0 can't be found in the cache and will be fetched from the remote registry
+➤ YN0013: │ tinyspy@npm:4.0.4 can't be found in the cache and will be fetched from the remote registry
+➤ YN0013: │ typescript@npm:5.9.3 can't be found in the cache and will be fetched from the remote registry
+➤ YN0013: │ typescript@patch:typescript@npm%3A5.9.3#~builtin<compat/typescript>::version=5.9.3&hash=f3b441 can't be found in the cache and will be fetched from the disk
+➤ YN0013: │ ws@npm:8.19.0 can't be found in the cache and will be fetched from the remote registry
+[14:49:14.819] [INFO] install-dependencies-task: ➤ YN0013: │ tinyrainbow@npm:2.0.0 can't be found in the cache and
+will be fetched from the remote registry
+➤ YN0013: │ tinyspy@npm:4.0.4 can't be found in the cache and will
+be fetched from the remote registry
+➤ YN0013: │ typescript@npm:5.9.3 can't be found in the cache and
+will be fetched from the remote registry
+➤ YN0013: │
+typescript@patch:typescript@npm%3A5.9.3#~builtin<compat/typescript>::version=5.9.3&hash=f3b441
+can't be found in the cache and will be fetched from the disk
+➤ YN0013: │ ws@npm:8.19.0 can't be found in the cache and will be
+fetched from the remote registry
+[14:49:16.808] [INFO] ➤ YN0013: │ tinyspy@npm:4.0.4 can't be found in the cache and will be fetched from the remote registry
+➤ YN0013: │ typescript@npm:5.9.3 can't be found in the cache and will be fetched from the remote registry
+➤ YN0013: │ typescript@patch:typescript@npm%3A5.9.3#~builtin<compat/typescript>::version=5.9.3&hash=f3b441 can't be found in the cache and will be fetched from the disk
+➤ YN0013: │ ws@npm:8.19.0 can't be found in the cache and will be fetched from the remote registry
+➤ YN0013: │ typescript@npm:5.9.3 can't be found in the cache and will be fetched from the remote registry
+[14:49:16.819] [INFO] install-dependencies-task: ➤ YN0013: │ tinyspy@npm:4.0.4 can't be found in the cache and will
+be fetched from the remote registry
+➤ YN0013: │ typescript@npm:5.9.3 can't be found in the cache and
+will be fetched from the remote registry
+➤ YN0013: │
+typescript@patch:typescript@npm%3A5.9.3#~builtin<compat/typescript>::version=5.9.3&hash=f3b441
+can't be found in the cache and will be fetched from the disk
+➤ YN0013: │ ws@npm:8.19.0 can't be found in the cache and will be
+fetched from the remote registry
+➤ YN0013: │ typescript@npm:5.9.3 can't be found in the cache and
+will be fetched from the remote registry
+[14:49:18.521] [INFO] ➤ YN0066: │ typescript@patch:typescript@npm%3A5.9.3#~builtin<compat/typescript>::version=5.9.3&hash=f3b441: Cannot apply hunk #1
+[14:49:18.530] [INFO] install-dependencies-task: ➤ YN0066: │
+typescript@patch:typescript@npm%3A5.9.3#~builtin<compat/typescript>::version=5.9.3&hash=f3b441:
+Cannot apply hunk #1
+[14:49:18.563] [INFO] ➤ YN0019: │ @babel-runtime-npm-7.28.4-31bc1b0001-934b0a0460.zip appears to be unused - removing
+[14:49:18.574] [INFO] install-dependencies-task: ➤ YN0019: │ @babel-runtime-npm-7.28.4-31bc1b0001-934b0a0460.zip
+appears to be unused - removing
+[14:49:18.575] [INFO] ➤ YN0019: │ @storybook-addon-actions-npm-8.6.14-284aaee84e-a558d37669.zip appears to be unused - removing
+➤ YN0019: │ @storybook-addon-controls-npm-8.6.14-3e327945ed-8cfbe42a87.zip appears to be unused - removing
+➤ YN0019: │ @storybook-addon-docs-npm-8.6.14-12ab3f55f8-4a8d64d932.zip appears to be unused - removing
+➤ YN0019: │ @storybook-addon-links-npm-8.6.14-8063e7c8b8-d807623e95.zip appears to be unused - removing
+➤ YN0019: │ @storybook-addon-actions-npm-8.6.14-284aaee84e-a558d37669.zip appears to be unused - removing
+➤ YN0019: │ @storybook-addon-controls-npm-8.6.14-3e327945ed-8cfbe42a87.zip appears to be unused - removing
+➤ YN0019: │ @storybook-addon-docs-npm-8.6.14-12ab3f55f8-4a8d64d932.zip appears to be unused - removing
+➤ YN0019: │ @storybook-addon-links-npm-8.6.14-8063e7c8b8-d807623e95.zip appears to be unused - removing
+➤ YN0019: │ @storybook-addon-mdx-gfm-npm-8.6.14-71899417e5-c4d80d0082.zip appears to be unused - removing
+➤ YN0019: │ @storybook-addon-controls-npm-8.6.14-3e327945ed-8cfbe42a87.zip appears to be unused - removing
+➤ YN0019: │ @storybook-addon-docs-npm-8.6.14-12ab3f55f8-4a8d64d932.zip appears to be unused - removing
+➤ YN0019: │ @storybook-addon-links-npm-8.6.14-8063e7c8b8-d807623e95.zip appears to be unused - removing
+➤ YN0019: │ @storybook-addon-mdx-gfm-npm-8.6.14-71899417e5-c4d80d0082.zip appears to be unused - removing
+➤ YN0019: │ @storybook-blocks-npm-8.6.14-2f85941d98-9ae5058a09.zip appears to be unused - removing
+➤ YN0019: │ @storybook-addon-docs-npm-8.6.14-12ab3f55f8-4a8d64d932.zip appears to be unused - removing
+➤ YN0019: │ @storybook-addon-links-npm-8.6.14-8063e7c8b8-d807623e95.zip appears to be unused - removing
+➤ YN0019: │ @storybook-addon-mdx-gfm-npm-8.6.14-71899417e5-c4d80d0082.zip appears to be unused - removing
+➤ YN0019: │ @storybook-blocks-npm-8.6.14-2f85941d98-9ae5058a09.zip appears to be unused - removing
+➤ YN0019: │ @storybook-builder-vite-npm-8.6.14-de8e4ccb95-cee40e5fcb.zip appears to be unused - removing
+➤ YN0019: │ @storybook-addon-links-npm-8.6.14-8063e7c8b8-d807623e95.zip appears to be unused - removing
+➤ YN0019: │ @storybook-addon-mdx-gfm-npm-8.6.14-71899417e5-c4d80d0082.zip appears to be unused - removing
+➤ YN0019: │ @storybook-blocks-npm-8.6.14-2f85941d98-9ae5058a09.zip appears to be unused - removing
+➤ YN0019: │ @storybook-builder-vite-npm-8.6.14-de8e4ccb95-cee40e5fcb.zip appears to be unused - removing
+➤ YN0019: │ @storybook-components-npm-8.6.14-507ae2cb56-d364750551.zip appears to be unused - removing
+➤ YN0019: │ @storybook-addon-mdx-gfm-npm-8.6.14-71899417e5-c4d80d0082.zip appears to be unused - removing
+➤ YN0019: │ @storybook-blocks-npm-8.6.14-2f85941d98-9ae5058a09.zip appears to be unused - removing
+➤ YN0019: │ @storybook-builder-vite-npm-8.6.14-de8e4ccb95-cee40e5fcb.zip appears to be unused - removing
+➤ YN0019: │ @storybook-components-npm-8.6.14-507ae2cb56-d364750551.zip appears to be unused - removing
+➤ YN0019: │ @storybook-core-npm-8.6.14-0df61741bd-b155279bd6.zip appears to be unused - removing
+➤ YN0019: │ @storybook-blocks-npm-8.6.14-2f85941d98-9ae5058a09.zip appears to be unused - removing
+➤ YN0019: │ @storybook-builder-vite-npm-8.6.14-de8e4ccb95-cee40e5fcb.zip appears to be unused - removing
+➤ YN0019: │ @storybook-components-npm-8.6.14-507ae2cb56-d364750551.zip appears to be unused - removing
+➤ YN0019: │ @storybook-core-npm-8.6.14-0df61741bd-b155279bd6.zip appears to be unused - removing
+➤ YN0019: │ @storybook-csf-plugin-npm-8.6.14-cc2f630a3e-a0983268e6.zip appears to be unused - removing
+➤ YN0019: │ @storybook-builder-vite-npm-8.6.14-de8e4ccb95-cee40e5fcb.zip appears to be unused - removing
+➤ YN0019: │ @storybook-components-npm-8.6.14-507ae2cb56-d364750551.zip appears to be unused - removing
+➤ YN0019: │ @storybook-core-npm-8.6.14-0df61741bd-b155279bd6.zip appears to be unused - removing
+➤ YN0019: │ @storybook-csf-plugin-npm-8.6.14-cc2f630a3e-a0983268e6.zip appears to be unused - removing
+➤ YN0019: │ @storybook-manager-api-npm-8.6.14-33d0716073-4544b31705.zip appears to be unused - removing
+➤ YN0019: │ @storybook-components-npm-8.6.14-507ae2cb56-d364750551.zip appears to be unused - removing
+➤ YN0019: │ @storybook-core-npm-8.6.14-0df61741bd-b155279bd6.zip appears to be unused - removing
+➤ YN0019: │ @storybook-csf-plugin-npm-8.6.14-cc2f630a3e-a0983268e6.zip appears to be unused - removing
+➤ YN0019: │ @storybook-manager-api-npm-8.6.14-33d0716073-4544b31705.zip appears to be unused - removing
+➤ YN0019: │ @storybook-preview-api-npm-8.6.14-3c5ba3cf53-9b77288f2f.zip appears to be unused - removing
+➤ YN0019: │ @storybook-core-npm-8.6.14-0df61741bd-b155279bd6.zip appears to be unused - removing
+➤ YN0019: │ @storybook-csf-plugin-npm-8.6.14-cc2f630a3e-a0983268e6.zip appears to be unused - removing
+➤ YN0019: │ @storybook-manager-api-npm-8.6.14-33d0716073-4544b31705.zip appears to be unused - removing
+➤ YN0019: │ @storybook-preview-api-npm-8.6.14-3c5ba3cf53-9b77288f2f.zip appears to be unused - removing
+➤ YN0019: │ @storybook-react-dom-shim-npm-8.6.14-ae9f91a500-c46bef901e.zip appears to be unused - removing
+➤ YN0019: │ @storybook-csf-plugin-npm-8.6.14-cc2f630a3e-a0983268e6.zip appears to be unused - removing
+➤ YN0019: │ @storybook-manager-api-npm-8.6.14-33d0716073-4544b31705.zip appears to be unused - removing
+➤ YN0019: │ @storybook-preview-api-npm-8.6.14-3c5ba3cf53-9b77288f2f.zip appears to be unused - removing
+➤ YN0019: │ @storybook-react-dom-shim-npm-8.6.14-ae9f91a500-c46bef901e.zip appears to be unused - removing
+➤ YN0019: │ @storybook-theming-npm-8.6.14-8f8706ff84-6936ea3348.zip appears to be unused - removing
+➤ YN0019: │ @storybook-manager-api-npm-8.6.14-33d0716073-4544b31705.zip appears to be unused - removing
+➤ YN0019: │ @storybook-preview-api-npm-8.6.14-3c5ba3cf53-9b77288f2f.zip appears to be unused - removing
+➤ YN0019: │ @storybook-react-dom-shim-npm-8.6.14-ae9f91a500-c46bef901e.zip appears to be unused - removing
+➤ YN0019: │ @storybook-theming-npm-8.6.14-8f8706ff84-6936ea3348.zip appears to be unused - removing
+➤ YN0019: │ @storybook-vue3-npm-8.6.14-bece9503d6-6d0fe119f2.zip appears to be unused - removing
+➤ YN0019: │ @storybook-preview-api-npm-8.6.14-3c5ba3cf53-9b77288f2f.zip appears to be unused - removing
+➤ YN0019: │ @storybook-react-dom-shim-npm-8.6.14-ae9f91a500-c46bef901e.zip appears to be unused - removing
+➤ YN0019: │ @storybook-theming-npm-8.6.14-8f8706ff84-6936ea3348.zip appears to be unused - removing
+➤ YN0019: │ @storybook-vue3-npm-8.6.14-bece9503d6-6d0fe119f2.zip appears to be unused - removing
+➤ YN0019: │ @storybook-vue3-vite-npm-8.6.14-b2891e93ff-7489ef2e0f.zip appears to be unused - removing
+➤ YN0019: │ @storybook-react-dom-shim-npm-8.6.14-ae9f91a500-c46bef901e.zip appears to be unused - removing
+➤ YN0019: │ @storybook-theming-npm-8.6.14-8f8706ff84-6936ea3348.zip appears to be unused - removing
+➤ YN0019: │ @storybook-vue3-npm-8.6.14-bece9503d6-6d0fe119f2.zip appears to be unused - removing
+➤ YN0019: │ @storybook-vue3-vite-npm-8.6.14-b2891e93ff-7489ef2e0f.zip appears to be unused - removing
+➤ YN0019: │ @types-debug-npm-4.1.12-82a3fc4905-47876a852d.zip appears to be unused - removing
+➤ YN0019: │ @storybook-theming-npm-8.6.14-8f8706ff84-6936ea3348.zip appears to be unused - removing
+➤ YN0019: │ @storybook-vue3-npm-8.6.14-bece9503d6-6d0fe119f2.zip appears to be unused - removing
+➤ YN0019: │ @storybook-vue3-vite-npm-8.6.14-b2891e93ff-7489ef2e0f.zip appears to be unused - removing
+➤ YN0019: │ @types-debug-npm-4.1.12-82a3fc4905-47876a852d.zip appears to be unused - removing
+➤ YN0019: │ @types-mdast-npm-4.0.4-a4a0135eb0-20c4e9574c.zip appears to be unused - removing
+➤ YN0019: │ @storybook-vue3-npm-8.6.14-bece9503d6-6d0fe119f2.zip appears to be unused - removing
+➤ YN0019: │ @storybook-vue3-vite-npm-8.6.14-b2891e93ff-7489ef2e0f.zip appears to be unused - removing
+➤ YN0019: │ @types-debug-npm-4.1.12-82a3fc4905-47876a852d.zip appears to be unused - removing
+➤ YN0019: │ @types-mdast-npm-4.0.4-a4a0135eb0-20c4e9574c.zip appears to be unused - removing
+➤ YN0019: │ @types-ms-npm-2.1.0-529ef799cc-532d2ebb91.zip appears to be unused - removing
+➤ YN0019: │ @storybook-vue3-vite-npm-8.6.14-b2891e93ff-7489ef2e0f.zip appears to be unused - removing
+➤ YN0019: │ @types-debug-npm-4.1.12-82a3fc4905-47876a852d.zip appears to be unused - removing
+➤ YN0019: │ @types-mdast-npm-4.0.4-a4a0135eb0-20c4e9574c.zip appears to be unused - removing
+➤ YN0019: │ @types-ms-npm-2.1.0-529ef799cc-532d2ebb91.zip appears to be unused - removing
+➤ YN0019: │ @types-unist-npm-3.0.3-1c20461f2e-96e6453da9.zip appears to be unused - removing
+➤ YN0019: │ @types-debug-npm-4.1.12-82a3fc4905-47876a852d.zip appears to be unused - removing
+➤ YN0019: │ @types-mdast-npm-4.0.4-a4a0135eb0-20c4e9574c.zip appears to be unused - removing
+➤ YN0019: │ @types-ms-npm-2.1.0-529ef799cc-532d2ebb91.zip appears to be unused - removing
+➤ YN0019: │ @types-unist-npm-3.0.3-1c20461f2e-96e6453da9.zip appears to be unused - removing
+➤ YN0019: │ @types-uuid-npm-9.0.8-3eeeaa5abb-b8c60b7ba8.zip appears to be unused - removing
+➤ YN0019: │ @types-mdast-npm-4.0.4-a4a0135eb0-20c4e9574c.zip appears to be unused - removing
+➤ YN0019: │ @types-ms-npm-2.1.0-529ef799cc-532d2ebb91.zip appears to be unused - removing
+➤ YN0019: │ @types-unist-npm-3.0.3-1c20461f2e-96e6453da9.zip appears to be unused - removing
+➤ YN0019: │ @types-uuid-npm-9.0.8-3eeeaa5abb-b8c60b7ba8.zip appears to be unused - removing
+➤ YN0019: │ available-typed-arrays-npm-1.0.7-e5e5d79687-1aa3ffbfe6.zip appears to be unused - removing
+➤ YN0019: │ @types-ms-npm-2.1.0-529ef799cc-532d2ebb91.zip appears to be unused - removing
+➤ YN0019: │ @types-unist-npm-3.0.3-1c20461f2e-96e6453da9.zip appears to be unused - removing
+➤ YN0019: │ @types-uuid-npm-9.0.8-3eeeaa5abb-b8c60b7ba8.zip appears to be unused - removing
+➤ YN0019: │ available-typed-arrays-npm-1.0.7-e5e5d79687-1aa3ffbfe6.zip appears to be unused - removing
+➤ YN0019: │ bail-npm-2.0.2-42130cb251-aab4e8ccdc.zip appears to be unused - removing
+➤ YN0019: │ @types-unist-npm-3.0.3-1c20461f2e-96e6453da9.zip appears to be unused - removing
+➤ YN0019: │ @types-uuid-npm-9.0.8-3eeeaa5abb-b8c60b7ba8.zip appears to be unused - removing
+➤ YN0019: │ available-typed-arrays-npm-1.0.7-e5e5d79687-1aa3ffbfe6.zip appears to be unused - removing
+➤ YN0019: │ bail-npm-2.0.2-42130cb251-aab4e8ccdc.zip appears to be unused - removing
+➤ YN0019: │ browser-assert-npm-1.2.1-f4eb571cbe-8b2407cd04.zip appears to be unused - removing
+➤ YN0019: │ @types-uuid-npm-9.0.8-3eeeaa5abb-b8c60b7ba8.zip appears to be unused - removing
+➤ YN0019: │ available-typed-arrays-npm-1.0.7-e5e5d79687-1aa3ffbfe6.zip appears to be unused - removing
+➤ YN0019: │ bail-npm-2.0.2-42130cb251-aab4e8ccdc.zip appears to be unused - removing
+➤ YN0019: │ browser-assert-npm-1.2.1-f4eb571cbe-8b2407cd04.zip appears to be unused - removing
+➤ YN0019: │ ccount-npm-2.0.1-f4b7827860-48193dada5.zip appears to be unused - removing
+➤ YN0019: │ available-typed-arrays-npm-1.0.7-e5e5d79687-1aa3ffbfe6.zip appears to be unused - removing
+➤ YN0019: │ bail-npm-2.0.2-42130cb251-aab4e8ccdc.zip appears to be unused - removing
+➤ YN0019: │ browser-assert-npm-1.2.1-f4eb571cbe-8b2407cd04.zip appears to be unused - removing
+➤ YN0019: │ ccount-npm-2.0.1-f4b7827860-48193dada5.zip appears to be unused - removing
+➤ YN0019: │ character-entities-npm-2.0.2-b5ef4d8fe2-cf16438140.zip appears to be unused - removing
+➤ YN0019: │ bail-npm-2.0.2-42130cb251-aab4e8ccdc.zip appears to be unused - removing
+➤ YN0019: │ browser-assert-npm-1.2.1-f4eb571cbe-8b2407cd04.zip appears to be unused - removing
+➤ YN0019: │ ccount-npm-2.0.1-f4b7827860-48193dada5.zip appears to be unused - removing
+➤ YN0019: │ character-entities-npm-2.0.2-b5ef4d8fe2-cf16438140.zip appears to be unused - removing
+➤ YN0019: │ decode-named-character-reference-npm-1.2.0-428b0f96d3-f26b23046c.zip appears to be unused - removing
+➤ YN0019: │ browser-assert-npm-1.2.1-f4eb571cbe-8b2407cd04.zip appears to be unused - removing
+➤ YN0019: │ ccount-npm-2.0.1-f4b7827860-48193dada5.zip appears to be unused - removing
+➤ YN0019: │ character-entities-npm-2.0.2-b5ef4d8fe2-cf16438140.zip appears to be unused - removing
+➤ YN0019: │ decode-named-character-reference-npm-1.2.0-428b0f96d3-f26b23046c.zip appears to be unused - removing
+➤ YN0019: │ dequal-npm-2.0.3-53a630c60e-8679b850e1.zip appears to be unused - removing
+➤ YN0019: │ ccount-npm-2.0.1-f4b7827860-48193dada5.zip appears to be unused - removing
+➤ YN0019: │ character-entities-npm-2.0.2-b5ef4d8fe2-cf16438140.zip appears to be unused - removing
+➤ YN0019: │ decode-named-character-reference-npm-1.2.0-428b0f96d3-f26b23046c.zip appears to be unused - removing
+➤ YN0019: │ dequal-npm-2.0.3-53a630c60e-8679b850e1.zip appears to be unused - removing
+➤ YN0019: │ devlop-npm-1.1.0-d4a98d724c-d2ff650bac.zip appears to be unused - removing
+➤ YN0019: │ character-entities-npm-2.0.2-b5ef4d8fe2-cf16438140.zip appears to be unused - removing
+➤ YN0019: │ decode-named-character-reference-npm-1.2.0-428b0f96d3-f26b23046c.zip appears to be unused - removing
+➤ YN0019: │ dequal-npm-2.0.3-53a630c60e-8679b850e1.zip appears to be unused - removing
+➤ YN0019: │ devlop-npm-1.1.0-d4a98d724c-d2ff650bac.zip appears to be unused - removing
+➤ YN0019: │ escape-string-regexp-npm-5.0.0-a663e825ce-20daabe197.zip appears to be unused - removing
+[14:49:18.586] [INFO] install-dependencies-task: ➤ YN0019: │
+@storybook-addon-actions-npm-8.6.14-284aaee84e-a558d37669.zip
+appears to be unused - removing
+➤ YN0019: │
+@storybook-addon-controls-npm-8.6.14-3e327945ed-8cfbe42a87.zip
+appears to be unused - removing
+➤ YN0019: │
+@storybook-addon-docs-npm-8.6.14-12ab3f55f8-4a8d64d932.zip appears
+to be unused - removing
+➤ YN0019: │
+@storybook-addon-links-npm-8.6.14-8063e7c8b8-d807623e95.zip
+appears to be unused - removing
+➤ YN0019: │
+@storybook-addon-actions-npm-8.6.14-284aaee84e-a558d37669.zip
+appears to be unused - removing
+➤ YN0019: │
+@storybook-addon-controls-npm-8.6.14-3e327945ed-8cfbe42a87.zip
+appears to be unused - removing
+➤ YN0019: │
+@storybook-addon-docs-npm-8.6.14-12ab3f55f8-4a8d64d932.zip appears
+to be unused - removing
+➤ YN0019: │
+@storybook-addon-links-npm-8.6.14-8063e7c8b8-d807623e95.zip
+appears to be unused - removing
+➤ YN0019: │
+@storybook-addon-mdx-gfm-npm-8.6.14-71899417e5-c4d80d0082.zip
+appears to be unused - removing
+➤ YN0019: │
+@storybook-addon-controls-npm-8.6.14-3e327945ed-8cfbe42a87.zip
+appears to be unused - removing
+➤ YN0019: │
+@storybook-addon-docs-npm-8.6.14-12ab3f55f8-4a8d64d932.zip appears
+to be unused - removing
+➤ YN0019: │
+@storybook-addon-links-npm-8.6.14-8063e7c8b8-d807623e95.zip
+appears to be unused - removing
+➤ YN0019: │
+@storybook-addon-mdx-gfm-npm-8.6.14-71899417e5-c4d80d0082.zip
+appears to be unused - removing
+➤ YN0019: │ @storybook-blocks-npm-8.6.14-2f85941d98-9ae5058a09.zip
+appears to be unused - removing
+➤ YN0019: │
+@storybook-addon-docs-npm-8.6.14-12ab3f55f8-4a8d64d932.zip appears
+to be unused - removing
+➤ YN0019: │
+@storybook-addon-links-npm-8.6.14-8063e7c8b8-d807623e95.zip
+appears to be unused - removing
+➤ YN0019: │
+@storybook-addon-mdx-gfm-npm-8.6.14-71899417e5-c4d80d0082.zip
+appears to be unused - removing
+➤ YN0019: │ @storybook-blocks-npm-8.6.14-2f85941d98-9ae5058a09.zip
+appears to be unused - removing
+➤ YN0019: │
+@storybook-builder-vite-npm-8.6.14-de8e4ccb95-cee40e5fcb.zip
+appears to be unused - removing
+➤ YN0019: │
+@storybook-addon-links-npm-8.6.14-8063e7c8b8-d807623e95.zip
+appears to be unused - removing
+➤ YN0019: │
+@storybook-addon-mdx-gfm-npm-8.6.14-71899417e5-c4d80d0082.zip
+appears to be unused - removing
+➤ YN0019: │ @storybook-blocks-npm-8.6.14-2f85941d98-9ae5058a09.zip
+appears to be unused - removing
+➤ YN0019: │
+@storybook-builder-vite-npm-8.6.14-de8e4ccb95-cee40e5fcb.zip
+appears to be unused - removing
+➤ YN0019: │
+@storybook-components-npm-8.6.14-507ae2cb56-d364750551.zip appears
+to be unused - removing
+➤ YN0019: │
+@storybook-addon-mdx-gfm-npm-8.6.14-71899417e5-c4d80d0082.zip
+appears to be unused - removing
+➤ YN0019: │ @storybook-blocks-npm-8.6.14-2f85941d98-9ae5058a09.zip
+appears to be unused - removing
+➤ YN0019: │
+@storybook-builder-vite-npm-8.6.14-de8e4ccb95-cee40e5fcb.zip
+appears to be unused - removing
+➤ YN0019: │
+@storybook-components-npm-8.6.14-507ae2cb56-d364750551.zip appears
+to be unused - removing
+➤ YN0019: │ @storybook-core-npm-8.6.14-0df61741bd-b155279bd6.zip
+appears to be unused - removing
+➤ YN0019: │ @storybook-blocks-npm-8.6.14-2f85941d98-9ae5058a09.zip
+appears to be unused - removing
+➤ YN0019: │
+@storybook-builder-vite-npm-8.6.14-de8e4ccb95-cee40e5fcb.zip
+appears to be unused - removing
+➤ YN0019: │
+@storybook-components-npm-8.6.14-507ae2cb56-d364750551.zip appears
+to be unused - removing
+➤ YN0019: │ @storybook-core-npm-8.6.14-0df61741bd-b155279bd6.zip
+appears to be unused - removing
+➤ YN0019: │
+@storybook-csf-plugin-npm-8.6.14-cc2f630a3e-a0983268e6.zip appears
+to be unused - removing
+➤ YN0019: │
+@storybook-builder-vite-npm-8.6.14-de8e4ccb95-cee40e5fcb.zip
+appears to be unused - removing
+➤ YN0019: │
+@storybook-components-npm-8.6.14-507ae2cb56-d364750551.zip appears
+to be unused - removing
+➤ YN0019: │ @storybook-core-npm-8.6.14-0df61741bd-b155279bd6.zip
+appears to be unused - removing
+➤ YN0019: │
+@storybook-csf-plugin-npm-8.6.14-cc2f630a3e-a0983268e6.zip appears
+to be unused - removing
+➤ YN0019: │
+@storybook-manager-api-npm-8.6.14-33d0716073-4544b31705.zip
+appears to be unused - removing
+➤ YN0019: │
+@storybook-components-npm-8.6.14-507ae2cb56-d364750551.zip appears
+to be unused - removing
+➤ YN0019: │ @storybook-core-npm-8.6.14-0df61741bd-b155279bd6.zip
+appears to be unused - removing
+➤ YN0019: │
+@storybook-csf-plugin-npm-8.6.14-cc2f630a3e-a0983268e6.zip appears
+to be unused - removing
+➤ YN0019: │
+@storybook-manager-api-npm-8.6.14-33d0716073-4544b31705.zip
+appears to be unused - removing
+➤ YN0019: │
+@storybook-preview-api-npm-8.6.14-3c5ba3cf53-9b77288f2f.zip
+appears to be unused - removing
+➤ YN0019: │ @storybook-core-npm-8.6.14-0df61741bd-b155279bd6.zip
+appears to be unused - removing
+➤ YN0019: │
+@storybook-csf-plugin-npm-8.6.14-cc2f630a3e-a0983268e6.zip appears
+to be unused - removing
+➤ YN0019: │
+@storybook-manager-api-npm-8.6.14-33d0716073-4544b31705.zip
+appears to be unused - removing
+➤ YN0019: │
+@storybook-preview-api-npm-8.6.14-3c5ba3cf53-9b77288f2f.zip
+appears to be unused - removing
+➤ YN0019: │
+@storybook-react-dom-shim-npm-8.6.14-ae9f91a500-c46bef901e.zip
+appears to be unused - removing
+➤ YN0019: │
+@storybook-csf-plugin-npm-8.6.14-cc2f630a3e-a0983268e6.zip appears
+to be unused - removing
+➤ YN0019: │
+@storybook-manager-api-npm-8.6.14-33d0716073-4544b31705.zip
+appears to be unused - removing
+➤ YN0019: │
+@storybook-preview-api-npm-8.6.14-3c5ba3cf53-9b77288f2f.zip
+appears to be unused - removing
+➤ YN0019: │
+@storybook-react-dom-shim-npm-8.6.14-ae9f91a500-c46bef901e.zip
+appears to be unused - removing
+➤ YN0019: │
+@storybook-theming-npm-8.6.14-8f8706ff84-6936ea3348.zip appears to
+be unused - removing
+➤ YN0019: │
+@storybook-manager-api-npm-8.6.14-33d0716073-4544b31705.zip
+appears to be unused - removing
+➤ YN0019: │
+@storybook-preview-api-npm-8.6.14-3c5ba3cf53-9b77288f2f.zip
+appears to be unused - removing
+➤ YN0019: │
+@storybook-react-dom-shim-npm-8.6.14-ae9f91a500-c46bef901e.zip
+appears to be unused - removing
+➤ YN0019: │
+@storybook-theming-npm-8.6.14-8f8706ff84-6936ea3348.zip appears to
+be unused - removing
+➤ YN0019: │ @storybook-vue3-npm-8.6.14-bece9503d6-6d0fe119f2.zip
+appears to be unused - removing
+➤ YN0019: │
+@storybook-preview-api-npm-8.6.14-3c5ba3cf53-9b77288f2f.zip
+appears to be unused - removing
+➤ YN0019: │
+@storybook-react-dom-shim-npm-8.6.14-ae9f91a500-c46bef901e.zip
+appears to be unused - removing
+➤ YN0019: │
+@storybook-theming-npm-8.6.14-8f8706ff84-6936ea3348.zip appears to
+be unused - removing
+➤ YN0019: │ @storybook-vue3-npm-8.6.14-bece9503d6-6d0fe119f2.zip
+appears to be unused - removing
+➤ YN0019: │
+@storybook-vue3-vite-npm-8.6.14-b2891e93ff-7489ef2e0f.zip appears
+to be unused - removing
+➤ YN0019: │
+@storybook-react-dom-shim-npm-8.6.14-ae9f91a500-c46bef901e.zip
+appears to be unused - removing
+➤ YN0019: │
+@storybook-theming-npm-8.6.14-8f8706ff84-6936ea3348.zip appears to
+be unused - removing
+➤ YN0019: │ @storybook-vue3-npm-8.6.14-bece9503d6-6d0fe119f2.zip
+appears to be unused - removing
+➤ YN0019: │
+@storybook-vue3-vite-npm-8.6.14-b2891e93ff-7489ef2e0f.zip appears
+to be unused - removing
+➤ YN0019: │ @types-debug-npm-4.1.12-82a3fc4905-47876a852d.zip
+appears to be unused - removing
+➤ YN0019: │
+@storybook-theming-npm-8.6.14-8f8706ff84-6936ea3348.zip appears to
+be unused - removing
+➤ YN0019: │ @storybook-vue3-npm-8.6.14-bece9503d6-6d0fe119f2.zip
+appears to be unused - removing
+➤ YN0019: │
+@storybook-vue3-vite-npm-8.6.14-b2891e93ff-7489ef2e0f.zip appears
+to be unused - removing
+➤ YN0019: │ @types-debug-npm-4.1.12-82a3fc4905-47876a852d.zip
+appears to be unused - removing
+➤ YN0019: │ @types-mdast-npm-4.0.4-a4a0135eb0-20c4e9574c.zip
+appears to be unused - removing
+➤ YN0019: │ @storybook-vue3-npm-8.6.14-bece9503d6-6d0fe119f2.zip
+appears to be unused - removing
+➤ YN0019: │
+@storybook-vue3-vite-npm-8.6.14-b2891e93ff-7489ef2e0f.zip appears
+to be unused - removing
+➤ YN0019: │ @types-debug-npm-4.1.12-82a3fc4905-47876a852d.zip
+appears to be unused - removing
+➤ YN0019: │ @types-mdast-npm-4.0.4-a4a0135eb0-20c4e9574c.zip
+appears to be unused - removing
+➤ YN0019: │ @types-ms-npm-2.1.0-529ef799cc-532d2ebb91.zip appears
+to be unused - removing
+➤ YN0019: │
+@storybook-vue3-vite-npm-8.6.14-b2891e93ff-7489ef2e0f.zip appears
+to be unused - removing
+➤ YN0019: │ @types-debug-npm-4.1.12-82a3fc4905-47876a852d.zip
+appears to be unused - removing
+➤ YN0019: │ @types-mdast-npm-4.0.4-a4a0135eb0-20c4e9574c.zip
+appears to be unused - removing
+➤ YN0019: │ @types-ms-npm-2.1.0-529ef799cc-532d2ebb91.zip appears
+to be unused - removing
+➤ YN0019: │ @types-unist-npm-3.0.3-1c20461f2e-96e6453da9.zip
+appears to be unused - removing
+➤ YN0019: │ @types-debug-npm-4.1.12-82a3fc4905-47876a852d.zip
+appears to be unused - removing
+➤ YN0019: │ @types-mdast-npm-4.0.4-a4a0135eb0-20c4e9574c.zip
+appears to be unused - removing
+➤ YN0019: │ @types-ms-npm-2.1.0-529ef799cc-532d2ebb91.zip appears
+to be unused - removing
+➤ YN0019: │ @types-unist-npm-3.0.3-1c20461f2e-96e6453da9.zip
+appears to be unused - removing
+➤ YN0019: │ @types-uuid-npm-9.0.8-3eeeaa5abb-b8c60b7ba8.zip
+appears to be unused - removing
+➤ YN0019: │ @types-mdast-npm-4.0.4-a4a0135eb0-20c4e9574c.zip
+appears to be unused - removing
+➤ YN0019: │ @types-ms-npm-2.1.0-529ef799cc-532d2ebb91.zip appears
+to be unused - removing
+➤ YN0019: │ @types-unist-npm-3.0.3-1c20461f2e-96e6453da9.zip
+appears to be unused - removing
+➤ YN0019: │ @types-uuid-npm-9.0.8-3eeeaa5abb-b8c60b7ba8.zip
+appears to be unused - removing
+➤ YN0019: │
+available-typed-arrays-npm-1.0.7-e5e5d79687-1aa3ffbfe6.zip appears
+to be unused - removing
+➤ YN0019: │ @types-ms-npm-2.1.0-529ef799cc-532d2ebb91.zip appears
+to be unused - removing
+➤ YN0019: │ @types-unist-npm-3.0.3-1c20461f2e-96e6453da9.zip
+appears to be unused - removing
+➤ YN0019: │ @types-uuid-npm-9.0.8-3eeeaa5abb-b8c60b7ba8.zip
+appears to be unused - removing
+➤ YN0019: │
+available-typed-arrays-npm-1.0.7-e5e5d79687-1aa3ffbfe6.zip appears
+to be unused - removing
+➤ YN0019: │ bail-npm-2.0.2-42130cb251-aab4e8ccdc.zip appears to be
+unused - removing
+➤ YN0019: │ @types-unist-npm-3.0.3-1c20461f2e-96e6453da9.zip
+appears to be unused - removing
+➤ YN0019: │ @types-uuid-npm-9.0.8-3eeeaa5abb-b8c60b7ba8.zip
+appears to be unused - removing
+➤ YN0019: │
+available-typed-arrays-npm-1.0.7-e5e5d79687-1aa3ffbfe6.zip appears
+to be unused - removing
+➤ YN0019: │ bail-npm-2.0.2-42130cb251-aab4e8ccdc.zip appears to be
+unused - removing
+➤ YN0019: │ browser-assert-npm-1.2.1-f4eb571cbe-8b2407cd04.zip
+appears to be unused - removing
+➤ YN0019: │ @types-uuid-npm-9.0.8-3eeeaa5abb-b8c60b7ba8.zip
+appears to be unused - removing
+➤ YN0019: │
+available-typed-arrays-npm-1.0.7-e5e5d79687-1aa3ffbfe6.zip appears
+to be unused - removing
+➤ YN0019: │ bail-npm-2.0.2-42130cb251-aab4e8ccdc.zip appears to be
+unused - removing
+➤ YN0019: │ browser-assert-npm-1.2.1-f4eb571cbe-8b2407cd04.zip
+appears to be unused - removing
+➤ YN0019: │ ccount-npm-2.0.1-f4b7827860-48193dada5.zip appears to
+be unused - removing
+➤ YN0019: │
+available-typed-arrays-npm-1.0.7-e5e5d79687-1aa3ffbfe6.zip appears
+to be unused - removing
+➤ YN0019: │ bail-npm-2.0.2-42130cb251-aab4e8ccdc.zip appears to be
+unused - removing
+➤ YN0019: │ browser-assert-npm-1.2.1-f4eb571cbe-8b2407cd04.zip
+appears to be unused - removing
+➤ YN0019: │ ccount-npm-2.0.1-f4b7827860-48193dada5.zip appears to
+be unused - removing
+➤ YN0019: │ character-entities-npm-2.0.2-b5ef4d8fe2-cf16438140.zip
+appears to be unused - removing
+➤ YN0019: │ bail-npm-2.0.2-42130cb251-aab4e8ccdc.zip appears to be
+unused - removing
+➤ YN0019: │ browser-assert-npm-1.2.1-f4eb571cbe-8b2407cd04.zip
+appears to be unused - removing
+➤ YN0019: │ ccount-npm-2.0.1-f4b7827860-48193dada5.zip appears to
+be unused - removing
+➤ YN0019: │ character-entities-npm-2.0.2-b5ef4d8fe2-cf16438140.zip
+appears to be unused - removing
+➤ YN0019: │
+decode-named-character-reference-npm-1.2.0-428b0f96d3-f26b23046c.zip
+appears to be unused - removing
+➤ YN0019: │ browser-assert-npm-1.2.1-f4eb571cbe-8b2407cd04.zip
+appears to be unused - removing
+➤ YN0019: │ ccount-npm-2.0.1-f4b7827860-48193dada5.zip appears to
+be unused - removing
+➤ YN0019: │ character-entities-npm-2.0.2-b5ef4d8fe2-cf16438140.zip
+appears to be unused - removing
+➤ YN0019: │
+decode-named-character-reference-npm-1.2.0-428b0f96d3-f26b23046c.zip
+appears to be unused - removing
+➤ YN0019: │ dequal-npm-2.0.3-53a630c60e-8679b850e1.zip appears to
+be unused - removing
+➤ YN0019: │ ccount-npm-2.0.1-f4b7827860-48193dada5.zip appears to
+be unused - removing
+➤ YN0019: │ character-entities-npm-2.0.2-b5ef4d8fe2-cf16438140.zip
+appears to be unused - removing
+➤ YN0019: │
+decode-named-character-reference-npm-1.2.0-428b0f96d3-f26b23046c.zip
+appears to be unused - removing
+➤ YN0019: │ dequal-npm-2.0.3-53a630c60e-8679b850e1.zip appears to
+be unused - removing
+➤ YN0019: │ devlop-npm-1.1.0-d4a98d724c-d2ff650bac.zip appears to
+be unused - removing
+➤ YN0019: │ character-entities-npm-2.0.2-b5ef4d8fe2-cf16438140.zip
+appears to be unused - removing
+➤ YN0019: │
+decode-named-character-reference-npm-1.2.0-428b0f96d3-f26b23046c.zip
+appears to be unused - removing
+➤ YN0019: │ dequal-npm-2.0.3-53a630c60e-8679b850e1.zip appears to
+be unused - removing
+➤ YN0019: │ devlop-npm-1.1.0-d4a98d724c-d2ff650bac.zip appears to
+be unused - removing
+➤ YN0019: │
+escape-string-regexp-npm-5.0.0-a663e825ce-20daabe197.zip appears
+to be unused - removing
+[14:49:18.586] [INFO] ➤ YN0019: │ decode-named-character-reference-npm-1.2.0-428b0f96d3-f26b23046c.zip appears to be unused - removing
+➤ YN0019: │ dequal-npm-2.0.3-53a630c60e-8679b850e1.zip appears to be unused - removing
+➤ YN0019: │ devlop-npm-1.1.0-d4a98d724c-d2ff650bac.zip appears to be unused - removing
+➤ YN0019: │ escape-string-regexp-npm-5.0.0-a663e825ce-20daabe197.zip appears to be unused - removing
+➤ YN0019: │ extend-npm-3.0.2-e1ca07ac54-a50a8309ca.zip appears to be unused - removing
+➤ YN0019: │ dequal-npm-2.0.3-53a630c60e-8679b850e1.zip appears to be unused - removing
+➤ YN0019: │ devlop-npm-1.1.0-d4a98d724c-d2ff650bac.zip appears to be unused - removing
+➤ YN0019: │ escape-string-regexp-npm-5.0.0-a663e825ce-20daabe197.zip appears to be unused - removing
+➤ YN0019: │ extend-npm-3.0.2-e1ca07ac54-a50a8309ca.zip appears to be unused - removing
+➤ YN0019: │ for-each-npm-0.3.5-b74c5c5ba7-3c986d7e11.zip appears to be unused - removing
+➤ YN0019: │ devlop-npm-1.1.0-d4a98d724c-d2ff650bac.zip appears to be unused - removing
+➤ YN0019: │ escape-string-regexp-npm-5.0.0-a663e825ce-20daabe197.zip appears to be unused - removing
+➤ YN0019: │ extend-npm-3.0.2-e1ca07ac54-a50a8309ca.zip appears to be unused - removing
+➤ YN0019: │ for-each-npm-0.3.5-b74c5c5ba7-3c986d7e11.zip appears to be unused - removing
+➤ YN0019: │ is-arguments-npm-1.2.0-ecfcc85b28-aae9307fed.zip appears to be unused - removing
+➤ YN0019: │ escape-string-regexp-npm-5.0.0-a663e825ce-20daabe197.zip appears to be unused - removing
+➤ YN0019: │ extend-npm-3.0.2-e1ca07ac54-a50a8309ca.zip appears to be unused - removing
+➤ YN0019: │ for-each-npm-0.3.5-b74c5c5ba7-3c986d7e11.zip appears to be unused - removing
+➤ YN0019: │ is-arguments-npm-1.2.0-ecfcc85b28-aae9307fed.zip appears to be unused - removing
+➤ YN0019: │ is-callable-npm-1.2.7-808a303e61-61fd57d03b.zip appears to be unused - removing
+➤ YN0019: │ extend-npm-3.0.2-e1ca07ac54-a50a8309ca.zip appears to be unused - removing
+➤ YN0019: │ for-each-npm-0.3.5-b74c5c5ba7-3c986d7e11.zip appears to be unused - removing
+➤ YN0019: │ is-arguments-npm-1.2.0-ecfcc85b28-aae9307fed.zip appears to be unused - removing
+➤ YN0019: │ is-callable-npm-1.2.7-808a303e61-61fd57d03b.zip appears to be unused - removing
+➤ YN0019: │ is-generator-function-npm-1.1.0-e96e2ba973-f7f7276131.zip appears to be unused - removing
+➤ YN0019: │ for-each-npm-0.3.5-b74c5c5ba7-3c986d7e11.zip appears to be unused - removing
+➤ YN0019: │ is-arguments-npm-1.2.0-ecfcc85b28-aae9307fed.zip appears to be unused - removing
+➤ YN0019: │ is-callable-npm-1.2.7-808a303e61-61fd57d03b.zip appears to be unused - removing
+➤ YN0019: │ is-generator-function-npm-1.1.0-e96e2ba973-f7f7276131.zip appears to be unused - removing
+➤ YN0019: │ is-plain-obj-npm-4.1.0-a4f2a92b44-6dc45da70d.zip appears to be unused - removing
+➤ YN0019: │ is-arguments-npm-1.2.0-ecfcc85b28-aae9307fed.zip appears to be unused - removing
+➤ YN0019: │ is-callable-npm-1.2.7-808a303e61-61fd57d03b.zip appears to be unused - removing
+➤ YN0019: │ is-generator-function-npm-1.1.0-e96e2ba973-f7f7276131.zip appears to be unused - removing
+➤ YN0019: │ is-plain-obj-npm-4.1.0-a4f2a92b44-6dc45da70d.zip appears to be unused - removing
+➤ YN0019: │ is-typed-array-npm-1.1.15-33aa18e28f-ea7cfc46c2.zip appears to be unused - removing
+➤ YN0019: │ is-callable-npm-1.2.7-808a303e61-61fd57d03b.zip appears to be unused - removing
+➤ YN0019: │ is-generator-function-npm-1.1.0-e96e2ba973-f7f7276131.zip appears to be unused - removing
+➤ YN0019: │ is-plain-obj-npm-4.1.0-a4f2a92b44-6dc45da70d.zip appears to be unused - removing
+➤ YN0019: │ is-typed-array-npm-1.1.15-33aa18e28f-ea7cfc46c2.zip appears to be unused - removing
+➤ YN0019: │ jsdoc-type-pratt-parser-npm-4.8.0-67284931e2-54c17ca55a.zip appears to be unused - removing
+➤ YN0019: │ is-generator-function-npm-1.1.0-e96e2ba973-f7f7276131.zip appears to be unused - removing
+➤ YN0019: │ is-plain-obj-npm-4.1.0-a4f2a92b44-6dc45da70d.zip appears to be unused - removing
+➤ YN0019: │ is-typed-array-npm-1.1.15-33aa18e28f-ea7cfc46c2.zip appears to be unused - removing
+➤ YN0019: │ jsdoc-type-pratt-parser-npm-4.8.0-67284931e2-54c17ca55a.zip appears to be unused - removing
+➤ YN0019: │ longest-streak-npm-3.1.0-e2ab1c40ee-d7f952ed00.zip appears to be unused - removing
+➤ YN0019: │ is-plain-obj-npm-4.1.0-a4f2a92b44-6dc45da70d.zip appears to be unused - removing
+➤ YN0019: │ is-typed-array-npm-1.1.15-33aa18e28f-ea7cfc46c2.zip appears to be unused - removing
+➤ YN0019: │ jsdoc-type-pratt-parser-npm-4.8.0-67284931e2-54c17ca55a.zip appears to be unused - removing
+➤ YN0019: │ longest-streak-npm-3.1.0-e2ab1c40ee-d7f952ed00.zip appears to be unused - removing
+➤ YN0019: │ markdown-table-npm-3.0.4-d4abf2a563-bc24b177cb.zip appears to be unused - removing
+➤ YN0019: │ is-typed-array-npm-1.1.15-33aa18e28f-ea7cfc46c2.zip appears to be unused - removing
+➤ YN0019: │ jsdoc-type-pratt-parser-npm-4.8.0-67284931e2-54c17ca55a.zip appears to be unused - removing
+➤ YN0019: │ longest-streak-npm-3.1.0-e2ab1c40ee-d7f952ed00.zip appears to be unused - removing
+➤ YN0019: │ markdown-table-npm-3.0.4-d4abf2a563-bc24b177cb.zip appears to be unused - removing
+➤ YN0019: │ mdast-util-find-and-replace-npm-3.0.2-700884f061-00dde8aaf8.zip appears to be unused - removing
+➤ YN0019: │ jsdoc-type-pratt-parser-npm-4.8.0-67284931e2-54c17ca55a.zip appears to be unused - removing
+➤ YN0019: │ longest-streak-npm-3.1.0-e2ab1c40ee-d7f952ed00.zip appears to be unused - removing
+➤ YN0019: │ markdown-table-npm-3.0.4-d4abf2a563-bc24b177cb.zip appears to be unused - removing
+➤ YN0019: │ mdast-util-find-and-replace-npm-3.0.2-700884f061-00dde8aaf8.zip appears to be unused - removing
+➤ YN0019: │ mdast-util-from-markdown-npm-2.0.2-b327f875e3-1ad19f48b3.zip appears to be unused - removing
+➤ YN0019: │ longest-streak-npm-3.1.0-e2ab1c40ee-d7f952ed00.zip appears to be unused - removing
+➤ YN0019: │ markdown-table-npm-3.0.4-d4abf2a563-bc24b177cb.zip appears to be unused - removing
+➤ YN0019: │ mdast-util-find-and-replace-npm-3.0.2-700884f061-00dde8aaf8.zip appears to be unused - removing
+➤ YN0019: │ mdast-util-from-markdown-npm-2.0.2-b327f875e3-1ad19f48b3.zip appears to be unused - removing
+➤ YN0019: │ mdast-util-gfm-autolink-literal-npm-2.0.1-dd870d9308-5630b12e07.zip appears to be unused - removing
+➤ YN0019: │ markdown-table-npm-3.0.4-d4abf2a563-bc24b177cb.zip appears to be unused - removing
+➤ YN0019: │ mdast-util-find-and-replace-npm-3.0.2-700884f061-00dde8aaf8.zip appears to be unused - removing
+➤ YN0019: │ mdast-util-from-markdown-npm-2.0.2-b327f875e3-1ad19f48b3.zip appears to be unused - removing
+➤ YN0019: │ mdast-util-gfm-autolink-literal-npm-2.0.1-dd870d9308-5630b12e07.zip appears to be unused - removing
+➤ YN0019: │ mdast-util-gfm-footnote-npm-2.1.0-d8da32ba7c-a23c5531d6.zip appears to be unused - removing
+➤ YN0019: │ mdast-util-find-and-replace-npm-3.0.2-700884f061-00dde8aaf8.zip appears to be unused - removing
+➤ YN0019: │ mdast-util-from-markdown-npm-2.0.2-b327f875e3-1ad19f48b3.zip appears to be unused - removing
+➤ YN0019: │ mdast-util-gfm-autolink-literal-npm-2.0.1-dd870d9308-5630b12e07.zip appears to be unused - removing
+➤ YN0019: │ mdast-util-gfm-footnote-npm-2.1.0-d8da32ba7c-a23c5531d6.zip appears to be unused - removing
+➤ YN0019: │ mdast-util-gfm-npm-3.1.0-933de2cdb5-ecdadc0b46.zip appears to be unused - removing
+➤ YN0019: │ mdast-util-from-markdown-npm-2.0.2-b327f875e3-1ad19f48b3.zip appears to be unused - removing
+➤ YN0019: │ mdast-util-gfm-autolink-literal-npm-2.0.1-dd870d9308-5630b12e07.zip appears to be unused - removing
+➤ YN0019: │ mdast-util-gfm-footnote-npm-2.1.0-d8da32ba7c-a23c5531d6.zip appears to be unused - removing
+➤ YN0019: │ mdast-util-gfm-npm-3.1.0-933de2cdb5-ecdadc0b46.zip appears to be unused - removing
+➤ YN0019: │ mdast-util-gfm-strikethrough-npm-2.0.0-d16d95c318-fe9b1d0eba.zip appears to be unused - removing
+➤ YN0019: │ mdast-util-gfm-autolink-literal-npm-2.0.1-dd870d9308-5630b12e07.zip appears to be unused - removing
+➤ YN0019: │ mdast-util-gfm-footnote-npm-2.1.0-d8da32ba7c-a23c5531d6.zip appears to be unused - removing
+➤ YN0019: │ mdast-util-gfm-npm-3.1.0-933de2cdb5-ecdadc0b46.zip appears to be unused - removing
+➤ YN0019: │ mdast-util-gfm-strikethrough-npm-2.0.0-d16d95c318-fe9b1d0eba.zip appears to be unused - removing
+➤ YN0019: │ mdast-util-gfm-table-npm-2.0.0-45a74f064b-063a627fd0.zip appears to be unused - removing
+➤ YN0019: │ mdast-util-gfm-footnote-npm-2.1.0-d8da32ba7c-a23c5531d6.zip appears to be unused - removing
+➤ YN0019: │ mdast-util-gfm-npm-3.1.0-933de2cdb5-ecdadc0b46.zip appears to be unused - removing
+➤ YN0019: │ mdast-util-gfm-strikethrough-npm-2.0.0-d16d95c318-fe9b1d0eba.zip appears to be unused - removing
+➤ YN0019: │ mdast-util-gfm-table-npm-2.0.0-45a74f064b-063a627fd0.zip appears to be unused - removing
+➤ YN0019: │ mdast-util-gfm-task-list-item-npm-2.0.0-cb1270a10f-37db90c59b.zip appears to be unused - removing
+➤ YN0019: │ mdast-util-gfm-npm-3.1.0-933de2cdb5-ecdadc0b46.zip appears to be unused - removing
+➤ YN0019: │ mdast-util-gfm-strikethrough-npm-2.0.0-d16d95c318-fe9b1d0eba.zip appears to be unused - removing
+➤ YN0019: │ mdast-util-gfm-table-npm-2.0.0-45a74f064b-063a627fd0.zip appears to be unused - removing
+➤ YN0019: │ mdast-util-gfm-task-list-item-npm-2.0.0-cb1270a10f-37db90c59b.zip appears to be unused - removing
+➤ YN0019: │ mdast-util-phrasing-npm-4.1.0-30939ebbcd-3a97533e8a.zip appears to be unused - removing
+➤ YN0019: │ mdast-util-gfm-strikethrough-npm-2.0.0-d16d95c318-fe9b1d0eba.zip appears to be unused - removing
+➤ YN0019: │ mdast-util-gfm-table-npm-2.0.0-45a74f064b-063a627fd0.zip appears to be unused - removing
+➤ YN0019: │ mdast-util-gfm-task-list-item-npm-2.0.0-cb1270a10f-37db90c59b.zip appears to be unused - removing
+➤ YN0019: │ mdast-util-phrasing-npm-4.1.0-30939ebbcd-3a97533e8a.zip appears to be unused - removing
+➤ YN0019: │ mdast-util-to-markdown-npm-2.1.2-40d984eac3-288d152bd5.zip appears to be unused - removing
+➤ YN0019: │ mdast-util-gfm-table-npm-2.0.0-45a74f064b-063a627fd0.zip appears to be unused - removing
+➤ YN0019: │ mdast-util-gfm-task-list-item-npm-2.0.0-cb1270a10f-37db90c59b.zip appears to be unused - removing
+➤ YN0019: │ mdast-util-phrasing-npm-4.1.0-30939ebbcd-3a97533e8a.zip appears to be unused - removing
+➤ YN0019: │ mdast-util-to-markdown-npm-2.1.2-40d984eac3-288d152bd5.zip appears to be unused - removing
+➤ YN0019: │ mdast-util-to-string-npm-4.0.0-fc8d9714a5-35489fb571.zip appears to be unused - removing
+➤ YN0019: │ mdast-util-gfm-task-list-item-npm-2.0.0-cb1270a10f-37db90c59b.zip appears to be unused - removing
+➤ YN0019: │ mdast-util-phrasing-npm-4.1.0-30939ebbcd-3a97533e8a.zip appears to be unused - removing
+➤ YN0019: │ mdast-util-to-markdown-npm-2.1.2-40d984eac3-288d152bd5.zip appears to be unused - removing
+➤ YN0019: │ mdast-util-to-string-npm-4.0.0-fc8d9714a5-35489fb571.zip appears to be unused - removing
+➤ YN0019: │ micromark-core-commonmark-npm-2.0.3-5e317c62b2-cfb0fd9c89.zip appears to be unused - removing
+➤ YN0019: │ mdast-util-phrasing-npm-4.1.0-30939ebbcd-3a97533e8a.zip appears to be unused - removing
+➤ YN0019: │ mdast-util-to-markdown-npm-2.1.2-40d984eac3-288d152bd5.zip appears to be unused - removing
+➤ YN0019: │ mdast-util-to-string-npm-4.0.0-fc8d9714a5-35489fb571.zip appears to be unused - removing
+➤ YN0019: │ micromark-core-commonmark-npm-2.0.3-5e317c62b2-cfb0fd9c89.zip appears to be unused - removing
+➤ YN0019: │ micromark-extension-gfm-autolink-literal-npm-2.1.0-8fcb271412-e00a570c70.zip appears to be unused - removing
+➤ YN0019: │ mdast-util-to-markdown-npm-2.1.2-40d984eac3-288d152bd5.zip appears to be unused - removing
+➤ YN0019: │ mdast-util-to-string-npm-4.0.0-fc8d9714a5-35489fb571.zip appears to be unused - removing
+➤ YN0019: │ micromark-core-commonmark-npm-2.0.3-5e317c62b2-cfb0fd9c89.zip appears to be unused - removing
+➤ YN0019: │ micromark-extension-gfm-autolink-literal-npm-2.1.0-8fcb271412-e00a570c70.zip appears to be unused - removing
+➤ YN0019: │ micromark-extension-gfm-footnote-npm-2.1.0-1cf783dd36-ac6fb039e9.zip appears to be unused - removing
+➤ YN0019: │ mdast-util-to-string-npm-4.0.0-fc8d9714a5-35489fb571.zip appears to be unused - removing
+➤ YN0019: │ micromark-core-commonmark-npm-2.0.3-5e317c62b2-cfb0fd9c89.zip appears to be unused - removing
+➤ YN0019: │ micromark-extension-gfm-autolink-literal-npm-2.1.0-8fcb271412-e00a570c70.zip appears to be unused - removing
+➤ YN0019: │ micromark-extension-gfm-footnote-npm-2.1.0-1cf783dd36-ac6fb039e9.zip appears to be unused - removing
+➤ YN0019: │ micromark-extension-gfm-npm-3.0.0-d154ab531f-2060fa6266.zip appears to be unused - removing
+➤ YN0019: │ micromark-core-commonmark-npm-2.0.3-5e317c62b2-cfb0fd9c89.zip appears to be unused - removing
+➤ YN0019: │ micromark-extension-gfm-autolink-literal-npm-2.1.0-8fcb271412-e00a570c70.zip appears to be unused - removing
+➤ YN0019: │ micromark-extension-gfm-footnote-npm-2.1.0-1cf783dd36-ac6fb039e9.zip appears to be unused - removing
+➤ YN0019: │ micromark-extension-gfm-npm-3.0.0-d154ab531f-2060fa6266.zip appears to be unused - removing
+➤ YN0019: │ micromark-extension-gfm-strikethrough-npm-2.1.0-b2aa188eba-cdb7a38dd6.zip appears to be unused - removing
+➤ YN0019: │ micromark-extension-gfm-autolink-literal-npm-2.1.0-8fcb271412-e00a570c70.zip appears to be unused - removing
+➤ YN0019: │ micromark-extension-gfm-footnote-npm-2.1.0-1cf783dd36-ac6fb039e9.zip appears to be unused - removing
+➤ YN0019: │ micromark-extension-gfm-npm-3.0.0-d154ab531f-2060fa6266.zip appears to be unused - removing
+➤ YN0019: │ micromark-extension-gfm-strikethrough-npm-2.1.0-b2aa188eba-cdb7a38dd6.zip appears to be unused - removing
+➤ YN0019: │ micromark-extension-gfm-table-npm-2.1.1-7b9f4422c9-16a59c8c23.zip appears to be unused - removing
+➤ YN0019: │ micromark-extension-gfm-footnote-npm-2.1.0-1cf783dd36-ac6fb039e9.zip appears to be unused - removing
+➤ YN0019: │ micromark-extension-gfm-npm-3.0.0-d154ab531f-2060fa6266.zip appears to be unused - removing
+➤ YN0019: │ micromark-extension-gfm-strikethrough-npm-2.1.0-b2aa188eba-cdb7a38dd6.zip appears to be unused - removing
+➤ YN0019: │ micromark-extension-gfm-table-npm-2.1.1-7b9f4422c9-16a59c8c23.zip appears to be unused - removing
+➤ YN0019: │ micromark-extension-gfm-tagfilter-npm-2.0.0-c5ad486636-cf21552f4a.zip appears to be unused - removing
+➤ YN0019: │ micromark-extension-gfm-npm-3.0.0-d154ab531f-2060fa6266.zip appears to be unused - removing
+➤ YN0019: │ micromark-extension-gfm-strikethrough-npm-2.1.0-b2aa188eba-cdb7a38dd6.zip appears to be unused - removing
+➤ YN0019: │ micromark-extension-gfm-table-npm-2.1.1-7b9f4422c9-16a59c8c23.zip appears to be unused - removing
+➤ YN0019: │ micromark-extension-gfm-tagfilter-npm-2.0.0-c5ad486636-cf21552f4a.zip appears to be unused - removing
+➤ YN0019: │ micromark-extension-gfm-task-list-item-npm-2.1.0-b717607894-b1ad86a4e9.zip appears to be unused - removing
+➤ YN0019: │ micromark-extension-gfm-strikethrough-npm-2.1.0-b2aa188eba-cdb7a38dd6.zip appears to be unused - removing
+➤ YN0019: │ micromark-extension-gfm-table-npm-2.1.1-7b9f4422c9-16a59c8c23.zip appears to be unused - removing
+➤ YN0019: │ micromark-extension-gfm-tagfilter-npm-2.0.0-c5ad486636-cf21552f4a.zip appears to be unused - removing
+➤ YN0019: │ micromark-extension-gfm-task-list-item-npm-2.1.0-b717607894-b1ad86a4e9.zip appears to be unused - removing
+➤ YN0019: │ micromark-factory-destination-npm-2.0.1-2b4ab89121-9c4baa9ca2.zip appears to be unused - removing
+➤ YN0019: │ micromark-extension-gfm-table-npm-2.1.1-7b9f4422c9-16a59c8c23.zip appears to be unused - removing
+➤ YN0019: │ micromark-extension-gfm-tagfilter-npm-2.0.0-c5ad486636-cf21552f4a.zip appears to be unused - removing
+➤ YN0019: │ micromark-extension-gfm-task-list-item-npm-2.1.0-b717607894-b1ad86a4e9.zip appears to be unused - removing
+➤ YN0019: │ micromark-factory-destination-npm-2.0.1-2b4ab89121-9c4baa9ca2.zip appears to be unused - removing
+➤ YN0019: │ micromark-factory-label-npm-2.0.1-2ce9fdcfd2-bd03f5a75f.zip appears to be unused - removing
+➤ YN0019: │ micromark-extension-gfm-tagfilter-npm-2.0.0-c5ad486636-cf21552f4a.zip appears to be unused - removing
+➤ YN0019: │ micromark-extension-gfm-task-list-item-npm-2.1.0-b717607894-b1ad86a4e9.zip appears to be unused - removing
+➤ YN0019: │ micromark-factory-destination-npm-2.0.1-2b4ab89121-9c4baa9ca2.zip appears to be unused - removing
+➤ YN0019: │ micromark-factory-label-npm-2.0.1-2ce9fdcfd2-bd03f5a75f.zip appears to be unused - removing
+➤ YN0019: │ micromark-factory-space-npm-2.0.1-36b4717310-1bd68a017c.zip appears to be unused - removing
+➤ YN0019: │ micromark-extension-gfm-task-list-item-npm-2.1.0-b717607894-b1ad86a4e9.zip appears to be unused - removing
+➤ YN0019: │ micromark-factory-destination-npm-2.0.1-2b4ab89121-9c4baa9ca2.zip appears to be unused - removing
+➤ YN0019: │ micromark-factory-label-npm-2.0.1-2ce9fdcfd2-bd03f5a75f.zip appears to be unused - removing
+➤ YN0019: │ micromark-factory-space-npm-2.0.1-36b4717310-1bd68a017c.zip appears to be unused - removing
+➤ YN0019: │ micromark-factory-title-npm-2.0.1-a5f7a4ac37-b4d2e4850a.zip appears to be unused - removing
+➤ YN0019: │ micromark-factory-destination-npm-2.0.1-2b4ab89121-9c4baa9ca2.zip appears to be unused - removing
+➤ YN0019: │ micromark-factory-label-npm-2.0.1-2ce9fdcfd2-bd03f5a75f.zip appears to be unused - removing
+➤ YN0019: │ micromark-factory-space-npm-2.0.1-36b4717310-1bd68a017c.zip appears to be unused - removing
+➤ YN0019: │ micromark-factory-title-npm-2.0.1-a5f7a4ac37-b4d2e4850a.zip appears to be unused - removing
+➤ YN0019: │ micromark-factory-whitespace-npm-2.0.1-2d7cfaf8ae-67b3944d01.zip appears to be unused - removing
+➤ YN0019: │ micromark-factory-label-npm-2.0.1-2ce9fdcfd2-bd03f5a75f.zip appears to be unused - removing
+➤ YN0019: │ micromark-factory-space-npm-2.0.1-36b4717310-1bd68a017c.zip appears to be unused - removing
+➤ YN0019: │ micromark-factory-title-npm-2.0.1-a5f7a4ac37-b4d2e4850a.zip appears to be unused - removing
+➤ YN0019: │ micromark-factory-whitespace-npm-2.0.1-2d7cfaf8ae-67b3944d01.zip appears to be unused - removing
+➤ YN0019: │ micromark-npm-4.0.2-99b2e4c11c-5306c15dd1.zip appears to be unused - removing
+➤ YN0019: │ micromark-factory-space-npm-2.0.1-36b4717310-1bd68a017c.zip appears to be unused - removing
+➤ YN0019: │ micromark-factory-title-npm-2.0.1-a5f7a4ac37-b4d2e4850a.zip appears to be unused - removing
+➤ YN0019: │ micromark-factory-whitespace-npm-2.0.1-2d7cfaf8ae-67b3944d01.zip appears to be unused - removing
+➤ YN0019: │ micromark-npm-4.0.2-99b2e4c11c-5306c15dd1.zip appears to be unused - removing
+➤ YN0019: │ micromark-util-character-npm-2.1.1-38b44c61db-e9e409efe4.zip appears to be unused - removing
+➤ YN0019: │ micromark-factory-title-npm-2.0.1-a5f7a4ac37-b4d2e4850a.zip appears to be unused - removing
+➤ YN0019: │ micromark-factory-whitespace-npm-2.0.1-2d7cfaf8ae-67b3944d01.zip appears to be unused - removing
+➤ YN0019: │ micromark-npm-4.0.2-99b2e4c11c-5306c15dd1.zip appears to be unused - removing
+➤ YN0019: │ micromark-util-character-npm-2.1.1-38b44c61db-e9e409efe4.zip appears to be unused - removing
+➤ YN0019: │ micromark-util-chunked-npm-2.0.1-27444b1e7b-f8cb2a67bc.zip appears to be unused - removing
+➤ YN0019: │ micromark-factory-whitespace-npm-2.0.1-2d7cfaf8ae-67b3944d01.zip appears to be unused - removing
+➤ YN0019: │ micromark-npm-4.0.2-99b2e4c11c-5306c15dd1.zip appears to be unused - removing
+➤ YN0019: │ micromark-util-character-npm-2.1.1-38b44c61db-e9e409efe4.zip appears to be unused - removing
+➤ YN0019: │ micromark-util-chunked-npm-2.0.1-27444b1e7b-f8cb2a67bc.zip appears to be unused - removing
+➤ YN0019: │ micromark-util-classify-character-npm-2.0.1-127a4a9c2a-4d8bbe3a6d.zip appears to be unused - removing
+➤ YN0019: │ micromark-npm-4.0.2-99b2e4c11c-5306c15dd1.zip appears to be unused - removing
+➤ YN0019: │ micromark-util-character-npm-2.1.1-38b44c61db-e9e409efe4.zip appears to be unused - removing
+➤ YN0019: │ micromark-util-chunked-npm-2.0.1-27444b1e7b-f8cb2a67bc.zip appears to be unused - removing
+➤ YN0019: │ micromark-util-classify-character-npm-2.0.1-127a4a9c2a-4d8bbe3a6d.zip appears to be unused - removing
+➤ YN0019: │ micromark-util-combine-extensions-npm-2.0.1-9810c0bf8d-5d22fb9ee3.zip appears to be unused - removing
+➤ YN0019: │ micromark-util-character-npm-2.1.1-38b44c61db-e9e409efe4.zip appears to be unused - removing
+➤ YN0019: │ micromark-util-chunked-npm-2.0.1-27444b1e7b-f8cb2a67bc.zip appears to be unused - removing
+➤ YN0019: │ micromark-util-classify-character-npm-2.0.1-127a4a9c2a-4d8bbe3a6d.zip appears to be unused - removing
+➤ YN0019: │ micromark-util-combine-extensions-npm-2.0.1-9810c0bf8d-5d22fb9ee3.zip appears to be unused - removing
+➤ YN0019: │ micromark-util-decode-numeric-character-reference-npm-2.0.2-c2d481632e-ee11c8bde5.zip appears to be unused - removing
+➤ YN0019: │ micromark-util-chunked-npm-2.0.1-27444b1e7b-f8cb2a67bc.zip appears to be unused - removing
+➤ YN0019: │ micromark-util-classify-character-npm-2.0.1-127a4a9c2a-4d8bbe3a6d.zip appears to be unused - removing
+➤ YN0019: │ micromark-util-combine-extensions-npm-2.0.1-9810c0bf8d-5d22fb9ee3.zip appears to be unused - removing
+➤ YN0019: │ micromark-util-decode-numeric-character-reference-npm-2.0.2-c2d481632e-ee11c8bde5.zip appears to be unused - removing
+➤ YN0019: │ micromark-util-decode-string-npm-2.0.1-72716f39ea-e9546ae53f.zip appears to be unused - removing
+➤ YN0019: │ micromark-util-classify-character-npm-2.0.1-127a4a9c2a-4d8bbe3a6d.zip appears to be unused - removing
+➤ YN0019: │ micromark-util-combine-extensions-npm-2.0.1-9810c0bf8d-5d22fb9ee3.zip appears to be unused - removing
+➤ YN0019: │ micromark-util-decode-numeric-character-reference-npm-2.0.2-c2d481632e-ee11c8bde5.zip appears to be unused - removing
+➤ YN0019: │ micromark-util-decode-string-npm-2.0.1-72716f39ea-e9546ae53f.zip appears to be unused - removing
+➤ YN0019: │ micromark-util-encode-npm-2.0.1-6586cf1670-be890b98e7.zip appears to be unused - removing
+➤ YN0019: │ micromark-util-combine-extensions-npm-2.0.1-9810c0bf8d-5d22fb9ee3.zip appears to be unused - removing
+➤ YN0019: │ micromark-util-decode-numeric-character-reference-npm-2.0.2-c2d481632e-ee11c8bde5.zip appears to be unused - removing
+➤ YN0019: │ micromark-util-decode-string-npm-2.0.1-72716f39ea-e9546ae53f.zip appears to be unused - removing
+➤ YN0019: │ micromark-util-encode-npm-2.0.1-6586cf1670-be890b98e7.zip appears to be unused - removing
+➤ YN0019: │ micromark-util-html-tag-name-npm-2.0.1-eb560993c8-dea365f5ad.zip appears to be unused - removing
+➤ YN0019: │ micromark-util-decode-numeric-character-reference-npm-2.0.2-c2d481632e-ee11c8bde5.zip appears to be unused - removing
+➤ YN0019: │ micromark-util-decode-string-npm-2.0.1-72716f39ea-e9546ae53f.zip appears to be unused - removing
+➤ YN0019: │ micromark-util-encode-npm-2.0.1-6586cf1670-be890b98e7.zip appears to be unused - removing
+➤ YN0019: │ micromark-util-html-tag-name-npm-2.0.1-eb560993c8-dea365f5ad.zip appears to be unused - removing
+➤ YN0019: │ micromark-util-normalize-identifier-npm-2.0.1-336335e80e-1eb9a289d7.zip appears to be unused - removing
+➤ YN0019: │ micromark-util-decode-string-npm-2.0.1-72716f39ea-e9546ae53f.zip appears to be unused - removing
+➤ YN0019: │ micromark-util-encode-npm-2.0.1-6586cf1670-be890b98e7.zip appears to be unused - removing
+➤ YN0019: │ micromark-util-html-tag-name-npm-2.0.1-eb560993c8-dea365f5ad.zip appears to be unused - removing
+➤ YN0019: │ micromark-util-normalize-identifier-npm-2.0.1-336335e80e-1eb9a289d7.zip appears to be unused - removing
+➤ YN0019: │ micromark-util-resolve-all-npm-2.0.1-50f997ec4c-9275f3ddb6.zip appears to be unused - removing
+➤ YN0019: │ micromark-util-encode-npm-2.0.1-6586cf1670-be890b98e7.zip appears to be unused - removing
+➤ YN0019: │ micromark-util-html-tag-name-npm-2.0.1-eb560993c8-dea365f5ad.zip appears to be unused - removing
+➤ YN0019: │ micromark-util-normalize-identifier-npm-2.0.1-336335e80e-1eb9a289d7.zip appears to be unused - removing
+➤ YN0019: │ micromark-util-resolve-all-npm-2.0.1-50f997ec4c-9275f3ddb6.zip appears to be unused - removing
+➤ YN0019: │ micromark-util-sanitize-uri-npm-2.0.1-4263be24eb-d01517840c.zip appears to be unused - removing
+➤ YN0019: │ micromark-util-html-tag-name-npm-2.0.1-eb560993c8-dea365f5ad.zip appears to be unused - removing
+➤ YN0019: │ micromark-util-normalize-identifier-npm-2.0.1-336335e80e-1eb9a289d7.zip appears to be unused - removing
+➤ YN0019: │ micromark-util-resolve-all-npm-2.0.1-50f997ec4c-9275f3ddb6.zip appears to be unused - removing
+➤ YN0019: │ micromark-util-sanitize-uri-npm-2.0.1-4263be24eb-d01517840c.zip appears to be unused - removing
+➤ YN0019: │ micromark-util-subtokenize-npm-2.1.0-2452c9ae9b-2e194bc8a5.zip appears to be unused - removing
+➤ YN0019: │ micromark-util-normalize-identifier-npm-2.0.1-336335e80e-1eb9a289d7.zip appears to be unused - removing
+➤ YN0019: │ micromark-util-resolve-all-npm-2.0.1-50f997ec4c-9275f3ddb6.zip appears to be unused - removing
+➤ YN0019: │ micromark-util-sanitize-uri-npm-2.0.1-4263be24eb-d01517840c.zip appears to be unused - removing
+➤ YN0019: │ micromark-util-subtokenize-npm-2.1.0-2452c9ae9b-2e194bc8a5.zip appears to be unused - removing
+➤ YN0019: │ micromark-util-symbol-npm-2.0.1-3447180660-fb73469505.zip appears to be unused - removing
+➤ YN0019: │ micromark-util-resolve-all-npm-2.0.1-50f997ec4c-9275f3ddb6.zip appears to be unused - removing
+➤ YN0019: │ micromark-util-sanitize-uri-npm-2.0.1-4263be24eb-d01517840c.zip appears to be unused - removing
+➤ YN0019: │ micromark-util-subtokenize-npm-2.1.0-2452c9ae9b-2e194bc8a5.zip appears to be unused - removing
+➤ YN0019: │ micromark-util-symbol-npm-2.0.1-3447180660-fb73469505.zip appears to be unused - removing
+➤ YN0019: │ micromark-util-types-npm-2.0.2-ea8a969707-884f797483.zip appears to be unused - removing
+➤ YN0019: │ micromark-util-sanitize-uri-npm-2.0.1-4263be24eb-d01517840c.zip appears to be unused - removing
+➤ YN0019: │ micromark-util-subtokenize-npm-2.1.0-2452c9ae9b-2e194bc8a5.zip appears to be unused - removing
+➤ YN0019: │ micromark-util-symbol-npm-2.0.1-3447180660-fb73469505.zip appears to be unused - removing
+➤ YN0019: │ micromark-util-types-npm-2.0.2-ea8a969707-884f797483.zip appears to be unused - removing
+➤ YN0019: │ polished-npm-4.3.1-96b1782f82-a6f863c23f.zip appears to be unused - removing
+➤ YN0019: │ micromark-util-subtokenize-npm-2.1.0-2452c9ae9b-2e194bc8a5.zip appears to be unused - removing
+➤ YN0019: │ micromark-util-symbol-npm-2.0.1-3447180660-fb73469505.zip appears to be unused - removing
+➤ YN0019: │ micromark-util-types-npm-2.0.2-ea8a969707-884f797483.zip appears to be unused - removing
+➤ YN0019: │ polished-npm-4.3.1-96b1782f82-a6f863c23f.zip appears to be unused - removing
+➤ YN0019: │ possible-typed-array-names-npm-1.1.0-ce60ca4401-cfcd4f0526.zip appears to be unused - removing
+➤ YN0019: │ micromark-util-symbol-npm-2.0.1-3447180660-fb73469505.zip appears to be unused - removing
+➤ YN0019: │ micromark-util-types-npm-2.0.2-ea8a969707-884f797483.zip appears to be unused - removing
+➤ YN0019: │ polished-npm-4.3.1-96b1782f82-a6f863c23f.zip appears to be unused - removing
+➤ YN0019: │ possible-typed-array-names-npm-1.1.0-ce60ca4401-cfcd4f0526.zip appears to be unused - removing
+➤ YN0019: │ process-npm-0.11.10-aeb3b641ae-bfcce49814.zip appears to be unused - removing
+➤ YN0019: │ micromark-util-types-npm-2.0.2-ea8a969707-884f797483.zip appears to be unused - removing
+➤ YN0019: │ polished-npm-4.3.1-96b1782f82-a6f863c23f.zip appears to be unused - removing
+➤ YN0019: │ possible-typed-array-names-npm-1.1.0-ce60ca4401-cfcd4f0526.zip appears to be unused - removing
+➤ YN0019: │ process-npm-0.11.10-aeb3b641ae-bfcce49814.zip appears to be unused - removing
+➤ YN0019: │ remark-gfm-npm-4.0.1-f55aaba8ef-b278f51c44.zip appears to be unused - removing
+➤ YN0019: │ polished-npm-4.3.1-96b1782f82-a6f863c23f.zip appears to be unused - removing
+➤ YN0019: │ possible-typed-array-names-npm-1.1.0-ce60ca4401-cfcd4f0526.zip appears to be unused - removing
+➤ YN0019: │ process-npm-0.11.10-aeb3b641ae-bfcce49814.zip appears to be unused - removing
+➤ YN0019: │ remark-gfm-npm-4.0.1-f55aaba8ef-b278f51c44.zip appears to be unused - removing
+➤ YN0019: │ remark-parse-npm-11.0.0-6484fba69e-d83d245290.zip appears to be unused - removing
+➤ YN0019: │ possible-typed-array-names-npm-1.1.0-ce60ca4401-cfcd4f0526.zip appears to be unused - removing
+➤ YN0019: │ process-npm-0.11.10-aeb3b641ae-bfcce49814.zip appears to be unused - removing
+➤ YN0019: │ remark-gfm-npm-4.0.1-f55aaba8ef-b278f51c44.zip appears to be unused - removing
+➤ YN0019: │ remark-parse-npm-11.0.0-6484fba69e-d83d245290.zip appears to be unused - removing
+➤ YN0019: │ remark-stringify-npm-11.0.0-b41a557b8d-59e07460eb.zip appears to be unused - removing
+➤ YN0019: │ process-npm-0.11.10-aeb3b641ae-bfcce49814.zip appears to be unused - removing
+➤ YN0019: │ remark-gfm-npm-4.0.1-f55aaba8ef-b278f51c44.zip appears to be unused - removing
+➤ YN0019: │ remark-parse-npm-11.0.0-6484fba69e-d83d245290.zip appears to be unused - removing
+➤ YN0019: │ remark-stringify-npm-11.0.0-b41a557b8d-59e07460eb.zip appears to be unused - removing
+➤ YN0019: │ safe-regex-test-npm-1.1.0-453eb81b83-3c809abeb8.zip appears to be unused - removing
+➤ YN0019: │ remark-gfm-npm-4.0.1-f55aaba8ef-b278f51c44.zip appears to be unused - removing
+➤ YN0019: │ remark-parse-npm-11.0.0-6484fba69e-d83d245290.zip appears to be unused - removing
+➤ YN0019: │ remark-stringify-npm-11.0.0-b41a557b8d-59e07460eb.zip appears to be unused - removing
+➤ YN0019: │ safe-regex-test-npm-1.1.0-453eb81b83-3c809abeb8.zip appears to be unused - removing
+➤ YN0019: │ storybook-npm-8.6.14-7dce1d3dfd-314de78400.zip appears to be unused - removing
+➤ YN0019: │ remark-parse-npm-11.0.0-6484fba69e-d83d245290.zip appears to be unused - removing
+➤ YN0019: │ remark-stringify-npm-11.0.0-b41a557b8d-59e07460eb.zip appears to be unused - removing
+➤ YN0019: │ safe-regex-test-npm-1.1.0-453eb81b83-3c809abeb8.zip appears to be unused - removing
+➤ YN0019: │ storybook-npm-8.6.14-7dce1d3dfd-314de78400.zip appears to be unused - removing
+➤ YN0019: │ trough-npm-2.2.0-270c93d515-6097df6316.zip appears to be unused - removing
+➤ YN0019: │ remark-stringify-npm-11.0.0-b41a557b8d-59e07460eb.zip appears to be unused - removing
+➤ YN0019: │ safe-regex-test-npm-1.1.0-453eb81b83-3c809abeb8.zip appears to be unused - removing
+➤ YN0019: │ storybook-npm-8.6.14-7dce1d3dfd-314de78400.zip appears to be unused - removing
+➤ YN0019: │ trough-npm-2.2.0-270c93d515-6097df6316.zip appears to be unused - removing
+➤ YN0019: │ typescript-npm-5.9.2-d00cd8b149-f619cf6773.zip appears to be unused - removing
+➤ YN0019: │ safe-regex-test-npm-1.1.0-453eb81b83-3c809abeb8.zip appears to be unused - removing
+➤ YN0019: │ storybook-npm-8.6.14-7dce1d3dfd-314de78400.zip appears to be unused - removing
+➤ YN0019: │ trough-npm-2.2.0-270c93d515-6097df6316.zip appears to be unused - removing
+➤ YN0019: │ typescript-npm-5.9.2-d00cd8b149-f619cf6773.zip appears to be unused - removing
+➤ YN0019: │ typescript-patch-08fed4c098-e42a701947.zip appears to be unused - removing
+➤ YN0019: │ storybook-npm-8.6.14-7dce1d3dfd-314de78400.zip appears to be unused - removing
+➤ YN0019: │ trough-npm-2.2.0-270c93d515-6097df6316.zip appears to be unused - removing
+➤ YN0019: │ typescript-npm-5.9.2-d00cd8b149-f619cf6773.zip appears to be unused - removing
+➤ YN0019: │ typescript-patch-08fed4c098-e42a701947.zip appears to be unused - removing
+➤ YN0019: │ unified-npm-11.0.5-ac5333017e-b3bf7fd6f5.zip appears to be unused - removing
+➤ YN0019: │ trough-npm-2.2.0-270c93d515-6097df6316.zip appears to be unused - removing
+➤ YN0019: │ typescript-npm-5.9.2-d00cd8b149-f619cf6773.zip appears to be unused - removing
+➤ YN0019: │ typescript-patch-08fed4c098-e42a701947.zip appears to be unused - removing
+➤ YN0019: │ unified-npm-11.0.5-ac5333017e-b3bf7fd6f5.zip appears to be unused - removing
+➤ YN0019: │ unist-util-is-npm-6.0.1-fc17ba6acb-e57733e176.zip appears to be unused - removing
+➤ YN0019: │ typescript-npm-5.9.2-d00cd8b149-f619cf6773.zip appears to be unused - removing
+➤ YN0019: │ typescript-patch-08fed4c098-e42a701947.zip appears to be unused - removing
+➤ YN0019: │ unified-npm-11.0.5-ac5333017e-b3bf7fd6f5.zip appears to be unused - removing
+➤ YN0019: │ unist-util-is-npm-6.0.1-fc17ba6acb-e57733e176.zip appears to be unused - removing
+➤ YN0019: │ unist-util-stringify-position-npm-4.0.0-2362acd217-e2e7aee4b9.zip appears to be unused - removing
+➤ YN0019: │ typescript-patch-08fed4c098-e42a701947.zip appears to be unused - removing
+➤ YN0019: │ unified-npm-11.0.5-ac5333017e-b3bf7fd6f5.zip appears to be unused - removing
+➤ YN0019: │ unist-util-is-npm-6.0.1-fc17ba6acb-e57733e176.zip appears to be unused - removing
+➤ YN0019: │ unist-util-stringify-position-npm-4.0.0-2362acd217-e2e7aee4b9.zip appears to be unused - removing
+➤ YN0019: │ unist-util-visit-npm-5.0.0-df56c75117-9ec42e618e.zip appears to be unused - removing
+➤ YN0019: │ unified-npm-11.0.5-ac5333017e-b3bf7fd6f5.zip appears to be unused - removing
+➤ YN0019: │ unist-util-is-npm-6.0.1-fc17ba6acb-e57733e176.zip appears to be unused - removing
+➤ YN0019: │ unist-util-stringify-position-npm-4.0.0-2362acd217-e2e7aee4b9.zip appears to be unused - removing
+➤ YN0019: │ unist-util-visit-npm-5.0.0-df56c75117-9ec42e618e.zip appears to be unused - removing
+➤ YN0019: │ unist-util-visit-parents-npm-6.0.2-985c6332b5-cf28578a6f.zip appears to be unused - removing
+➤ YN0019: │ unist-util-is-npm-6.0.1-fc17ba6acb-e57733e176.zip appears to be unused - removing
+➤ YN0019: │ unist-util-stringify-position-npm-4.0.0-2362acd217-e2e7aee4b9.zip appears to be unused - removing
+➤ YN0019: │ unist-util-visit-npm-5.0.0-df56c75117-9ec42e618e.zip appears to be unused - removing
+➤ YN0019: │ unist-util-visit-parents-npm-6.0.2-985c6332b5-cf28578a6f.zip appears to be unused - removing
+➤ YN0019: │ util-npm-0.12.5-3668276f26-705e51f0de.zip appears to be unused - removing
+➤ YN0019: │ unist-util-stringify-position-npm-4.0.0-2362acd217-e2e7aee4b9.zip appears to be unused - removing
+➤ YN0019: │ unist-util-visit-npm-5.0.0-df56c75117-9ec42e618e.zip appears to be unused - removing
+➤ YN0019: │ unist-util-visit-parents-npm-6.0.2-985c6332b5-cf28578a6f.zip appears to be unused - removing
+➤ YN0019: │ util-npm-0.12.5-3668276f26-705e51f0de.zip appears to be unused - removing
+➤ YN0019: │ uuid-npm-9.0.1-39a8442bc6-39931f6da7.zip appears to be unused - removing
+➤ YN0019: │ unist-util-visit-npm-5.0.0-df56c75117-9ec42e618e.zip appears to be unused - removing
+➤ YN0019: │ unist-util-visit-parents-npm-6.0.2-985c6332b5-cf28578a6f.zip appears to be unused - removing
+➤ YN0019: │ util-npm-0.12.5-3668276f26-705e51f0de.zip appears to be unused - removing
+➤ YN0019: │ uuid-npm-9.0.1-39a8442bc6-39931f6da7.zip appears to be unused - removing
+➤ YN0019: │ vfile-message-npm-4.0.3-dee0694ee9-f5e8516f2a.zip appears to be unused - removing
+➤ YN0019: │ unist-util-visit-parents-npm-6.0.2-985c6332b5-cf28578a6f.zip appears to be unused - removing
+➤ YN0019: │ util-npm-0.12.5-3668276f26-705e51f0de.zip appears to be unused - removing
+➤ YN0019: │ uuid-npm-9.0.1-39a8442bc6-39931f6da7.zip appears to be unused - removing
+➤ YN0019: │ vfile-message-npm-4.0.3-dee0694ee9-f5e8516f2a.zip appears to be unused - removing
+➤ YN0019: │ vfile-npm-6.0.3-a16e09914c-152b6729be.zip appears to be unused - removing
+➤ YN0019: │ util-npm-0.12.5-3668276f26-705e51f0de.zip appears to be unused - removing
+➤ YN0019: │ uuid-npm-9.0.1-39a8442bc6-39931f6da7.zip appears to be unused - removing
+➤ YN0019: │ vfile-message-npm-4.0.3-dee0694ee9-f5e8516f2a.zip appears to be unused - removing
+➤ YN0019: │ vfile-npm-6.0.3-a16e09914c-152b6729be.zip appears to be unused - removing
+➤ YN0019: │ which-typed-array-npm-1.1.19-e664d1e89c-162d2a07f6.zip appears to be unused - removing
+➤ YN0019: │ uuid-npm-9.0.1-39a8442bc6-39931f6da7.zip appears to be unused - removing
+➤ YN0019: │ vfile-message-npm-4.0.3-dee0694ee9-f5e8516f2a.zip appears to be unused - removing
+➤ YN0019: │ vfile-npm-6.0.3-a16e09914c-152b6729be.zip appears to be unused - removing
+➤ YN0019: │ which-typed-array-npm-1.1.19-e664d1e89c-162d2a07f6.zip appears to be unused - removing
+➤ YN0019: │ ws-npm-8.18.3-665d39209d-d64ef16312.zip appears to be unused - removing
+➤ YN0019: │ vfile-message-npm-4.0.3-dee0694ee9-f5e8516f2a.zip appears to be unused - removing
+➤ YN0019: │ vfile-npm-6.0.3-a16e09914c-152b6729be.zip appears to be unused - removing
+➤ YN0019: │ which-typed-array-npm-1.1.19-e664d1e89c-162d2a07f6.zip appears to be unused - removing
+➤ YN0019: │ ws-npm-8.18.3-665d39209d-d64ef16312.zip appears to be unused - removing
+➤ YN0019: │ zwitch-npm-2.0.4-13220031e2-f22ec5fc2d.zip appears to be unused - removing
+➤ YN0000: └ Completed in 3s 938ms
+[14:49:18.609] [INFO] install-dependencies-task: ➤ YN0019: │
+decode-named-character-reference-npm-1.2.0-428b0f96d3-f26b23046c.zip
+appears to be unused - removing
+➤ YN0019: │ dequal-npm-2.0.3-53a630c60e-8679b850e1.zip appears to
+be unused - removing
+➤ YN0019: │ devlop-npm-1.1.0-d4a98d724c-d2ff650bac.zip appears to
+be unused - removing
+➤ YN0019: │
+escape-string-regexp-npm-5.0.0-a663e825ce-20daabe197.zip appears
+to be unused - removing
+➤ YN0019: │ extend-npm-3.0.2-e1ca07ac54-a50a8309ca.zip appears to
+be unused - removing
+➤ YN0019: │ dequal-npm-2.0.3-53a630c60e-8679b850e1.zip appears to
+be unused - removing
+➤ YN0019: │ devlop-npm-1.1.0-d4a98d724c-d2ff650bac.zip appears to
+be unused - removing
+➤ YN0019: │
+escape-string-regexp-npm-5.0.0-a663e825ce-20daabe197.zip appears
+to be unused - removing
+➤ YN0019: │ extend-npm-3.0.2-e1ca07ac54-a50a8309ca.zip appears to
+be unused - removing
+➤ YN0019: │ for-each-npm-0.3.5-b74c5c5ba7-3c986d7e11.zip appears
+to be unused - removing
+➤ YN0019: │ devlop-npm-1.1.0-d4a98d724c-d2ff650bac.zip appears to
+be unused - removing
+➤ YN0019: │
+escape-string-regexp-npm-5.0.0-a663e825ce-20daabe197.zip appears
+to be unused - removing
+➤ YN0019: │ extend-npm-3.0.2-e1ca07ac54-a50a8309ca.zip appears to
+be unused - removing
+➤ YN0019: │ for-each-npm-0.3.5-b74c5c5ba7-3c986d7e11.zip appears
+to be unused - removing
+➤ YN0019: │ is-arguments-npm-1.2.0-ecfcc85b28-aae9307fed.zip
+appears to be unused - removing
+➤ YN0019: │
+escape-string-regexp-npm-5.0.0-a663e825ce-20daabe197.zip appears
+to be unused - removing
+➤ YN0019: │ extend-npm-3.0.2-e1ca07ac54-a50a8309ca.zip appears to
+be unused - removing
+➤ YN0019: │ for-each-npm-0.3.5-b74c5c5ba7-3c986d7e11.zip appears
+to be unused - removing
+➤ YN0019: │ is-arguments-npm-1.2.0-ecfcc85b28-aae9307fed.zip
+appears to be unused - removing
+➤ YN0019: │ is-callable-npm-1.2.7-808a303e61-61fd57d03b.zip
+appears to be unused - removing
+➤ YN0019: │ extend-npm-3.0.2-e1ca07ac54-a50a8309ca.zip appears to
+be unused - removing
+➤ YN0019: │ for-each-npm-0.3.5-b74c5c5ba7-3c986d7e11.zip appears
+to be unused - removing
+➤ YN0019: │ is-arguments-npm-1.2.0-ecfcc85b28-aae9307fed.zip
+appears to be unused - removing
+➤ YN0019: │ is-callable-npm-1.2.7-808a303e61-61fd57d03b.zip
+appears to be unused - removing
+➤ YN0019: │
+is-generator-function-npm-1.1.0-e96e2ba973-f7f7276131.zip appears
+to be unused - removing
+➤ YN0019: │ for-each-npm-0.3.5-b74c5c5ba7-3c986d7e11.zip appears
+to be unused - removing
+➤ YN0019: │ is-arguments-npm-1.2.0-ecfcc85b28-aae9307fed.zip
+appears to be unused - removing
+➤ YN0019: │ is-callable-npm-1.2.7-808a303e61-61fd57d03b.zip
+appears to be unused - removing
+➤ YN0019: │
+is-generator-function-npm-1.1.0-e96e2ba973-f7f7276131.zip appears
+to be unused - removing
+➤ YN0019: │ is-plain-obj-npm-4.1.0-a4f2a92b44-6dc45da70d.zip
+appears to be unused - removing
+➤ YN0019: │ is-arguments-npm-1.2.0-ecfcc85b28-aae9307fed.zip
+appears to be unused - removing
+➤ YN0019: │ is-callable-npm-1.2.7-808a303e61-61fd57d03b.zip
+appears to be unused - removing
+➤ YN0019: │
+is-generator-function-npm-1.1.0-e96e2ba973-f7f7276131.zip appears
+to be unused - removing
+➤ YN0019: │ is-plain-obj-npm-4.1.0-a4f2a92b44-6dc45da70d.zip
+appears to be unused - removing
+➤ YN0019: │ is-typed-array-npm-1.1.15-33aa18e28f-ea7cfc46c2.zip
+appears to be unused - removing
+➤ YN0019: │ is-callable-npm-1.2.7-808a303e61-61fd57d03b.zip
+appears to be unused - removing
+➤ YN0019: │
+is-generator-function-npm-1.1.0-e96e2ba973-f7f7276131.zip appears
+to be unused - removing
+➤ YN0019: │ is-plain-obj-npm-4.1.0-a4f2a92b44-6dc45da70d.zip
+appears to be unused - removing
+➤ YN0019: │ is-typed-array-npm-1.1.15-33aa18e28f-ea7cfc46c2.zip
+appears to be unused - removing
+➤ YN0019: │
+jsdoc-type-pratt-parser-npm-4.8.0-67284931e2-54c17ca55a.zip
+appears to be unused - removing
+➤ YN0019: │
+is-generator-function-npm-1.1.0-e96e2ba973-f7f7276131.zip appears
+to be unused - removing
+➤ YN0019: │ is-plain-obj-npm-4.1.0-a4f2a92b44-6dc45da70d.zip
+appears to be unused - removing
+➤ YN0019: │ is-typed-array-npm-1.1.15-33aa18e28f-ea7cfc46c2.zip
+appears to be unused - removing
+➤ YN0019: │
+jsdoc-type-pratt-parser-npm-4.8.0-67284931e2-54c17ca55a.zip
+appears to be unused - removing
+➤ YN0019: │ longest-streak-npm-3.1.0-e2ab1c40ee-d7f952ed00.zip
+appears to be unused - removing
+➤ YN0019: │ is-plain-obj-npm-4.1.0-a4f2a92b44-6dc45da70d.zip
+appears to be unused - removing
+➤ YN0019: │ is-typed-array-npm-1.1.15-33aa18e28f-ea7cfc46c2.zip
+appears to be unused - removing
+➤ YN0019: │
+jsdoc-type-pratt-parser-npm-4.8.0-67284931e2-54c17ca55a.zip
+appears to be unused - removing
+➤ YN0019: │ longest-streak-npm-3.1.0-e2ab1c40ee-d7f952ed00.zip
+appears to be unused - removing
+➤ YN0019: │ markdown-table-npm-3.0.4-d4abf2a563-bc24b177cb.zip
+appears to be unused - removing
+➤ YN0019: │ is-typed-array-npm-1.1.15-33aa18e28f-ea7cfc46c2.zip
+appears to be unused - removing
+➤ YN0019: │
+jsdoc-type-pratt-parser-npm-4.8.0-67284931e2-54c17ca55a.zip
+appears to be unused - removing
+➤ YN0019: │ longest-streak-npm-3.1.0-e2ab1c40ee-d7f952ed00.zip
+appears to be unused - removing
+➤ YN0019: │ markdown-table-npm-3.0.4-d4abf2a563-bc24b177cb.zip
+appears to be unused - removing
+➤ YN0019: │
+mdast-util-find-and-replace-npm-3.0.2-700884f061-00dde8aaf8.zip
+appears to be unused - removing
+➤ YN0019: │
+jsdoc-type-pratt-parser-npm-4.8.0-67284931e2-54c17ca55a.zip
+appears to be unused - removing
+➤ YN0019: │ longest-streak-npm-3.1.0-e2ab1c40ee-d7f952ed00.zip
+appears to be unused - removing
+➤ YN0019: │ markdown-table-npm-3.0.4-d4abf2a563-bc24b177cb.zip
+appears to be unused - removing
+➤ YN0019: │
+mdast-util-find-and-replace-npm-3.0.2-700884f061-00dde8aaf8.zip
+appears to be unused - removing
+➤ YN0019: │
+mdast-util-from-markdown-npm-2.0.2-b327f875e3-1ad19f48b3.zip
+appears to be unused - removing
+➤ YN0019: │ longest-streak-npm-3.1.0-e2ab1c40ee-d7f952ed00.zip
+appears to be unused - removing
+➤ YN0019: │ markdown-table-npm-3.0.4-d4abf2a563-bc24b177cb.zip
+appears to be unused - removing
+➤ YN0019: │
+mdast-util-find-and-replace-npm-3.0.2-700884f061-00dde8aaf8.zip
+appears to be unused - removing
+➤ YN0019: │
+mdast-util-from-markdown-npm-2.0.2-b327f875e3-1ad19f48b3.zip
+appears to be unused - removing
+➤ YN0019: │
+mdast-util-gfm-autolink-literal-npm-2.0.1-dd870d9308-5630b12e07.zip
+appears to be unused - removing
+➤ YN0019: │ markdown-table-npm-3.0.4-d4abf2a563-bc24b177cb.zip
+appears to be unused - removing
+➤ YN0019: │
+mdast-util-find-and-replace-npm-3.0.2-700884f061-00dde8aaf8.zip
+appears to be unused - removing
+➤ YN0019: │
+mdast-util-from-markdown-npm-2.0.2-b327f875e3-1ad19f48b3.zip
+appears to be unused - removing
+➤ YN0019: │
+mdast-util-gfm-autolink-literal-npm-2.0.1-dd870d9308-5630b12e07.zip
+appears to be unused - removing
+➤ YN0019: │
+mdast-util-gfm-footnote-npm-2.1.0-d8da32ba7c-a23c5531d6.zip
+appears to be unused - removing
+➤ YN0019: │
+mdast-util-find-and-replace-npm-3.0.2-700884f061-00dde8aaf8.zip
+appears to be unused - removing
+➤ YN0019: │
+mdast-util-from-markdown-npm-2.0.2-b327f875e3-1ad19f48b3.zip
+appears to be unused - removing
+➤ YN0019: │
+mdast-util-gfm-autolink-literal-npm-2.0.1-dd870d9308-5630b12e07.zip
+appears to be unused - removing
+➤ YN0019: │
+mdast-util-gfm-footnote-npm-2.1.0-d8da32ba7c-a23c5531d6.zip
+appears to be unused - removing
+➤ YN0019: │ mdast-util-gfm-npm-3.1.0-933de2cdb5-ecdadc0b46.zip
+appears to be unused - removing
+➤ YN0019: │
+mdast-util-from-markdown-npm-2.0.2-b327f875e3-1ad19f48b3.zip
+appears to be unused - removing
+➤ YN0019: │
+mdast-util-gfm-autolink-literal-npm-2.0.1-dd870d9308-5630b12e07.zip
+appears to be unused - removing
+➤ YN0019: │
+mdast-util-gfm-footnote-npm-2.1.0-d8da32ba7c-a23c5531d6.zip
+appears to be unused - removing
+➤ YN0019: │ mdast-util-gfm-npm-3.1.0-933de2cdb5-ecdadc0b46.zip
+appears to be unused - removing
+➤ YN0019: │
+mdast-util-gfm-strikethrough-npm-2.0.0-d16d95c318-fe9b1d0eba.zip
+appears to be unused - removing
+➤ YN0019: │
+mdast-util-gfm-autolink-literal-npm-2.0.1-dd870d9308-5630b12e07.zip
+appears to be unused - removing
+➤ YN0019: │
+mdast-util-gfm-footnote-npm-2.1.0-d8da32ba7c-a23c5531d6.zip
+appears to be unused - removing
+➤ YN0019: │ mdast-util-gfm-npm-3.1.0-933de2cdb5-ecdadc0b46.zip
+appears to be unused - removing
+➤ YN0019: │
+mdast-util-gfm-strikethrough-npm-2.0.0-d16d95c318-fe9b1d0eba.zip
+appears to be unused - removing
+➤ YN0019: │
+mdast-util-gfm-table-npm-2.0.0-45a74f064b-063a627fd0.zip appears
+to be unused - removing
+➤ YN0019: │
+mdast-util-gfm-footnote-npm-2.1.0-d8da32ba7c-a23c5531d6.zip
+appears to be unused - removing
+➤ YN0019: │ mdast-util-gfm-npm-3.1.0-933de2cdb5-ecdadc0b46.zip
+appears to be unused - removing
+➤ YN0019: │
+mdast-util-gfm-strikethrough-npm-2.0.0-d16d95c318-fe9b1d0eba.zip
+appears to be unused - removing
+➤ YN0019: │
+mdast-util-gfm-table-npm-2.0.0-45a74f064b-063a627fd0.zip appears
+to be unused - removing
+➤ YN0019: │
+mdast-util-gfm-task-list-item-npm-2.0.0-cb1270a10f-37db90c59b.zip
+appears to be unused - removing
+➤ YN0019: │ mdast-util-gfm-npm-3.1.0-933de2cdb5-ecdadc0b46.zip
+appears to be unused - removing
+➤ YN0019: │
+mdast-util-gfm-strikethrough-npm-2.0.0-d16d95c318-fe9b1d0eba.zip
+appears to be unused - removing
+➤ YN0019: │
+mdast-util-gfm-table-npm-2.0.0-45a74f064b-063a627fd0.zip appears
+to be unused - removing
+➤ YN0019: │
+mdast-util-gfm-task-list-item-npm-2.0.0-cb1270a10f-37db90c59b.zip
+appears to be unused - removing
+➤ YN0019: │
+mdast-util-phrasing-npm-4.1.0-30939ebbcd-3a97533e8a.zip appears to
+be unused - removing
+➤ YN0019: │
+mdast-util-gfm-strikethrough-npm-2.0.0-d16d95c318-fe9b1d0eba.zip
+appears to be unused - removing
+➤ YN0019: │
+mdast-util-gfm-table-npm-2.0.0-45a74f064b-063a627fd0.zip appears
+to be unused - removing
+➤ YN0019: │
+mdast-util-gfm-task-list-item-npm-2.0.0-cb1270a10f-37db90c59b.zip
+appears to be unused - removing
+➤ YN0019: │
+mdast-util-phrasing-npm-4.1.0-30939ebbcd-3a97533e8a.zip appears to
+be unused - removing
+➤ YN0019: │
+mdast-util-to-markdown-npm-2.1.2-40d984eac3-288d152bd5.zip appears
+to be unused - removing
+➤ YN0019: │
+mdast-util-gfm-table-npm-2.0.0-45a74f064b-063a627fd0.zip appears
+to be unused - removing
+➤ YN0019: │
+mdast-util-gfm-task-list-item-npm-2.0.0-cb1270a10f-37db90c59b.zip
+appears to be unused - removing
+➤ YN0019: │
+mdast-util-phrasing-npm-4.1.0-30939ebbcd-3a97533e8a.zip appears to
+be unused - removing
+➤ YN0019: │
+mdast-util-to-markdown-npm-2.1.2-40d984eac3-288d152bd5.zip appears
+to be unused - removing
+➤ YN0019: │
+mdast-util-to-string-npm-4.0.0-fc8d9714a5-35489fb571.zip appears
+to be unused - removing
+➤ YN0019: │
+mdast-util-gfm-task-list-item-npm-2.0.0-cb1270a10f-37db90c59b.zip
+appears to be unused - removing
+➤ YN0019: │
+mdast-util-phrasing-npm-4.1.0-30939ebbcd-3a97533e8a.zip appears to
+be unused - removing
+➤ YN0019: │
+mdast-util-to-markdown-npm-2.1.2-40d984eac3-288d152bd5.zip appears
+to be unused - removing
+➤ YN0019: │
+mdast-util-to-string-npm-4.0.0-fc8d9714a5-35489fb571.zip appears
+to be unused - removing
+➤ YN0019: │
+micromark-core-commonmark-npm-2.0.3-5e317c62b2-cfb0fd9c89.zip
+appears to be unused - removing
+➤ YN0019: │
+mdast-util-phrasing-npm-4.1.0-30939ebbcd-3a97533e8a.zip appears to
+be unused - removing
+➤ YN0019: │
+mdast-util-to-markdown-npm-2.1.2-40d984eac3-288d152bd5.zip appears
+to be unused - removing
+➤ YN0019: │
+mdast-util-to-string-npm-4.0.0-fc8d9714a5-35489fb571.zip appears
+to be unused - removing
+➤ YN0019: │
+micromark-core-commonmark-npm-2.0.3-5e317c62b2-cfb0fd9c89.zip
+appears to be unused - removing
+➤ YN0019: │
+micromark-extension-gfm-autolink-literal-npm-2.1.0-8fcb271412-e00a570c70.zip
+appears to be unused - removing
+➤ YN0019: │
+mdast-util-to-markdown-npm-2.1.2-40d984eac3-288d152bd5.zip appears
+to be unused - removing
+➤ YN0019: │
+mdast-util-to-string-npm-4.0.0-fc8d9714a5-35489fb571.zip appears
+to be unused - removing
+➤ YN0019: │
+micromark-core-commonmark-npm-2.0.3-5e317c62b2-cfb0fd9c89.zip
+appears to be unused - removing
+➤ YN0019: │
+micromark-extension-gfm-autolink-literal-npm-2.1.0-8fcb271412-e00a570c70.zip
+appears to be unused - removing
+➤ YN0019: │
+micromark-extension-gfm-footnote-npm-2.1.0-1cf783dd36-ac6fb039e9.zip
+appears to be unused - removing
+➤ YN0019: │
+mdast-util-to-string-npm-4.0.0-fc8d9714a5-35489fb571.zip appears
+to be unused - removing
+➤ YN0019: │
+micromark-core-commonmark-npm-2.0.3-5e317c62b2-cfb0fd9c89.zip
+appears to be unused - removing
+➤ YN0019: │
+micromark-extension-gfm-autolink-literal-npm-2.1.0-8fcb271412-e00a570c70.zip
+appears to be unused - removing
+➤ YN0019: │
+micromark-extension-gfm-footnote-npm-2.1.0-1cf783dd36-ac6fb039e9.zip
+appears to be unused - removing
+➤ YN0019: │
+micromark-extension-gfm-npm-3.0.0-d154ab531f-2060fa6266.zip
+appears to be unused - removing
+➤ YN0019: │
+micromark-core-commonmark-npm-2.0.3-5e317c62b2-cfb0fd9c89.zip
+appears to be unused - removing
+➤ YN0019: │
+micromark-extension-gfm-autolink-literal-npm-2.1.0-8fcb271412-e00a570c70.zip
+appears to be unused - removing
+➤ YN0019: │
+micromark-extension-gfm-footnote-npm-2.1.0-1cf783dd36-ac6fb039e9.zip
+appears to be unused - removing
+➤ YN0019: │
+micromark-extension-gfm-npm-3.0.0-d154ab531f-2060fa6266.zip
+appears to be unused - removing
+➤ YN0019: │
+micromark-extension-gfm-strikethrough-npm-2.1.0-b2aa188eba-cdb7a38dd6.zip
+appears to be unused - removing
+➤ YN0019: │
+micromark-extension-gfm-autolink-literal-npm-2.1.0-8fcb271412-e00a570c70.zip
+appears to be unused - removing
+➤ YN0019: │
+micromark-extension-gfm-footnote-npm-2.1.0-1cf783dd36-ac6fb039e9.zip
+appears to be unused - removing
+➤ YN0019: │
+micromark-extension-gfm-npm-3.0.0-d154ab531f-2060fa6266.zip
+appears to be unused - removing
+➤ YN0019: │
+micromark-extension-gfm-strikethrough-npm-2.1.0-b2aa188eba-cdb7a38dd6.zip
+appears to be unused - removing
+➤ YN0019: │
+micromark-extension-gfm-table-npm-2.1.1-7b9f4422c9-16a59c8c23.zip
+appears to be unused - removing
+➤ YN0019: │
+micromark-extension-gfm-footnote-npm-2.1.0-1cf783dd36-ac6fb039e9.zip
+appears to be unused - removing
+➤ YN0019: │
+micromark-extension-gfm-npm-3.0.0-d154ab531f-2060fa6266.zip
+appears to be unused - removing
+➤ YN0019: │
+micromark-extension-gfm-strikethrough-npm-2.1.0-b2aa188eba-cdb7a38dd6.zip
+appears to be unused - removing
+➤ YN0019: │
+micromark-extension-gfm-table-npm-2.1.1-7b9f4422c9-16a59c8c23.zip
+appears to be unused - removing
+➤ YN0019: │
+micromark-extension-gfm-tagfilter-npm-2.0.0-c5ad486636-cf21552f4a.zip
+appears to be unused - removing
+➤ YN0019: │
+micromark-extension-gfm-npm-3.0.0-d154ab531f-2060fa6266.zip
+appears to be unused - removing
+➤ YN0019: │
+micromark-extension-gfm-strikethrough-npm-2.1.0-b2aa188eba-cdb7a38dd6.zip
+appears to be unused - removing
+➤ YN0019: │
+micromark-extension-gfm-table-npm-2.1.1-7b9f4422c9-16a59c8c23.zip
+appears to be unused - removing
+➤ YN0019: │
+micromark-extension-gfm-tagfilter-npm-2.0.0-c5ad486636-cf21552f4a.zip
+appears to be unused - removing
+➤ YN0019: │
+micromark-extension-gfm-task-list-item-npm-2.1.0-b717607894-b1ad86a4e9.zip
+appears to be unused - removing
+➤ YN0019: │
+micromark-extension-gfm-strikethrough-npm-2.1.0-b2aa188eba-cdb7a38dd6.zip
+appears to be unused - removing
+➤ YN0019: │
+micromark-extension-gfm-table-npm-2.1.1-7b9f4422c9-16a59c8c23.zip
+appears to be unused - removing
+➤ YN0019: │
+micromark-extension-gfm-tagfilter-npm-2.0.0-c5ad486636-cf21552f4a.zip
+appears to be unused - removing
+➤ YN0019: │
+micromark-extension-gfm-task-list-item-npm-2.1.0-b717607894-b1ad86a4e9.zip
+appears to be unused - removing
+➤ YN0019: │
+micromark-factory-destination-npm-2.0.1-2b4ab89121-9c4baa9ca2.zip
+appears to be unused - removing
+➤ YN0019: │
+micromark-extension-gfm-table-npm-2.1.1-7b9f4422c9-16a59c8c23.zip
+appears to be unused - removing
+➤ YN0019: │
+micromark-extension-gfm-tagfilter-npm-2.0.0-c5ad486636-cf21552f4a.zip
+appears to be unused - removing
+➤ YN0019: │
+micromark-extension-gfm-task-list-item-npm-2.1.0-b717607894-b1ad86a4e9.zip
+appears to be unused - removing
+➤ YN0019: │
+micromark-factory-destination-npm-2.0.1-2b4ab89121-9c4baa9ca2.zip
+appears to be unused - removing
+➤ YN0019: │
+micromark-factory-label-npm-2.0.1-2ce9fdcfd2-bd03f5a75f.zip
+appears to be unused - removing
+➤ YN0019: │
+micromark-extension-gfm-tagfilter-npm-2.0.0-c5ad486636-cf21552f4a.zip
+appears to be unused - removing
+➤ YN0019: │
+micromark-extension-gfm-task-list-item-npm-2.1.0-b717607894-b1ad86a4e9.zip
+appears to be unused - removing
+➤ YN0019: │
+micromark-factory-destination-npm-2.0.1-2b4ab89121-9c4baa9ca2.zip
+appears to be unused - removing
+➤ YN0019: │
+micromark-factory-label-npm-2.0.1-2ce9fdcfd2-bd03f5a75f.zip
+appears to be unused - removing
+➤ YN0019: │
+micromark-factory-space-npm-2.0.1-36b4717310-1bd68a017c.zip
+appears to be unused - removing
+➤ YN0019: │
+micromark-extension-gfm-task-list-item-npm-2.1.0-b717607894-b1ad86a4e9.zip
+appears to be unused - removing
+➤ YN0019: │
+micromark-factory-destination-npm-2.0.1-2b4ab89121-9c4baa9ca2.zip
+appears to be unused - removing
+➤ YN0019: │
+micromark-factory-label-npm-2.0.1-2ce9fdcfd2-bd03f5a75f.zip
+appears to be unused - removing
+➤ YN0019: │
+micromark-factory-space-npm-2.0.1-36b4717310-1bd68a017c.zip
+appears to be unused - removing
+➤ YN0019: │
+micromark-factory-title-npm-2.0.1-a5f7a4ac37-b4d2e4850a.zip
+appears to be unused - removing
+➤ YN0019: │
+micromark-factory-destination-npm-2.0.1-2b4ab89121-9c4baa9ca2.zip
+appears to be unused - removing
+➤ YN0019: │
+micromark-factory-label-npm-2.0.1-2ce9fdcfd2-bd03f5a75f.zip
+appears to be unused - removing
+➤ YN0019: │
+micromark-factory-space-npm-2.0.1-36b4717310-1bd68a017c.zip
+appears to be unused - removing
+➤ YN0019: │
+micromark-factory-title-npm-2.0.1-a5f7a4ac37-b4d2e4850a.zip
+appears to be unused - removing
+➤ YN0019: │
+micromark-factory-whitespace-npm-2.0.1-2d7cfaf8ae-67b3944d01.zip
+appears to be unused - removing
+➤ YN0019: │
+micromark-factory-label-npm-2.0.1-2ce9fdcfd2-bd03f5a75f.zip
+appears to be unused - removing
+➤ YN0019: │
+micromark-factory-space-npm-2.0.1-36b4717310-1bd68a017c.zip
+appears to be unused - removing
+➤ YN0019: │
+micromark-factory-title-npm-2.0.1-a5f7a4ac37-b4d2e4850a.zip
+appears to be unused - removing
+➤ YN0019: │
+micromark-factory-whitespace-npm-2.0.1-2d7cfaf8ae-67b3944d01.zip
+appears to be unused - removing
+➤ YN0019: │ micromark-npm-4.0.2-99b2e4c11c-5306c15dd1.zip appears
+to be unused - removing
+➤ YN0019: │
+micromark-factory-space-npm-2.0.1-36b4717310-1bd68a017c.zip
+appears to be unused - removing
+➤ YN0019: │
+micromark-factory-title-npm-2.0.1-a5f7a4ac37-b4d2e4850a.zip
+appears to be unused - removing
+➤ YN0019: │
+micromark-factory-whitespace-npm-2.0.1-2d7cfaf8ae-67b3944d01.zip
+appears to be unused - removing
+➤ YN0019: │ micromark-npm-4.0.2-99b2e4c11c-5306c15dd1.zip appears
+to be unused - removing
+➤ YN0019: │
+micromark-util-character-npm-2.1.1-38b44c61db-e9e409efe4.zip
+appears to be unused - removing
+➤ YN0019: │
+micromark-factory-title-npm-2.0.1-a5f7a4ac37-b4d2e4850a.zip
+appears to be unused - removing
+➤ YN0019: │
+micromark-factory-whitespace-npm-2.0.1-2d7cfaf8ae-67b3944d01.zip
+appears to be unused - removing
+➤ YN0019: │ micromark-npm-4.0.2-99b2e4c11c-5306c15dd1.zip appears
+to be unused - removing
+➤ YN0019: │
+micromark-util-character-npm-2.1.1-38b44c61db-e9e409efe4.zip
+appears to be unused - removing
+➤ YN0019: │
+micromark-util-chunked-npm-2.0.1-27444b1e7b-f8cb2a67bc.zip appears
+to be unused - removing
+➤ YN0019: │
+micromark-factory-whitespace-npm-2.0.1-2d7cfaf8ae-67b3944d01.zip
+appears to be unused - removing
+➤ YN0019: │ micromark-npm-4.0.2-99b2e4c11c-5306c15dd1.zip appears
+to be unused - removing
+➤ YN0019: │
+micromark-util-character-npm-2.1.1-38b44c61db-e9e409efe4.zip
+appears to be unused - removing
+➤ YN0019: │
+micromark-util-chunked-npm-2.0.1-27444b1e7b-f8cb2a67bc.zip appears
+to be unused - removing
+➤ YN0019: │
+micromark-util-classify-character-npm-2.0.1-127a4a9c2a-4d8bbe3a6d.zip
+appears to be unused - removing
+➤ YN0019: │ micromark-npm-4.0.2-99b2e4c11c-5306c15dd1.zip appears
+to be unused - removing
+➤ YN0019: │
+micromark-util-character-npm-2.1.1-38b44c61db-e9e409efe4.zip
+appears to be unused - removing
+➤ YN0019: │
+micromark-util-chunked-npm-2.0.1-27444b1e7b-f8cb2a67bc.zip appears
+to be unused - removing
+➤ YN0019: │
+micromark-util-classify-character-npm-2.0.1-127a4a9c2a-4d8bbe3a6d.zip
+appears to be unused - removing
+➤ YN0019: │
+micromark-util-combine-extensions-npm-2.0.1-9810c0bf8d-5d22fb9ee3.zip
+appears to be unused - removing
+➤ YN0019: │
+micromark-util-character-npm-2.1.1-38b44c61db-e9e409efe4.zip
+appears to be unused - removing
+➤ YN0019: │
+micromark-util-chunked-npm-2.0.1-27444b1e7b-f8cb2a67bc.zip appears
+to be unused - removing
+➤ YN0019: │
+micromark-util-classify-character-npm-2.0.1-127a4a9c2a-4d8bbe3a6d.zip
+appears to be unused - removing
+➤ YN0019: │
+micromark-util-combine-extensions-npm-2.0.1-9810c0bf8d-5d22fb9ee3.zip
+appears to be unused - removing
+➤ YN0019: │
+micromark-util-decode-numeric-character-reference-npm-2.0.2-c2d481632e-ee11c8bde5.zip
+appears to be unused - removing
+➤ YN0019: │
+micromark-util-chunked-npm-2.0.1-27444b1e7b-f8cb2a67bc.zip appears
+to be unused - removing
+➤ YN0019: │
+micromark-util-classify-character-npm-2.0.1-127a4a9c2a-4d8bbe3a6d.zip
+appears to be unused - removing
+➤ YN0019: │
+micromark-util-combine-extensions-npm-2.0.1-9810c0bf8d-5d22fb9ee3.zip
+appears to be unused - removing
+➤ YN0019: │
+micromark-util-decode-numeric-character-reference-npm-2.0.2-c2d481632e-ee11c8bde5.zip
+appears to be unused - removing
+➤ YN0019: │
+micromark-util-decode-string-npm-2.0.1-72716f39ea-e9546ae53f.zip
+appears to be unused - removing
+➤ YN0019: │
+micromark-util-classify-character-npm-2.0.1-127a4a9c2a-4d8bbe3a6d.zip
+appears to be unused - removing
+➤ YN0019: │
+micromark-util-combine-extensions-npm-2.0.1-9810c0bf8d-5d22fb9ee3.zip
+appears to be unused - removing
+➤ YN0019: │
+micromark-util-decode-numeric-character-reference-npm-2.0.2-c2d481632e-ee11c8bde5.zip
+appears to be unused - removing
+➤ YN0019: │
+micromark-util-decode-string-npm-2.0.1-72716f39ea-e9546ae53f.zip
+appears to be unused - removing
+➤ YN0019: │
+micromark-util-encode-npm-2.0.1-6586cf1670-be890b98e7.zip appears
+to be unused - removing
+➤ YN0019: │
+micromark-util-combine-extensions-npm-2.0.1-9810c0bf8d-5d22fb9ee3.zip
+appears to be unused - removing
+➤ YN0019: │
+micromark-util-decode-numeric-character-reference-npm-2.0.2-c2d481632e-ee11c8bde5.zip
+appears to be unused - removing
+➤ YN0019: │
+micromark-util-decode-string-npm-2.0.1-72716f39ea-e9546ae53f.zip
+appears to be unused - removing
+➤ YN0019: │
+micromark-util-encode-npm-2.0.1-6586cf1670-be890b98e7.zip appears
+to be unused - removing
+➤ YN0019: │
+micromark-util-html-tag-name-npm-2.0.1-eb560993c8-dea365f5ad.zip
+appears to be unused - removing
+➤ YN0019: │
+micromark-util-decode-numeric-character-reference-npm-2.0.2-c2d481632e-ee11c8bde5.zip
+appears to be unused - removing
+➤ YN0019: │
+micromark-util-decode-string-npm-2.0.1-72716f39ea-e9546ae53f.zip
+appears to be unused - removing
+➤ YN0019: │
+micromark-util-encode-npm-2.0.1-6586cf1670-be890b98e7.zip appears
+to be unused - removing
+➤ YN0019: │
+micromark-util-html-tag-name-npm-2.0.1-eb560993c8-dea365f5ad.zip
+appears to be unused - removing
+➤ YN0019: │
+micromark-util-normalize-identifier-npm-2.0.1-336335e80e-1eb9a289d7.zip
+appears to be unused - removing
+➤ YN0019: │
+micromark-util-decode-string-npm-2.0.1-72716f39ea-e9546ae53f.zip
+appears to be unused - removing
+➤ YN0019: │
+micromark-util-encode-npm-2.0.1-6586cf1670-be890b98e7.zip appears
+to be unused - removing
+➤ YN0019: │
+micromark-util-html-tag-name-npm-2.0.1-eb560993c8-dea365f5ad.zip
+appears to be unused - removing
+➤ YN0019: │
+micromark-util-normalize-identifier-npm-2.0.1-336335e80e-1eb9a289d7.zip
+appears to be unused - removing
+➤ YN0019: │
+micromark-util-resolve-all-npm-2.0.1-50f997ec4c-9275f3ddb6.zip
+appears to be unused - removing
+➤ YN0019: │
+micromark-util-encode-npm-2.0.1-6586cf1670-be890b98e7.zip appears
+to be unused - removing
+➤ YN0019: │
+micromark-util-html-tag-name-npm-2.0.1-eb560993c8-dea365f5ad.zip
+appears to be unused - removing
+➤ YN0019: │
+micromark-util-normalize-identifier-npm-2.0.1-336335e80e-1eb9a289d7.zip
+appears to be unused - removing
+➤ YN0019: │
+micromark-util-resolve-all-npm-2.0.1-50f997ec4c-9275f3ddb6.zip
+appears to be unused - removing
+➤ YN0019: │
+micromark-util-sanitize-uri-npm-2.0.1-4263be24eb-d01517840c.zip
+appears to be unused - removing
+➤ YN0019: │
+micromark-util-html-tag-name-npm-2.0.1-eb560993c8-dea365f5ad.zip
+appears to be unused - removing
+➤ YN0019: │
+micromark-util-normalize-identifier-npm-2.0.1-336335e80e-1eb9a289d7.zip
+appears to be unused - removing
+➤ YN0019: │
+micromark-util-resolve-all-npm-2.0.1-50f997ec4c-9275f3ddb6.zip
+appears to be unused - removing
+➤ YN0019: │
+micromark-util-sanitize-uri-npm-2.0.1-4263be24eb-d01517840c.zip
+appears to be unused - removing
+➤ YN0019: │
+micromark-util-subtokenize-npm-2.1.0-2452c9ae9b-2e194bc8a5.zip
+appears to be unused - removing
+➤ YN0019: │
+micromark-util-normalize-identifier-npm-2.0.1-336335e80e-1eb9a289d7.zip
+appears to be unused - removing
+➤ YN0019: │
+micromark-util-resolve-all-npm-2.0.1-50f997ec4c-9275f3ddb6.zip
+appears to be unused - removing
+➤ YN0019: │
+micromark-util-sanitize-uri-npm-2.0.1-4263be24eb-d01517840c.zip
+appears to be unused - removing
+➤ YN0019: │
+micromark-util-subtokenize-npm-2.1.0-2452c9ae9b-2e194bc8a5.zip
+appears to be unused - removing
+➤ YN0019: │
+micromark-util-symbol-npm-2.0.1-3447180660-fb73469505.zip appears
+to be unused - removing
+➤ YN0019: │
+micromark-util-resolve-all-npm-2.0.1-50f997ec4c-9275f3ddb6.zip
+appears to be unused - removing
+➤ YN0019: │
+micromark-util-sanitize-uri-npm-2.0.1-4263be24eb-d01517840c.zip
+appears to be unused - removing
+➤ YN0019: │
+micromark-util-subtokenize-npm-2.1.0-2452c9ae9b-2e194bc8a5.zip
+appears to be unused - removing
+➤ YN0019: │
+micromark-util-symbol-npm-2.0.1-3447180660-fb73469505.zip appears
+to be unused - removing
+➤ YN0019: │
+micromark-util-types-npm-2.0.2-ea8a969707-884f797483.zip appears
+to be unused - removing
+➤ YN0019: │
+micromark-util-sanitize-uri-npm-2.0.1-4263be24eb-d01517840c.zip
+appears to be unused - removing
+➤ YN0019: │
+micromark-util-subtokenize-npm-2.1.0-2452c9ae9b-2e194bc8a5.zip
+appears to be unused - removing
+➤ YN0019: │
+micromark-util-symbol-npm-2.0.1-3447180660-fb73469505.zip appears
+to be unused - removing
+➤ YN0019: │
+micromark-util-types-npm-2.0.2-ea8a969707-884f797483.zip appears
+to be unused - removing
+➤ YN0019: │ polished-npm-4.3.1-96b1782f82-a6f863c23f.zip appears
+to be unused - removing
+➤ YN0019: │
+micromark-util-subtokenize-npm-2.1.0-2452c9ae9b-2e194bc8a5.zip
+appears to be unused - removing
+➤ YN0019: │
+micromark-util-symbol-npm-2.0.1-3447180660-fb73469505.zip appears
+to be unused - removing
+➤ YN0019: │
+micromark-util-types-npm-2.0.2-ea8a969707-884f797483.zip appears
+to be unused - removing
+➤ YN0019: │ polished-npm-4.3.1-96b1782f82-a6f863c23f.zip appears
+to be unused - removing
+➤ YN0019: │
+possible-typed-array-names-npm-1.1.0-ce60ca4401-cfcd4f0526.zip
+appears to be unused - removing
+➤ YN0019: │
+micromark-util-symbol-npm-2.0.1-3447180660-fb73469505.zip appears
+to be unused - removing
+➤ YN0019: │
+micromark-util-types-npm-2.0.2-ea8a969707-884f797483.zip appears
+to be unused - removing
+➤ YN0019: │ polished-npm-4.3.1-96b1782f82-a6f863c23f.zip appears
+to be unused - removing
+➤ YN0019: │
+possible-typed-array-names-npm-1.1.0-ce60ca4401-cfcd4f0526.zip
+appears to be unused - removing
+➤ YN0019: │ process-npm-0.11.10-aeb3b641ae-bfcce49814.zip appears
+to be unused - removing
+➤ YN0019: │
+micromark-util-types-npm-2.0.2-ea8a969707-884f797483.zip appears
+to be unused - removing
+➤ YN0019: │ polished-npm-4.3.1-96b1782f82-a6f863c23f.zip appears
+to be unused - removing
+➤ YN0019: │
+possible-typed-array-names-npm-1.1.0-ce60ca4401-cfcd4f0526.zip
+appears to be unused - removing
+➤ YN0019: │ process-npm-0.11.10-aeb3b641ae-bfcce49814.zip appears
+to be unused - removing
+➤ YN0019: │ remark-gfm-npm-4.0.1-f55aaba8ef-b278f51c44.zip appears
+to be unused - removing
+➤ YN0019: │ polished-npm-4.3.1-96b1782f82-a6f863c23f.zip appears
+to be unused - removing
+➤ YN0019: │
+possible-typed-array-names-npm-1.1.0-ce60ca4401-cfcd4f0526.zip
+appears to be unused - removing
+➤ YN0019: │ process-npm-0.11.10-aeb3b641ae-bfcce49814.zip appears
+to be unused - removing
+➤ YN0019: │ remark-gfm-npm-4.0.1-f55aaba8ef-b278f51c44.zip appears
+to be unused - removing
+➤ YN0019: │ remark-parse-npm-11.0.0-6484fba69e-d83d245290.zip
+appears to be unused - removing
+➤ YN0019: │
+possible-typed-array-names-npm-1.1.0-ce60ca4401-cfcd4f0526.zip
+appears to be unused - removing
+➤ YN0019: │ process-npm-0.11.10-aeb3b641ae-bfcce49814.zip appears
+to be unused - removing
+➤ YN0019: │ remark-gfm-npm-4.0.1-f55aaba8ef-b278f51c44.zip appears
+to be unused - removing
+➤ YN0019: │ remark-parse-npm-11.0.0-6484fba69e-d83d245290.zip
+appears to be unused - removing
+➤ YN0019: │ remark-stringify-npm-11.0.0-b41a557b8d-59e07460eb.zip
+appears to be unused - removing
+➤ YN0019: │ process-npm-0.11.10-aeb3b641ae-bfcce49814.zip appears
+to be unused - removing
+➤ YN0019: │ remark-gfm-npm-4.0.1-f55aaba8ef-b278f51c44.zip appears
+to be unused - removing
+➤ YN0019: │ remark-parse-npm-11.0.0-6484fba69e-d83d245290.zip
+appears to be unused - removing
+➤ YN0019: │ remark-stringify-npm-11.0.0-b41a557b8d-59e07460eb.zip
+appears to be unused - removing
+➤ YN0019: │ safe-regex-test-npm-1.1.0-453eb81b83-3c809abeb8.zip
+appears to be unused - removing
+➤ YN0019: │ remark-gfm-npm-4.0.1-f55aaba8ef-b278f51c44.zip appears
+to be unused - removing
+➤ YN0019: │ remark-parse-npm-11.0.0-6484fba69e-d83d245290.zip
+appears to be unused - removing
+➤ YN0019: │ remark-stringify-npm-11.0.0-b41a557b8d-59e07460eb.zip
+appears to be unused - removing
+➤ YN0019: │ safe-regex-test-npm-1.1.0-453eb81b83-3c809abeb8.zip
+appears to be unused - removing
+➤ YN0019: │ storybook-npm-8.6.14-7dce1d3dfd-314de78400.zip appears
+to be unused - removing
+➤ YN0019: │ remark-parse-npm-11.0.0-6484fba69e-d83d245290.zip
+appears to be unused - removing
+➤ YN0019: │ remark-stringify-npm-11.0.0-b41a557b8d-59e07460eb.zip
+appears to be unused - removing
+➤ YN0019: │ safe-regex-test-npm-1.1.0-453eb81b83-3c809abeb8.zip
+appears to be unused - removing
+➤ YN0019: │ storybook-npm-8.6.14-7dce1d3dfd-314de78400.zip appears
+to be unused - removing
+➤ YN0019: │ trough-npm-2.2.0-270c93d515-6097df6316.zip appears to
+be unused - removing
+➤ YN0019: │ remark-stringify-npm-11.0.0-b41a557b8d-59e07460eb.zip
+appears to be unused - removing
+➤ YN0019: │ safe-regex-test-npm-1.1.0-453eb81b83-3c809abeb8.zip
+appears to be unused - removing
+➤ YN0019: │ storybook-npm-8.6.14-7dce1d3dfd-314de78400.zip appears
+to be unused - removing
+➤ YN0019: │ trough-npm-2.2.0-270c93d515-6097df6316.zip appears to
+be unused - removing
+➤ YN0019: │ typescript-npm-5.9.2-d00cd8b149-f619cf6773.zip appears
+to be unused - removing
+➤ YN0019: │ safe-regex-test-npm-1.1.0-453eb81b83-3c809abeb8.zip
+appears to be unused - removing
+➤ YN0019: │ storybook-npm-8.6.14-7dce1d3dfd-314de78400.zip appears
+to be unused - removing
+➤ YN0019: │ trough-npm-2.2.0-270c93d515-6097df6316.zip appears to
+be unused - removing
+➤ YN0019: │ typescript-npm-5.9.2-d00cd8b149-f619cf6773.zip appears
+to be unused - removing
+➤ YN0019: │ typescript-patch-08fed4c098-e42a701947.zip appears to
+be unused - removing
+➤ YN0019: │ storybook-npm-8.6.14-7dce1d3dfd-314de78400.zip appears
+to be unused - removing
+➤ YN0019: │ trough-npm-2.2.0-270c93d515-6097df6316.zip appears to
+be unused - removing
+➤ YN0019: │ typescript-npm-5.9.2-d00cd8b149-f619cf6773.zip appears
+to be unused - removing
+➤ YN0019: │ typescript-patch-08fed4c098-e42a701947.zip appears to
+be unused - removing
+➤ YN0019: │ unified-npm-11.0.5-ac5333017e-b3bf7fd6f5.zip appears
+to be unused - removing
+➤ YN0019: │ trough-npm-2.2.0-270c93d515-6097df6316.zip appears to
+be unused - removing
+➤ YN0019: │ typescript-npm-5.9.2-d00cd8b149-f619cf6773.zip appears
+to be unused - removing
+➤ YN0019: │ typescript-patch-08fed4c098-e42a701947.zip appears to
+be unused - removing
+➤ YN0019: │ unified-npm-11.0.5-ac5333017e-b3bf7fd6f5.zip appears
+to be unused - removing
+➤ YN0019: │ unist-util-is-npm-6.0.1-fc17ba6acb-e57733e176.zip
+appears to be unused - removing
+➤ YN0019: │ typescript-npm-5.9.2-d00cd8b149-f619cf6773.zip appears
+to be unused - removing
+➤ YN0019: │ typescript-patch-08fed4c098-e42a701947.zip appears to
+be unused - removing
+➤ YN0019: │ unified-npm-11.0.5-ac5333017e-b3bf7fd6f5.zip appears
+to be unused - removing
+➤ YN0019: │ unist-util-is-npm-6.0.1-fc17ba6acb-e57733e176.zip
+appears to be unused - removing
+➤ YN0019: │
+unist-util-stringify-position-npm-4.0.0-2362acd217-e2e7aee4b9.zip
+appears to be unused - removing
+➤ YN0019: │ typescript-patch-08fed4c098-e42a701947.zip appears to
+be unused - removing
+➤ YN0019: │ unified-npm-11.0.5-ac5333017e-b3bf7fd6f5.zip appears
+to be unused - removing
+➤ YN0019: │ unist-util-is-npm-6.0.1-fc17ba6acb-e57733e176.zip
+appears to be unused - removing
+➤ YN0019: │
+unist-util-stringify-position-npm-4.0.0-2362acd217-e2e7aee4b9.zip
+appears to be unused - removing
+➤ YN0019: │ unist-util-visit-npm-5.0.0-df56c75117-9ec42e618e.zip
+appears to be unused - removing
+➤ YN0019: │ unified-npm-11.0.5-ac5333017e-b3bf7fd6f5.zip appears
+to be unused - removing
+➤ YN0019: │ unist-util-is-npm-6.0.1-fc17ba6acb-e57733e176.zip
+appears to be unused - removing
+➤ YN0019: │
+unist-util-stringify-position-npm-4.0.0-2362acd217-e2e7aee4b9.zip
+appears to be unused - removing
+➤ YN0019: │ unist-util-visit-npm-5.0.0-df56c75117-9ec42e618e.zip
+appears to be unused - removing
+➤ YN0019: │
+unist-util-visit-parents-npm-6.0.2-985c6332b5-cf28578a6f.zip
+appears to be unused - removing
+➤ YN0019: │ unist-util-is-npm-6.0.1-fc17ba6acb-e57733e176.zip
+appears to be unused - removing
+➤ YN0019: │
+unist-util-stringify-position-npm-4.0.0-2362acd217-e2e7aee4b9.zip
+appears to be unused - removing
+➤ YN0019: │ unist-util-visit-npm-5.0.0-df56c75117-9ec42e618e.zip
+appears to be unused - removing
+➤ YN0019: │
+unist-util-visit-parents-npm-6.0.2-985c6332b5-cf28578a6f.zip
+appears to be unused - removing
+➤ YN0019: │ util-npm-0.12.5-3668276f26-705e51f0de.zip appears to
+be unused - removing
+➤ YN0019: │
+unist-util-stringify-position-npm-4.0.0-2362acd217-e2e7aee4b9.zip
+appears to be unused - removing
+➤ YN0019: │ unist-util-visit-npm-5.0.0-df56c75117-9ec42e618e.zip
+appears to be unused - removing
+➤ YN0019: │
+unist-util-visit-parents-npm-6.0.2-985c6332b5-cf28578a6f.zip
+appears to be unused - removing
+➤ YN0019: │ util-npm-0.12.5-3668276f26-705e51f0de.zip appears to
+be unused - removing
+➤ YN0019: │ uuid-npm-9.0.1-39a8442bc6-39931f6da7.zip appears to be
+unused - removing
+➤ YN0019: │ unist-util-visit-npm-5.0.0-df56c75117-9ec42e618e.zip
+appears to be unused - removing
+➤ YN0019: │
+unist-util-visit-parents-npm-6.0.2-985c6332b5-cf28578a6f.zip
+appears to be unused - removing
+➤ YN0019: │ util-npm-0.12.5-3668276f26-705e51f0de.zip appears to
+be unused - removing
+➤ YN0019: │ uuid-npm-9.0.1-39a8442bc6-39931f6da7.zip appears to be
+unused - removing
+➤ YN0019: │ vfile-message-npm-4.0.3-dee0694ee9-f5e8516f2a.zip
+appears to be unused - removing
+➤ YN0019: │
+unist-util-visit-parents-npm-6.0.2-985c6332b5-cf28578a6f.zip
+appears to be unused - removing
+➤ YN0019: │ util-npm-0.12.5-3668276f26-705e51f0de.zip appears to
+be unused - removing
+➤ YN0019: │ uuid-npm-9.0.1-39a8442bc6-39931f6da7.zip appears to be
+unused - removing
+➤ YN0019: │ vfile-message-npm-4.0.3-dee0694ee9-f5e8516f2a.zip
+appears to be unused - removing
+➤ YN0019: │ vfile-npm-6.0.3-a16e09914c-152b6729be.zip appears to
+be unused - removing
+➤ YN0019: │ util-npm-0.12.5-3668276f26-705e51f0de.zip appears to
+be unused - removing
+➤ YN0019: │ uuid-npm-9.0.1-39a8442bc6-39931f6da7.zip appears to be
+unused - removing
+➤ YN0019: │ vfile-message-npm-4.0.3-dee0694ee9-f5e8516f2a.zip
+appears to be unused - removing
+➤ YN0019: │ vfile-npm-6.0.3-a16e09914c-152b6729be.zip appears to
+be unused - removing
+➤ YN0019: │ which-typed-array-npm-1.1.19-e664d1e89c-162d2a07f6.zip
+appears to be unused - removing
+➤ YN0019: │ uuid-npm-9.0.1-39a8442bc6-39931f6da7.zip appears to be
+unused - removing
+➤ YN0019: │ vfile-message-npm-4.0.3-dee0694ee9-f5e8516f2a.zip
+appears to be unused - removing
+➤ YN0019: │ vfile-npm-6.0.3-a16e09914c-152b6729be.zip appears to
+be unused - removing
+➤ YN0019: │ which-typed-array-npm-1.1.19-e664d1e89c-162d2a07f6.zip
+appears to be unused - removing
+➤ YN0019: │ ws-npm-8.18.3-665d39209d-d64ef16312.zip appears to be
+unused - removing
+➤ YN0019: │ vfile-message-npm-4.0.3-dee0694ee9-f5e8516f2a.zip
+appears to be unused - removing
+➤ YN0019: │ vfile-npm-6.0.3-a16e09914c-152b6729be.zip appears to
+be unused - removing
+➤ YN0019: │ which-typed-array-npm-1.1.19-e664d1e89c-162d2a07f6.zip
+appears to be unused - removing
+➤ YN0019: │ ws-npm-8.18.3-665d39209d-d64ef16312.zip appears to be
+unused - removing
+➤ YN0019: │ zwitch-npm-2.0.4-13220031e2-f22ec5fc2d.zip appears to
+be unused - removing
+➤ YN0000: └ Completed in 3s 938ms
+[14:49:18.610] [INFO] ➤ YN0000: ┌ Link step
+[14:49:18.620] [INFO] install-dependencies-task: ➤ YN0000: ┌ Link step
+[14:49:19.334] [INFO] ➤ YN0008: │ esbuild@npm:0.25.10 must be rebuilt because its dependency tree changed
+[14:49:19.342] [INFO] install-dependencies-task: ➤ YN0008: │ esbuild@npm:0.25.10 must be rebuilt because its
+dependency tree changed
+[14:49:19.342] [INFO] ➤ YN0008: │ @parcel/watcher@npm:2.5.1 must be rebuilt because its dependency tree changed
+➤ YN0008: │ vue-demi@npm:0.14.10 [46fa8] must be rebuilt because its dependency tree changed
+[14:49:19.352] [INFO] install-dependencies-task: ➤ YN0008: │ @parcel/watcher@npm:2.5.1 must be rebuilt because its
+dependency tree changed
+➤ YN0008: │ vue-demi@npm:0.14.10 [46fa8] must be rebuilt because
+its dependency tree changed
+[14:49:20.060] [INFO] ➤ YN0000: └ Completed in 1s 460ms
+[14:49:20.068] [INFO] install-dependencies-task: ➤ YN0000: └ Completed in 1s 460ms
+[14:49:20.092] [INFO] ➤ YN0000: Done with warnings in 6s 597ms
+[14:49:20.102] [INFO] install-dependencies-task: ➤ YN0000: Done with warnings in 6s 597ms
+[14:49:20.136] [INFO] Dependencies installed
+[14:49:20.136] [INFO] install-dependencies-task-success: Dependencies installed
+[14:49:20.136] [INFO] Checking the health of your project(s)..
+[14:49:20.426] [WARN] /.storybook: 1 issue found
+[14:49:20.435] [INFO] You are currently using Storybook 9.1.17 but you have packages which are incompatible with it:
 
-Original error:
-Error: 
-You installed esbuild for another platform than the one you're currently using.
-This won't work because esbuild is written with native code and needs to
-install a platform-specific binary executable.
+- @chromatic-com/storybook@3.2.7 which depends on ^8.2.0 || ^8.3.0-0 || ^8.4.0-0 || ^8.5.0-0 || ^8.6.0-0
 
-Specifically the "@esbuild/darwin-x64" package is present but this platform
-needs the "@esbuild/darwin-arm64" package instead. People often get into this
-situation by installing esbuild with npm running inside of Rosetta 2 and then
-trying to use it with node running outside of Rosetta 2, or vice versa (Rosetta
-2 is Apple's on-the-fly x86_64-to-arm64 translation service).
+Please consider updating your packages or contacting the maintainers for compatibility details.
 
-If you are installing with npm, you can try ensuring that both npm and node are
-not running under Rosetta 2 and then reinstalling esbuild. This likely involves
-changing how you installed npm and/or node. For example, installing node with
-the universal installer here should work: https://nodejs.org/en/download/. Or
-you could consider using yarn instead of npm which has built-in support for
-installing a package on multiple platforms simultaneously.
+For more on Storybook 9 compatibility, see the linked GitHub issue:
+https://github.com/storybookjs/storybook/issues/30944
+[14:49:20.435] [INFO] Incompatible Packages
+[14:49:20.442] [INFO] You are currently using Storybook 9.1.17 but you have packages which are incompatible with it:
 
-If you are installing with yarn, you can try listing both "arm64" and "x64"
-in your ".yarnrc.yml" file using the "supportedArchitectures" feature:
-https://yarnpkg.com/configuration/yarnrc/#supportedArchitectures
-Keep in mind that this means multiple copies of esbuild will be present.
+- @chromatic-com/storybook@3.2.7 which depends on ^8.2.0 || ^8.3.0-0 || ^8.4.0-0 || ^8.5.0-0 || ^8.6.0-0
 
-Another alternative is to use the "esbuild-wasm" package instead, which works
-the same way on all platforms. But it comes with a heavy performance cost and
-can sometimes be 10x slower than the "esbuild" package, so you may also not
-want to do that.
+Please consider updating your packages or contacting the maintainers for compatibility details.
 
-    at generateBinPath (/Users/chris/.npm/_npx/f18322ea48f60444/node_modules/esbuild/lib/main.js:1739:17)
-    at esbuildCommandAndArgs (/Users/chris/.npm/_npx/f18322ea48f60444/node_modules/esbuild/lib/main.js:1820:33)
-    at ensureServiceIsRunning (/Users/chris/.npm/_npx/f18322ea48f60444/node_modules/esbuild/lib/main.js:1977:25)
-    at startSyncServiceWorker (/Users/chris/.npm/_npx/f18322ea48f60444/node_modules/esbuild/lib/main.js:2184:19)
-    at Object.<anonymous> (/Users/chris/.npm/_npx/f18322ea48f60444/node_modules/esbuild/lib/main.js:2225:3)
-    at Module._compile (node:internal/modules/cjs/loader:1521:14)
-    at Object..js (node:internal/modules/cjs/loader:1623:10)
-    at Module.load (node:internal/modules/cjs/loader:1266:32)
-    at Function._load (node:internal/modules/cjs/loader:1091:12)
-    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:164:12)
+For more on Storybook 9 compatibility, see the linked GitHub issue:
+https://github.com/storybookjs/storybook/issues/30944
+[14:49:20.452] [INFO] Storybook doctor is complete!
+[14:49:20.460] [INFO] You can always recheck the health of your project(s) by running:
+npx storybook doctor
+[14:49:20.470] [INFO] The upgrade is complete!
+[14:49:20.479] [INFO] Your project(s) have been upgraded successfully, but some issues were found which need your attention, please check Storybook doctor logs above.
+[14:49:20.505] [INFO] If you want to learn more about the automigrations that executed in your project(s), please check the following links:
+
+• addon-mdx-gfm-remove
+• remove-essential-addons
+[14:49:20.513] [INFO] For a full list of changes, please check our migration guide: https://storybook.js.org/docs/migration-guide?ref=upgrade

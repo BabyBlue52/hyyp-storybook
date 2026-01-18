@@ -60,6 +60,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@use "@/assets/variables.scss" as *;
+
 form.search-wrapper {
     display: flex;
     position: relative;

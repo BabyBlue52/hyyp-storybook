@@ -1,5 +1,5 @@
 import Sidebar from '@/components/Sidebars/Sidebar.vue';
-// import { action } from '@storybook/addon-actions';
+// import { action } from 'storybook/actions';
 
 export default {
   component: Sidebar,
