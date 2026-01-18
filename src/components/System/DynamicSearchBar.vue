@@ -1,12 +1,12 @@
 <template>
-    <div class="wrapper">
-        <form class="search-wrapper">
+    <form class="search-wrapper column ">
+        <div class="row d-flex w-100">
             <div class="border">
                 <div class="location">
                     <div class="icon">
                         <button @click="getCurrentLocation">
-                                            <v-icon icon="mdi-map-marker" color="#37515F"></v-icon>
-                                        </button>
+                                                <v-icon icon="mdi-map-marker" color="#37515F"></v-icon>
+                                            </button>
                     </div>
                     <input type="text" placeholder="Enter Location" id="location" />
                 </div>
@@ -17,22 +17,23 @@
                     <input type="text" placeholder="Try out a few topics" />
                 </div>
             </div>
-            <Button title="Search" />
+            <Button text="Search" />
+        </div>
+        <div class="d-flex ">
             <div class="filters">
                 <v-checkbox label="Show All Results"></v-checkbox>
                 <v-checkbox label="Events"></v-checkbox>
                 <v-checkbox label="Venues"></v-checkbox>
                 <v-checkbox label="Organizations"></v-checkbox>
             </div>
-        </form>
-        <hr/>
-    </div>
+        </div>
+    
+    </form>
 </template>
 
 <script>
-import Button from "@/components/Buttons/Button.vue";
 import TextInput from "@/components/UI/TextInput.vue";
-
+import Button from "@/components/Buttons/Button.vue";
 export default {
     name: 'Search Bar',
     components: { Button, TextInput },
@@ -58,40 +59,37 @@ export default {
 }
 </script>
 
-<style scoped lang="scss">
-.wrapper {
-    position: relative;
-    width: max-content;
-    height: 48px;
-}
-
-.search-wrapper {
+<style lang="scss" scoped>
+form.search-wrapper {
     display: flex;
     position: relative;
     width: max-content;
+    max-width: 800px;
+    height: max-content;
+    padding: 10px;
+    background: white;
+    border-radius: $border-radius;
     .border {
         display: flex;
         margin-right: 10px;
         border: 1px solid #999999;
         border-radius: 5px;
         padding-top: 5px;
-        height: 50px;
+        height: 40px;
     }
     .location {
         display: flex;
         width: 200px;
         margin-bottom: 10px;
         padding: 0 10px;
-        .icon {
+        i {
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 40px;
-            width: 40px;
-           
-                position: relative;
-                bottom: 1px;
-           
+            height: 32px;
+            width: 32px;
+            position: relative;
+            bottom: 3px;
         }
         input {
             position: relative;
@@ -108,7 +106,7 @@ export default {
             }
         }
         input::placeholder {
-            color: rgba(#100409, 0.25);
+            color: rgba(#100409, 0.4);
             font-size: 0.75rem;
         }
     }
@@ -119,10 +117,11 @@ export default {
     .filters {
         display: flex;
         justify-content: flex-start;
-        position: absolute;
+        position: relative;
         left: 0;
-        bottom: -50px;
         width: fit-content;
+        background: white;
+        border-radius: $border-radius;
     }
 }
 
