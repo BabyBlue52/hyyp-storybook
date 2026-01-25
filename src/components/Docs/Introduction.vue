@@ -1,7 +1,6 @@
 <template>
     <div class="wrapper">
         <div class="header">
-            <img src="../../assets/hyyp.svg" />
             <h1>Documentation</h1>
         </div>
         <div class="content">
@@ -86,6 +85,7 @@ export default {
 
 .v-main {
     overflow:hidden;
+    overflow-y: auto;
 }
 .wrapper {
     display: flex;
@@ -95,10 +95,12 @@ export default {
     width: calc(100% - 80px);
     height: 100%;
     padding: 50px;
+
     h1 {
         position: relative;
         top: 12px;
         margin-left: 5px;
+        margin-bottom: 20px;
         padding: 1px 10px;
         font-size: 0.8rem;
         background: #37515F;
@@ -106,9 +108,9 @@ export default {
         border: 2px solid #37515F;
         border-radius: 3px;
     }
-    img {
-        width: 120px;
-    }
+    // img {
+    //     width: 120px;
+    // }
     .header {
         display: flex;
         z-index: 2;
@@ -124,10 +126,12 @@ export default {
     }
     .content {
         display: flex;
-        width: calc(100% + 160px);
+        min-width: 105%;
         height: 100%;
         position: relative;
-        top: 50px;
+        overflow-y: auto;
+        top: 10px;
+        justify-content: center;
         flex-direction: column;
         margin: 20px auto;
         padding: 50px;
@@ -141,16 +145,19 @@ export default {
             padding: 10px;
             background: #f0f0f0;
             text-align: center;
-            
+            justify-content: center;
+            display: flex;
+            align-items: center;
         }
         .npm {
+            @extend .github;
             height: 42px;
-            padding: 10px;
             color: #fbf8f8;
             background: color.adjust(#37515F, $lightness: -35%);
             border-radius: 5px;
             text-align: center;
             font-weight: bold;
+            
             cursor: pointer;
             svg {
                 position: relative;
@@ -180,5 +187,8 @@ img.datflo {
     width: 80px;
     filter: grayscale(1);
     opacity: 0.25;
+}
+small {
+    white-space: wrap;
 }
 </style>
