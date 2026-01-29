@@ -222,13 +222,13 @@ watch(isActive, (newValue) => {
         transition: $smooth;
         border: 2px solid transparent;       
         &.active {
-            background: color.adjust($gunMetal_light, $lightness: 50%);
-            border: 2px solid $gunMetal_light;
+            background: $gunMetal_60;
+            border: 2px solid $gunMetal_20;
             p {
-                color: $gunMetal_light;
+                color: $gunMetal_20;
             }
             svg {
-                fill: $gunMetal_light;
+                fill: $gunMetal_20;
             }
         }
 
@@ -335,7 +335,7 @@ watch(isActive, (newValue) => {
             font-size: $small;
             margin-top: 10px;
             padding: 5px 10px;
-            background: rgba($gunMetal_light, 0.1);
+            background: gunMetal_80;
             border-radius: $border-radius;
             color: $gunMetal;
             text-align: left;
@@ -349,7 +349,7 @@ watch(isActive, (newValue) => {
             svg {
                 width: 20px;
                 height: 20px;
-                fill: $gunMetal_light;
+                fill: $gunMetal_20;
             }
         }
     }

@@ -1,9 +1,10 @@
+@use "sass:color";
 /*
 =================
 Fonte
 =================
 */
-@import url("https://fonts.googleapis.com/css2?family=Open+Sans&family=Poppins:wght@200;400;500;600;700&display=swap");
+// Font import moved to fonts.scss for @use compatibility
 
 $openSans: 'Open Sans', sans-serif;
 $poppins: 'Poppins', sans-serif;
@@ -17,43 +18,57 @@ Colors
 =================
 */
 
-$offWhite_hover: rgb(233.125, 233.125, 239.375);
 
-$grey: #f6f6f6;
+$offWhite: #f6f6f6;
+$offWhite_hover: #e9e9ef;
+$grey: #E9E9E9;
 $grey_20: #CCCCCC;
 $grey_40: #AAAAAA;
 $grey_60: #999999;
 $grey_80: #666666;
-$black: #100409;
+$grey_90: #333333;
+$black: #100409;  
+
 
 $gunMetal: #37515f;
-$gunMetal_light: #52798e;
-$error: #ff4d4d;
+$gunMetal_20: color.adjust($gunMetal, $lightness: 20%);
+$gunMetal_40: color.adjust($gunMetal, $lightness: 40%);
+$gunMetal_60: color.adjust($gunMetal, $lightness: 60%);
+
+
+$selectionStatic: #dce6f2;
+$selectionHover: color.adjust($selectionStatic, $lightness: -15%);
+
 $primary: #e4959e;
 $secondary: $gunMetal;
+
 $success: #59d96c;
 $success_darken:  #2AB73F;
+$success_light: color.adjust($success, $lightness: 33%);
 
+$error: #ff4d4d;
 /*
 =================
 Design Units
 =================
 */
 $label: 0.67rem;
-$small: 0.75rem;
+$small: 0.8rem;
 $paragraph: 0.9rem;
 $subhead: 1.2rem;
 $header: 1.75rem;
 $pageTitle: 2.75rem;
+
 $light: 400;
-$medium: 500;
-$heavy: 700;
+$medium: 600;
+$heavy: 800;
 
 $border-radius: 5px;
 
 // Map Page Separators
-$cardHolder: 25vw;
-$mapWidth: calc(100vw - $cardHolder);
+$cardWidth: 25vw;
+$mapWidth: calc(100vw - $cardWidth);
+$formWidth: 1440px;
 
 // Header Area Height
 $headRoom: 50px;
@@ -62,7 +77,7 @@ $headRoom: 50px;
 Animations 
 =================
 */
-$smooth: all ease-in-out 300ms;
+$smooth: ease-in-out 300ms;
 
 
 /*
@@ -70,35 +85,47 @@ $smooth: all ease-in-out 300ms;
 Animations 
 =================
 */
-
+.loading-spinner {
+    width: 20px;
+    height: 20px;
+    border: 2px solid $grey_20;
+    border-top: 2px solid $gunMetal;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
 .fadeIn {
-    animation: fadeIn 300ms ease-in-out;
+    animation: fadeIn $smooth;
     opacity: 1;
-  }
-  .fadeOut {
-    animation: fadeOut 300ms ease-in-out;
-    opacity: 0;
-    display: none;
   }
   @keyframes fadeIn {
     from {
-      transform: translateY(20px) scale(0.95);
+      transform:translateX(-50%);
       opacity: 0;
     }
   
     to {
-      transform: translateY(0) scale(1);
       opacity: 1;
     }
   }
+  .fadeOut {
+    animation: fadeOut $smooth;
+    opacity: 0;
+    touch-action: none;
+    pointer-events: none;
+  }
+
   @keyframes fadeOut {
     from {
-      transform: translateY(0) scale(1);
+      // transform:  scale(1);
       opacity: 1;
     }
   
     to {
-      transform: translateY(20px) scale(0.95);
+      // transform: scale(0.95);
       opacity: 0;
     }
   }
