@@ -15,7 +15,8 @@ const config = {
 
   "addons": [
     '@storybook/addon-links',
-    "@chromatic-com/storybook"
+    "@chromatic-com/storybook",
+    "@storybook/addon-docs"
   ],
 
   "framework": {

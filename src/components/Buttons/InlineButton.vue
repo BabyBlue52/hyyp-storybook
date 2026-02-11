@@ -1,5 +1,5 @@
 <template>
-    <button :class="[disabled ? 'disabled' : 'inline-btn']"  @click="onClick()">
+    <button :class="[disabled ? 'disabled' : 'inline-btn']" >
         <p>{{text}}</p>
     </button>
 </template>
@@ -11,27 +11,28 @@
             text: String,
             disabled: Boolean
         },
-        methods: {
-            onClick() {
-                this.$emit('click');
-            }
-
-        }
+        
     }
     
 </script>
-<style>
+<style lang="scss" scoped>
+@use "@/assets/variables.scss" as *;
     button.inline-btn {
-        width: 200px;
-        max-width: 200px;
-        height: 40px;
+        display: flex;
+        justify-content: center;
+        padding: 10px 30px;
+        min-width: max-content;
+        width: 100%;
+        max-width: max-content;
+        max-height: 40px;
         border-radius: 5px;
         background-color: white;
         border: 2px solid transparent;
         color: #37515F;
     }
     button.inline-btn:hover {
-        background: #f6f6f6;
+        transition: $smooth;
+        background: rgba($black, 0.15);
     }
     /* Disabled */
     button.disabled {
@@ -47,5 +48,7 @@
         font-family: 'Poppins', sans-serif;
         line-height: 1rem;
         color: inherit;
+        font-size: $paragraph;
+        white-space: nowrap;
     }
 </style>

@@ -1,37 +1,49 @@
 <template>
-    <button class="tag">
-                <p> {{ title }}</p>
-                <svg height="24" width="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd"><path d="M12 0c6.623 0 12 5.377 12 12s-5.377 12-12 12-12-5.377-12-12 5.377-12 12-12zm0 1c6.071 0 11 4.929 11 11s-4.929 11-11 11-11-4.929-11-11 4.929-11 11-11zm0 10.293l5.293-5.293.707.707-5.293 5.293 5.293 5.293-.707.707-5.293-5.293-5.293 5.293-.707-.707 5.293-5.293-5.293-5.293.707-.707 5.293 5.293z"/></svg>
-            </button>
+    <button :class="isSelected ? 'tag selected' : 'tag'" @click="onToggle">
+        <p>{{ props.tag }}</p>
+        <v-icon v-if="isSelected" icon="mdi-check" />
+    </button>
 </template>
 
-<script>
-export default {
-    name: 'Tag',
-    props: {
-        title: String,
-    },
-}
+<script setup>
+const props = defineProps({
+    tag: String,
+    isSelected: Boolean,
+});
+const emit = defineEmits(['removeTag', 'addTag', 'toggleTag']);
+
+const removeTag = () => {
+    emit('removeTag', props.tag);
+};
+
+const addTag = () => {
+    emit('addTag', props.tag);
+};
+
+const onToggle = () => {
+    emit('toggleTag', props.tag);
+};
 </script>
 
 <style scoped lang="scss">
+@use "@/assets/variables.scss" as *;
 .tag {
     position: relative;
     display: flex;
     align-items: center;
     width: max-content;
-    height: max-content;
+    height: 32px;
     padding: 5px 5px 5px 15px;
-    border-radius: 20px;
-    background: rgba(228, 149, 158, 0.33);
+    border-radius: $border-radius;
+    background: $grey;
     cursor: pointer;
     &:hover {
-        background: rgba(228, 149, 158, 1);
-        p {
-            font-weight: 500;
-        }
+        background: $grey_20;
     }
     p {
+        position: relative;
+        top: 1px;
+        text-transform: capitalize;
         font-weight: 400;
         max-width: 200px;
         white-space: nowrap;
@@ -39,11 +51,22 @@ export default {
         overflow: hidden;
         margin-right: 10px;
     }
-    svg {
+    i {
+       display: none;
+    }
+}
+.selected {
+    background: rgba($success, .33);
+    i {
+        display: block;
         position: relative;
         right: 2px;
         bottom: 1px;
-        transform: scale(0.8);
+        transform: scale(0.75);
     }
+    &:hover {
+        background: rgba($success, .66);
+    }
+
 }
 </style>

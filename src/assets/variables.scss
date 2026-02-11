@@ -20,7 +20,7 @@ Colors
 
 
 $offWhite: #f6f6f6;
-$offWhite_hover: #e9e9ef;
+
 $grey: #E9E9E9;
 $grey_20: #CCCCCC;
 $grey_40: #AAAAAA;
@@ -29,6 +29,7 @@ $grey_80: #666666;
 $grey_90: #333333;
 $black: #100409;  
 
+$offWhite_hover: $grey;
 
 $gunMetal: #37515f;
 $gunMetal_20: color.adjust($gunMetal, $lightness: 20%);
@@ -38,6 +39,7 @@ $gunMetal_60: color.adjust($gunMetal, $lightness: 60%);
 
 $selectionStatic: #dce6f2;
 $selectionHover: color.adjust($selectionStatic, $lightness: -15%);
+$boxShadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 
 $primary: #e4959e;
 $secondary: $gunMetal;

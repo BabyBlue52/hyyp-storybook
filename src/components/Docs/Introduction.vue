@@ -135,7 +135,7 @@ export default {
         flex-direction: column;
         margin: 20px auto;
         padding: 50px;
-        padding-top: 100px;
+        padding-top: 0px;
         background: #fbf8f8;
         blockquote {
             width: 500px;

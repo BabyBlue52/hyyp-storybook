@@ -1,36 +1,35 @@
 <template>
-    <button :class="[disabled ? 'disabled' : 'default-btn']"  @click="onClick()">
-        <p>{{title}}</p>
+    <button :class="[disabled ? 'disabled' : 'default-btn']" >
+        <p>{{text}}</p>
     </button>
 </template>
 
 <script>
     export default {
-        name: 'Button',
+        name: 'PrimaryButton',
         props: {
-            title: String,
+            text: String,
             disabled: Boolean
         },
-        methods: {
-            onClick() {
-                this.$emit('click');
-            }
-
-        }
     }
     
 </script>
-<style>
+<style lang="scss" scoped>
+@use "@/assets/variables.scss" as *;
     button.default-btn {
         display: flex;
         justify-content: center;
-        padding: 10px 20px;
-        max-width: 200px;
+        padding: 10px 30px;
+        min-width: max-content;
+        width: 100%;
+        max-width: 300px;
         max-height: 40px;
+        margin: 0px;
         border-radius: 5px;
         background-color: #37515F;
         border: 2px solid transparent;
         color: white;
+        
     }
     button.default-btn:hover {
         background: #52798E;
@@ -47,7 +46,9 @@
     }
     p {
         font-family: 'Poppins', sans-serif;
-        line-height: 1rem;
+        line-height: 1.1rem;
         color: inherit;
+        font-size: 0.9rem;
+        font-weight: $medium;
     }
 </style>
