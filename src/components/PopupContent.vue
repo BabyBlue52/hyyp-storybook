@@ -36,6 +36,7 @@ const props = defineProps({
 </script>
 
 <style lang="scss" scoped>
+@use "@/assets/variables.scss" as *;
 .mapboxgl-popup-content {
     max-height: max-content;
     width: max-content;

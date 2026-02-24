@@ -73,6 +73,7 @@
   </script>
   
 <style lang="scss">
+@use "@/assets/variables.scss" as *;
 .hyyp-inbox {
     
     .customize-table {

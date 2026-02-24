@@ -72,6 +72,7 @@ const closePopup = () => {
 </script>
 
 <style lang="scss" scoped>
+@use "@/assets/variables.scss" as *;
 div.header-wrapper {
     position: fixed;
     top: 0px;

@@ -28,6 +28,7 @@ getCurrentYear();
 </script>
 
 <style lang="scss">
+@use "@/assets/variables.scss" as *;
 footer {
     display: flex;
     align-items: center;

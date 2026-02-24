@@ -46,6 +46,7 @@ const timeOptions = computed(() => {
   );
 </script>
 <style scoped lang="scss">
+@use "@/assets/variables.scss" as *;
   div.drop-down {
       position: relative;
       width: 100% ;

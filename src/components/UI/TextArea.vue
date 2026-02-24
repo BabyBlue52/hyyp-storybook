@@ -22,6 +22,7 @@
     }
 </script>
 <style scoped lang="scss">
+@use "@/assets/variables.scss" as *;
     textarea {
         position: relative;
         border-radius: 5px;

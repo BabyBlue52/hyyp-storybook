@@ -178,6 +178,7 @@ watch(isActive, (newValue) => {
 
 <style lang="scss" scoped>
 @use "sass:color";
+@use "@/assets/variables.scss" as *;
     h2 {
         width:100%;
         font-family: $poppins;

@@ -127,6 +127,7 @@ const exportToICS = () => {
 </script>
 
 <style scoped lang="scss">
+@use "@/assets/variables.scss" as *;
 .hyyp-sidebar {
     position: absolute;
     top: 0;
