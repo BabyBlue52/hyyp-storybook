@@ -38,7 +38,7 @@ footer {
     height: 50px;
     min-width: 100vw;
     padding: 5px 20px;
-    border-top: 1px solid rgba($grey_20, 0.5);
+    border-top: 1px solid rgba($grey_80, 0.5);
     background-color: white; // box-shadow: 0 -2px 0 2px solid rgba($black, 0.75);
     svg {
         width: 24px;

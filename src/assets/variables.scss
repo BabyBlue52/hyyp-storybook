@@ -21,15 +21,15 @@ Colors
 
 $offWhite: #f6f6f6;
 
-$grey: #E9E9E9;
-$grey_20: #CCCCCC;
-$grey_40: #AAAAAA;
-$grey_60: #999999;
-$grey_80: #666666;
-$grey_90: #333333;
+$grey_90: #E9E9E9;
+$grey_80: #CCCCCC;
+$grey_60: #AAAAAA;
+$grey_40: #999999;
+$grey_20: #666666;
+$grey: #333333;
 $black: #100409;  
 
-$offWhite_hover: $grey;
+$offWhite_hover: $grey_90;
 
 $gunMetal: #37515f;
 $gunMetal_20: color.adjust($gunMetal, $lightness: 20%);
@@ -39,6 +39,7 @@ $gunMetal_60: color.adjust($gunMetal, $lightness: 60%);
 
 $selectionStatic: #dce6f2;
 $selectionHover: color.adjust($selectionStatic, $lightness: -15%);
+
 $boxShadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 
 $primary: #e4959e;
@@ -79,7 +80,7 @@ $headRoom: 50px;
 Animations 
 =================
 */
-$smooth: ease-in-out 300ms;
+$smooth: ease-in-out 350ms;
 
 
 /*
@@ -90,7 +91,7 @@ Animations
 .loading-spinner {
     width: 20px;
     height: 20px;
-    border: 2px solid $grey_20;
+    border: 2px solid $grey_80;
     border-top: 2px solid $gunMetal;
     border-radius: 50%;
     animation: spin 1s linear infinite;

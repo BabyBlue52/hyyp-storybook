@@ -157,6 +157,7 @@ div.time-input {
         padding-top: 8px;
         padding-left: 4px;
         font-size: 0.7rem;
+        color: $grey_20;
     }
 }
 

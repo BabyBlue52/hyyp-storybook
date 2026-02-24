@@ -178,8 +178,6 @@ watch(isActive, (newValue) => {
 
 <style lang="scss" scoped>
 @use "sass:color";
-@use '@/assets/variables.scss' as *;
-
     h2 {
         width:100%;
         font-family: $poppins;
@@ -192,10 +190,6 @@ watch(isActive, (newValue) => {
         font-weight: 500;
         font-size: $paragraph;
         text-align: left;
-    }
-    hr {
-        opacity: 0.33;
-        margin-bottom: 20px;
     }
     select.form-select {
         width: 220px;
@@ -214,7 +208,6 @@ watch(isActive, (newValue) => {
         align-items: center;
         gap: 10px;
         min-height: 100%;
-        max-width: max-content;
         background: white;
         padding: 10px 20px;
         border-radius: 25px;
@@ -222,7 +215,7 @@ watch(isActive, (newValue) => {
         transition: $smooth;
         border: 2px solid transparent;       
         &.active {
-            background: $gunMetal_60;
+            background: gunMetal_60;
             border: 2px solid $gunMetal_20;
             p {
                 color: $gunMetal_20;
@@ -258,7 +251,7 @@ watch(isActive, (newValue) => {
         height: max-content;
         background: white;
         border-radius: 8px;
-        padding: 10px 0 10px 0;
+        padding: 10px 0 30px 0;
         z-index: 9;
         
         box-shadow: 0 0 10px 0 rgba($gunMetal, 0.1);
@@ -281,7 +274,7 @@ watch(isActive, (newValue) => {
             display: flex;
             justify-content: flex-end;
             gap: 10px;
-            padding: 10px 20px 0 0;
+            padding: 0 20px;
             button.default-btn {
                 min-width: 200px !important;
                 max-width: 200px !important;
@@ -335,7 +328,7 @@ watch(isActive, (newValue) => {
             font-size: $small;
             margin-top: 10px;
             padding: 5px 10px;
-            background: gunMetal_80;
+            background: rgba($gunMetal_60, 1);
             border-radius: $border-radius;
             color: $gunMetal;
             text-align: left;

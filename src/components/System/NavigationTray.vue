@@ -129,7 +129,7 @@
     width: 180px;
     max-width: 33vw;
     height: 100%;
-    background: $grey;
+    background: $grey_90;
 }
 
 .nav-tray-item {

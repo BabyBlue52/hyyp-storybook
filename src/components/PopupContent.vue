@@ -83,7 +83,7 @@ const props = defineProps({
         .venue-district {
             margin: 0;
             font-size: 12px;
-            color: $grey_80;
+            color: $grey_20;
         }
     }
     .venue-image {
@@ -120,7 +120,7 @@ const props = defineProps({
         .tag {
             padding: 4px 8px;
             background-color: $grey;
-            color: $grey_80;
+            color: $grey_20;
             font-size: 10px;
             border-radius: 12px;
             font-weight: 500;

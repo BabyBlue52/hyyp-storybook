@@ -79,7 +79,7 @@ div.header-wrapper {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: .5px solid #ccc;
+    border-bottom: .5px solid $grey_80;
     width: 100%;
     padding: 5px 20px;
     z-index: 99;

@@ -1,9 +1,7 @@
-@use "@/assets/variables.scss" as *;
-.sidebar-header img {
-    max-width: 120px;
-}
+@use "variables.scss" as *;
+
 * {
-    transition: all 0.3s ease-in-out;
+    transition: $smooth;
 }
 html, body {
     position: fixed;
@@ -24,7 +22,7 @@ button:active {
 }
 
 h1 {
-    max-width: max-content;
+    min-width: max-content;
     text-align: left;
     font-size: $header;
     font-weight: 900;
@@ -61,20 +59,21 @@ hr {
     width: calc(100% - 40px);
     margin: 0 auto 20px;
     border: none;
-    border-bottom: .5px solid $grey_20;
+    border-bottom: .5px solid $grey_90;
     opacity: 0.5;
 }
 .hyyp-input {
     width: 100%;
     input {
         position: relative;
-        border: 1px solid $grey_80;
+        border: 1px solid $grey_60;
         border-radius: 5px;
         height: max-content;
         min-height:  2rem;
         min-width: 200px;
+        width: 100%;
         padding: 5px 10px;
-        padding-top: 20px;
+        padding-top: 10px;
         background-color: white;
         font-size: $paragraph;
     }
@@ -94,7 +93,7 @@ hr {
         font-size: $label;
         text-align: left;
         text-transform: capitalize;
-        color: $grey_80;
+        color: $grey_40;
         display: flex;
         justify-content: start;
         text-align: left;
@@ -112,8 +111,8 @@ hr {
     top: 0;
     z-index: 1;
     width: 100%;
-    height: 550px;
-    background: rgba($black, 0.5)
+    height: 100%;
+    background: rgba($black, 0.5);
 }
 .noSelect {
     user-select: none;
@@ -127,9 +126,8 @@ hr {
     height: 100vh;
     width: 100vw;
     z-index: 9998;
-    background: rgba($black, 0.33);
+    background: rgba($black, 0.5);
     overflow: hidden;
-    touch-action: none;
 }
 .toggle {
     position: relative;
@@ -138,13 +136,12 @@ hr {
 }
 .centered {
     position: fixed;
-    top: 0;
-    left: 0;
-    height: 100vh;
-    width: 100vw;
+    height: max-content;
+    width: max-content;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 50%;
     overflow: hidden;
     z-index: 9999;
 }
@@ -200,7 +197,26 @@ div.spacer {
 .bordered {
     border: 1px solid salmon;
 }
-
+.controlled-width {
+    max-width: 1440px;
+}
+.sticky {
+    position: sticky;
+    top: 10px;
+    left: 0px;
+    width: 100%; // max-width: 1440px;
+    height: 75px;
+    padding-left: 10px;
+    padding-top: 20px;
+    padding-bottom: 10px;
+    background: white;
+    z-index: 2;
+    border-bottom: 1px solid rgba($grey_80, 0.33);
+}
+.flipped {
+    transition: $smooth;
+    transform: rotate(180deg);
+}
 /*App Level Wrapper */
 .v-main {
     overflow: hidden;
@@ -252,6 +268,40 @@ button.full-width {
 button.full-width:hover {
     background:  $gunMetal_20;
 }
+/* Empty State */
+.empty-state {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+    width: 100%;
+    max-width: $formWidth;
+    margin: 0 auto;
+    border: .5px solid $grey_90;
+    border-radius: $border-radius;
+    background: $offWhite;
+    padding: 20px;
+    p {
+        font-size: $paragraph;
+        font-weight: $medium;
+        color: $grey_80;
+    }
+    a {
+        font-size: $paragraph;
+        font-weight: $medium;
+        color: $grey_80;
+        text-decoration: underline;
+    }
+}
+.loading {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    gap: 10px;
+    p {
+        font-size: $paragraph;
+    }
+}
 /* Edits to Vuetify */
 .v-textarea .v-field__input {
     -webkit-mask-image: none !important;
@@ -260,14 +310,19 @@ button.full-width:hover {
 .v-textarea {
     font-size: $paragraph;
     margin: 4px 0 20px 0;
+    border-radius: $border-radius;
     ::placeholder {
         font-size: $paragraph;
     }
 }
+.v-field--appended {
+    min-width: calc(100%);
+    padding: 0 !important;
+}
 .v-field__input {
-    border: 1px solid $grey_80;
+    border: 1px solid $grey_40;
     background: white;
-    padding: 6px 8px !important;
+    padding: 6px 12px !important;
     margin: 0;
     border-radius: 2.5px;
     font-size: $paragraph;
@@ -275,6 +330,17 @@ button.full-width:hover {
     min-width: 100% ;
     &:disabled {
         opacity: 0.5;
+    }
+    &:placeholder {
+        color: $grey_60;
+    }
+}
+.v-field--appended > .v-field__append-inner {
+    position: fixed;
+    right: 10px;
+    top: 6px;
+    i {
+        opacity: 0.33;
     }
 }
 .v-list {
@@ -298,6 +364,8 @@ button.full-width:hover {
 .v-selection-control {
     max-width: max-content;
     .v-label {
+        position: relative;
+        top: 2px;
         font-size: $small !important;
         max-width: max-content;
         margin-right: 10px;
@@ -335,5 +403,5 @@ button.full-width:hover {
 
 .ProseMirror blockquote {
     padding-left: 12px;
-    border-left: 2px solid rgba(13, 13, 13, 0.1);
+    border-left: 2px solid rgba($black, 0.1);
 }

@@ -10,9 +10,7 @@
   import Docs from '@/components/Docs/Introduction.vue'
 </script>
 <style lang="scss">
-  @import "./assets/base.scss";
-  @use "./assets/variables.scss" as *;
-  
+  @use "./assets/base.scss";
   .app {
     max-width: 95%;
     padding: 20px;

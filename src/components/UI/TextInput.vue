@@ -38,7 +38,7 @@ export default defineComponent({
 @use "@/assets/variables.scss" as *;
 input {
     position: relative;
-    border: 1px solid $grey_80;
+    border: 1px solid $grey_20;
     border-radius: 5px;
     height: max-content;
     min-width: 200px;
@@ -50,7 +50,7 @@ input {
 }
 
 .v-field__input {
-    outline: 1px solid $grey_80;
+    outline: 1px solid $grey_20;
     background: white;
     max-height: 1rem;
     padding: 0 !important;
@@ -70,13 +70,13 @@ label {
     font-size: $label;
     text-align: left;
     text-transform: capitalize;
-    color: $grey_80;
+    color: $grey_20;
 }
 
 .icon {
     margin-right: 10px;
     transform: scale(0.85);
-    fill: $grey_60;
+    fill: $grey_40;
 }
 
 .icon>svg,

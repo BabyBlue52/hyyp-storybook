@@ -50,7 +50,7 @@
     .icon {
         margin-right: 10px;
         transform: scale(0.85);
-        fill: #999;
+        fill: $grey_40;
     }
     .icon > svg,
     .icon > svg > path{

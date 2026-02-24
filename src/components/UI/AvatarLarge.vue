@@ -40,6 +40,7 @@
         text-align: center;
         margin: auto 0;
         text-transform: uppercase;
+        color: $grey;
     }   
     .user-icon > img {
         width: inherit;

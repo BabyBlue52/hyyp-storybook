@@ -35,10 +35,10 @@ const onToggle = () => {
     height: 32px;
     padding: 5px 5px 5px 15px;
     border-radius: $border-radius;
-    background: $grey;
+    background: $grey_90;
     cursor: pointer;
     &:hover {
-        background: $grey_20;
+        background: $grey_80;
     }
     p {
         position: relative;
