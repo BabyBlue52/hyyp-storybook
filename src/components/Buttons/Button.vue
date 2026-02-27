@@ -1,5 +1,5 @@
 <template>
-    <button :class="[disabled ? 'disabled' : 'default-btn']" >
+    <button :class="[disabled ? 'disabled' : 'default-btn']" :disabled="disabled">
         <p>{{text}}</p>
     </button>
 </template>
@@ -15,40 +15,49 @@
     
 </script>
 <style lang="scss" scoped>
-@use "@/assets/variables.scss" as *;
+    @use '@/assets/variables.scss' as *;
     button.default-btn {
         display: flex;
         justify-content: center;
         padding: 10px 30px;
         min-width: max-content;
         width: 100%;
-        max-width: 300px;
-        max-height: 40px;
-        margin: 0px;
+        cursor: pointer;
+        max-height: 48px;
         border-radius: 5px;
-        background-color: #37515F;
+        background-color: $gunMetal;
         border: 2px solid transparent;
         color: white;
-        
+        &:hover {
+            background: $gunMetal_20;
+        }
+        p {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.1rem;
+            color: inherit;
+            font-size: 0.9rem;
+            font-weight: $medium;
+        }
     }
-    button.default-btn:hover {
-        background: #52798E;
-    }
+   
     /* Disabled */
     button.disabled {
-        width: 200px;
-        max-width: 200px;
-        height: 48px;
-        border-radius: 5px;
-        background-color: #c8c8c8;;
+        @extend .default-btn;
+        background-color: $grey_80;
         border: 2px solid transparent;
-        color: #666;
+        color: $grey;
+        opacity: 0.33;
+        cursor: not-allowed;
+        user-select: none;
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        -ms-user-select: none;
+        &:hover {
+            background: $grey_80;
+        }
+        &:active {
+            transform: scale(1);
+        }
     }
-    p {
-        font-family: 'Poppins', sans-serif;
-        line-height: 1.1rem;
-        color: inherit;
-        font-size: 0.9rem;
-        font-weight: $medium;
-    }
+   
 </style>
