@@ -268,6 +268,27 @@ button.full-width {
 button.full-width:hover {
     background:  $gunMetal_20;
 }
+button.secondary-btn {
+    max-width: 300px;
+    background: $grey_90;
+    color: $black;
+    border: 2px solid transparent;
+    border-radius: 5px;
+    padding: 2px 20px;
+    font-size: $paragraph;
+    font-weight: $medium;
+    text-transform: capitalize;
+    transition: $smooth;
+    &:hover {
+        background: $grey_60;
+        color: $black;
+    }
+    span {
+        white-space: nowrap;
+        font-size: $paragraph;
+        
+    }
+}
 /* Empty State */
 .empty-state {
     display: flex;
