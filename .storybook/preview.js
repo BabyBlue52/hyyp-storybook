@@ -4,7 +4,7 @@ import { setup } from "@storybook/vue3";
 import { registerPlugins } from "../src/plugins";
 import { withVuetifyTheme, DEFAULT_THEME } from "./withVuetifyTheme.decorator";
 import { createRouter, createMemoryHistory } from 'vue-router';
-import logo from '../src/assets/hyyp.svg';
+import logo from '../src/assets/logos/hyyp.svg';
 
 // Create a mock router for Storybook
 const router = createRouter({

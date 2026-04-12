@@ -1,5 +1,5 @@
 import { create } from 'storybook/theming';
-import logo from '../src/assets/hyyp.svg';
+import logo from '../src/assets/logos/hyyp.svg';
  
 export default create({
   base: 'dark',
