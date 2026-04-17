@@ -78,7 +78,7 @@
                     </div>
                 </RouterLink>
             </div>
-            <div v-if="!hiddenComponent" class="v-col-2">
+            <div v-if="!hiddenComponent" class="v-col-3 d-flex align-center" style="justify-content: end;">
                 <RouterLink to="/signin">
                     <Link text="Sign In"/>
                 </RouterLink>
@@ -269,10 +269,9 @@ div.mobile-header-wrapper {
         align-items: stretch;
         background: transparent;
         border-bottom: .5px solid $grey_90;
-        padding: 0 20px 5px 0px;
         box-sizing: border-box;
         background: white;
-        
+
         .mobile-header-bar {
             position: relative;
             z-index: 20;
