@@ -19,9 +19,7 @@
                 role="listbox"
                 @mousedown.prevent
             >
-            <!-- Rework logic to account for city not found -->
                 <li
-                    v-if="item !== 'Use Current location'"
                     v-for="item in items"
                     :key="item"
                     class="city-dropdown__item"
@@ -29,9 +27,13 @@
                     :aria-selected="modelValue === item"
                     @click="select(item)"
                 >
-                    <v-icon v-if="item !== 'Use Current location'" icon="mdi-city" color="#37515F"></v-icon>
-                    <p v-if="item !== 'Use Current location'">{{ item }}</p>
-                    <small v-else>Use Current Location</small>
+                    <template v-if="item === locationOption">
+                        <small>Use Current Location</small>
+                    </template>
+                    <template v-else>
+                        <v-icon icon="mdi-city" color="#37515F"></v-icon>
+                        <p>{{ item }}</p>
+                    </template>
                 </li>
             </ul>
         </Transition>
@@ -142,8 +144,8 @@ onUnmounted(() => {
     padding: 4px 0;
     list-style: none;
     background: white;
-    border-radius: 5px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    border-radius: $border-radius;
+    box-shadow: $boxShadow;
     max-height: 300px;
     overflow-y: auto;
 }
@@ -188,4 +190,22 @@ onUnmounted(() => {
     opacity: 0;
     transform: translateY(-4px);
 }
+@media screen and (max-width: 499px) {
+    div.city-dropdown {
+        .city-dropdown__value {
+            font-size: .9rem;
+        }
+        .city-dropdown__trigger > i {
+            font-size:1.75rem;
+            color: $grey_20;
+        }
+        ul.city-dropdown__list {
+            top: 40px;
+            width: calc(100% + 60px);
+            padding-left: 10px;
+            padding-right: 10px; 
+        }
+    }
+}
 </style>
+ 

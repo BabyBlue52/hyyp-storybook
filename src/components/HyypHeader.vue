@@ -58,29 +58,31 @@
             </div>
         </div>
     </div>
-    <div class="mobile-header-wrapper">
-        <div class="v-col-1" @click="toggleMenu">
-            <v-icon v-if="isMenuOpen" class="mdi mdi-close" ></v-icon>
-            <v-icon v-else class="mdi mdi-menu"></v-icon>
-        </div>
-        <div class="v-col-9 d-flex">
-            <RouterLink to="/" >
-                <div class="logo" @click="isMenuOpen == false">
-    
-                    <img src="@/assets/logos/hyyp.svg" />
-    
-                    <div v-if="isPremium === true" class="pro-badge noSelect">
-                        <span>Pro</span>
-                    </div>
-                    <div v-else></div>
-    
+    <div ref="mobileHeaderRef" class="mobile-header-wrapper">
+        <div class="mobile-header-bar">
+            <div class="v-col-9 d-flex align-center">
+                <div @click.stop="toggleMenu">
+                    <v-icon v-if="isMenuOpen" class="mdi mdi-close" ></v-icon>
+                    <v-icon v-else class="mdi mdi-menu"></v-icon>
                 </div>
-        </RouterLink>
-        </div>
-        <div v-if="!hiddenComponent" class="v-col-2">
-            <RouterLink to="/signin">
-                <Link text="Sign In"/>
-            </RouterLink>
+                <RouterLink to="/" >
+                    <div class="logo" @click="closeMenu">
+        
+                        <img src="@/assets/logos/hyyp.svg" />
+        
+                        <div v-if="isPremium === true" class="pro-badge noSelect">
+                            <span>Pro</span>
+                        </div>
+                        <div v-else></div>
+        
+                    </div>
+                </RouterLink>
+            </div>
+            <div v-if="!hiddenComponent" class="v-col-2">
+                <RouterLink to="/signin">
+                    <Link text="Sign In"/>
+                </RouterLink>
+            </div>
         </div>
         <div v-if="isMenuOpen" class="dropdown-menu link-bay" @click="handleItemClick">
             <div class="menu">
@@ -99,7 +101,7 @@
                 </div>
             </div>
         </div>
-        <div v-if="isMenuOpen" class="locked"></div>
+        <div v-if="isMenuOpen" class="locked" @click="closeMenu"></div>
     </div>
 </template>
 
@@ -119,6 +121,7 @@ const isOpen = ref(false);
 const isPremium = ref(false);
 const isMenuOpen = ref(false);
 const userAuthRef = ref(null);
+const mobileHeaderRef = ref(null);
 
 const showPopup = () => { isOpen.value = true; };
 
@@ -155,6 +158,10 @@ const toggleMenu = () => {
     isMenuOpen.value = !isMenuOpen.value;
 };
 
+const closeMenu = () => {
+    isMenuOpen.value = false;
+};
+
 const handleItemClick = (item) => {
     isMenuOpen.value = false;
 };
@@ -164,9 +171,9 @@ const onLogout = async () => {
     await router.push('/');
 }
 const closeMenuOnClickOutside = (event) => {
-    if (userAuthRef.value && !userAuthRef.value.contains(event.target)) {
-        isMenuOpen.value = false;
-    }
+    if (userAuthRef.value?.contains(event.target)) return;
+    if (mobileHeaderRef.value?.contains(event.target)) return;
+    isMenuOpen.value = false;
 };
 
 onMounted(async () => {
@@ -246,7 +253,7 @@ div.pro-badge {
 div.mobile-header-wrapper {
     display: none;
 }
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 768px) {
     div.header-wrapper {
         display:none;
     }  
@@ -258,11 +265,25 @@ div.mobile-header-wrapper {
         z-index: 101;
         width: 100%;
         display: flex;
-        align-items: center;
-        height:50px;
+        flex-direction: column;
+        align-items: stretch;
         background: transparent;
         border-bottom: .5px solid $grey_90;
         padding: 0 20px 5px 0px;
+        box-sizing: border-box;
+        background: white;
+        
+        .mobile-header-bar {
+            position: relative;
+            z-index: 20;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            height: 50px;
+            box-sizing: border-box;
+        }
+
         i {
             color: $gunMetal;
         }
@@ -302,5 +323,4 @@ div.mobile-header-wrapper {
         }
     }    
 }
-
 </style>

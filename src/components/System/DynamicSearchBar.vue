@@ -44,6 +44,7 @@
                 <Button text="Search"/>
             </RouterLink>
         </div>
+        
     </form>
 </template>
 
@@ -82,10 +83,10 @@ const cities = [
     'Miami',
 ];
 // computed means we don't need to re-render the component when the cities array changes
-const locationOptions = computed(() => ['Use Current location', ...cities]);
+const locationOptions = computed(() => ['Use Current Location', ...cities]);
 
 function onLocationSelect(value) {
-    if (value === 'Use Current location') {
+    if (value === 'Use Current Location') {
         getCurrentLocation();
     } else {
         location.value = value;
@@ -165,7 +166,8 @@ function removeTag(tag) {
 }
 </script>
 <style lang="scss" scoped>
-@use "@/assets/variables.scss" as *;
+@use "../../assets/variables.scss" as *;
+
 form.search-wrapper {
     display: flex;
     position: relative;
@@ -189,7 +191,7 @@ form.search-wrapper {
         width: 200px;
         margin: 5px 0;
         padding: 0 10px;
-        border-right: 1px solid $grey_20;
+        border-right: 1px solid $grey_80;
         .icon {
             display: flex;
             justify-content: center;
@@ -213,13 +215,13 @@ form.search-wrapper {
             outline: none;
             margin: 0 !important;
             font-size: $small;
-            color: $grey_80;
+            color: $grey_40;
             &:focus-within,
             &:focus-visible {
                 border-bottom: 1px solid #100409;
             }
             &:placeholder-shown {
-                color: $grey_80;
+                color: $grey_20;
                 font-size: $small;
             }
         }
@@ -228,6 +230,9 @@ form.search-wrapper {
         @extend .location;
         width: 400px;
         border: none;
+        input {
+            color: $grey_20 !important;
+        }
         .icon {
             opacity: 0.33;
             &:hover {
@@ -244,6 +249,61 @@ form.search-wrapper {
         height: calc(100% - 18px);
         background: rgba(0,0,0,0);
         cursor: pointer;
+    }
+}
+@media screen and (max-width: 768px) {
+    form.search-wrapper {
+        display: flex;
+        width: calc(100%);
+        left: 0px;
+        border-radius: calc($border-radius * 4) calc($border-radius * 4) 0 0;
+        padding: 0 30px 30px;
+        .border {
+            max-width:100%;
+            height: max-content;
+            margin: 0;
+            border-radius: calc($border-radius * 2);
+            border: none !important;
+            margin-bottom: 20px;
+            .search {
+                max-width: 100%;
+                max-height: 40px;
+                margin: 0;
+                margin-top: 10px;
+                padding: 0;
+                width: 100%;
+                input {
+                    width: 100%;
+                    height: 60px;
+                    font-size: 0.9rem;
+                    text-overflow: ellipsis;
+                }
+                .search-input-overlay {
+                    top: 72px;
+                    left: 20px;
+                    height: 48px;
+                    min-width: calc(100% - 50px);
+                    border-top: 1.5px solid $grey_90;
+                }
+                .tag-container {
+                    top: 130px;
+                    left: 10px;
+                    width: calc(100% - 20px);
+                }
+            }
+            .location {
+                width: 100%;
+                flex-direction: row;
+                border: none;
+                padding: 10px;
+                .icon > button > i{
+                    font-size: 1.66rem;
+                }
+            }
+        }
+        div:first-child {
+            flex-direction: column;
+        }
     }
 }
 </style>
