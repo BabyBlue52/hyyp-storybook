@@ -40,16 +40,21 @@ $gunMetal_60: color.adjust($gunMetal, $lightness: 60%);
 $selectionStatic: #dce6f2;
 $selectionHover: color.adjust($selectionStatic, $lightness: -15%);
 
-$boxShadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-
 $primary: #e4959e;
 $secondary: $gunMetal;
 
 $success: #59d96c;
-$success_darken:  #2AB73F;
+$success_darken: color.adjust($success, $lightness: -20%);
 $success_light: color.adjust($success, $lightness: 33%);
 
 $error: #ff4d4d;
+
+$violet: #390744;
+$violet_light: color.adjust($violet, $lightness: 70%);
+
+.black {
+  color:$black !important;
+}
 /*
 =================
 Design Units
@@ -60,14 +65,14 @@ $small: 0.8rem;
 $paragraph: 0.9rem;
 $subhead: 1.2rem;
 $header: 1.75rem;
-$pageTitle: 2.75rem;
+$pageTitle: clamp(1.75rem, 2.5vw, 2.75rem);
 
-$light: 400;
-$medium: 600;
-$heavy: 800;
+$light: 500;
+$medium: 700;
+$heavy: 900;
 
 $border-radius: 5px;
-
+$boxShadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 // Map Page Separators
 $cardWidth: 25vw;
 $mapWidth: calc(100vw - $cardWidth);
