@@ -94,3 +94,8 @@ temp/
 .Trashes
 ehthumbs.db
 Thumbs.db
+
+# Ignore build
+iframe.html
+index.json
+project.json

@@ -16,17 +16,17 @@ const Template = (args) => ({
 export const Default = Template.bind({});
 Default.args = {
     room: {
-        imgUrl: 'https://images.pexels.com/photos/271624/pexels-photo-271624.jpeg?auto=compress&cs=tinysrgb&w=1200',
-        size: 'Medium',
+        imgUrl: 'https://images.pexels.com/photos/5865065/pexels-photo-5865065.jpeg',
+        size: 'Small',
         totalRooms: 6,
     },
 };
 
-export const Small = Template.bind({});
-Small.args = {
+export const Medium = Template.bind({});
+Medium.args = {
     room: {
-        imgUrl: 'https://images.pexels.com/photos/164595/pexels-photo-164595.jpeg?auto=compress&cs=tinysrgb&w=1200',
-        size: 'Small',
+        imgUrl: 'https://images.pexels.com/photos/17206112/pexels-photo-17206112.jpeg',
+        size: 'Medium',
         totalRooms: 12,
     },
 };
@@ -34,7 +34,7 @@ Small.args = {
 export const Large = Template.bind({});
 Large.args = {
     room: {
-        imgUrl: 'https://images.pexels.com/photos/260928/pexels-photo-260928.jpeg?auto=compress&cs=tinysrgb&w=1200',
+        imgUrl: 'https://images.pexels.com/photos/17109095/pexels-photo-17109095.jpeg',
         size: 'Large',
         totalRooms: 2,
     },
