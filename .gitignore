@@ -98,4 +98,4 @@ Thumbs.db
 # Ignore build
 iframe.html
 index.json
-project.json
+storybook-static/project.json
