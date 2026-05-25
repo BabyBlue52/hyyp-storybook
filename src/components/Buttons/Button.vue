@@ -4,26 +4,26 @@
     </button>
 </template>
 
-<script>
-    export default {
-        name: 'PrimaryButton',
-        props: {
-            text: String,
-            disabled: Boolean
-        },
-    }
+<script setup>
+    defineOptions({
+        name: 'PrimaryButton'
+    });
+    defineProps({
+        text: String,
+        disabled: Boolean
+    });
     
 </script>
 <style lang="scss" scoped>
-    @use '@/assets/variables.scss' as *;
+@use "@/assets/variables.scss" as *;
     button.default-btn {
         display: flex;
         justify-content: center;
-        padding: 10px 30px;
+        padding: 7.5px 30px;
         min-width: max-content;
         width: 100%;
         cursor: pointer;
-        max-height: 48px;
+        height: 40px;
         border-radius: 5px;
         background-color: $gunMetal;
         border: 2px solid transparent;
@@ -33,7 +33,6 @@
         }
         p {
             font-family: 'Poppins', sans-serif;
-            line-height: 1.1rem;
             color: inherit;
             font-size: 0.9rem;
             font-weight: $medium;

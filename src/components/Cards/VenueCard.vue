@@ -1,7 +1,7 @@
 <template>
     <div class="card">
         <div class="room-img">
-            <img :src="room?.imgUrl" />
+            <img :src="resolveImageUrl(room?.imgUrl)" />
         </div>
         <div class="room-info">
             <div class="room-size">
@@ -22,6 +22,7 @@
 </template>
 
 <script setup>
+import { resolveImageUrl } from '@/lib/fallback-image.js';
 defineProps({
     room: {
         type: Object,
@@ -31,8 +32,7 @@ defineProps({
 </script>
 
 <style scoped lang="scss">
- @use "../../assets/variables.scss" as *;
- 
+@use "@/assets/variables.scss" as *;
 .card {
     position: relative;
     display: flex;

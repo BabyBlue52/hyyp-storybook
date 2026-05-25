@@ -72,9 +72,6 @@
     // Get venueId from route params
     const venueId = computed(() => route.params.venueId || '12346'); // fallback for testing
     
-    // Get userId from route params
-    const userId = computed(() => route.params.userId || '1'); // fallback for testing
-    
     // Check current route path matches
     const checkUrl = () => {
         const venue = document.getElementById('venue');

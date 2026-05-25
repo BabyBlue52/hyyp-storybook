@@ -1,5 +1,4 @@
 <template>
-      <p>Image Gallery <span>max: 4 photos</span></p>
       <draggable class="dragArea" :list="list" @change="log">
       <div class="drag-element" v-for="(item, index) in list" :key="index">
         <input type="file" @change="readFile(index)" ref="fileInputs" />
@@ -33,7 +32,7 @@
   <script>
     import { defineComponent } from 'vue'
     import { VueDraggableNext } from 'vue-draggable-next'
-    import Link from '@/components/UI/Link.vue'
+    import Link from '@/components/UI/Link.vue';
 
     export default defineComponent({
       components: {
@@ -48,8 +47,8 @@
         return {
           enabled: true,
           list: [
-            { id: 1, url: 'https://images.unsplash.com/photo-1569924995012-c4c706bfcd51?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80' },
-            { id: 2, url: 'https://images.unsplash.com/photo-1575037614876-c38a4d44f5b8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80' },
+            { id: 1, url: '' },
+            { id: 2, url: '' },
             { id: 3, url: '' },
             { id: 4, url: '' },
           ],
@@ -94,21 +93,25 @@
     })
   </script>
 <style scoped lang="scss">
+@use "@/assets/variables.scss" as *;
     .dragArea {
         display: flex;
-        width: 100%;
-        max-width: 950px;
+        justify-content: flex-start;
+        width: calc(100% + 20px);
+        // max-width: 950px;
         flex-wrap: wrap;
-        
+        gap: 8px 0px;
+        margin-top: 20px;
         .drag-element {
             position: relative;
             display: flex;
-            margin: 8px;
+            max-width: 220px;
+            margin: 0 12px;
             margin-bottom: 30px;
-            cursor: pointer;
+            cursor: move;
             img {
                 height: 125px;
-                min-width: 220px;
+                width: 200px;
                 border-radius: 5px;
                 object-fit: cover;
                 &:hover {
@@ -139,12 +142,12 @@
                 height: 24px;
                 border-radius: 50%;
                 border: 2px solid white;
-                background: #e4959e;
+                background: $primary;
                 text-align: center;
                 font-weight: 700;
-                font-size: 0.8rem;
+                font-size: $paragraph;
                 line-height: 1.33rem;
-                color: #100409;
+                color: $black;
                 user-select: none;
                 z-index: 4;
             }
@@ -172,13 +175,5 @@
               }
         }
     }
-    p {
-      font-weight: 500;
-      padding-bottom: 10px;
-    }
-    span {
-      opacity: 0.33;
-      padding-left: 5px;
-      font-style: italic;
-    }
+    
 </style>

@@ -28,7 +28,8 @@
     }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+@use "@/assets/variables.scss" as *;
     .link {
         flex-direction: column;
         width: max-content;
@@ -45,14 +46,14 @@
     div.static {
         position: relative;
         height: 2px;
-        background: #E4959E;
+        background: $primary;
         animation: static .35s ease-in-out both;
         width: 100%;
     }
     div.retreat {
         position: relative;
         height: 2px;
-        background: #E4959E;
+        background: $primary;
         animation: retreat .35s ease-in-out both;
         width: 100%;
     }

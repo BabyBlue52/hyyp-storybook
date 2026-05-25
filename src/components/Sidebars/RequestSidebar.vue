@@ -130,7 +130,7 @@ const exportToICS = () => {
 @use "@/assets/variables.scss" as *;
 .hyyp-sidebar {
     position: absolute;
-    top: 0;
+    top: 0px;
     right: 0;
     width: clamp(10vw, 450px, 40%);
     height: 100%;
@@ -174,7 +174,7 @@ button.close-btn {
     padding: 0;
     background: none;
     position: absolute;
-    top: 4px;
+    top: 12px;
     left: 24px;
 }
 

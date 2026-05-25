@@ -41,9 +41,12 @@
         min-width: 80px;
         height: 40px;
         border: none;
-        background: none;
+        background: transparent;
         color: #37515F;
         fill: #37515F;
+    }
+    button.back-btn:hover {
+        background: rgba(#37515F, 0.5);
     }
     span {
         position:relative;

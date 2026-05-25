@@ -1,82 +1,130 @@
 <template>
     <div class="image-controller">
-        <img alt="profile pic" class="profile-pic" :src="[ url === null ? placeholder : url]" />
+        <div v-if="url" class="profile-pic-container">
+            <img alt="profile pic" class="profile-pic" :src="url" />
+        </div>
+        <div v-else class="profile-pic-container initials-container">
+            <span class="initials">{{ userInitials }}</span>
+        </div>
         <button class="camera-btn">
                 <v-tooltip>Edit Mode</v-tooltip>
-                <input type="file" ref="file" @change="readFile"/>
+                <input type="file" ref="file" @change="readFile" accept="image/png,image/jpeg,image/jpg"/>
                 <v-icon icon="mdi-camera" color="white" size="20px"></v-icon>
             </button>
         <!-- Error Handling -->
-        <div v-if="displayError" style="height:10px">
+        <div v-if="showError" style="height:10px">
             <span class="error">File size must be under 8MB</span>
         </div>
         <div v-if="displayFormatError" style="height:10px">
-            <span class="error">File must be either .PNG of .JPG</span>
+            <span class="error">File must be either .PNG or .JPG</span>
         </div>
     </div>
 </template>
 
-<script>
-export default {
-    name: 'CameraButton',
-    props: {
-        placeholder: String,
-        displayError: Boolean,
+<script setup>
+import { ref, computed, watch } from 'vue';
+
+const props = defineProps({
+    displayError: {
+        type: Boolean,
+        default: false
     },
-    methods: {
-        async readFile() {
-            const file = this.$refs.file.files[0];
+    src: {
+        type: String,
+        default: null
+    },
+    userInitials: {
+        type: String,
+        default: ''
+    }
+});
+
+const emit = defineEmits(['image-changed']);
+
+const file = ref(null);
+const url = ref(null);
+const displayFormatError = ref(false);
+const internalDisplayError = ref(false);
+
+// Convert base64 string to data URL for display
+const convertToDataUrl = (src) => {
+    if (!src) return null;
+    
+    // If it's already a data URL or blob URL, return as is
+    if (src.startsWith('data:') || src.startsWith('blob:')) {
+        return src;
+    }
+    
+    // If it's a base64 string without the data URL prefix, add it
+    if (/^[A-Za-z0-9+/=]+$/.test(src)) {
+        // Try to detect image type, default to jpeg
+        return `data:image/jpeg;base64,${src}`;
+    }
+    
+    // If it's a regular URL, return as is
+    return src;
+};
+
+// Initialize url from props
+if (props.src) {
+    url.value = convertToDataUrl(props.src);
+}
+
+// Watch for src prop changes
+watch(() => props.src, (newSrc) => {
+    if (newSrc) {
+        url.value = convertToDataUrl(newSrc);
+    } else {
+        url.value = null;
+    }
+});
+
+const readFile = async () => {
+    const selectedFile = file.value.files[0];
             // Check if a file was selected
-            if (!file) {
+    if (!selectedFile) {
                 // Handle canceled upload
-                this.url = this.url;
                 return;
             }
 
-            let size = file.size
-            let maxSize = 64000000; // Limit size to 8MB
-            let extn = file.type.split('/')[1];
-            let valid = ["png", "jpg", "jpeg"];
-           
+    const size = selectedFile.size;
+    const maxSize = 64000000; // Limit size to 8MB
+    const extn = selectedFile.type.split('/')[1];
+    const valid = ["png", "jpg", "jpeg"];
 
             if (valid.includes(extn) && size < maxSize) {
-                this.url = URL.createObjectURL(file);
-                this.displayError = false;
-                this.displayFormatError = false;
-                this.$emit('image-changed', this.url)
-                console.log(this.url)
+        url.value = URL.createObjectURL(selectedFile);
+        internalDisplayError.value = false;
+        displayFormatError.value = false;
+        emit('image-changed', url.value);
+        console.log(url.value);
             }
+    
             if (!valid.includes(extn)) {
-                this.displayFormatError = true;
-
-            } if (size > maxSize) {
-                console.log('file too big')
-                this.displayError = true
+        displayFormatError.value = true;
+    }
+    
+    if (size > maxSize) {
+        console.log('file too big');
+        internalDisplayError.value = true;
             }
-        }
+};
 
-    },
-    data() {
-        return {
-            placeholder: "https://plus.unsplash.com/premium_photo-1675034359203-c30acdb21eb2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80",
-            url: null,
-            displayError: false,
-            displayFormatError: false
-        }
-    },
-    emit: ['image-changed']
-}
+// Computed property for display error (props or internal)
+const showError = computed(() => props.displayError || internalDisplayError.value);
 </script>
 
-<style scoped>
+<style scoped lang="scss">
+@use "@/assets/variables.scss" as *;
 div.image-controller {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     width: 100%;
-    max-width: 180px;
+    max-width: 80px;
     height: max-content;
+    position: relative;
 }
 
 button.camera-btn {
@@ -88,9 +136,9 @@ button.camera-btn {
     outline: 3px solid white;
     border-radius: 50%;
     background: #37515F;
-    position: relative;
-    top: -30px;
-    left: 50px;
+    position: absolute;
+    top: 50px;
+    left: 60px;
     cursor: pointer;
     z-index: 99;
 }
@@ -104,7 +152,7 @@ button.camera-btn:active {
     height: 35px;
     border: none;
     border-radius: 50%;
-    background: #E4959E;
+    background: $primary;
     z-index: 99;
     cursor: pointer;
 }
@@ -118,14 +166,39 @@ input {
     z-index: 98;
 }
 
-img.profile-pic {
-    min-width: 100px;
-    min-height: 100px;
-    max-width: 100px;
-    max-height: 100px;
+.profile-pic-container {
+    min-width: 80px;
+    min-height: 80px;
+    max-width: 80px;
+    max-height: 80px;
     border-radius: 50%;
+    border: 3px solid $primary;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: $grey_90;
+}
+
+img.profile-pic {
+    width: 100%;
+    height: 100%;
     object-fit: cover;
-    border: 2px solid #E4959E;
+}
+
+.initials-container {
+    background-color: $grey_90;
+}
+
+.initials {
+    position: relative;
+    top: 2px;
+    left: 1px;
+    font-size: $header;
+    font-weight: $heavy;
+    color: $grey_20;
+    text-transform: uppercase;
+    user-select: none;
 }
 
 .v-icon {

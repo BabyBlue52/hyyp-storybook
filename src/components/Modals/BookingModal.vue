@@ -1,12 +1,16 @@
 <template>
-    <div v-if="$props.isOpen" class="locked" @click="handleToggle()"></div>
-    <!-- For debugging purposes/storybook -->
+    
+     <!-- For debugging purposes/storybook -->
     <!-- <div class="toggle">
         <v-btn @click="handleToggle()">Toggle Modal</v-btn>
     </div> -->
-    <div :class="[$props.isOpen ? 'fadeIn' : 'fadeOut']" class="centered" @click.stop>
-        <div class="modal-container">
-            <button class="close-btn" @click="handleToggle()">
+    <!-- Must teleport out of .hyyp-wrapper (z-index: 1) or the overlay can never stack above HyypHeader (z-index 10 / 101). -->
+    <Teleport to="body">
+        <div v-if="$props.isOpen" class="topLevel">
+            <div class="locked" @click="closeModal"></div>
+            <div :class="[$props.isOpen ? 'fadeIn' : 'fadeOut']" class="centered" @click.stop>
+                <div class="modal-container">
+                    <button type="button" class="close-btn" @click="closeModal">
                 <svg clip-rule="evenodd" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m12 10.93 5.719-5.72c.146-.146.339-.219.531-.219.404 0 .75.324.75.749 0 .193-.073.385-.219.532l-5.72 5.719 5.719 5.719c.147.147.22.339.22.531 0 .427-.349.75-.75.75-.192 0-.385-.073-.531-.219l-5.719-5.719-5.719 5.719c-.146.146-.339.219-.531.219-.401 0-.75-.323-.75-.75 0-.192.073-.384.22-.531l5.719-5.719-5.72-5.719c-.146-.147-.219-.339-.219-.532 0-.425.346-.749.75-.749.192 0 .385.073.531.219z"/></svg>
             </button>
             <div class="d-flex center">
@@ -17,7 +21,7 @@
                     <div class="row">
                         <div class="hyyp-input w-100">
                             <label>Select Date</label>
-                            <!-- <input type="date" v-model="selectedDate" /> -->
+                          
                             <v-text-field type="date" v-model="bookingData.selectedDate" class="phone"/>
                         </div>
                     </div>
@@ -39,38 +43,54 @@
                         <TextInput label="email" type="email" v-model="bookingData.email"/>
                     </div>
                     <div class="row">
-                        <TextInput 
-                            label="Phone" 
-                            placeholder="(123)456-7890" 
-                            type="tel" 
+                        <TextInput
+                            label="Phone"
+                            placeholder="(123)456-7890"
+                            type="tel"
                             v-model="bookingData.phone"
+                            :maxlength="13"
                         />
                     </div>
                     <hr style="margin-top: 30px;"/>
                     <div class="d-flex column">
-                        <TextArea label="message" placeholder="Leave a message for them explaining the nature of your request in detail" />
+                        <TextArea
+                            label="message"
+                            placeholder="Leave a message for them explaining the nature of your request in detail"
+                            v-model="bookingData.message"
+                        />
                     </div>
                 </div>
                   <!-- Static buttons below form -->
                 <div class="modal-buttons">
+                    <p v-if="submitError" class="submit-error">{{ submitError }}</p>
                     <div class="row">
-                        <button class="full-width">Submit Request</button>
+                        <button
+                            type="button"
+                            class="full-width"
+                            :disabled="isSubmitting"
+                            @click="submitRequest"
+                        >
+                            {{ isSubmitting ? 'Submitting…' : 'Submit Request' }}
+                        </button>
                     </div>
                     <div class="row justify-center">
-                        <button class="inline-btn" @click="handleToggle()"><small>Cancel</small></button>
+                        <button type="button" class="inline-btn" @click="closeModal"><small>Cancel</small></button>
                     </div>
                 </div>
             </div>
+                </div>
+            </div>
         </div>
-    </div>
+    </Teleport>
 </template>
 
 <script setup lang="js">
-import Avatar from '@/components/UI/Avatar.vue';
 import TimeDropDown from '@/components/UI/TimeDropdown.vue';
 import TextInput from '@/components/UI/TextInput.vue';
 import TextArea from '@/components/UI/TextArea.vue';
+import { axiosInstance } from '@/lib/axios';
 import { ref, watch, computed, reactive } from 'vue';
+
 const props = defineProps({
     isOpen: {
         type: Boolean,
@@ -79,6 +99,10 @@ const props = defineProps({
     text: {
         type: String,
         default: 'Organization Name'
+    },
+    venueId: {
+        type: [String, Number],
+        default: null
     }
 });
       
@@ -91,17 +115,21 @@ const bookingData = reactive({
     firstName: '',
     lastName: '',
     email: '',
-    phone: ''
+    phone: '',
+    message: '',
 })
 const displayText = computed(() => props.text)
+const isSubmitting = ref(false)
+const submitError = ref(null)
 
     watch(() => props.isOpen, (newVal) => {
         localIsOpen.value = newVal;
         toggleBodyScroll(newVal);
     })
-    const handleToggle = () => {
-        localIsOpen.value = !localIsOpen.value;
-        toggleBodyScroll(localIsOpen.value);
+    function closeModal() {
+        if (!localIsOpen.value) return;
+        localIsOpen.value = false;
+        toggleBodyScroll(false);
     }
     const toggleBodyScroll = (lock) => {
         if (lock) {
@@ -114,7 +142,7 @@ const displayText = computed(() => props.text)
                 document.documentElement.style.width = '100%';
                 document.body.style.overflow = 'hidden';
                 document.body.style.position = 'fixed';
-                    document.body.style.top = `-${scrollPosition.value}px`;
+                document.body.style.top = `-${scrollPosition.value}px`;
                 document.body.style.width = '100%';
             } else {
                 // Restore scroll
@@ -190,10 +218,8 @@ const displayText = computed(() => props.text)
     })
     
     // Format phone number to (xxx)xxx-xxxx
-    // Compliant: ES5+ compatible, uses efficient native methods
     const formatPhoneNumber = (value) => {
         // Remove all non-numeric characters and limit to 10 digits
-        // .slice() is ES5, fully supported, and efficient for small strings
         const numbers = value.replace(/\D/g, '').slice(0, 10);
         
         // Early return for empty input
@@ -226,14 +252,72 @@ const displayText = computed(() => props.text)
             }, 0);
         }
     })
+    function buildRequestPayload() {
+        const name = `${bookingData.firstName} ${bookingData.lastName}`.trim()
+        const date =
+            bookingData.selectedDate && bookingData.startTime && bookingData.endTime
+                ? `${bookingData.selectedDate} ${bookingData.startTime} – ${bookingData.endTime}`
+                : bookingData.selectedDate || ''
+
+        return {
+            sender: name,
+            name,
+            email: bookingData.email.trim(),
+            phone: bookingData.phone,
+            message: bookingData.message.trim(),
+            date,
+            src: props.text,
+            sent: new Date().toLocaleDateString('en-US', {
+                month: 'short',
+                day: 'numeric',
+                year: 'numeric'
+            }),
+            status: '',
+            ...(props.venueId != null && props.venueId !== ''
+                ? { venueId: props.venueId }
+                : {})
+        }
+    }
+
+    const submitRequest = async () => {
+        submitError.value = null
+        const payload = buildRequestPayload()
+
+        if (!payload.name || !payload.email || !payload.phone || !payload.message || !payload.date) {
+            submitError.value = 'Please fill in date, times, contact details, and message.'
+            return
+        }
+
+        isSubmitting.value = true
+        try {
+            await axiosInstance.post('/requests', payload)
+            closeModal()
+        } catch (err) {
+            console.error('Error submitting request:', err)
+            submitError.value =
+                err?.response?.data?.message ||
+                err?.response?.data?.error ||
+                err?.message ||
+                'Failed to submit request. Please try again.'
+        } finally {
+            isSubmitting.value = false
+        }
+    }
 </script>
 
 <style scoped lang="scss">
-@use "../../assets/variables.scss" as *;
+@use "@/assets/variables.scss" as *;
+.topLevel {
+    position: fixed;
+    inset: 0;
+    /* Above HyypHeader (10) and mobile bar (101); below Silktide icon (100000) if present */
+    z-index: 10000;
+    isolation: isolate;
+}
 h2 {
     margin: 20px 0 5px;
     color: $gunMetal;
-    font-weight: $heavy;
+    font-weight: $medium;
     font-size: 1.75rem;
 }
 small {
@@ -244,12 +328,11 @@ small {
     justify-content: space-between;
 }
 .centered {
-    top: 66.67%;
+    top: 50%;
 }
 .modal-container {
     position: relative;
-    z-index: 9999;
-    // max-height: calc(100% - 100px);
+    z-index: 999;
     .modal-content {
         max-height: 50vh;
         margin-bottom: 10px;
@@ -305,6 +388,13 @@ div.time-input {
             accent-color: $gunMetal_20;
         }
     }
+}
+
+.submit-error {
+    margin: 0 0 12px;
+    font-size: $small;
+    color: $error;
+    text-align: center;
 }
 
 .hours-display {

@@ -1,5 +1,7 @@
 @use "variables.scss" as *;
-
+// :root {
+//     color-scheme: light;
+// }
 * {
     transition: $smooth;
 }
@@ -9,7 +11,7 @@ html, body {
     left: 0;
     width: 100%;
     height: 100%;
-    font-family: $openSans;
+    font-family: $poppins;
     overflow: hidden;
 }
 button {
@@ -22,25 +24,29 @@ button:active {
 }
 
 h1 {
-    min-width: max-content;
     text-align: left;
-    font-size: $header;
-    font-weight: 900;
-    color: $black;
-    white-space: nowrap;
-    line-height: 1.5rem;
+    color: $gunMetal;
+    font-size: $pageTitle;
+    font-weight: 700;
+    line-height: 1;
+    font-family: $poppins;
+    margin: 0;
+}
+h2 {
+    margin: 0;
 }
 h3, h4 {
     font-weight: $medium;
     font-size: $subhead;
+    margin: 0;
 }
 p {
     font-family: $poppins;
     font-family: 'Poppins', sans-serif;
     color: inherit;    
     font-size: $paragraph;
-    line-height: 1.1rem;
     text-align: left;
+    margin: 0;
 }
 
 a, a:link, a:hover, a:focus, a:active, a:visited {
@@ -59,11 +65,48 @@ hr {
     width: calc(100% - 40px);
     margin: 0 auto 20px;
     border: none;
-    border-bottom: .5px solid $grey_90;
+    border-bottom: .5px solid $grey_20;
     opacity: 0.5;
+}
+label {
+    position: relative;
+    top: -5px;
+    font-size: $label;
+    background: white;
+    color: $grey_20;
+}
+button {
+    border: none;
+}
+.hyyp-system-message {
+    display: flex;
+    flex-direction: column;
+    background: $gunMetal;
+    border-radius: 5px;
+    margin: 5px 0;
+    opacity: 0.75;
+    width: max-content;
+    padding: 10px;
+    padding-top: 0px;
+    height: max-content;
+    opacity: 0.5;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    p {
+        font-size: $small;
+        color: white;
+        font-weight: $medium;
+        margin-top: 10px;
+        margin-bottom: 0px;
+        padding: 0px;
+        font-style: italic;
+    }
 }
 .hyyp-input {
     width: 100%;
+    position: relative;
     input {
         position: relative;
         border: 1px solid $grey_60;
@@ -99,11 +142,67 @@ hr {
         text-align: left;
     }
 } 
+.hyyp-card {
+    position: relative;
+    width: 50%;
+    max-width: 300px;
+    height: 300px;
+    cursor: pointer;
+    border:$grey_80 solid 2px;
+    border-radius: calc($border-radius * 2);
+    padding: 20px 20px 20px 20px;
+    margin: 10px;
+    background:offWhite;
+    color: $grey_20;
+    h1 {
+        position: absolute;
+        bottom: 10px;
+        left: 20px;
+        font-size: calc($header * 1.25);
+        color: $grey_40;
+        span {
+            font-size: $subhead;
+        }
+        sup {
+            position: relative;
+            top: -12px;
+            font-size: $small;
+        }
+    }
+    h2 {
+        font-size: $subhead;
+        font-weight: $heavy;
+        color: $grey_40;
+    }
+    p{
+        font-size: $paragraph;
+        color: $grey_60;
+    }
+    i {
+        position: absolute;
+        right: 10px;
+        bottom: 10px;
+        color: $grey_60;
+    }
+    &.selected {
+        border: $gunMetal_40 solid 3px;
+        transform: scale(1.025);
+        color: $gunMetal_20;
+        h1, h2, p {
+            color: $gunMetal_20;
+        }
+        i {
+            color: $gunMetal_20;
+        }
+        
+    }
+}
 // Layout
 .disabled {
     cursor: not-allowed;
-    user-select: none;
-    opacity: 0.67;
+    pointer-events: none;
+    opacity: 0.33;
+    filter: grayscale(1);
 }   
 .overlay {
     position: absolute;
@@ -112,7 +211,7 @@ hr {
     z-index: 1;
     width: 100%;
     height: 100%;
-    background: rgba($black, 0.5);
+    background: rgba($black, 0.33);
 }
 .noSelect {
     user-select: none;
@@ -125,8 +224,17 @@ hr {
     left: 0;
     height: 100vh;
     width: 100vw;
-    z-index: 9998;
+    z-index: 1;
     background: rgba($black, 0.5);
+    overflow: hidden;
+}
+.clear-locked {
+    position: fixed;
+    top: 50px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
     overflow: hidden;
 }
 .toggle {
@@ -171,11 +279,11 @@ hr {
 .space-between {
     justify-content: space-between;
 }
-.justify-left {
+.justify-left, .justify-start {
     display: flex;
     justify-content: flex-start;
 }
-.justify-right, .justift-end {
+.justify-right, .justify-end {
     display: flex;
     justify-content: flex-end;
 }
@@ -198,6 +306,7 @@ div.spacer {
     border: 1px solid salmon;
 }
 .controlled-width {
+    // width: 80%;
     max-width: 1440px;
 }
 .sticky {
@@ -217,18 +326,42 @@ div.spacer {
     transition: $smooth;
     transform: rotate(180deg);
 }
+._boxShadow {
+    box-shadow: $boxShadow;   
+}
 /*App Level Wrapper */
 .v-main {
     overflow: hidden;
 }
 .hyyp-wrapper {
     display: flex;
+    flex-direction: column;
     position: fixed;
     top: calc($headRoom);
     left: 0px;
     width: 100%;
     height: calc(100% - $headRoom);
+    overflow-x: hidden;
     overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    /* Below HyypHeader (.header-wrapper z-index: 10) so fixed header + dropdowns paint above page body */
+    z-index: 1;
+}
+
+.hyyp-wrapper-inner {
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+    width: 100%;
+}
+
+.hyyp-page {
+    position: relative;
+    flex: 1 0 auto;
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+    width: 100%;
 }
 div.logo {
     display: flex;
@@ -241,7 +374,12 @@ div.logo>img {
 
 /* Buttons */
 button.close-btn {
-    position: relative; 
+    position: absolute;
+    display: flex;
+    width: 20px;
+    height: 20px;
+    right: 20px; 
+    background: none;
     svg{ 
         height: 20px;
         width: 20px;
@@ -249,7 +387,7 @@ button.close-btn {
         padding: 0;
         background: none;
         position: absolute;
-        left: calc(100% - 30px);
+        left: 0;
     }
 }
 
@@ -268,27 +406,6 @@ button.full-width {
 button.full-width:hover {
     background:  $gunMetal_20;
 }
-button.secondary-btn {
-    max-width: 300px;
-    background: $grey_90;
-    color: $black;
-    border: 2px solid transparent;
-    border-radius: 5px;
-    padding: 2px 20px;
-    font-size: $paragraph;
-    font-weight: $medium;
-    text-transform: capitalize;
-    transition: $smooth;
-    &:hover {
-        background: $grey_60;
-        color: $black;
-    }
-    span {
-        white-space: nowrap;
-        font-size: $paragraph;
-        
-    }
-}
 /* Empty State */
 .empty-state {
     display: flex;
@@ -305,7 +422,7 @@ button.secondary-btn {
     p {
         font-size: $paragraph;
         font-weight: $medium;
-        color: $grey_80;
+        color: $grey_20;
     }
     a {
         font-size: $paragraph;
@@ -357,7 +474,7 @@ button.secondary-btn {
     }
 }
 .v-field--appended > .v-field__append-inner {
-    position: fixed;
+    position: absolute;
     right: 10px;
     top: 6px;
     i {
@@ -403,6 +520,16 @@ button.secondary-btn {
 .v-input__details{
     display: none !important;
 } 
+.v-switch {
+    max-height: 32px;
+    width: max-content;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .v-input__control {
+        min-height: 32px;
+    }
+}
 .ProseMirror {
     padding: 10px;
     border: 3px solid $black;
@@ -425,4 +552,13 @@ button.secondary-btn {
 .ProseMirror blockquote {
     padding-left: 12px;
     border-left: 2px solid rgba($black, 0.1);
+}
+
+@media  screen and (max-width: 768px ) {
+    h1 {
+        font-family: 2rem;
+    }
+    .mobile-hidden {
+        display: none;
+    }
 }

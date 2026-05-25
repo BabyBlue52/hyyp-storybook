@@ -88,7 +88,7 @@
             <hr/>
             <div class="filter-footer justify-end">
                 <InlineButton @click="clearAllFilters" text='Clear All' />
-                <Button :title="`Apply Filters (${appliedFiltersCount})`"  @click="handleClick"/>
+                <Button :text="`Apply Filters (${appliedFiltersCount})`"  @click="handleClick"/>
             </div>
         </div>
     </div>
@@ -160,9 +160,11 @@ function handleFacilityTypeChange(type, event) {
 
 // Clear all filters
 function clearAllFilters() {
-    selectedFilters.roomSize = '';
-    selectedFilters.accommodationTypes = [];
-    selectedFilters.facilityTypes = [];
+    selectedFilters = {
+        roomSize: '',
+        accommodationTypes: [],
+        facilityTypes: []
+    };
 }
 
 // Prevent body scroll when filters are open
@@ -196,7 +198,7 @@ watch(isActive, (newValue) => {
         width: 220px;
         margin-top: 8px;
         padding: 8px 12px;
-        border: 1px solid $grey_40;
+        border: 1px solid $grey_60;
         border-radius: 4px;
         font-size: $paragraph;
         background-color: white;
@@ -208,7 +210,7 @@ watch(isActive, (newValue) => {
         display: flex;
         align-items: center;
         gap: 10px;
-        min-height: 100%;
+        height: 48px;
         background: white;
         padding: 10px 20px;
         border-radius: 25px;
@@ -263,6 +265,10 @@ watch(isActive, (newValue) => {
             justify-content: space-between;
             align-items: center;
             padding: 10px 0 ;
+            button.close-btn {
+                top: 0;
+                left: 20px;
+            }
         }
         .filter-body {
             width: 100%;
@@ -282,7 +288,7 @@ watch(isActive, (newValue) => {
             }
             .clear-btn {
                 padding: 10px 20px;
-                border: 2px solid $grey_40;
+                border: 2px solid $grey_60;
                 border-radius: 5px;
                 background-color: white;
                 color: $gunMetal;
@@ -292,7 +298,7 @@ watch(isActive, (newValue) => {
                 transition: $smooth;
                 
                 &:hover {
-                    background-color: $grey_20;
+                    background-color: $grey_80;
                     border-color: $gunMetal;
                 }
             }
@@ -340,6 +346,8 @@ watch(isActive, (newValue) => {
             position: relative;
             top: -10px;
             left: 50px;
+            height: 20px;
+            width: 20px;;
             svg {
                 width: 20px;
                 height: 20px;

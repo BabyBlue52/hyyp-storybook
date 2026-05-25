@@ -1,6 +1,6 @@
 <template>
     <button :class="[disabled ? 'disabled' : 'secondary-btn']">
-        <p>{{title}}</p>
+        <span>{{text}}</span>
     </button>
 </template>
 
@@ -8,7 +8,7 @@
     export default {
         name: 'SecondaryButton',
         props: {
-            title: String,
+            text: String,
             disabled: Boolean
         },
     }
@@ -16,22 +16,5 @@
 </script>
 <style lang="scss" scoped>
 @use "sass:color";
-.secondary-btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: color.adjust(#ccc, $lightness: 10%);
-    padding: 10px 30px;
-    max-height: 30px;
-    margin-right: 10px;
-    transition: ease-in-out all 300ms;
-    p {
-        font-size: .75rem;
-    }
-    &:hover, &:active {
-        background:#52798e;
-        color: white;
-        transition: ease-in-out all 300ms;
-    }
-}
+ 
 </style>

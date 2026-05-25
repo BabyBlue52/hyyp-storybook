@@ -5,7 +5,7 @@
                 <div class="location">
                     <div class="icon">
                         <button type="button" @click="getCurrentLocation">
-                            <v-icon icon="mdi-map-marker" color="#37515F"></v-icon>
+                            <v-icon icon="mdi-map-marker" color="#5c88a0"></v-icon>
                         </button>
                     </div>
                     <CityDropdown
@@ -166,8 +166,7 @@ function removeTag(tag) {
 }
 </script>
 <style lang="scss" scoped>
-@use "../../assets/variables.scss" as *;
-
+@use "@/assets/variables.scss" as *;
 form.search-wrapper {
     display: flex;
     position: relative;
@@ -180,7 +179,7 @@ form.search-wrapper {
     .border {
         display: flex;
         margin-right: 10px;
-        border: 1px solid #999999;
+        border: 1px solid $offWhite;
         border-radius: 5px;
         padding-top: 5px;
         height: 40px;
@@ -204,6 +203,9 @@ form.search-wrapper {
             opacity: 0.33;
             &:hover {
                 opacity: 1;
+            }
+            button {
+                background: none;
             }
         }
         input {

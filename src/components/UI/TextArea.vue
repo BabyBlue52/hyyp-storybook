@@ -1,25 +1,47 @@
 <template>
-    <!-- Work into Group Component -->
-    <div class="d-flex column" style=" margin: 0 10px;">
-        <!-- <label>{{ label }}</label> -->
-        <v-textarea variant="outlined" :placeholder="placeholder" ></v-textarea>
+    <div class="d-flex column" style="margin: 0">
+        <label>{{ label }}</label>
+        <v-textarea
+            variant="outlined"
+            :model-value="modelValue"
+            @update:model-value="onValueUpdate"
+            :placeholder="placeholder"
+            @blur="$emit('blur')"
+        />
     </div>
-
 </template>
 <script>
-    export default {
-        name: 'TextArea',
-        props: {
-            label: String,
-            hasIcon: Boolean,
-            placeholder: String
+import { defineComponent } from 'vue';
+
+export default defineComponent({
+    name: 'TextArea',
+    props: {
+        hasIcon: Boolean,
+        placeholder: {
+            type: String,
+            default: 'Enter your text here...'
         },
-        data() {
-            return {
-                label: 'Default Label'
-            }   
-        }
+        modelValue: [String, Number],
+        type: {
+            type: String,
+            default: 'text'
+        },
+        label: String
+    },
+    emits: ['update:modelValue', 'blur'],
+    setup(props, { emit }) {
+        // Vuetify 3 emits update:modelValue with the value as payload, not a native event
+        const onValueUpdate = (value) => {
+            const next = value != null && typeof value === 'object' && value.target
+                ? value.target.value
+                : value;
+            emit('update:modelValue', next ?? '');
+        };
+        return {
+            onValueUpdate
+        };
     }
+});
 </script>
 <style scoped lang="scss">
 @use "@/assets/variables.scss" as *;
@@ -27,7 +49,6 @@
         position: relative;
         border-radius: 5px;
         width: 100%;
-        min-height: 140px;
         max-width: 500px;
         padding: 5px 10px;
         padding-top: 20px;
@@ -39,14 +60,15 @@
     label {
         position: relative;
         z-index: 2;
-        top: 10px;
+        top: 14px;
         left: 8px;
         width: max-content;
         padding: 1px 5px;
         background: white;
-        font-size: 0.67rem;
+        font-size:$label;
         text-align: left;
         text-transform: capitalize;
+        color: $grey_20;
     }
     .icon {
         margin-right: 10px;

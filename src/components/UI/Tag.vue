@@ -1,5 +1,5 @@
 <template>
-    <button :class="isSelected ? 'tag selected' : 'tag'" @click="onToggle">
+    <button type="button" :class="isSelected ? 'tag selected' : 'tag'" @click="toggleTag">
         <p>{{ props.tag }}</p>
         <v-icon v-if="isSelected" icon="mdi-check" />
     </button>
@@ -10,19 +10,12 @@ const props = defineProps({
     tag: String,
     isSelected: Boolean,
 });
-const emit = defineEmits(['removeTag', 'addTag', 'toggleTag']);
-
-const removeTag = () => {
-    emit('removeTag', props.tag);
+const emit = defineEmits(['toggleTag']);
+const toggleTag = () => {
+    emit('toggleTag', props.tag, props.isSelected);
 };
 
-const addTag = () => {
-    emit('addTag', props.tag);
-};
 
-const onToggle = () => {
-    emit('toggleTag', props.tag);
-};
 </script>
 
 <style scoped lang="scss">

@@ -1,39 +1,21 @@
 <template>
     <div class="city-dropdown" ref="rootRef">
-        <button
-            type="button"
-            class="city-dropdown__trigger"
-            :class="{ 'city-dropdown__trigger--open': isOpen }"
-            @click="toggle"
-            aria-haspopup="listbox"
-            :aria-expanded="isOpen"
-            aria-label="Select city"
-        >
-            <span class="city-dropdown__value">{{ modelValue || placeholder }}</span>
-            <v-icon icon="mdi-chevron-down" :class="{ 'flipped': isOpen }"color="#999"></v-icon>
-        </button>
+        <button type="button" class="city-dropdown__trigger" :class="{ 'city-dropdown__trigger--open': isOpen }" @click="toggle" aria-haspopup="listbox" :aria-expanded="isOpen" aria-label="Select city">
+                <span class="city-dropdown__value">{{ modelValue || placeholder }}</span>
+                <v-icon icon="mdi-chevron-down" :class="{ 'flipped': isOpen }"color="#999"></v-icon>
+            </button>
         <Transition name="dropdown">
-            <ul
-                v-show="isOpen"
-                class="city-dropdown__list"
-                role="listbox"
-                @mousedown.prevent
-            >
-                <li
-                    v-for="item in items"
-                    :key="item"
-                    class="city-dropdown__item"
-                    role="option"
-                    :aria-selected="modelValue === item"
-                    @click="select(item)"
-                >
+            <ul v-show="isOpen" class="city-dropdown__list" role="listbox" @mousedown.prevent>
+                <li v-for="item in items" :key="item" class="city-dropdown__item" role="option" :aria-selected="modelValue === item" @click="select(item)">
                     <template v-if="item === locationOption">
-                        <small>Use Current Location</small>
-                    </template>
-                    <template v-else>
-                        <v-icon icon="mdi-city" color="#37515F"></v-icon>
-                        <p>{{ item }}</p>
-                    </template>
+                            <small>Use Current Location</small>
+</template>
+
+<template v-else>
+    <v-icon icon="mdi-city" color="#37515F">
+    </v-icon>
+    <p>{{ item }}</p>
+</template>
                 </li>
             </ul>
         </Transition>
@@ -81,7 +63,6 @@ onUnmounted(() => {
 
 <style lang="scss" scoped>
 @use "@/assets/variables.scss" as *;
-
 .city-dropdown {
     position: relative;
     top: -1px;
@@ -171,10 +152,9 @@ onUnmounted(() => {
         display: flex;
         align-items: center;
         justify-content: center;
-        // height: 40px;
         width: 100%;
         text-align: center;
-        color:$gunMetal_20;
+        color: $gunMetal_20;
     }
     &:hover {
         background: $offWhite_hover;
@@ -185,25 +165,27 @@ onUnmounted(() => {
 .dropdown-leave-active {
     transition: opacity 0.15s ease, transform 0.15s ease;
 }
+
 .dropdown-enter-from,
 .dropdown-leave-to {
     opacity: 0;
     transform: translateY(-4px);
 }
-@media screen and (max-width: 499px) {
+
+@media screen and (max-width: 768px) {
     div.city-dropdown {
         .city-dropdown__value {
             font-size: .9rem;
         }
-        .city-dropdown__trigger > i {
-            font-size:1.75rem;
+        .city-dropdown__trigger>i {
+            font-size: 1.75rem;
             color: $grey_20;
         }
         ul.city-dropdown__list {
             top: 40px;
             width: calc(100% + 60px);
             padding-left: 10px;
-            padding-right: 10px; 
+            padding-right: 10px;
         }
     }
 }

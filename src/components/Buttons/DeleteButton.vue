@@ -25,6 +25,7 @@
 </script>
 
 <style scoped lang="scss">
+@use "@/assets/variables.scss" as *;
     button.delete-btn {
         display: flex;
         justify-content: center;
@@ -37,7 +38,7 @@
         background: none;
         color: #FF4D4D;
         line-height: 1rem;
-        font-size: .9rem;
+        font-size: $paragraph;
     }
     span {
         position:relative;

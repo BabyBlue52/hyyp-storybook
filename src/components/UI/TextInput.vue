@@ -1,9 +1,15 @@
 <template>
     <div class="hyyp-input">
-    
         <div class="d-flex column">
             <label>{{ label }}</label>
-            <v-text-field :value="modelValue" @input="updateValue"></v-text-field>
+            <v-text-field
+                :model-value="modelValue"
+                @update:model-value="onValueUpdate"
+                :type="type"
+                :placeholder="placeholder"
+                :maxlength="maxlength != null ? maxlength : undefined"
+                @blur="$emit('blur')"
+            />
         </div>
     </div>
 </template>
@@ -19,16 +25,28 @@ export default defineComponent({
         type: {
             type: String,
             default: 'text'
+        },
+        maxlength: {
+            type: Number,
+            default: null
+        },
+        placeholder: {
+            type: String,
+            default: 'Enter your text here...'
         }
     },
-    emits: ['update:modelValue'],
+    emits: ['update:modelValue', 'blur'],
     setup(props, { emit }) {
-        const updateValue = (event) => {
-            emit('update:modelValue', event.target.value);
+        // Vuetify 3 emits update:modelValue with the value (string) as payload, not a native event
+        const onValueUpdate = (value) => {
+            const next = value != null && typeof value === 'object' && value.target
+                ? value.target.value
+                : value;
+            emit('update:modelValue', next ?? '');
         };
 
         return {
-            updateValue
+            onValueUpdate
         };
     }
 });
@@ -57,6 +75,7 @@ input {
     margin: 5px;
     margin-bottom: 10px;
     min-width: 100%;
+   
 }
 
 .v-field--variant-filled .v-field__overlay {
