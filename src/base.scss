@@ -1,0 +1,579 @@
+@use "variables.scss" as *;
+// :root {
+//     color-scheme: light;
+// }
+* {
+    transition: $smooth;
+}
+html, body {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    font-family: $poppins;
+    overflow: hidden;
+}
+button {
+    cursor: pointer;
+    border-radius: 5px;
+    
+}
+button:active {
+    transform: scale(0.95);
+}
+
+h1 {
+    text-align: left;
+    color: $gunMetal;
+    font-size: $pageTitle;
+    font-weight: 700;
+    line-height: 1;
+    font-family: $poppins;
+    margin: 0;
+}
+h2 {
+    margin: 0;
+}
+h3, h4 {
+    font-weight: $medium;
+    font-size: $subhead;
+    margin: 0;
+}
+p {
+    font-family: $poppins;
+    font-family: 'Poppins', sans-serif;
+    color: inherit;    
+    font-size: $paragraph;
+    text-align: left;
+    margin: 0;
+}
+
+a, a:link, a:hover, a:focus, a:active, a:visited {
+    color: $black;
+    text-decoration: none;
+    font-size: $paragraph;
+    cursor: pointer;
+}
+input {
+    font-size: $paragraph;
+}
+small {
+    white-space: nowrap;
+}
+hr {
+    width: calc(100% - 40px);
+    margin: 0 auto 20px;
+    border: none;
+    border-bottom: .5px solid $grey_20;
+    opacity: 0.5;
+}
+label {
+    position: relative;
+    top: -5px;
+    font-size: $label;
+    background: white;
+    color: $grey_20;
+}
+/*App Level Wrapper */
+
+.hyyp-wrapper {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: calc($headRoom);
+    left: 0px;
+    width: 100%;
+    height: calc(100% - $headRoom);
+    overflow-x: hidden;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    /* Below HyypHeader (.header-wrapper z-index: 10) so fixed header + dropdowns paint above page body */
+    z-index: 1;
+}
+
+.hyyp-wrapper-inner {
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+    width: 100%;
+}
+
+.hyyp-page {
+    position: relative;
+    flex: 1 0 auto;
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+    width: 100%;
+}
+.hyyp-system-message {
+    display: flex;
+    flex-direction: column;
+    background: $gunMetal;
+    border-radius: 5px;
+    margin: 5px 0;
+    opacity: 0.75;
+    width: max-content;
+    padding: 10px;
+    padding-top: 0px;
+    height: max-content;
+    opacity: 0.5;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    p {
+        font-size: $small;
+        color: white;
+        font-weight: $medium;
+        margin-top: 10px;
+        margin-bottom: 0px;
+        padding: 0px;
+        font-style: italic;
+    }
+}
+.hyyp-input {
+    width: 100%;
+    position: relative;
+    input {
+        position: relative;
+        border: 1px solid $grey_60;
+        border-radius: 5px;
+        height: max-content;
+        min-height:  2rem;
+        min-width: 50px;
+        width: 100%;
+        padding: 5px 10px;
+        padding-top: 10px;
+        background-color: white;
+        font-size: $paragraph;
+    }
+    
+    .v-field--variant-filled .v-field__overlay {
+        background: none;
+    }
+    
+    label {
+        position: relative;
+        z-index: 1;
+        top: 10px;
+        left: 8px;
+        width: max-content;
+        padding: 1px 5px;
+        background: white;
+        font-size: $label;
+        text-align: left;
+        text-transform: capitalize;
+        color: $grey_40;
+        display: flex;
+        justify-content: start;
+        text-align: left;
+    }
+} 
+.hyyp-card {
+    position: relative;
+    width: 50%;
+    max-width: 300px;
+    height: 300px;
+    cursor: pointer;
+    border:$grey_80 solid 2px;
+    border-radius: calc($border-radius * 2);
+    padding: 20px 20px 20px 20px;
+    margin: 10px;
+    background:offWhite;
+    color: $grey_20;
+    h1 {
+        position: absolute;
+        bottom: 10px;
+        left: 20px;
+        font-size: calc($header * 1.25);
+        color: $grey_40;
+        span {
+            font-size: $subhead;
+        }
+        sup {
+            position: relative;
+            top: -12px;
+            font-size: $small;
+        }
+    }
+    h2 {
+        font-size: $subhead;
+        font-weight: $heavy;
+        color: $grey_40;
+    }
+    p{
+        font-size: $paragraph;
+        color: $grey_60;
+    }
+    i {
+        position: absolute;
+        right: 10px;
+        bottom: 10px;
+        color: $grey_60;
+    }
+    &.selected {
+        border: $gunMetal_40 solid 3px;
+        transform: scale(1.025);
+        color: $gunMetal_20;
+        h1, h2, p {
+            color: $gunMetal_20;
+        }
+        i {
+            color: $gunMetal_20;
+        }
+        
+    }
+}
+.hyyp-totals {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    background: rgba($grey_80, 0.25);
+    border-radius: $border-radius;
+    padding: 15px;
+    margin:  0;
+    height: max-content;
+    p {
+        width: 100%;
+        margin: 0;
+        font-size: $paragraph;
+        font-weight: $medium;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        .total-amount {
+            font-size: $subhead;
+            font-weight: $medium;
+            color: $secondary;
+        }
+        &.text-right {
+            justify-content: flex-end;
+        }
+    }
+
+    span.currency {
+        max-width: 50px;
+        font-size: $small;
+        color: $grey_40;
+    }
+}
+// Layout
+.disabled {
+    cursor: not-allowed;
+    pointer-events: none;
+    opacity: 0.33;
+    filter: grayscale(1);
+}   
+.overlay {
+    position: absolute;
+    left:0;
+    top: 0;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    background: rgba($black, 0.33);
+}
+.noSelect {
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+}
+.locked {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    z-index: 1;
+    background: rgba($black, 0.5);
+    overflow: hidden;
+}
+.clear-locked {
+    position: fixed;
+    top: 50px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    overflow: hidden;
+}
+.toggle {
+    position: relative;
+    width: 200px;
+    z-index: 999;   
+}
+.centered {
+    position: fixed;
+    height: max-content;
+    width: max-content;
+    display: flex;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 50%;
+    overflow: hidden;
+    z-index: 9999;
+}
+.d-flex {
+    display: flex;
+    width: 100%;
+}
+.d-flex.center {
+    flex-direction: column;
+    align-items: center;
+}
+.row  {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin: 10px 0;
+    flex-direction: row;
+    gap: 10px;
+}
+.column {
+    max-height: max-content;
+    flex-direction: column;
+}
+.align-center {
+    align-items: center;
+}
+.space-between {
+    justify-content: space-between;
+}
+.justify-left, .justify-start {
+    display: flex;
+    justify-content: flex-start;
+}
+.justify-right, .justify-end {
+    display: flex;
+    justify-content: flex-end;
+}
+.page-header {
+    max-width: max-content !important;
+    margin-right: 20px;
+    h2{ white-space: nowrap;}
+}
+.overflow-hidden {
+    height: 100%;
+    position:absolute;
+    overflow: hidden;
+}
+.text-left {
+    text-align: left;
+}
+.text-right {
+    text-align: right;
+    justify-content: flex-end;
+}
+.text-center {
+    text-align: center;
+    justify-content: center;
+}
+.controlled-width {
+    // width: 80%;
+    max-width: 1440px;
+}
+.flipped {
+    transition: $smooth;
+    transform: rotate(180deg);
+}
+// Incidentals
+div.spacer {
+    height: 60px;
+}
+.bordered {
+    border: 1px solid salmon;
+}
+._boxShadow {
+    box-shadow: $boxShadow;   
+}
+.sticky {
+    position: sticky;
+    top: 10px;
+    left: 0px;
+    width: 100%; // max-width: 1440px;
+    height: 75px;
+    padding-left: 10px;
+    padding-top: 20px;
+    padding-bottom: 10px;
+    background: white;
+    z-index: 2;
+    border-bottom: 1px solid rgba($grey_80, 0.33);
+}
+div.logo {
+    display: flex;
+    margin-right: 20px;
+}
+
+div.logo>img {
+    height: 40px;
+}
+
+/* Empty State */
+.empty-state {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+    width: 100%;
+    max-width: $formWidth;
+    margin: 0 auto;
+    border: .5px solid $grey_90;
+    border-radius: $border-radius;
+    background: $offWhite;
+    padding: 20px;
+    p {
+        font-size: $paragraph;
+        font-weight: $medium;
+        color: $grey_20;
+    }
+    a {
+        font-size: $paragraph;
+        font-weight: $medium;
+        color: $grey_80;
+        text-decoration: underline;
+    }
+}
+.loading {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    gap: 10px;
+    p {
+        font-size: $paragraph;
+    }
+}
+p.error-text {
+    margin: 0 0 12px;
+    font-size: $small;
+    color: $error;
+}
+/* Edits to Vuetify */
+.v-main {
+    overflow: hidden;
+}
+.v-textarea .v-field__input {
+    -webkit-mask-image: none !important;
+    mask-image: none !important;
+}
+.v-textarea {
+    font-size: $paragraph;
+    margin: 4px 0;
+    border-radius: $border-radius;
+    ::placeholder {
+        font-size: $paragraph;
+    }
+}
+.v-field--appended {
+    min-width: calc(100%);
+    padding: 0 !important;
+}
+.v-field__input {
+    border: 1px solid $grey_40;
+    background: white;
+    padding: 6px 12px !important;
+    margin: 0;
+    border-radius: 2.5px;
+    font-size: $paragraph;
+    min-height: 1rem !important;
+    min-width: 100% ;
+    &:disabled {
+        opacity: 0.5;
+    }
+    &:placeholder {
+        color: $grey_60;
+    }
+}
+.v-field--appended > .v-field__append-inner {
+    position: absolute;
+    right: 10px;
+    top: 6px;
+    i {
+        opacity: 0.33;
+    }
+}
+.v-list {
+    width: 120px;
+    padding: 5 px 0 !important;
+}
+.v-list-item--density-default.v-list-item--one-line {
+    min-height: 1rem !important;
+    
+}
+.v-list-item-title {
+    font-size: 0.8rem !important;
+}
+.v-btn.v-btn--density-default {
+    min-width: max-content;
+}
+.v-input__control {
+    min-width: 100%;
+}
+// Edits to V-Checkbox
+.v-selection-control {
+    max-width: max-content;
+    .v-label {
+        position: relative;
+        top: 2px;
+        font-size: $small !important;
+        max-width: max-content;
+        margin-right: 10px;
+    }
+    .mdi:before, .mdi-set {
+        font-size: $paragraph;
+    }
+    
+}
+.v-input__control {
+    max-width: max-content;
+}
+
+.v-input__details{
+    display: none !important;
+} 
+.v-switch {
+    max-height: 32px;
+    width: max-content;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .v-input__control {
+        min-height: 32px;
+    }
+}
+.ProseMirror {
+    padding: 10px;
+    border: 3px solid $black;
+    border-radius: 0 0 5px 5px;
+    max-width: 1000px;
+    min-height: 200px;
+}
+
+.ProseMirror ul,
+.ProseMirror ol {
+  padding: 0 1rem !important;
+  li > ol {
+    list-style-type: lower-alpha;
+    li > ol {
+        list-style-type: lower-roman;
+    }
+  }
+}
+
+.ProseMirror blockquote {
+    padding-left: 12px;
+    border-left: 2px solid rgba($black, 0.1);
+}
+
+@media  screen and (max-width: 768px ) {
+    h1 {
+        font-family: 2rem;
+    }
+    .mobile-hidden {
+        display: none;
+    }
+}

@@ -1,0 +1,106 @@
+/* Buttons */
+@use "../variables.scss" as *;
+button {
+    border: none;
+    p {
+        font-family: 'Poppins', sans-serif;
+        line-height: 1rem;
+        color: inherit;
+        font-size: $paragraph;
+        white-space: nowrap;
+    }
+}
+button.secondary-btn {
+    max-width: 300px;
+    background: $grey_90;
+    color: $black;
+    border: 2px solid transparent;
+    border-radius: 5px;
+    padding: 2px 20px;
+    font-size: $paragraph;
+    font-weight: $medium;
+    text-transform: capitalize;
+    transition: $smooth;
+    &:hover {
+        background: $grey_60;
+        color: $black;
+    }
+    span {
+        white-space: nowrap;
+        font-size: $paragraph;
+        
+    }
+}
+button.delete-btn {
+    span {
+        white-space: nowrap;
+        font-size: $paragraph;       
+    }
+}
+button.inline-btn {
+    display: flex;
+    justify-content: center;
+    padding: 10px 30px;
+    min-width: max-content;
+    width: 100%;
+    max-width: max-content;
+    max-height: 40px;
+    border-radius: 5px;
+    background-color: white;
+    border: 2px solid transparent;
+    color: #37515F;
+    &:hover {
+        transition: $smooth;
+        background: rgba($black, 0.15);
+    }
+    small {
+        margin: 0;
+        padding: 0;
+    }
+}
+
+/* Disabled */
+button.disabled {
+    min-width: 200px;
+    max-width: 100%;
+    height: 48px;
+    border-radius: 5px;
+    background-color: #c8c8c8;;
+    border: 2px solid transparent;
+    color: #666;
+}
+
+button.close-btn {
+    position: absolute;
+    display: flex;
+    width: 20px;
+    height: 20px;
+    right: 20px; 
+    background: none;
+    z-index: 10;
+    svg{ 
+        height: 20px;
+        width: 20px;
+        margin: 0;
+        padding: 0;
+        background: none;
+        position: absolute;
+        left: 0;
+    }
+}
+
+button.close-btn:hover > svg {
+    opacity: 0.5;
+}
+
+button.full-width {
+    width: 100%;
+    height: 48px;
+    background: $gunMetal;
+    color: white;
+    font-weight: $medium;
+    font-size: $paragraph;
+}
+button.full-width:hover {
+    background:  $gunMetal_20;
+}
