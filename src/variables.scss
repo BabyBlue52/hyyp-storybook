@@ -21,7 +21,11 @@ Colors
 
 $offWhite: #f6f6f6;
 
+<<<<<<< HEAD
 $grey_90: #F0F0F0;
+=======
+$grey_90: #E9E9E9;
+>>>>>>> 6d1778f (Update UI for Booking modal, connecting avatar large)
 $grey_80: #CCCCCC;
 $grey_60: #AAAAAA;
 $grey_40: #999999;
@@ -47,7 +51,11 @@ $success: #59d96c;
 $success_darken: color.adjust($success, $lightness: -20%);
 $success_light: color.adjust($success, $lightness: 33%);
 
+<<<<<<< HEAD
 $error: #dc3545;
+=======
+$error: #ff4d4d;
+>>>>>>> 6d1778f (Update UI for Booking modal, connecting avatar large)
 
 $violet: #390744;
 $violet_light: color.adjust($violet, $lightness: 70%);
@@ -55,9 +63,12 @@ $violet_light: color.adjust($violet, $lightness: 70%);
 .black {
   color:$black !important;
 }
+<<<<<<< HEAD
 .grey {
   color: $grey_40;
 }
+=======
+>>>>>>> 6d1778f (Update UI for Booking modal, connecting avatar large)
 .bg-white {
   background: white;
 }
