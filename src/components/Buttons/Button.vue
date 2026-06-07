@@ -18,6 +18,7 @@
 @use "@/assets/variables.scss" as *;
     button.default-btn {
         display: flex;
+        align-items: center;
         justify-content: center;
         padding: 7.5px 30px;
         min-width: max-content;
