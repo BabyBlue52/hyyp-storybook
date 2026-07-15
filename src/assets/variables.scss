@@ -21,7 +21,7 @@ Colors
 
 $offWhite: #f6f6f6;
 
-$grey_90: #E9E9E9;
+$grey_90: #F0F0F0;
 $grey_80: #CCCCCC;
 $grey_60: #AAAAAA;
 $grey_40: #999999;
@@ -47,13 +47,19 @@ $success: #59d96c;
 $success_darken: color.adjust($success, $lightness: -20%);
 $success_light: color.adjust($success, $lightness: 33%);
 
-$error: #ff4d4d;
+$error: #dc3545;
 
 $violet: #390744;
 $violet_light: color.adjust($violet, $lightness: 70%);
 
 .black {
   color:$black !important;
+}
+.grey {
+  color: $grey_40;
+}
+.bg-white {
+  background: white;
 }
 /*
 =================
@@ -76,6 +82,8 @@ $boxShadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 // Map Page Separators
 $cardWidth: 25vw;
 $mapWidth: calc(100vw - $cardWidth);
+
+// Controlled Width
 $formWidth: 1440px;
 
 // Header Area Height

@@ -1,5 +1,13 @@
 
 import '../src/assets/base.scss';
+import '../src/assets/components/buttons.scss';
+import '../src/assets/components/cards.scss';
+import '../src/assets/components/breadcrumb.scss';
+import '../src/assets/components/dropwdown.scss';
+import '../src/assets/components/form.scss';
+import '../src/assets/components/modal.scss';
+import '../src/assets/components/search.scss';
+import '../src/assets/components/tables.scss';
 import { setup } from "@storybook/vue3";
 import { registerPlugins } from "../src/plugins";
 import { withVuetifyTheme, DEFAULT_THEME } from "./withVuetifyTheme.decorator";
@@ -15,6 +23,7 @@ const router = createRouter({
     { path: '/admin/:venueId/requests', name: 'requests' },
     { path: '/admin/:venueId/history', name: 'history' },
     { path: '/account/:userId', name: 'account' },
+    { path: '/account/profile', name: 'account-profile' },
   ],
 });
 

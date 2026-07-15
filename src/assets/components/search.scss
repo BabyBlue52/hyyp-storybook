@@ -1,0 +1,53 @@
+/* Search Component*/
+@use "../variables.scss" as *;
+
+.search-bar {
+    display: flex;
+    position: relative;
+    align-items: center;
+    width: 100%;
+    max-width: 600px;
+    height: 40px;
+    padding: 10px 15px 10px 40px;
+    border: .5px solid $black;
+    border-radius: $border-radius;
+    .venue-search-input {
+        min-width: 100%;
+        margin-right: 10px;
+        outline: none;
+        color: $black;
+        font-size: $paragraph;
+        line-height: 1rem;
+        transition: border-color $smooth;
+        border: none;
+
+        &::placeholder {
+            position: relative;
+            top: 2px;
+            color: $grey_40
+        }
+        &:focus {
+            outline: none;
+        }
+    }
+    input[type=submit] {
+        width: max-content;
+    }
+    svg {
+        position: absolute;
+        top: 5px;
+        left: 5px;
+        max-width: 40px;
+        max-height: 40px;
+        transform: scale(0.7);
+    }
+    .submit-btn {
+        height: 100%;
+        max-width: 24px;
+        max-height: 24px;
+        margin-right:16px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}

@@ -75,6 +75,12 @@ label {
     background: white;
     color: $grey_20;
 }
+/* Info Text */
+p.info-text {
+    margin-top: -20px;
+    font-size: 0.8rem;
+    color: $grey_40;
+}
 /*App Level Wrapper */
 
 .hyyp-wrapper {
@@ -171,61 +177,7 @@ label {
         text-align: left;
     }
 } 
-.hyyp-card {
-    position: relative;
-    width: 50%;
-    max-width: 300px;
-    height: 300px;
-    cursor: pointer;
-    border:$grey_80 solid 2px;
-    border-radius: calc($border-radius * 2);
-    padding: 20px 20px 20px 20px;
-    margin: 10px;
-    background:offWhite;
-    color: $grey_20;
-    h1 {
-        position: absolute;
-        bottom: 10px;
-        left: 20px;
-        font-size: calc($header * 1.25);
-        color: $grey_40;
-        span {
-            font-size: $subhead;
-        }
-        sup {
-            position: relative;
-            top: -12px;
-            font-size: $small;
-        }
-    }
-    h2 {
-        font-size: $subhead;
-        font-weight: $heavy;
-        color: $grey_40;
-    }
-    p{
-        font-size: $paragraph;
-        color: $grey_60;
-    }
-    i {
-        position: absolute;
-        right: 10px;
-        bottom: 10px;
-        color: $grey_60;
-    }
-    &.selected {
-        border: $gunMetal_40 solid 3px;
-        transform: scale(1.025);
-        color: $gunMetal_20;
-        h1, h2, p {
-            color: $gunMetal_20;
-        }
-        i {
-            color: $gunMetal_20;
-        }
-        
-    }
-}
+
 .hyyp-totals {
     display: flex;
     flex-direction: row;
@@ -412,7 +364,18 @@ div.logo {
 div.logo>img {
     height: 40px;
 }
-
+.line-item {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid $grey_90;
+    padding: 20px 10px;
+    margin:0;
+    min-height: 80px;
+    p {
+        text-align: left;
+        width:100%;
+    }
+}
 /* Empty State */
 .empty-state {
     display: flex;
@@ -434,7 +397,7 @@ div.logo>img {
     a {
         font-size: $paragraph;
         font-weight: $medium;
-        color: $grey_80;
+        color: $grey_60;
         text-decoration: underline;
     }
 }
@@ -446,11 +409,6 @@ div.logo>img {
     p {
         font-size: $paragraph;
     }
-}
-p.error-text {
-    margin: 0 0 12px;
-    font-size: $small;
-    color: $error;
 }
 /* Edits to Vuetify */
 .v-main {
@@ -544,6 +502,13 @@ p.error-text {
     .v-input__control {
         min-height: 32px;
     }
+}
+.v-icon {
+    position: relative;
+    width: 1rem;
+    height: 1rem;
+    margin: 0 5px;
+
 }
 .ProseMirror {
     padding: 10px;

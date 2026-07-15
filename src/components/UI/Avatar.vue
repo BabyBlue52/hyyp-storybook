@@ -68,7 +68,8 @@ const imageToBase64Url = (avatar) => {
 
     // If it's a base64 string without the data URL prefix, add it
     if (/^[A-Za-z0-9+/=]+$/.test(avatar)) {
-        return `data:image/jpeg;base64,${avatar}`;
+        const mime = avatar.startsWith('iVBOR') ? 'image/png' : 'image/jpeg';
+        return `data:${mime};base64,${avatar}`;
     }
 
     // If it's a regular URL, return as is
@@ -96,7 +97,7 @@ watch(() => [props.src, props.user?.avatar], () => {
         display: flex;
         align-items: center;
         justify-content: center;
-
+        padding: 0;
         height: 35px;
         width: 35px;
         border-radius: 50%;

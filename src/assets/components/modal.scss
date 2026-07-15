@@ -1,0 +1,23 @@
+/* Modals */
+div.modal-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: max-content;
+    width: 450px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    z-index: 9;
+    div.modal-content {
+        width: calc(100% - 38px);
+        padding: 10px;
+        margin: 0 auto;
+    }
+    div.modal-header {
+        position: relative;
+        z-index: 2;
+        background: white;
+        margin-bottom: 10px;
+    }
+}

@@ -1,0 +1,5 @@
+[
+    { "value": "SM", "label": "Small", "description": "Room for 10-20 people" },
+    { "value": "MD", "label": "Medium", "description": " Room for 20-50 people" },
+    { "value": "LG", "label": "Large", "description": " Room for 50 or more people" }
+]

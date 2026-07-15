@@ -57,8 +57,8 @@ const convertToDataUrl = (src) => {
     
     // If it's a base64 string without the data URL prefix, add it
     if (/^[A-Za-z0-9+/=]+$/.test(src)) {
-        // Try to detect image type, default to jpeg
-        return `data:image/jpeg;base64,${src}`;
+        const mime = src.startsWith('iVBOR') ? 'image/png' : 'image/jpeg';
+        return `data:${mime};base64,${src}`;
     }
     
     // If it's a regular URL, return as is
@@ -96,7 +96,7 @@ const readFile = async () => {
         url.value = URL.createObjectURL(selectedFile);
         internalDisplayError.value = false;
         displayFormatError.value = false;
-        emit('image-changed', url.value);
+        emit('image-changed', url.value, selectedFile);
         console.log(url.value);
             }
     

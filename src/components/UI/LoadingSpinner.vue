@@ -1,7 +1,5 @@
 <template>
-    <div>
-        <img src="https://img.icons8.com/?size=100&id=5gQEqHavGCc4&format=png&color=000000"/>
-    </div>
+    <img src="@/assets/images/loading.svg" />
 </template>
 <script>
     export default {
@@ -9,13 +7,15 @@
     }
 </script>
 <style scoped>
-    img {
-        height: 60px;
-        width: 60px;
+    img, svg {
+        height: 30px;
+        width: 30px;
+        fill: #37515f;
+        opacity: 0.33;
         animation: spin 1s ease-in-out infinite;
     }
     @keyframes spin {
         0% { transform: rotate(0);};
-        100% { transform: rotate(359);}
+        100% { transform: rotate(359deg);}
     }
 </style>

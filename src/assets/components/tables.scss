@@ -1,0 +1,53 @@
+/* Table */
+@use "../variables.scss" as *;
+.v-table {
+    cursor: pointer;
+    thead {
+        max-height: 20px;
+        background: white;
+    }
+    th.sorted > p {
+        color: $primary;
+            span {
+            display: inline-block;
+            font-size: $paragraph;
+            display: inline-block;
+            position: relative;
+            top: 0px;
+            transform: scaley(0.8);
+            }
+        }
+    tr {
+        margin-bottom: 10px;
+    }
+    td {
+        text-align: left;
+    }
+}
+.v-table--fixed-header > .v-table__wrapper > table > thead > tr > th.sorted {
+    background: rgba($primary,0.1) !important;
+    border-bottom: 2px solid $primary !important;
+}
+
+.v-table > .v-table__wrapper > table > tbody > tr > td {
+    height: 36px !important;
+    padding: 4px 0;
+    p {
+        font-size: $small;
+    }
+}
+th {
+    cursor: pointer;
+}
+th.sorted p {
+  color: $primary;
+  font-weight: bold;
+}
+th.sorted span {
+  color: $black;
+  position: relative;
+  left: 0px;
+}
+.v-table > .v-table__wrapper > table > thead > tr > th {  
+    height: 30px !important;
+}

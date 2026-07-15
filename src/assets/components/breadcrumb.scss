@@ -1,0 +1,37 @@
+@use "../variables.scss" as *;
+
+div.breadcrumb {
+    display: flex;
+    align-items: center;
+    font-size: small;
+    p {
+        position: relative;
+        top: 2px;
+        opacity: 0.5;
+        font-size: $small;
+    }
+    a {
+        text-decoration: none;  
+        transition: $smooth;
+        color: $black;
+        font-weight: $light;
+        margin: 0;
+        &:base {
+            text-decoration: none;
+        }
+    }
+    span {
+        position: relative;
+        top: 2px;
+        font-size: $paragraph;
+    }
+    .v-icon {
+        color: $grey_40;
+        &:hover {
+            opacity: 0.5;
+        }
+    }
+    div.subpage-item {
+        margin: 0 5px;
+    }
+}

@@ -31,19 +31,24 @@ const props = withDefaults(
     defineProps<{
         modelValue?: string;
         label?: string;
+        invalid?: boolean;
+        options?: RoomSizeOption[];
     }>(),
     { modelValue: '', label: 'Room Size' }
 );
 
 const emit = defineEmits<{ (e: 'update:modelValue', value: string): void }>();
 
-const options: RoomSizeOption[] = roomSizeOptions;
+const options = computed(() =>
+  props.options?.length ? props.options : roomSizeOptions
+)
+
 const isOpen = ref(false);
 const rootRef = ref<HTMLElement | null>(null);
 
 const selectedOption = computed(() =>
-    options.find((o) => o.value === props.modelValue) ?? null
-);
+  options.value.find((o) => o.value === props.modelValue)
+)
 
 const displayLabel = computed(() =>
     selectedOption.value ? selectedOption.value.label : 'Select Room Size'
@@ -82,5 +87,8 @@ label {
     top: -8px;
     left: 4px;
     padding: 0 8px;
+}
+.dropdown--error {
+    border: 1px solid $error;
 }
 </style>
