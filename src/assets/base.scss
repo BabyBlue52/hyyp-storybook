@@ -388,6 +388,8 @@ div.disabled {
 }
 .text-left {
     text-align: left;
+<<<<<<< HEAD
+=======
 }
 .text-right {
     text-align: right;
@@ -419,6 +421,26 @@ div.disabled {
 .controlled-width {
     // width: 80%;
     max-width: 1440px;
+}
+.flipped {
+    transition: $smooth;
+    transform: rotate(180deg);
+}
+// Incidentals
+div.spacer {
+    height: 60px;
+>>>>>>> 9870d21 (Add additional component styles, sync with clientApp)
+}
+.text-right {
+    text-align: right;
+    justify-content: flex-end;
+}
+.text-center {
+    text-align: center;
+    justify-content: center;
+}
+._boxShadow {
+    box-shadow: $boxShadow;   
 }
 .flipped {
     transition: $smooth;

@@ -1,8 +1,12 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 @use "./variables.scss" as *;
 =======
 @use "../variables.scss" as *;
 >>>>>>> 6d1778f (Update UI for Booking modal, connecting avatar large)
+=======
+@use "./variables.scss" as *;
+>>>>>>> 2ca4063 (Add additional component styles, sync with clientApp)
 
 .dropdown {
     position: relative;
@@ -53,10 +57,14 @@
 .dropdown-menu.link-bay {
     position: absolute;
 <<<<<<< HEAD
+<<<<<<< HEAD
     top:calc($headRoom - 12px);
 =======
     top: 10px;
 >>>>>>> 6d1778f (Update UI for Booking modal, connecting avatar large)
+=======
+    top:calc($headRoom - 12px);
+>>>>>>> 2ca4063 (Add additional component styles, sync with clientApp)
     max-width: 200px;
     left: -12%;
     background: white;

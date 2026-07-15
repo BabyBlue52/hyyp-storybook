@@ -22,10 +22,14 @@ Colors
 $offWhite: #f6f6f6;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 $grey_90: #F0F0F0;
 =======
 $grey_90: #E9E9E9;
 >>>>>>> 6d1778f (Update UI for Booking modal, connecting avatar large)
+=======
+$grey_90: #F0F0F0;
+>>>>>>> 2ca4063 (Add additional component styles, sync with clientApp)
 $grey_80: #CCCCCC;
 $grey_60: #AAAAAA;
 $grey_40: #999999;
@@ -52,10 +56,14 @@ $success_darken: color.adjust($success, $lightness: -20%);
 $success_light: color.adjust($success, $lightness: 33%);
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 $error: #dc3545;
 =======
 $error: #ff4d4d;
 >>>>>>> 6d1778f (Update UI for Booking modal, connecting avatar large)
+=======
+$error: #dc3545;
+>>>>>>> 2ca4063 (Add additional component styles, sync with clientApp)
 
 $violet: #390744;
 $violet_light: color.adjust($violet, $lightness: 70%);
@@ -64,11 +72,17 @@ $violet_light: color.adjust($violet, $lightness: 70%);
   color:$black !important;
 }
 <<<<<<< HEAD
+<<<<<<< HEAD
 .grey {
   color: $grey_40;
 }
 =======
 >>>>>>> 6d1778f (Update UI for Booking modal, connecting avatar large)
+=======
+.grey {
+  color: $grey_40;
+}
+>>>>>>> 2ca4063 (Add additional component styles, sync with clientApp)
 .bg-white {
   background: white;
 }

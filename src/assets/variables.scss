@@ -20,8 +20,16 @@ Colors
 
 
 
+<<<<<<< HEAD
 
 $black: #100409;
+=======
+$grey_90: #F0F0F0;
+$grey_80: #CCCCCC;
+$grey_60: #AAAAAA;
+$grey_40: #999999;
+$grey_20: #666666;
+>>>>>>> 9870d21 (Add additional component styles, sync with clientApp)
 $grey: #333333;
 $grey_10: #454545;
 $grey_20: #575757;
@@ -56,7 +64,10 @@ $success_dark: color.adjust($success, $lightness: -20%);
 $success_light: color.adjust($success, $lightness: 33%);
 
 $error: #dc3545;
+<<<<<<< HEAD
 $error_light: #F9DADD;
+=======
+>>>>>>> 9870d21 (Add additional component styles, sync with clientApp)
 
 $violet: #390744;
 $violet_light: #ECB8F8;
@@ -65,7 +76,11 @@ $violet_light: #ECB8F8;
   color:$black !important;
 }
 .grey {
+<<<<<<< HEAD
   color: $grey_40 !important;
+=======
+  color: $grey_40;
+>>>>>>> 9870d21 (Add additional component styles, sync with clientApp)
 }
 .bg-white {
   background: white;
@@ -94,7 +109,11 @@ $cardWidth: 25vw;
 $mapWidth: calc(100vw - $cardWidth);
 
 // Controlled Width
+<<<<<<< HEAD
 $pageMax: 1440px;
+=======
+$formWidth: 1440px;
+>>>>>>> 9870d21 (Add additional component styles, sync with clientApp)
 
 // Header Area Height
 $headRoom: 50px;
