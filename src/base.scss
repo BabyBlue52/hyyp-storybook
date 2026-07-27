@@ -75,52 +75,8 @@ label {
     background: white;
     color: $grey_20;
 }
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 2ca4063 (Add additional component styles, sync with clientApp)
-/* Info Text */
-p.info-text {
-    margin-top: -20px;
-    font-size: 0.8rem;
-    color: $grey_40;
-}
-<<<<<<< HEAD
-=======
->>>>>>> 6d1778f (Update UI for Booking modal, connecting avatar large)
-=======
->>>>>>> 2ca4063 (Add additional component styles, sync with clientApp)
-/*App Level Wrapper */
-
-.hyyp-wrapper {
-    display: flex;
-    flex-direction: column;
-    position: fixed;
-    top: calc($headRoom);
-    left: 0px;
-    width: 100%;
-    height: calc(100% - $headRoom);
-    overflow-x: hidden;
-    overflow-y: auto;
-    -webkit-overflow-scrolling: touch;
-    /* Below HyypHeader (.header-wrapper z-index: 10) so fixed header + dropdowns paint above page body */
-    z-index: 1;
-}
-
-.hyyp-wrapper-inner {
-    display: flex;
-    flex-direction: column;
-    min-height: 100%;
-    width: 100%;
-}
-
-.hyyp-page {
-    position: relative;
-    flex: 1 0 auto;
-    display: flex;
-    flex-direction: column;
-    min-height: 0;
-    width: 100%;
+button {
+    border: none;
 }
 .hyyp-system-message {
     display: flex;
@@ -157,7 +113,7 @@ p.info-text {
         border-radius: 5px;
         height: max-content;
         min-height:  2rem;
-        min-width: 50px;
+        min-width: 200px;
         width: 100%;
         padding: 5px 10px;
         padding-top: 10px;
@@ -186,10 +142,6 @@ p.info-text {
         text-align: left;
     }
 } 
-<<<<<<< HEAD
-<<<<<<< HEAD
-
-=======
 .hyyp-card {
     position: relative;
     width: 50%;
@@ -243,46 +195,6 @@ p.info-text {
             color: $gunMetal_20;
         }
         
-    }
-}
->>>>>>> 6d1778f (Update UI for Booking modal, connecting avatar large)
-=======
-
->>>>>>> 2ca4063 (Add additional component styles, sync with clientApp)
-.hyyp-totals {
-    display: flex;
-    flex-direction: row;
-    gap: 10px;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-    background: rgba($grey_80, 0.25);
-    border-radius: $border-radius;
-    padding: 15px;
-    margin:  0;
-    height: max-content;
-    p {
-        width: 100%;
-        margin: 0;
-        font-size: $paragraph;
-        font-weight: $medium;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        .total-amount {
-            font-size: $subhead;
-            font-weight: $medium;
-            color: $secondary;
-        }
-        &.text-right {
-            justify-content: flex-end;
-        }
-    }
-
-    span.currency {
-        max-width: 50px;
-        font-size: $small;
-        color: $grey_40;
     }
 }
 // Layout
@@ -385,25 +297,7 @@ p.info-text {
     position:absolute;
     overflow: hidden;
 }
-.text-left {
-    text-align: left;
-}
-.text-right {
-    text-align: right;
-    justify-content: flex-end;
-}
-.text-center {
-    text-align: center;
-    justify-content: center;
-}
-.controlled-width {
-    // width: 80%;
-    max-width: 1440px;
-}
-.flipped {
-    transition: $smooth;
-    transform: rotate(180deg);
-}
+
 // Incidentals
 div.spacer {
     height: 60px;
@@ -411,8 +305,9 @@ div.spacer {
 .bordered {
     border: 1px solid salmon;
 }
-._boxShadow {
-    box-shadow: $boxShadow;   
+.controlled-width {
+    // width: 80%;
+    max-width: 1440px;
 }
 .sticky {
     position: sticky;
@@ -427,6 +322,47 @@ div.spacer {
     z-index: 2;
     border-bottom: 1px solid rgba($grey_80, 0.33);
 }
+.flipped {
+    transition: $smooth;
+    transform: rotate(180deg);
+}
+._boxShadow {
+    box-shadow: $boxShadow;   
+}
+/*App Level Wrapper */
+.v-main {
+    overflow: hidden;
+}
+.hyyp-wrapper {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: calc($headRoom);
+    left: 0px;
+    width: 100%;
+    height: calc(100% - $headRoom);
+    overflow-x: hidden;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    /* Below HyypHeader (.header-wrapper z-index: 10) so fixed header + dropdowns paint above page body */
+    z-index: 1;
+}
+
+.hyyp-wrapper-inner {
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+    width: 100%;
+}
+
+.hyyp-page {
+    position: relative;
+    flex: 1 0 auto;
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+    width: 100%;
+}
 div.logo {
     display: flex;
     margin-right: 20px;
@@ -435,28 +371,41 @@ div.logo {
 div.logo>img {
     height: 40px;
 }
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 2ca4063 (Add additional component styles, sync with clientApp)
-.line-item {
+
+/* Buttons */
+button.close-btn {
+    position: absolute;
     display: flex;
-    align-items: center;
-    border-bottom: 1px solid $grey_90;
-    padding: 20px 10px;
-    margin:0;
-    min-height: 80px;
-    p {
-        text-align: left;
-        width:100%;
+    width: 20px;
+    height: 20px;
+    right: 20px; 
+    background: none;
+    svg{ 
+        height: 20px;
+        width: 20px;
+        margin: 0;
+        padding: 0;
+        background: none;
+        position: absolute;
+        left: 0;
     }
 }
-<<<<<<< HEAD
-=======
 
->>>>>>> 6d1778f (Update UI for Booking modal, connecting avatar large)
-=======
->>>>>>> 2ca4063 (Add additional component styles, sync with clientApp)
+button.close-btn:hover > svg {
+    opacity: 0.5;
+}
+
+button.full-width {
+    width: 100%;
+    height: 48px;
+    background: $gunMetal;
+    color: white;
+    font-weight: $medium;
+    font-size: $paragraph;
+}
+button.full-width:hover {
+    background:  $gunMetal_20;
+}
 /* Empty State */
 .empty-state {
     display: flex;
@@ -478,15 +427,7 @@ div.logo>img {
     a {
         font-size: $paragraph;
         font-weight: $medium;
-<<<<<<< HEAD
-<<<<<<< HEAD
-        color: $grey_60;
-=======
         color: $grey_80;
->>>>>>> 6d1778f (Update UI for Booking modal, connecting avatar large)
-=======
-        color: $grey_60;
->>>>>>> 2ca4063 (Add additional component styles, sync with clientApp)
         text-decoration: underline;
     }
 }
@@ -499,28 +440,14 @@ div.logo>img {
         font-size: $paragraph;
     }
 }
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-p.error-text {
-    margin: 0 0 12px;
-    font-size: $small;
-    color: $error;
-}
->>>>>>> 6d1778f (Update UI for Booking modal, connecting avatar large)
-=======
->>>>>>> 2ca4063 (Add additional component styles, sync with clientApp)
 /* Edits to Vuetify */
-.v-main {
-    overflow: hidden;
-}
 .v-textarea .v-field__input {
     -webkit-mask-image: none !important;
     mask-image: none !important;
 }
 .v-textarea {
     font-size: $paragraph;
-    margin: 4px 0;
+    margin: 4px 0 20px 0;
     border-radius: $border-radius;
     ::placeholder {
         font-size: $paragraph;
@@ -603,22 +530,6 @@ p.error-text {
         min-height: 32px;
     }
 }
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 2ca4063 (Add additional component styles, sync with clientApp)
-.v-icon {
-    position: relative;
-    width: 1rem;
-    height: 1rem;
-    margin: 0 5px;
-
-}
-<<<<<<< HEAD
-=======
->>>>>>> 6d1778f (Update UI for Booking modal, connecting avatar large)
-=======
->>>>>>> 2ca4063 (Add additional component styles, sync with clientApp)
 .ProseMirror {
     padding: 10px;
     border: 3px solid $black;
