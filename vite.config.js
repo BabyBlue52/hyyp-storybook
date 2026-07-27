@@ -33,6 +33,18 @@ export default defineConfig({
       '.vue',
     ],
   },
+  css: {
+    preprocessorOptions: {
+      scss: {
+        // Match hyyp-client: auto-import variables. Skip files that already @use them (or are variables.scss).
+        additionalData: (content, filename) => {
+          if (filename.includes('variables.scss')) return content
+          if (content.includes('variables.scss')) return content
+          return `@use "@/assets/variables.scss" as *;\n${content}`
+        },
+      },
+    },
+  },
   server: {
     port: 3000,
   },

@@ -22,21 +22,25 @@ button {
 button:active {
     transform: scale(0.95);
 }
-
-h1 {
+h1, h2, h3, h4, p {
     text-align: left;
+    margin: 0;
+}
+h1 {
     color: $gunMetal;
     font-size: $pageTitle;
-    font-weight: 700;
+    font-weight: $heavy;
     line-height: 1;
     font-family: $poppins;
     margin: 0;
 }
 h2 {
+    font-weight: $heavy;
+    font-size: $header;
     margin: 0;
 }
 h3, h4 {
-    font-weight: $medium;
+    font-weight: $heavy;
     font-size: $subhead;
     margin: 0;
 }
@@ -45,7 +49,6 @@ p {
     font-family: 'Poppins', sans-serif;
     color: inherit;    
     font-size: $paragraph;
-    text-align: left;
     margin: 0;
 }
 
@@ -75,8 +78,43 @@ label {
     background: white;
     color: $grey_20;
 }
-button {
-    border: none;
+/* Info Text */
+p.info-text {
+    margin-top: -20px;
+    font-size: 0.8rem;
+    color: $grey_40;
+}
+/*App Level Wrapper */
+
+.hyyp-wrapper {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: calc($headRoom);
+    left: 0px;
+    width: 100%;
+    height: calc(100% - $headRoom);
+    overflow-x: hidden;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    /* Below HyypHeader (.header-wrapper z-index: 10) so fixed header + dropdowns paint above page body */
+    z-index: 1;
+}
+
+.hyyp-wrapper-inner {
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+    width: 100%;
+}
+
+.hyyp-page {
+    position: relative;
+    flex: 1 0 auto;
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+    width: 100%;
 }
 .hyyp-system-message {
     display: flex;
@@ -113,7 +151,7 @@ button {
         border-radius: 5px;
         height: max-content;
         min-height:  2rem;
-        min-width: 200px;
+        min-width: 50px;
         width: 100%;
         padding: 5px 10px;
         padding-top: 10px;
@@ -142,63 +180,45 @@ button {
         text-align: left;
     }
 } 
-.hyyp-card {
-    position: relative;
-    width: 50%;
-    max-width: 300px;
-    height: 300px;
-    cursor: pointer;
-    border:$grey_80 solid 2px;
-    border-radius: calc($border-radius * 2);
-    padding: 20px 20px 20px 20px;
-    margin: 10px;
-    background:offWhite;
-    color: $grey_20;
-    h1 {
-        position: absolute;
-        bottom: 10px;
-        left: 20px;
-        font-size: calc($header * 1.25);
-        color: $grey_40;
-        span {
-            font-size: $subhead;
-        }
-        sup {
-            position: relative;
-            top: -12px;
-            font-size: $small;
-        }
-    }
-    h2 {
-        font-size: $subhead;
-        font-weight: $heavy;
-        color: $grey_40;
-    }
-    p{
+
+.hyyp-totals {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    background: rgba($grey_80, 0.25);
+    border-radius: $border-radius;
+    padding: 15px;
+    margin:  0;
+    height: max-content;
+    p {
+        width: 100%;
+        margin: 0;
         font-size: $paragraph;
-        color: $grey_60;
-    }
-    i {
-        position: absolute;
-        right: 10px;
-        bottom: 10px;
-        color: $grey_60;
-    }
-    &.selected {
-        border: $gunMetal_40 solid 3px;
-        transform: scale(1.025);
-        color: $gunMetal_20;
-        h1, h2, p {
-            color: $gunMetal_20;
+        font-weight: $medium;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        .total-amount {
+            font-size: $subhead;
+            font-weight: $medium;
+            color: $secondary;
         }
-        i {
-            color: $gunMetal_20;
+        &.text-right {
+            justify-content: flex-end;
         }
-        
+    }
+
+    span.currency {
+        max-width: 50px;
+        font-size: $small;
+        color: $grey_40;
     }
 }
 // Layout
-.disabled {
+div.disabled {
     cursor: not-allowed;
     pointer-events: none;
     opacity: 0.33;
@@ -297,17 +317,40 @@ button {
     position:absolute;
     overflow: hidden;
 }
-
-// Incidentals
-div.spacer {
-    height: 60px;
+.text-left {
+    text-align: left;
 }
-.bordered {
-    border: 1px solid salmon;
+.text-right {
+    text-align: right;
+    justify-content: flex-end;
+}
+.text-center {
+    text-align: center;
+    justify-content: center;
 }
 .controlled-width {
     // width: 80%;
     max-width: 1440px;
+}
+.flipped {
+    transition: $smooth;
+    transform: rotate(180deg);
+}
+// Incidentals
+div.spacer {
+    height: 60px;
+}
+div.divider {
+    margin: 10px 0;
+    width: 100%;
+    height: 1px;
+    background: $grey_80;
+}
+.bordered {
+    border: 1px solid salmon;
+}
+._boxShadow {
+    box-shadow: $boxShadow;   
 }
 .sticky {
     position: sticky;
@@ -322,47 +365,6 @@ div.spacer {
     z-index: 2;
     border-bottom: 1px solid rgba($grey_80, 0.33);
 }
-.flipped {
-    transition: $smooth;
-    transform: rotate(180deg);
-}
-._boxShadow {
-    box-shadow: $boxShadow;   
-}
-/*App Level Wrapper */
-.v-main {
-    overflow: hidden;
-}
-.hyyp-wrapper {
-    display: flex;
-    flex-direction: column;
-    position: fixed;
-    top: calc($headRoom);
-    left: 0px;
-    width: 100%;
-    height: calc(100% - $headRoom);
-    overflow-x: hidden;
-    overflow-y: auto;
-    -webkit-overflow-scrolling: touch;
-    /* Below HyypHeader (.header-wrapper z-index: 10) so fixed header + dropdowns paint above page body */
-    z-index: 1;
-}
-
-.hyyp-wrapper-inner {
-    display: flex;
-    flex-direction: column;
-    min-height: 100%;
-    width: 100%;
-}
-
-.hyyp-page {
-    position: relative;
-    flex: 1 0 auto;
-    display: flex;
-    flex-direction: column;
-    min-height: 0;
-    width: 100%;
-}
 div.logo {
     display: flex;
     margin-right: 20px;
@@ -371,40 +373,17 @@ div.logo {
 div.logo>img {
     height: 40px;
 }
-
-/* Buttons */
-button.close-btn {
-    position: absolute;
+.line-item {
     display: flex;
-    width: 20px;
-    height: 20px;
-    right: 20px; 
-    background: none;
-    svg{ 
-        height: 20px;
-        width: 20px;
-        margin: 0;
-        padding: 0;
-        background: none;
-        position: absolute;
-        left: 0;
+    align-items: center;
+    border-bottom: 1px solid $grey_90;
+    padding: 20px 10px;
+    margin:0;
+    min-height: 80px;
+    p {
+        text-align: left;
+        width:100%;
     }
-}
-
-button.close-btn:hover > svg {
-    opacity: 0.5;
-}
-
-button.full-width {
-    width: 100%;
-    height: 48px;
-    background: $gunMetal;
-    color: white;
-    font-weight: $medium;
-    font-size: $paragraph;
-}
-button.full-width:hover {
-    background:  $gunMetal_20;
 }
 /* Empty State */
 .empty-state {
@@ -413,7 +392,7 @@ button.full-width:hover {
     align-items: center;
     height: 200px;
     width: 100%;
-    max-width: $formWidth;
+    max-width: $pageMax;
     margin: 0 auto;
     border: .5px solid $grey_90;
     border-radius: $border-radius;
@@ -427,7 +406,7 @@ button.full-width:hover {
     a {
         font-size: $paragraph;
         font-weight: $medium;
-        color: $grey_80;
+        color: $grey_60;
         text-decoration: underline;
     }
 }
@@ -441,13 +420,16 @@ button.full-width:hover {
     }
 }
 /* Edits to Vuetify */
+.v-main {
+    overflow: hidden;
+}
 .v-textarea .v-field__input {
     -webkit-mask-image: none !important;
     mask-image: none !important;
 }
 .v-textarea {
     font-size: $paragraph;
-    margin: 4px 0 20px 0;
+    margin: 4px 0;
     border-radius: $border-radius;
     ::placeholder {
         font-size: $paragraph;
@@ -529,6 +511,13 @@ button.full-width:hover {
     .v-input__control {
         min-height: 32px;
     }
+}
+.v-icon {
+    position: relative;
+    width: 1rem;
+    height: 1rem;
+    margin: 0 5px;
+
 }
 .ProseMirror {
     padding: 10px;
