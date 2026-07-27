@@ -1,4 +1,4 @@
-import SecondaryButton from '../../components/Buttons/SecondaryButton';
+import SecondaryButton from '../../components/Buttons/SecondaryButton.vue';
 
 export default {
     component: SecondaryButton,
@@ -15,24 +15,25 @@ const Template = (args) => ({
     setup() {
         return { args };
     },
-    template: '<SecondaryButton v-bind="args"/>',
+    template: '<SecondaryButton v-bind="args" @click="args.onClick" />',
 });
 
 export const Default = Template.bind({});
 Default.args = {
     text: 'Secondary Button',
-    disabled: false,
+    onClick: () => {},
 };
 
 export const WithIcon = Template.bind({});
 WithIcon.args = {
-    text: 'Edit',
-    icon: 'pencil',
-    disabled: false,
+    text: 'Save calendar',
+    icon: 'check',
+    onClick: () => {},
 };
 
 export const Disabled = Template.bind({});
 Disabled.args = {
     text: 'Secondary Button',
     disabled: true,
+    onClick: () => {},
 };

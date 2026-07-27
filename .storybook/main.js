@@ -31,6 +31,17 @@ const config = {
       ...config.resolve.alias,
       '@': join(__dirname, '../src'),
     };
+    // Match hyyp-client / vite.config.js: auto-import SCSS variables for components that omit @use
+    config.css = config.css || {};
+    config.css.preprocessorOptions = config.css.preprocessorOptions || {};
+    config.css.preprocessorOptions.scss = {
+      ...(config.css.preprocessorOptions.scss || {}),
+      additionalData: (content, filename) => {
+        if (filename.includes('variables.scss')) return content;
+        if (content.includes('variables.scss')) return content;
+        return `@use "@/assets/variables.scss" as *;\n${content}`;
+      },
+    };
     return config;
   },
 
