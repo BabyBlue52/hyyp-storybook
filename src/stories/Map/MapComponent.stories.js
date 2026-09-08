@@ -24,6 +24,7 @@ const Template = (args) => ({
 export const Default = Template.bind({});
 Default.args = {
     center: [-97.7431, 30.2672],
+    usePopups: true,
     markers: [
         {
             id: 'demo-1',

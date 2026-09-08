@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import { ref, onMounted, onUnmounted, watch } from 'vue';
+import { ref, onMounted, onUnmounted, watch, computed } from 'vue';
 import { createApp } from 'vue';
 import mapboxgl from 'mapbox-gl'; // Ensure correct import syntax
 import 'mapbox-gl/dist/mapbox-gl.css';
@@ -22,8 +22,9 @@ import PopupContent from '@/components/Map/PopupContent.vue';
 
 const token = `${import.meta.env.VITE_MAPBOX_API_KEY}`
 const map_style = `${import.meta.env.VITE_MAPSTYLE}`
-
-
+const isMobile = computed(() =>  matchMedia('(max-width: 768ox)').matches);
+const defaultZoom = computed(() => (isMobile.value ? 9 : 11) )
+const focusZoom = computed(() => (isMobile.value ? 11 : 12));
 export default {
     props: {
         markers: {
@@ -44,18 +45,22 @@ export default {
             required: false,
             default: null,
         },
+        usePopups: {
+            type: Boolean
+        }
     },
+    emits: ['venueSelected'],
     components: {
         FilterComponent
     },
-    setup(props) {
+    setup(props, { emit }) {
         const map = ref(null);
         const mapContainer = ref(null);
         const coords = ref(null);
         const markers = ref([]);
         const markerPopups = ref(new Map());
         const isPopupOpen = ref(false);
-        const previousVenue = ref(null);
+        // const previousVenue = ref(null);
         let resizeObserver = null;
         let resizeTimeout = null;
         let originalFetch = null;
@@ -100,7 +105,7 @@ export default {
 
             return container;
         };
-
+       
         // Make sure this is run onload 
         onMounted(() => {
             mapboxgl.accessToken = token;
@@ -123,56 +128,100 @@ export default {
                 container: 'map',
                 style: map_style,
                 center: props.center, // change to coord from rendered call 
-                minZoom: 12,
+                minZoom: 5, 
+                zoom: defaultZoom.value,
+               
                 transformRequest: (url) =>
                     url && url.includes('events.mapbox.com') ? { url: 'about:blank' } : { url }
             });
 
             setViewToCurrentLocation();
 
-            // Loop through array: one marker with popup per venue, store ref for opening from search
-            props.markers.forEach((i) => {
-                if (isValidCoordinates(i.coordinates)) {
-                    const popup = new mapboxgl.Popup({
-                        offset: 40,
-                        closeButton: true,
-                        closeOnClick: true
-                    });
-                    popup.setDOMContent(createPopupComponent(i));
+            const clearMarkers = () => {
+                markers.value.forEach((marker) => marker.remove());
+                markers.value = [];
+                markerPopups.value.clear();
+            };
 
-                    const marker = new mapboxgl.Marker({
-                            className: "hoverScale"
+            const addMarkers = (list) => {
+                if (!map.value) return;
+                (list || []).forEach((i) => {
+                    if (isValidCoordinates(i.coordinates)) {
+                        const marker = new mapboxgl.Marker({
+                                className: "venue-marker"
                         })
-                        .setLngLat(i.coordinates)
-                        .setPopup(popup)
-                        .addTo(map.value);
+                            .setLngLat(i.coordinates)
+                            .addTo(map.value);
+                        if(props.usePopups) {
+                            const popup = new mapboxgl.Popup({
+                                offset: 40,
+                                closeButton: true,
+                                closeOnClick: true
+                            });
+                            popup.setDOMContent(createPopupComponent(i));
+                            marker.setPopup(popup)
+                        } else {
+                            // mobile: click → notify parent instead of popup
+                            marker.getElement().addEventListener('click', (e) => {
+                                e.stopPropagation();
+                                emit('venueSelected', i);
+                            });
+                        }
+                        markers.value.push(marker);
+                        markerPopups.value.set(i.id, { marker, venueData: i });
+                    
+                    } else {
+                        console.error(`Invalid coordinates for marker: ${i.title}`)
+                    }
+                });
+            };
 
-                    markers.value.push(marker);
-                    markerPopups.value.set(i.id, { marker, venueData: i });
-                
-                } else {
-                    console.error(`Invalid coordinates for marker: ${i.title}`)
-                }
-            })
+            const setSelectedMarker = (venueId) => {
+                const selectedId = venueId == null ? null : Number(venueId)
+                markerPopups.value.forEach(({ marker }, id) => {
+                    marker.getElement().classList.toggle('is-selected', Number(id) === selectedId)
+                })
+            }
+
+            // Loop through array: one marker with popup per venue, store ref for opening from search
+            addMarkers(props.markers);
 
             watch(
-                () => [props.center],
-                ([newCenter]) => {
-                    if (map.value) {
-                        map.value.flyTo({ center: [newCenter.value[0], newCenter.value[1]], speed: 1.1, zoom: 17 });
+                () => (props.markers || []).map((marker) => marker.id).join(','),
+                () => {
+                    clearMarkers();
+                    addMarkers(props.markers);
+                    if (props.selectedVenue) {
+                        setSelectedMarker(props.selectedVenue.id);
                     }
-                }, { deep: true },
+                }
             );
 
             watch(
+                () => props.center,
+                (center) => {
+                    if (map.value && center?.[0] != null && center?.[1] != null) {
+                    map.value.flyTo({ center: [center[0], center[1]], speed: 1.31, zoom: focusZoom.value });
+                    }
+                },
+                { deep: true },
+            );
+            watch(
                 () => props.selectedVenue,
                 (venue) => {
-                    closeAllPopups();
-                    if (!venue || !map.value || !markerPopups.value.has(venue.id)) return;
-                    const { marker } = markerPopups.value.get(venue.id);
-                    map.value.flyTo({ center: venue.coordinates, speed: 1.1, zoom: 17 });
-                    setTimeout(() => marker.togglePopup(), 200);
-                    isPopupOpen.value = true;
+                    if (!venue) {
+                        setSelectedMarker(null)
+                        return
+                    }
+                    if(!map.value || !markerPopups.value.has(venue.id)) return;
+                    setSelectedMarker(venue.id)
+                    map.value.flyTo({ center: venue.coordinates, speed: 1.31, zoom: focusZoom.value });
+                    if (props.usePopups) {
+                        closeAllPopups();
+                        const { marker } = markerPopups.value.get(venue.id);
+                        setTimeout(() => marker.togglePopup(), 200);
+                        isPopupOpen.value = true;
+                    }
                 },
                 { deep: true }
             );
@@ -212,7 +261,7 @@ export default {
                         const { latitude, longitude } = position.coords;
 
                         map.value.setCenter([longitude, latitude]); // Important: [lng, lat] order
-                        map.value.setZoom(12); // Adjust zoom level as needed
+                        map.value.setZoom(defaultZoom.value); // Adjust zoom level as needed
 
                         const setSessionCoords = {
                             lat: position.coords.latitude,
@@ -249,7 +298,7 @@ export default {
         }
         const closeAllPopups = () => {
             markerPopups.value.forEach((value) => {
-                value.marker.getPopup().remove();
+                value.marker.getPopup()?.remove();
             });
         }
         return {
@@ -261,14 +310,12 @@ export default {
 </script>
 
 <style lang="scss">
-@use "@/assets/variables.scss" as *;
 #map {
     height: 100%;
     width: 100%;
     overflow: hidden;
     position: relative;
 }
-
 .mapboxgl-popup-content {
     max-height: max-content;
     width: max-content;
@@ -286,8 +333,12 @@ export default {
         text-decoration: none;
         color: $black;
     }
+    label {
+        position: relative;
+        top: -8px;
+        font-style: italic;
+    }
 }
-
 .mapboxgl-popup {
     transition-property: opacity;
     transition-duration: 2s;
@@ -297,12 +348,21 @@ export default {
     display: none;
 }
 
-.mapboxgl-marker>svg {
-    &:hover {
-        width: 60px;
-        height: 60px;
-        fill: $black;
-        filter: hue-rotate(45deg);
+.mapboxgl-marker {
+    svg {
+        &:hover {
+            width: 60px;
+            height: 60px;
+            fill: $black;
+            filter: hue-rotate(45deg);
+        }
+    }
+    .is-selected > svg {
+        width: 48px;   // or transform: scale(1.5)
+        height: 48px;
+        transform: scale(1.5);
+        transform-origin: bottom center;
+        transition: transform 0.15s ease;
     }
 }
 
@@ -316,22 +376,16 @@ export default {
     flex-direction: row;
     align-items: center;
     gap: 10px;
-    .geo-locate {
-        height: 100%;
-        background: $gunMetal;
-        border-radius: 5px;
-        padding: 10px 10px 5px;
-        box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.15);
-        svg {
-            height: 24px;
-            width: 24px;
-            fill: white;
-            margin: 0;
-        }
-    }
+    
 }
-
-.highlighted {
-    border: 2px solid crimson
+@media  screen and (max-width: 768px) {
+    .mapboxgl-marker.is-selected > svg {
+        width: 48px;   // or transform: scale(1.5)
+        height: 48px;
+        transform: scale(1.5);
+        transform-origin: bottom center;
+        transition: transform 0.15s ease;
+        filter: hue-rotate(70deg) saturate(.7) brightness(1.15);
+    }
 }
 </style>

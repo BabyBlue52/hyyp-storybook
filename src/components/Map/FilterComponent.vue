@@ -1,7 +1,7 @@
 <template>
-    <div v-if="isActive" class="overlay" @click="handleClick"></div>
+    <div v-if="isActive" class="overlay" @click="closeWithoutApplying"></div>
     <div class="filters-wrapper">
-    <div class="filters-button" @click="handleClick" :class="{ 'active': isActive || appliedFiltersCount > 0}"> 
+    <div class="filters-button" @click="handleClick" :class="{ 'active': isActive || appliedCount > 0}"> 
         <svg version="1.1" id="Capa_1" x="0px" y="0px"  viewBox="0 0 612.006 612.006" style="enable-background:new 0 0 612.006 612.006;" xml:space="preserve">
             <g>
                 <g>
@@ -19,11 +19,11 @@
                 </g>
             </g>
         </svg>
-        <p>Filters<span>({{ appliedFiltersCount }})</span></p>
+        <p>Filters<span>({{ badgeCount }})</span></p>
     </div>
     <div class="filter-content" v-if="isActive">
         <div class="filter-header">
-            <button class="close-btn" @click="handleClick" aria-label="Close filters">
+            <button class="close-btn" @click="closeWithoutApplying" aria-label="Close filters">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M18 6L6 18M6 6L18 18" stroke="#37515F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
@@ -35,12 +35,15 @@
             <div class="filter-item column">
                 <h4 class="poppins">Rooms and Capacity</h4>
                 <div class="filter-input">
-                    <select class="form-select" @change="handleRoomSizeChange" :value="selectedFilters.roomSize">
+                    <select class="form-select" @change="handleRoomSizeChange" :value="draftFilters.roomSize">
                         <option value="">Select room size</option>
-                        <option value="1">Small</option>
-                        <option value="2">Medium</option>
-                        <option value="3">Large</option>
-                        <option value="4">Extra Large</option>
+                        <option
+                            v-for="option in roomSizeOptions"
+                            :key="option.value"
+                            :value="option.value"
+                        >
+                            {{ option.label }}
+                        </option>
                     </select>
                 </div>
                 <div class="info-text">*
@@ -51,20 +54,20 @@
             <div class="filter-item column">
                 <h4 class="poppins">Accomodation Type</h4>
                 <div class="filter-input form-checkbox">
-                    <label for="hotel">
-                        <input type="checkbox" id="hotel" @change="handleAccommodationTypeChange('hotel', $event)" :checked="selectedFilters.accommodationTypes.includes('hotel')">
+                    <label :for="idFor('hotel')">
+                        <input type="checkbox" :id="idFor('hotel')" @change="handleAccommodationTypeChange('hotel', $event)" :checked="draftFilters.accommodationTypes.includes('hotel')">
                         Hotel
                     </label>
                 </div>
                 <div class="filter-input form-checkbox">
-                    <label for="bar">
-                        <input type="checkbox" id="bar" @change="handleAccommodationTypeChange('bar', $event)" :checked="selectedFilters.accommodationTypes.includes('bar')">
-                        Restuarant/Bar
+                    <label :for="idFor('bar')">
+                        <input type="checkbox" :id="idFor('bar')" @change="handleAccommodationTypeChange('bar', $event)" :checked="draftFilters.accommodationTypes.includes('bar')">
+                        Restaurant/Bar
                     </label>
                 </div>
                 <div class="filter-input form-checkbox">
-                    <label for="residence">
-                        <input type="checkbox" id="residence" @change="handleAccommodationTypeChange('residence', $event)" :checked="selectedFilters.accommodationTypes.includes('residence')">
+                    <label :for="idFor('residence')">
+                        <input type="checkbox" :id="idFor('residence')" @change="handleAccommodationTypeChange('residence', $event)" :checked="draftFilters.accommodationTypes.includes('residence')">
                         Residence
                     </label>
                 </div>
@@ -73,14 +76,14 @@
             <div class="filter-item column">
                 <h4 class="poppins">Facility Type</h4>
                 <div class="filter-input form-checkbox">
-                    <label for="indoor">
-                        <input type="checkbox" id="indoor" @change="handleFacilityTypeChange('indoor', $event)" :checked="selectedFilters.facilityTypes.includes('indoor')">
+                    <label :for="idFor('indoor')">
+                        <input type="checkbox" :id="idFor('indoor')" @change="handleFacilityTypeChange('indoor', $event)" :checked="draftFilters.facilityTypes.includes('indoor')">
                         Indoor
                     </label>
                 </div>
                 <div class="filter-input form-checkbox">
-                    <label for="outdoor">
-                        <input type="checkbox" id="outdoor" @change="handleFacilityTypeChange('outdoor', $event)" :checked="selectedFilters.facilityTypes.includes('outdoor')">
+                    <label :for="idFor('outdoor')">
+                        <input type="checkbox" :id="idFor('outdoor')" @change="handleFacilityTypeChange('outdoor', $event)" :checked="draftFilters.facilityTypes.includes('outdoor')">
                         Outdoor
                     </label>
                 </div>   
@@ -88,7 +91,7 @@
             <hr/>
             <div class="filter-footer justify-end">
                 <InlineButton @click="clearAllFilters" text='Clear All' />
-                <Button :text="`Apply Filters (${appliedFiltersCount})`"  @click="handleClick"/>
+                <Button :text="`Apply Filters (${draftCount})`"  @click="applyAndClose"/>
             </div>
         </div>
     </div>
@@ -96,101 +99,93 @@
 </template>
 
 <script setup>
-import { ref, reactive, watch, computed } from 'vue';
+import { ref, watch, computed } from 'vue';
 import InlineButton from '@/components/Buttons/InlineButton.vue';
 import Button from '@/components/Buttons/Button.vue';
+import roomSizeOptions from '@/composables/roomSizeLibrary.json';
+import { useVenueFilters } from '@/composables/useVenueFilters';
 
 const isActive = ref(false);
+const instanceId = Math.random().toString(36).slice(2, 8);
+const idFor = (name) => `filter-${name}-${instanceId}`;
+const {
+    draftFilters,
+    appliedCount,
+    draftCount,
+    applyFilters,
+    discardDraft,
+    clearAll,
+} = useVenueFilters();
 
-// Filter state
-let selectedFilters = reactive({
-    roomSize: '',
-    accommodationTypes: [],
-    facilityTypes: []
-});
+const badgeCount = computed(() => (isActive.value ? draftCount.value : appliedCount.value));
 
-// Computed property to count applied filters
-const appliedFiltersCount = computed(() => {
-    let count = 0;
-    
-    // Count room size selection
-    if (selectedFilters.roomSize) {
-        count++;
-    }
-    
-    count += selectedFilters.accommodationTypes.length;
-    
-    count += selectedFilters.facilityTypes.length;
-    
-    return count;
-});
+function openFilters() {
+    discardDraft();
+    isActive.value = true;
+}
+
+function closeFilters() {
+    isActive.value = false;
+}
 
 function handleClick() {
-    isActive.value = !isActive.value;
+    if (isActive.value) {
+        closeWithoutApplying();
+    } else {
+        openFilters();
+    }
 }
 
-// Handle room size change
+function closeWithoutApplying() {
+    discardDraft();
+    closeFilters();
+}
+
+function applyAndClose() {
+    applyFilters();
+    closeFilters();
+}
+
 function handleRoomSizeChange(event) {
-    selectedFilters.roomSize = event.target.value;
+    draftFilters.roomSize = event.target.value;
 }
 
-// Handle accommodation type change
+function toggleListValue(list, type, checked) {
+    if (checked) {
+        if (!list.includes(type)) list.push(type);
+        return;
+    }
+    const index = list.indexOf(type);
+    if (index > -1) list.splice(index, 1);
+}
+
 function handleAccommodationTypeChange(type, event) {
-    if (event.target.checked) {
-        selectedFilters.accommodationTypes.push(type);
-    } else {
-        const index = selectedFilters.accommodationTypes.indexOf(type);
-        if (index > -1) {
-            selectedFilters.accommodationTypes.splice(index, 1);
-        }
-    }
+    toggleListValue(draftFilters.accommodationTypes, type, event.target.checked);
 }
 
-// Handle facility type change
 function handleFacilityTypeChange(type, event) {
-    if (event.target.checked) {
-        selectedFilters.facilityTypes.push(type);
-    } else {
-        const index = selectedFilters.facilityTypes.indexOf(type);
-        if (index > -1) {
-            selectedFilters.facilityTypes.splice(index, 1);
-        }
-    }
+    toggleListValue(draftFilters.facilityTypes, type, event.target.checked);
 }
 
-// Clear all filters
 function clearAllFilters() {
-    selectedFilters = {
-        roomSize: '',
-        accommodationTypes: [],
-        facilityTypes: []
-    };
+    clearAll();
 }
 
-// Prevent body scroll when filters are open
 watch(isActive, (newValue) => {
-    if (newValue) {
-        document.body.style.overflow = 'hidden';
-    } else {
-        document.body.style.overflow = '';
-    }
+    document.body.style.overflow = newValue ? 'hidden' : '';
 });
-
 </script>
 
 <style lang="scss" scoped>
 @use "sass:color";
-@use "@/assets/variables.scss" as *;
     h2 {
         width:100%;
-        font-family: $poppins;
-        font-weight: 500;
+        font-weight: $heavy;
         font-size: $paragraph;
         text-align: center;
     }
     h4{
-        font-family: $poppins;
-        font-weight: 500;
+        font-weight: $medium;
         font-size: $paragraph;
         text-align: left;
     }
@@ -229,7 +224,7 @@ watch(isActive, (newValue) => {
         }
 
         p {
-            font-weight: 700;
+            font-weight: $medium;
             font-size: $small;
             padding-bottom: 1px;
             transition: $smooth;
@@ -292,7 +287,6 @@ watch(isActive, (newValue) => {
                 border-radius: 5px;
                 background-color: white;
                 color: $gunMetal;
-                font-family: $poppins;
                 font-size: $small;
                 cursor: pointer;
                 transition: $smooth;
@@ -365,5 +359,25 @@ watch(isActive, (newValue) => {
         background-color: rgba($black, 0.25);
         z-index: 8;
         cursor: pointer;
+    }
+    @media screen and (max-width: 768px){
+        .filters-button {
+            height: 40px;
+            border: $grey_40 1px solid;
+        }
+        .filter-content[data-v-376c56dd] {
+            display: flex;
+            flex-direction: column;
+            position: absolute;
+            top: 80px;
+            left: -60px;
+            width: 100vw;
+            height: max-content;
+            background: white;
+            border-radius: calc($border-radius * 4);
+            padding: 10px 0 30px 0;
+            z-index: 9;
+            box-shadow: 0 0 10px 0 rgba(55, 81, 95, 0.1);
+        }
     }
 </style>
