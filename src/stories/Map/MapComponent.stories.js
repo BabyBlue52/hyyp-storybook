@@ -27,7 +27,7 @@ Default.args = {
     usePopups: true,
     markers: [
         {
-            id: 'demo-1',
+            id: 1,
             venue_name: 'The Roof',
             venue_district: 'Downtown',
             price_per_hr: 250,
@@ -35,7 +35,7 @@ Default.args = {
             imageData: 'https://images.pexels.com/photos/260928/pexels-photo-260928.jpeg?auto=compress&cs=tinysrgb&w=600',
         },
         {
-            id: 'demo-2',
+            id: 2,
             venue_name: 'Garden Loft',
             venue_district: 'East Side',
             price_per_hr: 180,

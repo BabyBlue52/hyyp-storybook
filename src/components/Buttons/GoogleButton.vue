@@ -1,13 +1,17 @@
 <template>
-  <div ref="buttonContainerRef" class="google-button-wrapper"></div>
+  <div ref="buttonContainerRef" class="google-button-wrapper">
+    <p v-if="gisError" class="google-error">{{ gisError }}</p>
+  </div>
 </template>
 
 <script setup>
 import { ref, onMounted } from 'vue';
 import { useUserStore } from '@/stores/user';
 
+const emit = defineEmits(['success']);
 const userStore = useUserStore();
 const buttonContainerRef = ref(null);
+const gisError = ref('');
 
 const clientId = import.meta.env.VITE_GOOGLE_CLIENT_ID;
 
@@ -53,18 +57,22 @@ function loadGis() {
   });
 }
 
-function handleCredentialResponse(response) {
+async function handleCredentialResponse(response) {
   const credential = response?.credential;
   if (!credential) return;
-  if (userStore.loginWithGoogle) {
-    userStore.loginWithGoogle(credential);
-  } else {
-    console.log('Google signed in, credential (JWT):', credential.slice(0, 50) + '...');
+  try {
+    await userStore.loginWithGoogle(credential);
+    emit('success');
+  } catch (err) {
+    console.error('Google sign-in failed:', err);
   }
 }
 
 onMounted(() => {
-  if (!clientId) return;
+  if (!clientId) {
+    gisError.value = 'Google Sign-In is not configured for this build.';
+    return;
+  }
   loadGis()
     .then(() => {
       window.google.accounts.id.initialize({
@@ -82,8 +90,8 @@ onMounted(() => {
         });
       }
     })
-    .catch((e) => {
-      console.error('Google Sign-In:', e?.message || e);
+    .catch(() => {
+      gisError.value = 'Google Sign-In is unavailable. You can still sign in with email.';
     });
 });
 </script>
@@ -98,6 +106,12 @@ onMounted(() => {
   
   :deep(iframe) {
     min-width: 100% !important;
+  }
+  .google-error {
+    margin: 0;
+    font-size: $small;
+    color: $grey_40;
+    text-align: center;
   }
 }
 @media screen and (max-width: 768px) {

@@ -9,6 +9,7 @@
                 :placeholder="placeholder"
                 :maxlength="maxlength != null ? maxlength : undefined"
                 @blur="$emit('blur')"
+                min="0"
             />
         </div>
     </div>
@@ -53,13 +54,12 @@ export default defineComponent({
 </script>
 
 <style scoped lang="scss">
-@use "@/assets/variables.scss" as *;
 input {
     position: relative;
     border: 1px solid $grey_20;
     border-radius: 5px;
     height: max-content;
-    min-width: 200px;
+    min-width: max-content;
     padding: 5px 10px;
     padding-top: 20px;
     margin: 5px;

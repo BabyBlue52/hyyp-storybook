@@ -34,16 +34,7 @@
     button.inverted-btn:active {
         transform: scale(0.95);
     }
-    /* Disabled */
-    button.disabled {
-        width: 200px;
-        max-width: 200px;
-        height: 48px;
-        background: transparent;
-        border-radius: 5px;
-        border: 2px solid #c8c8c8;;
-        color: #666;
-    }
+    
     p {
         font-family: 'Poppins', sans-serif;
         line-height: 1rem;

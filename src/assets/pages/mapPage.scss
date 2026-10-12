@@ -1,0 +1,134 @@
+@use "../variables.scss" as *;
+@use "sass:color";
+
+#layout {
+    flex: 1;
+    display: flex;
+    position: relative;
+}
+
+div.wrapper {
+    position: fixed;
+    top: 50px;
+    left: 0px;
+    display: flex;
+    overflow: hidden;
+    width: calc(100vw - 0px);
+    height: calc(100vh - $headRoom);
+    .results-panel {
+        position: relative;
+        overflow-y: scroll;
+        min-width: clamp(380px, $cardWidth, 500px);
+        height: 100%;
+        overflow: hidden;
+        margin-left: 5px;
+        margin-right: 10px;
+        padding: 10px 10px 10px 15px;
+        .search-bar-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 2;
+            width: 100%;
+            background: white;
+            padding: 15px 10px 10px;
+            .search-bar {
+                margin: 0;
+            }
+        }
+        
+        .search-results-container {
+            display: flex;
+            flex-direction: column;
+            position: absolute;
+            top: 65px;
+            left: 0;
+            z-index: 1;
+            width: 100%;
+            background: white;
+            padding: 10px;
+            height: calc(100vh - 135px);
+            overflow-y: scroll;
+        }
+        .empty-filter-state {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 160px;
+            padding: 24px 12px;
+            p {
+                color: $grey_40;
+                text-align: center;
+            }
+        }
+    }
+    .map-panel {
+        position: relative;
+        width: 100%;
+        height: inherit;
+        padding: 0px;
+        background: #f2f2f2;
+        box-shadow: none;
+        .container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%;
+            height: 100%;
+        }
+    }
+    .mobile-btn-row {
+        display: none
+    }
+}
+
+@media screen and (max-width: $mobileScreenSize) {
+    div.wrapper {
+        flex-direction: column;
+
+        .results-panel {
+            position:relative;
+            left:0px;
+            margin: 0;
+            min-width: 0;
+            width: 100%;
+            padding: 0;
+            .mobile-btn-row {
+                div.filters { display:flex; gap:10px}
+                position: relative;
+                width: calc(100% + 20px);
+                left: -10px;
+                top: 20px;
+                background: white;
+                border-bottom: 1px solid $grey_80;
+                height: 50px;
+                padding: 0 10px 10px;
+                display: flex;
+                justify-content: space-between;
+                font-weight: 500;
+                
+            }
+            .search-results-container {
+                top:120px;
+                height: calc(100% - 70px);
+                padding-right: 10px;
+                padding-bottom: 60px;
+                gap: 20px;
+            }
+        }
+        .map-panel {
+            position: absolute;
+            inset: 0;
+        }
+        .mobile-selected-card {
+            position: fixed;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 20;
+            padding: 12px;
+            pointer-events: auto;
+        }
+    }
+}

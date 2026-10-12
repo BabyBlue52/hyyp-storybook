@@ -1,5 +1,7 @@
 /* Buttons */
-@use "./variables.scss" as *;
+@use "../variables.scss" as *;
+@use "sass:color";
+
 button {
     border: none;
     p {
@@ -8,6 +10,30 @@ button {
         color: inherit;
         font-size: $paragraph;
         white-space: nowrap;
+        text-transform: capitalize;
+    }
+}
+button.default-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 7.5px 30px;
+    min-width: max-content;
+    width: 100%;
+    cursor: pointer;
+    height: 40px;
+    border-radius: 5px;
+    background-color: $gunMetal;
+    color: white;
+    font-weight: $heavy;
+    &:hover {
+        background: $gunMetal_20;
+    }
+    p {
+        font-family: 'Poppins', sans-serif;
+        color: inherit;
+        font-size: 0.9rem;
+        font-weight: $medium;
     }
 }
 button.secondary-btn {
@@ -15,10 +41,9 @@ button.secondary-btn {
     align-items: center;
     gap: 4px;
     max-width: 300px;
-    max-height: 40px;
+    height: 40px;
     background: $grey_90;
     color: $black;
-    border: 2px solid transparent;
     border-radius: 5px;
     padding: 2px 12px;
     font-size: $paragraph;
@@ -50,7 +75,7 @@ button.inline-btn {
     min-width: max-content;
     width: 100%;
     max-width: max-content;
-    max-height: 40px;
+    height: 40px;
     border-radius: 5px;
     background-color: white;
     border: 2px solid transparent;
@@ -67,7 +92,8 @@ button.inline-btn {
 
 /* Disabled */
 button.disabled {
-    background-color: #c8c8c8;;
+    @extend button; 
+    background-color: #c8c8c8;
     border: 2px solid transparent;
     color: #666;
 }
@@ -97,7 +123,7 @@ button.close-btn:hover > svg {
 
 button.full-width {
     width: 100%;
-    height: 48px;
+    height: 40px;
     background: $gunMetal;
     color: white;
     font-weight: $medium;
@@ -105,4 +131,73 @@ button.full-width {
 }
 button.full-width:hover {
     background:  $gunMetal_20;
+}
+button.geo-locate {
+    display: flex;
+    align-items: center;
+    height: 37.5px;
+    width: 37.5px;
+    background: $gunMetal;
+    border-radius: $border-radius;
+    padding: 8px 8px;
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.15);
+    svg {
+        height: 1.67rem;
+        width: 1.67rem;
+        fill: white;
+        margin: 0;
+    }
+}
+button.map-view-toggle {              
+    height: 40px;
+    width: 120px;
+    background: $primary;
+    padding: 5px 20px;
+    border-radius: 50px;
+    div {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        p { font-size: $small; font-weight: $bold; }
+        i { font-size: $subhead; font-weight: $heavy;}
+    }
+    &:active, &:focus-visible {
+        transform: scale(0.95);
+        background: color.adjust($primary, $lightness: -40%);
+    }
+}
+
+button.toggle-btn { 
+    min-width: max-content;
+    font-size: $paragraph;
+    padding: 2px 10px;
+    &:hover {
+        background: $grey_90;
+    }
+    i {
+        margin: 0 5px;
+    }      
+}
+button.new-tab-btn-inline {
+    width: 2rem;
+    height: 2rem;
+    background: rgba($black,0.75);
+    border-radius: 50%;
+    color: $grey_80; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    i {
+        padding-bottom: 4px;
+        font-size: $subhead;  
+    }
+    &:hover {
+        color: rgba($black,0.75);
+        background: $grey_80;
+    }
+}
+@media screen and (max-width: $mobileScreenSize){
+    button.default-btn {
+        height: 48px;
+    }
 }

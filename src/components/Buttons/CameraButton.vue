@@ -8,7 +8,7 @@
         </div>
         <button class="camera-btn">
                 <v-tooltip>Edit Mode</v-tooltip>
-                <input type="file" ref="file" @change="readFile" accept="image/png,image/jpeg,image/jpg"/>
+                <input type="file" ref="file" @change="readFile" accept="image/png,image/jpeg,image/jpg,image/webp"/>
                 <v-icon icon="mdi-camera" color="white" size="20px"></v-icon>
             </button>
         <!-- Error Handling -->
@@ -90,7 +90,7 @@ const readFile = async () => {
     const size = selectedFile.size;
     const maxSize = 64000000; // Limit size to 8MB
     const extn = selectedFile.type.split('/')[1];
-    const valid = ["png", "jpg", "jpeg"];
+    const valid = ["png", "jpg", "jpeg", "webp"];
 
             if (valid.includes(extn) && size < maxSize) {
         url.value = URL.createObjectURL(selectedFile);
@@ -115,7 +115,6 @@ const showError = computed(() => props.displayError || internalDisplayError.valu
 </script>
 
 <style scoped lang="scss">
-@use "@/assets/variables.scss" as *;
 div.image-controller {
     display: flex;
     flex-direction: column;
@@ -167,23 +166,23 @@ input {
 }
 
 .profile-pic-container {
+    @extend ._hyypGradient;
     min-width: 80px;
     min-height: 80px;
     max-width: 80px;
     max-height: 80px;
     border-radius: 50%;
-    border: 3px solid $primary;
     overflow: hidden;
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: $grey_90;
 }
 
 img.profile-pic {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    
 }
 
 .initials-container {

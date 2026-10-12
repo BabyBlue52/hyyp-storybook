@@ -48,7 +48,7 @@ $gunMetal_60: color.adjust($gunMetal, $lightness: 60%);
 $selectionStatic: #dce6f2;
 $selectionHover: color.adjust($selectionStatic, $lightness: -15%);
 
-$primary: #e4959e;
+$primary: #FF919E;
 $secondary: $gunMetal;
 
 $success: #59d96c;
@@ -60,16 +60,27 @@ $error_light: #F9DADD;
 
 $violet: #390744;
 $violet_light: #ECB8F8;
+$linearGradient: linear-gradient(155deg, #c756b8, #fd6767)border-box;
 
+/*
+=================
+Specialty COLOR Classes
+=================
+*/
 .black {
   color:$black !important;
 }
 .grey {
   color: $grey_40 !important;
 }
-.bg-white {
-  background: white;
+
+._hyypGradient {
+  border: 4px solid transparent;
+  background:   linear-gradient($grey_40)padding-box, $linearGradient ;
+  background-clip: padding-box, border-box;
+  overflow: hidden;
 }
+
 /*
 =================
 Design Units
@@ -78,27 +89,31 @@ Design Units
 $label: 0.67rem;
 $small: 0.8rem;
 $paragraph: 0.9rem;
-$subhead: 1.2rem;
+$subhead: 1.25rem;
 $header: 1.75rem;
 $pageTitle: clamp(1.75rem, 2.5vw, 2.75rem);
 
 $light: 400;
 $medium: 500;
+$bold: 600;
 $heavy: 700;
 
 $border-radius: 5px;
 $boxShadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 $heavyShadow: 0 4px 12px rgba(0, 0, 0, 0.33);
+
 // Map Page Separators
-$cardWidth: 25vw;
+$cardWidth: 350px;
 $mapWidth: calc(100vw - $cardWidth);
 
 // Controlled Width
 $pageMax: 1440px;
-$formWidth: 1440px;
 
 // Header Area Height
 $headRoom: 50px;
+
+// Mobile Responsiveness 
+$mobileScreenSize: 768px;
 /*
  =================
 Animations 

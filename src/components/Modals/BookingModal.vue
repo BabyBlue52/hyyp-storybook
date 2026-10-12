@@ -52,7 +52,7 @@
                                 />
                                 </v-row>
                         </v-col>
-                        <v-col cols="12" md="7" class="modal-summary-col">
+                        <v-col cols="12" sm="7" md="7" class="modal-summary-col">
                                   <v-row class="row">
                                     <div class="modal-summary w-100">
                                         
@@ -67,28 +67,26 @@
                                             
                                         </div>
                                         <hr />
-                                        <v-row class="row align-center">
-                                            <v-col cols="7">
-                                                <div class="d-flex align-center mx-2">
+                                        <v-row class="row align-center ">
+                                            <v-col cols="12">
+                                                <div class="d-flex align-center justify-center">
                                                     <input class="checkbox" type="checkbox" v-model="bookingData.usePhone">
                                                     <label v-if="!userPhone" @click="toggleUsePhone">Add Phone Number to request</label>
                                                     <label v-else>Prefer phone to contact</label>
                                                 </div>
-                                                
                                                     <TextInput
                                                     v-if="bookingData.usePhone && !userPhone"
-                                                        class="ml-10 mb-4"
+                                                        class=" mb-4"
                                                         placeholder="(123)456-7890"
                                                         type="tel"
                                                         v-model="bookingData.phone"
                                                         :maxlength="13"
-                                                    />   
-                                            
+                                                    />       
                                             </v-col>
                                         </v-row>
                                         
                                         <div v-if="initialHours || bookingData.roomSize" class="column ">
-                                            <v-row class="row" style="margin-left: 20px;">
+                                            <v-row class="row">
                                                 <v-col cols="6" sm="12">
                                                     <div class=" d-flex text-left column">
                                                         <label>Room size:</label>
@@ -114,9 +112,9 @@
                                             <hr/>
                                             <v-row class="row">
                                                 <div class="estimated">
-                                                    <p class="w-100"><strong>Estimated Total:</strong></p>
-                                                    <h4 v-if="estimatedTotalDisplay" class="d-flex text-right mobile-text-left"><span>$</span>{{ estimatedTotalDisplay }} USD</h4>
-                                                    <h4 v-else class="text-center mobile-text-left">--</h4>
+                                                    <p class="w-100">Estimated Total:</p>
+                                                    <h4 v-if="estimatedTotalDisplay" class="d-flex mobile-text-left total">${{ estimatedTotalDisplay }} <span>USD</span></h4>
+                                                    <h4 v-else class="text-center mobile-text-left total">--</h4>
                                                 </div>
                                             </v-row>
                                         </div>
@@ -127,16 +125,14 @@
                     </v-row>
                     <div class="modal-buttons">
                         <p v-if="submitError" class="submit-error">{{ submitError }}</p>
-                        <button
-                            type="button"
+                        <Button
                             class="full-width"
-                            :disabled="isSubmitting"
+                            :loading="isSubmitting"
+                            :text="isSubmitting ? 'Submitting…' : 'Submit Request'"
                             @click="submitRequest"
-                        >
-                            {{ isSubmitting ? 'Submitting…' : 'Submit Request' }}
-                        </button>
+                        />
                         <div class="d-flex justify-center">
-                            <button type="button" class="inline-btn" @click="closeModal"><small>Cancel</small></button>
+                            <InlineButton @click=" closeModal" text="cancel"/>
                         </div>
                     </div>
                 </div>
@@ -148,6 +144,7 @@
 </template>
 
 <script setup>
+import Button from '@/components/Buttons/Button.vue';
 import TimeDropDown from '@/components/UI/TimeDropdown.vue';
 import TextInput from '@/components/UI/TextInput.vue';
 import TextArea from '@/components/UI/TextArea.vue';
@@ -157,6 +154,7 @@ import RoomSizeDropdown from '@/components/UI/RoomSizeDropdown.vue';
 import Avatar from '@/components/UI/Avatar.vue';
 import { useUserStore } from '@/stores/user';
 import AvatarLarge from '../UI/AvatarLarge.vue';
+import InlineButton from '../Buttons/InlineButton.vue';
 
 const emit = defineEmits(['update:isOpen']);
 
@@ -523,7 +521,6 @@ const submitRequest = async () => {
 </script>
 
 <style scoped lang="scss">
-@use "@/assets/variables.scss" as *;
 .topLevel {
     position: fixed;
     inset: 0;
@@ -534,7 +531,7 @@ const submitRequest = async () => {
 h2 {
     margin: 10px 0;
     color: $gunMetal;
-    font-weight: $medium;
+    font-weight: $heavy;
     font-size: 1.75rem;
 }
 label,h4, strong {
@@ -592,14 +589,26 @@ small {
             padding-left: 12px;
             font-size: $paragraph;
         }
+        span { 
+            position:relative;
+            left: 10px;
+            height: max-content;
+            line-height: 1;
+            color: $grey;
+            font-size: $paragraph; 
+            font-weight: $heavy;
+            margin: auto 0;
+            border-radius: $border-radius;
+            padding: 4px 8px;
+            background: $grey_80;
+        }
         .contact-header {
-        display: flex;
-        align-items: center;
-        width: 100%;
-        gap: 12px;
-        margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            width: 100%;
+            gap: 12px;
+            margin-bottom: 8px;
             div.contact-details {
-                margin-left: 10px;
                 p {
                     opacity: 0.5;
                     font-size: $small;
@@ -611,6 +620,9 @@ small {
             align-items: center;
             width: 100%;
             margin: 0 20px;
+            p {
+                font-weight: $heavy;
+            }
         }
     }
     
@@ -678,7 +690,7 @@ div.time-input {
     color: $error;
     text-align: center;
 }
-@media (max-width: 959px) {
+@media (min-width: $mobileScreenSize) and (max-width: 959px) {
     h2 {
         white-space: wrap;
         flex-wrap: wrap;
@@ -733,6 +745,9 @@ div.time-input {
             .estimated {
                 white-space: wrap;
                 flex-wrap: wrap;
+                h4.total { 
+                    font-size: 2rem;
+                }
             }
         }
 
@@ -748,4 +763,51 @@ div.time-input {
     }
 }
 
+@media (max-width: $mobileScreenSize){
+    .modal-container {
+        position: relative;
+        top: 50px;
+        width: 100%;
+        max-width: 100vw;
+        height: 100vh;
+        .modal-content {
+            margin: 0;
+            width: 100%;
+        }
+        .modal-layout {
+            flex-wrap: wrap;
+        }
+        .modal-summary {
+            padding-bottom: 40px;
+            .contact-header {
+                flex-direction: column;
+                h4, p {
+                    text-align: center;
+                    justify-content: center;
+                }
+            }
+            input[type="checkbox"] {
+                margin-left: 0;
+            }
+            div.estimated {
+                flex-direction: column;
+                justify-content: flex-start;
+                p {
+                    font-size: $small;
+                }
+                h4 {
+                    font-size: $header;
+                }
+            }
+        }
+        .modal-buttons {
+            position: fixed;
+            bottom:0;
+            left:0;
+            padding: 0 20px;
+            max-width: 100%;
+        }
+
+    }
+}
 </style>

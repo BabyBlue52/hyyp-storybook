@@ -54,7 +54,6 @@ onUnmounted(() => {
 </script>
 
 <style scoped lang="scss">
-@use "@/assets/variables.scss" as *;
 .tag-container {
     position: absolute;
     top: 50px;

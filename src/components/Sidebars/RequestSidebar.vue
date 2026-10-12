@@ -127,7 +127,6 @@ const exportToICS = () => {
 </script>
 
 <style scoped lang="scss">
-@use "@/assets/variables.scss" as *;
 .hyyp-sidebar {
     position: absolute;
     top: 0px;
@@ -234,7 +233,6 @@ button.close-btn {
         padding: 10px 10px;
         font-size: calc(50% + .5vw);
         background: $grey_90;
-        font-family: $poppins, sans-serif;
         font-weight: 600;
         border-radius: $border-radius;
     }
@@ -272,9 +270,12 @@ button.close-btn {
 .button-row {
     position: absolute;
     bottom: 0;
-    width: calc(100% - 20px);
+    width: calc(100% - 40px);
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
     margin: 5px auto;
     padding: 10px 20px;
 }

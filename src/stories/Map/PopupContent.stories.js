@@ -23,3 +23,14 @@ Default.args = {
         imageData: 'https://images.pexels.com/photos/260928/pexels-photo-260928.jpeg?auto=compress&cs=tinysrgb&w=600',
     },
 };
+
+export const ContactForPricing = Template.bind({});
+ContactForPricing.args = {
+    venue: {
+        id: 'demo-venue-2',
+        venue_name: 'Garden Loft',
+        venue_district: 'East Side',
+        price_per_hr: null,
+        imageData: 'https://images.pexels.com/photos/271624/pexels-photo-271624.jpeg?auto=compress&cs=tinysrgb&w=600',
+    },
+};

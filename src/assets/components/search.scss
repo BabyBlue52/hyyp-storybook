@@ -8,12 +8,16 @@
     width: 100%;
     max-width: 600px;
     height: 40px;
-    padding: 10px 15px 10px 40px;
-    border: .5px solid $black;
+    padding: 10px 20px 10px 20px;
+    margin: 10px 0 20px;
+    border: 1px solid $grey_80;
     border-radius: $border-radius;
+    &:focus-within {
+        border-bottom: 1px solid $black;
+    }
     .venue-search-input {
-        min-width: 100%;
-        margin-right: 10px;
+        min-width: 90%;
+        margin-right: 20px;
         outline: none;
         color: $black;
         font-size: $paragraph;
@@ -29,17 +33,17 @@
         &:focus {
             outline: none;
         }
+        
     }
     input[type=submit] {
         width: max-content;
     }
-    svg {
-        position: absolute;
-        top: 5px;
-        left: 5px;
+    i {
+        top: 0px;
         max-width: 40px;
         max-height: 40px;
-        transform: scale(0.7);
+        font-size: 1.25rem;
+        color: $grey_60;
     }
     .submit-btn {
         height: 100%;

@@ -64,7 +64,7 @@
                             <button type="button" class="calendar-link-btn" :disabled="loading || !blockedDateKeys.length" @click="clearBlockedDates">
                                         Clear all
                                     </button>
-                            <SecondaryButton text="Save calendar" :disabled="loading || disabled" @click="saveBlockedDates" />
+                            <SecondaryButton text="Save calendar" :loading="loading" :disabled="disabled" @click="saveBlockedDates" />
                         </div>
                     </div>
                     <p v-if="calendarNotice" class="calendar-notice" :class="{ error: calendarIsError }">

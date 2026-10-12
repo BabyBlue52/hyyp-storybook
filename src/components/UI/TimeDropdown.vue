@@ -36,7 +36,7 @@
   const timeOptions = computed(() => {
         const options = [];
         for (let hours = 0; hours < 24; hours++) {
-          for (let minutes = 0; minutes < 60; minutes += 15) {
+          for (let minutes = 0; minutes < 60; minutes += 30) {
             let hour12 = hours % 12;
             if (hour12 === 0) hour12 = 12;
             const ampm = hours < 12 ? 'AM' : 'PM';
@@ -52,7 +52,6 @@
     );
   </script>
 <style scoped lang="scss">
-@use "@/assets/variables.scss" as *;
     div.drop-down {
         position: relative;
         width: 100% ;

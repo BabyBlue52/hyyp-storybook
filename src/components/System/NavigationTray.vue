@@ -120,7 +120,6 @@
     </script>
 
 <style scoped lang="scss">
-@use "@/assets/variables.scss" as *;
 .nav-tray-wrapper {
     position: fixed;
     width: 180px;

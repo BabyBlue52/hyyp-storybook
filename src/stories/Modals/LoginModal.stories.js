@@ -6,15 +6,15 @@ export default {
   title: 'Modals / Login Modal',
 }
 
-const Template = args => ({
+const Template = (args) => ({
     components: { LoginModal },
     setup() {
-        return args
+        return { args };
     },
-    template: '<LoginModal v-bind="args" />'
-})
+    template: '<LoginModal v-bind="args" />',
+});
 
 export const SignInPrompt = Template.bind({})
 SignInPrompt.args = {
-    text: 'Login Modal!'
+    isOpen: true,
 }

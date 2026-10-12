@@ -7,7 +7,13 @@
     
         <div class="venue-image">
             <img :src="resolveImageUrl(venue.imageData)" :alt="venue.venue_name" />
-            <h4>From ${{ venue.price_per_hr }}/hr </h4>
+            <div v-if="formattedPricePerHr !== null" class="price-per-hr">
+                <p >From ${{ formattedPricePerHr }}/hr</p>
+            </div>
+            <div v-else class="price-per-hr no-price">
+                <p>Contact for pricing</p>
+            </div>
+            
         </div>
     
         <div class="popup-actions">
@@ -21,6 +27,7 @@
 <script setup>
 import Button from '@/components/Buttons/Button.vue';
 import { resolveImageUrl } from '@/lib/fallback-image.js';
+import { computed } from 'vue';
 // Define props using defineProps
 const props = defineProps({
     venue: {
@@ -32,38 +39,17 @@ const props = defineProps({
         default: () => {}
     }
 });
+
+const formattedPricePerHr = computed(() => {
+  const raw = props.venue?.price_per_hr ?? props.venue?.pricePerHr ?? null
+  if (raw === '' || raw == null) return null
+  const n = Number(raw)
+  if (!Number.isFinite(n) || n < 0) return null
+  return Number.isInteger(n) ? n : n.toFixed(2)
+})
 </script>
 
 <style lang="scss" scoped>
-@use "@/assets/variables.scss" as *;
-.mapboxgl-popup-content {
-    max-height: max-content;
-    width: max-content;
-    padding: 10px 20px;
-    border-radius: $border-radius;
-    h3,
-    h4 {
-        margin: 0;
-    }
-    h3 {
-        border-bottom: 2px solid transparent;
-    }
-    a,
-    a:link,
-    a:active,
-    a:focus {
-        text-decoration: none;
-        color: $black;
-        width: 100%;
-        outline: none;
-    }
-    label {
-        position: relative;
-        top: -8px;
-        font-style: italic;
-    }
-}
-
 .popup-content {
     min-width: 250px;
     padding: 10px 0 0 0;
@@ -77,7 +63,6 @@ const props = defineProps({
             font-size: 16px;
             font-weight: 600;
             color: $black;
-            font-family: $poppins;
             text-align: left;
         }
         .venue-district {
@@ -96,23 +81,39 @@ const props = defineProps({
             object-fit: cover;
             border-radius: 4px;
         }
-        h4 {
+        .price-per-hr  {
             position: absolute;
             right: 10px;
+            left: auto;
             bottom: 5px;
             margin: 0 0 8px 0;
-            font-size: 14px;
-            font-weight: 500;
+            font-size: $paragraph;
+            font-weight: $medium;
             width: max-content;
             padding: 4px 8px;
             background: white;
             border-radius: $border-radius;
+            pointer-events: none;
+            &.no-price {
+                left: auto;
+                right: 10px;
+                background: $grey;
+                color: white;
+                padding: 2px 12px;
+                height: 26px;
+                p {
+                    font-size: $small;
+                    font-weight: $heavy;
+                    text-transform: capitalize;
+                }
+            }
         }
     }
     .popup-actions {
         display: flex;
         justify-content: center;
         margin-bottom: 12px;
+        a {width: 100%;}
     }
     .venue-tags {
         display: flex;
@@ -128,4 +129,5 @@ const props = defineProps({
         }
     }
 }
+ 
 </style>

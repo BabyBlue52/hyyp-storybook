@@ -29,7 +29,6 @@
 </script>
 
 <style lang="scss" scoped>
-@use "@/assets/variables.scss" as *;
     .link {
         flex-direction: column;
         width: max-content;

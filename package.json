@@ -7,10 +7,12 @@
     "build": "vite build",
     "preview": "vite preview",
     "storybook": "npx storybook dev -p 6006",
-    "build-storybook": "npx storybook build"
+    "build-storybook": "npx storybook build",
+    "prepare": "husky"
   },
   "dependencies": {
     "@mdi/font": "7.2.96",
+    "@portabletext/vue": "^2.0.0",
     "@storybook/global": "^5.0.0",
     "@tiptap/core": "^2.1.11",
     "@tiptap/pm": "^2.0.3",
@@ -42,6 +44,7 @@
     "@storybook/addon-links": "10.1.11",
     "@storybook/vue3-vite": "10.1.11",
     "@vitejs/plugin-vue": "^5.0.0",
+    "husky": "^9.1.7",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "sass": "^1.63.6",

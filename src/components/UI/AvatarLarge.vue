@@ -1,5 +1,5 @@
 <template>
-    <button class="user-icon">
+    <button class="user-icon" v-bind="$attrs">
         <span v-if="showInitials" class=" noSelect">{{ displayInitials }}</span>
         <img v-else :src="displaySrc" :alt="displayInitials" @error="imageLoadFailed = true"/>
     </button>
@@ -9,10 +9,14 @@
 import { computed, ref, watch } from 'vue';
 
 const props = defineProps({
-            userInitials: {
-                type: String,
-                default: "DK"
-            },
+    user: {
+        type: Object,
+        default: null
+    },
+    userInitials: {
+        type: String,
+        default: "DK"
+    },
     size: {
         type: String,
         default: "80"
@@ -24,10 +28,31 @@ const props = defineProps({
 });
 
 const imageLoadFailed = ref(false);
+// Full name from user (fullName or firstName + lastName)
+const userFullName = computed(() => {
+    const u = props.user;
+    if (!u) return '';
+    return (u.fullName || [u.firstName, u.lastName].filter(Boolean).join(' ')).trim() || '';
+});
+
+// Initials from user.fullName when user is passed, else from userInitials prop
+const computedInitials = computed(() => {
+    const fullName = userFullName.value;
+    if (fullName) {
+        const parts = fullName.split(/\s+/).filter(Boolean);
+        if (parts.length >= 2) return (parts[0][0] + parts[parts.length - 1][0]).toUpperCase();
+        return fullName.substring(0, 2).toUpperCase();
+    }
+    if (props.user) return (props.user.email || props.user.username || '').substring(0, 2).toUpperCase() || '?';
+    return (props.userInitials || '').trim() || '?';
+});
+
+// Prefer src prop, then user.avatar
+const effectiveSrc = computed(() => props.src || (props.user?.avatar ?? ''));
 
 // Show initials when there's no valid image, or when the image failed to load
 const hasValidSrc = computed(() => {
-    const s = typeof props.src === 'string' ? props.src.trim() : '';
+    const s = typeof effectiveSrc.value === 'string' ? effectiveSrc.value.trim() : '';
     return s.length > 0;
 });
 
@@ -42,7 +67,8 @@ const imageToBase64Url = (avatar) => {
     
     // If it's a base64 string without the data URL prefix, add it
     if (/^[A-Za-z0-9+/=]+$/.test(avatar)) {
-        return `data:image/jpeg;base64,${avatar}`;
+        const mime = avatar.startsWith('iVBOR') ? 'image/png' : 'image/jpeg';
+        return `data:${mime}/jpeg;base64,${avatar}`;
     }
     
     // If it's a regular URL, return as is
@@ -51,37 +77,35 @@ const imageToBase64Url = (avatar) => {
 
 const displaySrc = computed(() => {
     if (!hasValidSrc.value) return null;
-    return imageToBase64Url(props.src.trim());
+    return imageToBase64Url(String(effectiveSrc.value).trim());
 });
 
 const showInitials = computed(() => {
     return !displaySrc.value || imageLoadFailed.value;
 });
 
-const displayInitials = computed(() => {
-    return (props.userInitials || '').trim() || '?';
-});
+const displayInitials = computed(() => computedInitials.value);
 
-watch(() => props.src, () => {
+watch(() => [props.src,props.user?.avatar], () => {
     imageLoadFailed.value = false;
 });
 </script>
 
 <style scoped lang="scss">
-@use "@/assets/variables.scss" as *;
-    .user-icon {
+   .user-icon {
+        @extend ._hyypGradient;
         display: flex;
         align-items: center;
         justify-content: center;
         height: 80px;
         width: 80px;
+        min-width: 80px;
+        padding: 0;
         border-radius: 50%;
-        border: 2px solid white;
-        background-color: #f0f0f0;      
     }
     .user-icon > span {
         font-size: 1.75rem;
-        font-weight: $heavy;
+        font-weight: $medium;
         text-align: center;
         margin: auto 0;
         text-transform: uppercase;

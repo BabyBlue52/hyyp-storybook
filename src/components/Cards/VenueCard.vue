@@ -1,5 +1,5 @@
 <template>
-    <div class="card">
+    <div class="venue-card">
         <div class="room-img">
             <img :src="resolveImageUrl(room?.imgUrl)" />
         </div>
@@ -32,13 +32,13 @@ defineProps({
 </script>
 
 <style scoped lang="scss">
-@use "@/assets/variables.scss" as *;
-.card {
+.venue-card {
     position: relative;
     display: flex;
     flex-direction: column;
     width: 300px;
-    border: 1px solid $grey_90;
+    max-width: 100%;
+    border: 1px solid $grey_80;
     border-radius: calc( 2 * $border-radius);
     overflow: hidden;
     background: white;
@@ -103,6 +103,12 @@ defineProps({
                 color: $grey_60;
             }
         }
+    }
+}
+@media (max-width: $mobileScreenSize) {
+    .venue-card {
+        min-width: 280px;
+        max-width: 280px;
     }
 }
 </style>

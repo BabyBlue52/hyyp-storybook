@@ -1,10 +1,12 @@
-import { reactive, computed } from 'vue';
+import { reactive, computed, ref } from 'vue';
 
 function emptyFilters() {
     return {
         roomSize: '',
         accommodationTypes: [],
         facilityTypes: [],
+        amenities: [],
+        city: '',
     };
 }
 
@@ -12,6 +14,8 @@ function copyInto(target, source) {
     target.roomSize = source.roomSize || '';
     target.accommodationTypes = [...(source.accommodationTypes || [])];
     target.facilityTypes = [...(source.facilityTypes || [])];
+    target.amenities = [...(source.amenities || [])];
+    target.city = source.city || '';
 }
 
 export function countFilters(filters) {
@@ -19,11 +23,13 @@ export function countFilters(filters) {
     if (filters.roomSize) count += 1;
     count += filters.accommodationTypes?.length || 0;
     count += filters.facilityTypes?.length || 0;
+    count += filters.amenities?.length || 0;
     return count;
 }
 
 const draftFilters = reactive(emptyFilters());
 const appliedFilters = reactive(emptyFilters());
+const isFiltersOpen = ref(false);
 
 /**
  * Shared map-page filter state. Draft edits stay local until Apply;
@@ -46,13 +52,21 @@ export function useVenueFilters() {
         copyInto(appliedFilters, emptyFilters());
     }
 
+    /** Replace draft + applied with a full filter set (homepage Search). */
+    function setAppliedFilters(source) {
+        copyInto(draftFilters, { ...emptyFilters(), ...source });
+        copyInto(appliedFilters, draftFilters);
+    }
+
     return {
         draftFilters,
         appliedFilters,
+        isFiltersOpen,
         draftCount,
         appliedCount,
         applyFilters,
         discardDraft,
         clearAll,
+        setAppliedFilters,
     };
 }

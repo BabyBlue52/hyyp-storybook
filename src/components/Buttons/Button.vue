@@ -1,63 +1,35 @@
 <template>
-    <button :class="[disabled ? 'disabled' : 'default-btn']" :disabled="disabled">
-        <p>{{text}}</p>
+    <button
+        class="default-btn"
+        :class="{ disabled: isDisabled, loading }"
+        :disabled="isDisabled"
+        :aria-busy="loading"
+    >
+        <LoadingSpinner v-if="loading" :size="14" />
+        <slot>{{ text }}</slot>
     </button>
 </template>
 
 <script setup>
-    defineOptions({
-        name: 'PrimaryButton'
-    });
-    defineProps({
-        text: String,
-        disabled: Boolean
-    });
-    
+import { computed } from 'vue'
+import LoadingSpinner from '@/components/UI/LoadingSpinner.vue'
+
+defineOptions({
+    name: 'PrimaryButton'
+});
+
+const props = defineProps({
+    text: String,
+    disabled: Boolean,
+    loading: Boolean,
+});
+
+const isDisabled = computed(() => Boolean(props.disabled || props.loading))
 </script>
 <style lang="scss" scoped>
-@use "@/assets/variables.scss" as *;
-    button.default-btn {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 7.5px 30px;
-        min-width: max-content;
-        width: 100%;
-        cursor: pointer;
-        height: 40px;
-        border-radius: 5px;
-        background-color: $gunMetal;
-        border: 2px solid transparent;
-        color: white;
-        &:hover {
-            background: $gunMetal_20;
-        }
-        p {
-            font-family: 'Poppins', sans-serif;
-            color: inherit;
-            font-size: 0.9rem;
-            font-weight: $medium;
-        }
-    }
-   
-    /* Disabled */
-    button.disabled {
-        @extend .default-btn;
-        background-color: $grey_80;
-        border: 2px solid transparent;
-        color: $grey;
-        opacity: 0.33;
-        cursor: not-allowed;
-        user-select: none;
-        -moz-user-select: none;
-        -webkit-user-select: none;
-        -ms-user-select: none;
-        &:hover {
-            background: $grey_80;
-        }
-        &:active {
-            transform: scale(1);
-        }
-    }
-   
+@use "sass:color";
+
+.default-btn {
+    gap: 8px;
+}
 </style>

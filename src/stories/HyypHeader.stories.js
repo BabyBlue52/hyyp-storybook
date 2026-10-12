@@ -1,4 +1,4 @@
-import HyypHeader from '@/components/HyypHeader.vue';
+import HyypHeader from '@/components/System/HyypHeader.vue';
 import { useUserStore, storybookDummyUser } from '@/stores/user';
 
 export default {

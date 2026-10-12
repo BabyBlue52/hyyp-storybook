@@ -18,13 +18,14 @@ import 'mapbox-gl/dist/mapbox-gl.css';
 // import { mdiNearMe } from '@mdi/js';
 import FilterComponent from '@/components/Map/FilterComponent.vue';
 
-import PopupContent from '@/components/Map/PopupContent.vue';
+import SearchResultCardMini from '@/components/Cards/SearchResultCardMini.vue';
+import { useVenueFilters } from '@/composables/useVenueFilters';
 
 const token = `${import.meta.env.VITE_MAPBOX_API_KEY}`
 const map_style = `${import.meta.env.VITE_MAPSTYLE}`
-const isMobile = computed(() =>  matchMedia('(max-width: 768ox)').matches);
-const defaultZoom = computed(() => (isMobile.value ? 9 : 11) )
-const focusZoom = computed(() => (isMobile.value ? 11 : 12));
+const isMobile = computed(() => matchMedia('(max-width: 768px)').matches);
+const defaultZoom = computed(() => (isMobile.value ? 12 : 13) )
+const focusZoom = computed(() => (isMobile.value ? 13 : 14));
 export default {
     props: {
         markers: {
@@ -60,10 +61,11 @@ export default {
         const markers = ref([]);
         const markerPopups = ref(new Map());
         const isPopupOpen = ref(false);
+        const { isFiltersOpen } = useVenueFilters();
         // const previousVenue = ref(null);
         let resizeObserver = null;
         let resizeTimeout = null;
-        let originalFetch = null;
+        let disposeMarkers = () => {};
 
         const handleResize = () => {
             if (resizeTimeout) {
@@ -76,32 +78,42 @@ export default {
             }, 150);
         };
 
-        // Function to create Vue component in popup
+        const formatPinPrice = (venue) => {
+            const raw = venue?.price_per_hr ?? venue?.pricePerHr ?? null;
+            if (raw === '' || raw == null) return null;
+            const n = Number(raw);
+            if (!Number.isFinite(n) || n < 0) return null;
+            return Number.isInteger(n) ? `$${n}` : `$${n.toFixed(0)}`;
+        };
+//Custom pin 
+        const createPricePin = (venue) => {
+            const el = document.createElement('div');
+            const price = formatPinPrice(venue);
+            el.className = 'venue-marker-pin';
+            const shape = document.createElement('div');
+            shape.className = 'venue-marker-pin__shape';
+            const label = document.createElement('span');
+            label.className = 'venue-marker-pin__label';
+            const tip = document.createElement('span');
+            tip.className = 'venue-marker-pin__tip';
+            label.textContent = price || '--'; // price or empty
+            if (!price) el.classList.add('venue-marker-pin--empty');
+            shape.appendChild(label);
+            el.appendChild(shape);
+            el.appendChild(tip);
+            return el;
+        };
+
         const createPopupComponent = (markerData) => {
-            // Create a container div for the Vue component
             const container = document.createElement('div');
             container.id = `popup-${markerData.id}`;
+            container.className = 'map-popup-mini';
 
-            // Create Vue app instance
-            const popupApp = createApp(PopupContent, {
-                venue: markerData,
-                onClose: () => {
-                    // Clean up the Vue app when popup closes
-                    popupApp.unmount();
-                }
+            const popupApp = createApp(SearchResultCardMini, {
+                location: markerData,
             });
-
-            // Handle events from the popup component
-            popupApp.config.globalProperties.$emit = (event, data) => {
-                if (event === 'book-venue') {
-                    console.log('Booking venue:', data);
-                    // Handle booking logic here
-                    // You can emit this to the parent component or handle it directly
-                }
-            };
-
-            // Mount the Vue component to the container
             popupApp.mount(container);
+            container._popupApp = popupApp;
 
             return container;
         };
@@ -110,15 +122,17 @@ export default {
         onMounted(() => {
             mapboxgl.accessToken = token;
 
-            // Block Mapbox telemetry so the request (and token) never hits the network – avoids block/CORS errors
-            originalFetch = window.fetch;
-            window.fetch = function (input, init) {
-                const url = typeof input === 'string' ? input : (input && input.url);
-                if (url && url.includes('events.mapbox.com')) {
-                    return Promise.resolve(new Response('', { status: 200 }));
-                }
-                return originalFetch.apply(this, arguments);
-            };
+            if (!window.__hyypBlockMapboxEvents) {
+                const originalFetch = window.fetch;
+                window.fetch = function (input, init) {
+                    const url = typeof input === 'string' ? input : input?.url;
+                    if (url && url.includes('events.mapbox.com')) {
+                        return Promise.resolve(new Response('', { status: 200 }));
+                    }
+                    return originalFetch.apply(this, arguments);
+                };
+                window.__hyypBlockMapboxEvents = true;
+            }
 
             // Get the map container element
             const containerElement = document.getElementById('map');
@@ -138,7 +152,11 @@ export default {
             setViewToCurrentLocation();
 
             const clearMarkers = () => {
-                markers.value.forEach((marker) => marker.remove());
+                markers.value.forEach((marker) => {
+                    const content = marker.getPopup()?.getElement()?.querySelector('.map-popup-mini');
+                    content?._popupApp?.unmount();
+                    marker.remove();
+                });
                 markers.value = [];
                 markerPopups.value.clear();
             };
@@ -148,24 +166,32 @@ export default {
                 (list || []).forEach((i) => {
                     if (isValidCoordinates(i.coordinates)) {
                         const marker = new mapboxgl.Marker({
-                                className: "venue-marker"
+                                element: createPricePin(i),
+                                className: 'venue-marker',
+                                anchor: 'bottom',
                         })
                             .setLngLat(i.coordinates)
                             .addTo(map.value);
+                        marker.getElement().addEventListener('click', (e) => {
+                            e.stopPropagation();
+                            emit('venueSelected', i);
+                        });
                         if(props.usePopups) {
                             const popup = new mapboxgl.Popup({
-                                offset: 40,
-                                closeButton: true,
-                                closeOnClick: true
+                                offset: 0,
+                                closeButton: false,
+                                closeOnClick: true,
+                                focusAfterOpen: false,
+                                maxWidth: 'none',
+                                className: 'map-popup-docked',
+                                anchor: 'bottom',
                             });
-                            popup.setDOMContent(createPopupComponent(i));
+                            popup.on('open', () => {
+                                if (!popup.getElement()?.querySelector('.map-popup-mini')) {
+                                    popup.setDOMContent(createPopupComponent(i));
+                                }
+                            });
                             marker.setPopup(popup)
-                        } else {
-                            // mobile: click → notify parent instead of popup
-                            marker.getElement().addEventListener('click', (e) => {
-                                e.stopPropagation();
-                                emit('venueSelected', i);
-                            });
                         }
                         markers.value.push(marker);
                         markerPopups.value.set(i.id, { marker, venueData: i });
@@ -183,11 +209,11 @@ export default {
                 })
             }
 
-            // Loop through array: one marker with popup per venue, store ref for opening from search
+            disposeMarkers = clearMarkers;
             addMarkers(props.markers);
 
             watch(
-                () => (props.markers || []).map((marker) => marker.id).join(','),
+                () => (props.markers || []).map((marker) => `${marker.id}:${marker.price_per_hr ?? ''}`).join(','),
                 () => {
                     clearMarkers();
                     addMarkers(props.markers);
@@ -211,11 +237,12 @@ export default {
                 (venue) => {
                     if (!venue) {
                         setSelectedMarker(null)
+                        closeAllPopups();
+                        isPopupOpen.value = false;
                         return
                     }
                     if(!map.value || !markerPopups.value.has(venue.id)) return;
                     setSelectedMarker(venue.id)
-                    map.value.flyTo({ center: venue.coordinates, speed: 1.31, zoom: focusZoom.value });
                     if (props.usePopups) {
                         closeAllPopups();
                         const { marker } = markerPopups.value.get(venue.id);
@@ -223,8 +250,14 @@ export default {
                         isPopupOpen.value = true;
                     }
                 },
-                { deep: true }
             );
+
+            watch(isFiltersOpen, (open) => {
+                if (!open) return;
+                closeAllPopups();
+                setSelectedMarker(null);
+                isPopupOpen.value = false;
+            });
 
             window.addEventListener('resize', handleResize);
 
@@ -238,7 +271,6 @@ export default {
         });
 
         onUnmounted(() => {
-            if (originalFetch) window.fetch = originalFetch;
             window.removeEventListener('resize', handleResize);
             if (resizeObserver && mapContainer.value) {
                 resizeObserver.unobserve(mapContainer.value);
@@ -247,13 +279,25 @@ export default {
             if (resizeTimeout) {
                 clearTimeout(resizeTimeout);
             }
+            disposeMarkers();
+            if (map.value) {
+                map.value.remove();
+                map.value = null;
+            }
         });
 
         // GeoLocation of User
         const setViewToCurrentLocation = () => {
-            // Check Session Storage
-            if (sessionStorage.getItem("coords")) {
-                coords.value = JSON.parse(sessionStorage.getItem("coords"))
+            const stored = sessionStorage.getItem("coords");
+            if (stored) {
+                try {
+                    coords.value = JSON.parse(stored);
+                    if (map.value && coords.value?.lng != null && coords.value?.lat != null) {
+                        map.value.setCenter([coords.value.lng, coords.value.lat]);
+                    }
+                } catch {
+                    sessionStorage.removeItem("coords");
+                }
             }
             if (navigator.geolocation) {
                 navigator.geolocation.getCurrentPosition(
@@ -316,16 +360,38 @@ export default {
     overflow: hidden;
     position: relative;
 }
+#map .mapboxgl-popup.map-popup-docked {
+    position: absolute !important;
+    top: auto !important;
+    bottom: 16px !important;
+    left: 12px !important;
+    right: 12px !important;
+    transform: none !important;
+    width: auto !important;
+    max-width: none !important;
+    z-index: 10;
+}
+#map .map-popup-docked .mapboxgl-popup-tip {
+    display: none;
+}
 .mapboxgl-popup-content {
     max-height: max-content;
-    width: max-content;
-    padding: 10px 20px;
-    h3,
-    h4 {
+    width: 400px;
+    padding: 0;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: $boxShadow;
+    .map-popup-mini,
+    .search-result-block {
+        width: 100%;
         margin: 0;
+        max-height: none;
     }
-    h3 {
-        border-bottom: 2px solid transparent;
+    .map-popup-mini .search-result-block > a {
+        display: block;
+        position: absolute;
+        inset: 0;
+        z-index: 25;
     }
     a,
     a:link,
@@ -333,36 +399,95 @@ export default {
         text-decoration: none;
         color: $black;
     }
-    label {
-        position: relative;
-        top: -8px;
-        font-style: italic;
-    }
+}
+#map .map-popup-docked .mapboxgl-popup-content {
+    width: 100%;
+    max-width: 420px;
+    margin: 0 auto;
 }
 .mapboxgl-popup {
     transition-property: opacity;
-    transition-duration: 2s;
+    transition-duration: 0.2s;
 }
 
 .mapboxgl-popup-close-button {
     display: none;
 }
 
-.mapboxgl-marker {
-    svg {
-        &:hover {
-            width: 60px;
-            height: 60px;
-            fill: $black;
-            filter: hue-rotate(45deg);
+.venue-marker-pin {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: max-content;
+    cursor: pointer;
+    transform-origin: bottom center;
+    transition: transform 0.15s ease;
+    &__shape {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 36px;
+        min-height: 28px;
+        padding: 4px 12px;
+        background: $gunMetal;
+        border-radius: 999px;
+        box-shadow: $boxShadow;
+        color: $offWhite;
+        transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+    }
+    &__label {
+        display: block;
+        font-family: $poppins;
+        font-size: $paragraph;
+        font-weight: $medium;
+        line-height: 1;
+        white-space: nowrap;
+    }
+    &__tip {
+        width: 0;
+        height: 0;
+        margin-top: -2px;
+        border-left: 7px solid transparent;
+        border-right: 7px solid transparent;
+        border-top: 9px solid $gunMetal;
+        filter: drop-shadow(0 2px 2px rgba(0, 0, 0, 0.12));
+        transition: border-top-color 0.15s ease;
+    }
+    &--empty {
+        .venue-marker-pin__shape {
+            background: $gunMetal
+        }
+        .venue-marker-pin__tip {
+            border-top-color: $gunMetal;
         }
     }
-    .is-selected > svg {
-        width: 48px;   // or transform: scale(1.5)
-        height: 48px;
-        transform: scale(1.5);
-        transform-origin: bottom center;
-        transition: transform 0.15s ease;
+    &:hover,
+    &.is-selected {
+        .venue-marker-pin__shape {
+            background: $gunMetal_60;
+            border-color: $gunMetal_60;
+            color: $gunMetal;
+            transform: scale(1.05);
+            filter: drop-shadow(0 2px 2px rgba(0, 0, 0, 0.25));
+        }
+        .venue-marker-pin__tip {
+            position: relative;
+            top: 0px;
+            border-top-color: $gunMetal_60;
+        }
+        .venue-marker-pin__label {
+            font-weight: $heavy;
+        }
+    }
+    &--empty:hover,
+    &--empty.is-selected {
+        .venue-marker-pin__shape {
+            background: $gunMetal_60;
+            border-color: $gunMetal_60;
+        }
+        .venue-marker-pin__tip {
+            border-top-color: $gunMetal_60;
+        }
     }
 }
 
@@ -378,14 +503,22 @@ export default {
     gap: 10px;
     
 }
-@media  screen and (max-width: 768px) {
-    .mapboxgl-marker.is-selected > svg {
-        width: 48px;   // or transform: scale(1.5)
-        height: 48px;
-        transform: scale(1.5);
+@media screen and (max-width: 768px) {
+    .float-wrapper .filters-wrapper {
+        display: none;
+    }
+    #map .mapboxgl-popup.map-popup-docked {
+        bottom: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+    }
+    #map .map-popup-docked .mapboxgl-popup-content {
+        max-width: none;
+        border-radius: 16px 16px 0 0;
+    }
+    .venue-marker-pin.is-selected {
+        transform: scale(1.18);
         transform-origin: bottom center;
-        transition: transform 0.15s ease;
-        filter: hue-rotate(70deg) saturate(.7) brightness(1.15);
     }
 }
 </style>

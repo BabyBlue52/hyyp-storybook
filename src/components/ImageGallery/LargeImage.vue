@@ -80,7 +80,6 @@ export default {
 </script>
 
 <style scoped lang="scss">
-@use "@/assets/variables.scss" as *;
 .container {
     display: flex;
     position: relative;

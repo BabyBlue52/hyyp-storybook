@@ -16,7 +16,6 @@
     
 </script>
 <style lang="scss" scoped>
-@use "@/assets/variables.scss" as *;
     button.inline-btn {
         display: flex;
         justify-content: center;
@@ -33,16 +32,6 @@
     button.inline-btn:hover {
         transition: $smooth;
         background: rgba($black, 0.15);
-    }
-    /* Disabled */
-    button.disabled {
-        width: 200px;
-        max-width: 200px;
-        height: 48px;
-        border-radius: 5px;
-        background-color: #c8c8c8;;
-        border: 2px solid transparent;
-        color: #666;
     }
     p {
         font-family: 'Poppins', sans-serif;

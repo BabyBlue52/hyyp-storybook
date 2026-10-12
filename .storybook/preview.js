@@ -18,6 +18,13 @@ import logo from '../src/assets/logos/hyyp.svg';
 const router = createRouter({
   history: createMemoryHistory(),
   routes: [
+    { path: '/', name: 'home' },
+    { path: '/map', name: 'map' },
+    { path: '/signup', name: 'signup' },
+    { path: '/signin', name: 'signin' },
+    { path: '/get-started', name: 'get-started' },
+    { path: '/feedback', name: 'feedback' },
+    { path: '/admin/venue/new', name: 'venue-new' },
     { path: '/admin/venue/:venueId', name: 'venue' },
     { path: '/admin/:venueId/rooms/', name: 'rooms' },
     { path: '/admin/:venueId/requests', name: 'requests' },

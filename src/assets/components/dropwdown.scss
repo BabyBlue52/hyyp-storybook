@@ -95,7 +95,7 @@
     }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: $mobileScreenSize) {
      .dropdown-menu.link-bay {
         z-index: 10;
         position: absolute;
@@ -112,5 +112,9 @@
         .menu {
             z-index: 2;
         }
+    }
+    .dropdown-menu {
+        position: relative;
+        top: 0;
     }
 }

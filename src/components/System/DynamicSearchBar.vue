@@ -1,5 +1,5 @@
 <template>
-    <form class="search-wrapper column " @submit.prevent>
+    <form class="search-wrapper column " @submit.prevent="submitSearch">
         <div class="row d-flex w-100">
             <div class="border">
                 <div class="location">
@@ -40,9 +40,7 @@
                     />
                 </div>
             </div>
-            <RouterLink to="/map">
-                <Button text="Search"/>
-            </RouterLink>
+            <Button type="submit" text="Search" />
         </div>
         
     </form>
@@ -50,12 +48,17 @@
 
 <script setup>
 import { ref, computed } from "vue";
+import { useRouter } from "vue-router";
 import Button from "@/components/Buttons/Button.vue";
 import CityDropdown from "@/components/UI/CityDropdown.vue";
 import TagContainer from "@/components/UI/TagContainer.vue";
+import { useVenueFilters } from "@/composables/useVenueFilters";
+import { filtersFromHomeSearch } from "@/lib/venues";
 
 const placeholder = 'Try searching a few must-haves i.e. bar, outdoors, etc.';
 const location = ref('');
+const router = useRouter();
+const { setAppliedFilters } = useVenueFilters();
 const token = import.meta.env.VITE_MAPBOX_API_KEY;
 const allTagOptions = ref([
     'bar',
@@ -164,9 +167,16 @@ function addTag(tag) {
 function removeTag(tag) {
     selectedTags.value = selectedTags.value.filter((t) => t !== tag);
 }
+
+function submitSearch() {
+    setAppliedFilters(filtersFromHomeSearch({
+        tags: selectedTags.value,
+        city: location.value,
+    }));
+    router.push({ name: 'MapPage' });
+}
 </script>
 <style lang="scss" scoped>
-@use "@/assets/variables.scss" as *;
 form.search-wrapper {
     display: flex;
     position: relative;

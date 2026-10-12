@@ -25,7 +25,6 @@
 </script>
 
 <style scoped lang="scss">
-@use "@/assets/variables.scss" as *;
     button.delete-btn {
         display: flex;
         justify-content: center;

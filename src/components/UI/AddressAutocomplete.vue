@@ -1,7 +1,7 @@
 <template>
     <div class="hyyp-input address-autocomplete">
         <div class="d-flex column">
-            <label>{{ label }}</label>
+            <label v-if="label">{{ label }}</label>
             <div class="autocomplete-wrapper">
                 <v-text-field
                     :model-value="searchQuery"
@@ -24,7 +24,9 @@
                     </div>
                 </div>
                 <div v-if="loading" class="suggestions-dropdown">
-                    <div class="suggestion-item">Loading...</div>
+                    <div class="suggestion-item suggestion-loading">
+                        <LoadingSpinner :size="18" />
+                    </div>
                 </div>
             </div>
         </div>
@@ -33,6 +35,7 @@
 
 <script setup>
 import { ref, watch } from 'vue';
+import LoadingSpinner from '@/components/UI/LoadingSpinner.vue';
 
 const props = defineProps({
     modelValue: {
@@ -46,6 +49,11 @@ const props = defineProps({
     placeholder: {
         type: String,
         default: 'Start typing an address...'
+    },
+    /** Mapbox Geocoding `types`: address for streets, place for city names. */
+    types: {
+        type: String,
+        default: 'address'
     }
 });
 
@@ -93,7 +101,7 @@ const searchAddresses = async (query) => {
         const response = await fetch(
             `https://api.mapbox.com/geocoding/v5/mapbox.places/${encodeURIComponent(query)}.json?` +
             `access_token=${MAPBOX_TOKEN}&` +
-            `types=address&` +
+            `types=${encodeURIComponent(props.types || 'address')}&` +
             `country=US&` +
             `limit=5`
         );
@@ -153,6 +161,11 @@ const parseAddressComponents = (feature) => {
         address = parts[0]?.trim() || '';
     }
 
+    const placeTypes = feature.place_type || [];
+    if (placeTypes.includes('place') || String(feature.id || '').startsWith('place')) {
+        city = feature.text || city;
+    }
+
     // Parse context array for city, state, zipCode
     context.forEach(item => {
         const id = item.id;
@@ -201,9 +214,13 @@ const parseAddressComponents = (feature) => {
 
 const selectAddress = (suggestion) => {
     const addressData = parseAddressComponents(suggestion);
-    
-    searchQuery.value = addressData.fullAddress || suggestion.place_name;
-    emit('update:modelValue', searchQuery.value);
+    const isPlaceSearch = String(props.types || '').split(',').includes('place');
+    const nextValue = isPlaceSearch
+        ? (addressData.city || suggestion.text || suggestion.place_name)
+        : (addressData.fullAddress || suggestion.place_name);
+
+    searchQuery.value = nextValue;
+    emit('update:modelValue', nextValue);
     emit('address-selected', addressData);
     
     showSuggestions.value = false;
@@ -219,7 +236,6 @@ const handleBlur = () => {
 </script>
 
 <style scoped lang="scss">
-@use "@/assets/variables.scss" as *;
 .address-autocomplete {
     position: relative;
 }
@@ -242,6 +258,13 @@ const handleBlur = () => {
     overflow-y: auto;
     z-index: 1000;
     margin-top: 4px;
+}
+
+.suggestion-loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    pointer-events: none;
 }
 
 .suggestion-item {

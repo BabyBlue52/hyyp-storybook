@@ -37,15 +37,15 @@
                         </div>
     
                         <div class="button-section">
-                            <button type="submit" class="full-width" :disabled="userStore.getLoading">
-                            <p v-if="userStore.getLoading">Signing In...</p>
-                            <p v-else>Sign In</p>
-                        </button>
-                            <div class="d-flex w-100" style="margin: 20px 0">
-                                <hr/> or
+                            <PrimaryButton type="submit" class="full-width" :loading="userStore.getLoading">
+                                <p>{{ userStore.getLoading ? 'Signing In...' : 'Sign In' }}</p>
+                            </PrimaryButton>
+                            <div class="d-flex w-100 text-center" style="margin: 20px 0">
+                                <hr/> 
+                                <span class="mx-2">or</span>
                                 <hr/>
                             </div>
-                            <GoogleButton />
+                            <GoogleButton @success="closeModal" />
                         </div>
                     </form>
                     <p> By continuing you agree to our
@@ -63,6 +63,7 @@ import { ref } from 'vue';
 import { useUserStore } from '../../stores/user';
 import Link from '@/components/UI/Link.vue';
 import GoogleButton from '@/components/Buttons/GoogleButton.vue';
+import PrimaryButton from '@/components/Buttons/Button.vue';
 const props = defineProps({
     isOpen: {
         type: Boolean,
@@ -100,7 +101,7 @@ const handleLogin = async () => {
 }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 /* Whole modal subtree above HyypHeader (z-index 10) and mobile bar (101); .locked alone was z-index 1 and drew under the header */
 .topLevel {
     position: fixed;
@@ -108,28 +109,27 @@ const handleLogin = async () => {
     z-index: 200;
     isolation: isolate;
 }
-
+.centered {
+    margin-top: -50px;
+}
 h2 {
     width: 100%;
-    font-size: 2rem;
-    font-weight: 900;
+    font-weight: $heavy;
     text-align: center;
-    color: #37515F;
+    color: $gunMetal;
     margin-top: 20px;
 }
 
 p {
     text-align: center;
-    font-size: 0.9rem;
     margin: 0;
 }
 
 hr {
     position: relative;
-    top: 10px;
     width: 100%;
     margin: 0px 10px;
-    opacity: 0.2;
+    opacity: 0.75;
 }
 
 .link {

@@ -5,7 +5,7 @@
             <RouterLink to="/">
                 <div class="logo">
     
-                    <img src="@/assets/logos/hyyp.svg" />
+                    <img src="@/assets/images/hyyp.svg" />
     
                     <div v-if="isPremium === true" class="pro-badge noSelect">
                         <span>Pro</span>
@@ -35,9 +35,9 @@
                     <Avatar :user="user" />
                 </div>
                 <div v-if="isMenuOpen" class="dropdown-menu link-bay mobile-hidden">
-                    <div v-for="(item, index) in items" :key="index" class="dropdown-item" @click.prevent="handleItemClick(item)">
-                        <a :href="item.url">{{ item.title }}</a>
-                    </div>
+                    <RouterLink v-for="(item, index) in items" :key="index" class="dropdown-item" @click="handleItemClick(item)">
+                        {{ item.title }}
+                    </RouterLink>
                     <div role="button" class="dropdown-item logout" @keydown.enter.space.prevent="onLogout" @click="onLogout">
                         <p>Logout</p>
                     </div>
@@ -57,15 +57,17 @@
     </div>
     <div ref="mobileHeaderRef" class="mobile-header-wrapper">
         <div class="mobile-header-bar">
-            <div class="v-col-9 d-flex align-center">
+            <div class="v-col-4 px-0 d-flex align-center">
                 <div @click.stop="toggleMenu">
                     <v-icon v-if="isMenuOpen" class="mdi mdi-close"></v-icon>
                     <v-icon v-else class="mdi mdi-menu"></v-icon>
                 </div>
+                </div>
+                <div class="v-col-4 d-flex justify-center">
                 <RouterLink to="/">
                     <div class="logo" @click="closeMenu">
     
-                        <img src="@/assets/logos/hyyp.svg" />
+                        <img src="@/assets/images/hyyp.svg" />
     
                         <div v-if="isPremium === true" class="pro-badge noSelect">
                             <span>Pro</span>
@@ -75,7 +77,7 @@
                     </div>
                 </RouterLink>
             </div>
-            <div v-if="!hiddenComponent" class="v-col-3 d-flex align-center" style="justify-content: end;">
+            <div v-if="!hiddenComponent" class="v-col-4 d-flex align-center" style="justify-content: end;">
                 <div v-if="userAuth" class="avatar-container pl-4">
                     <Avatar :user="user" @click="toggleMobileLinks" />
                     <div v-if="isMobileAccountOpen" class="link-bay_account">
@@ -96,7 +98,6 @@
                     <Link text="Sign In" />
                 </RouterLink>
             </div>
-    
         </div>
         <div v-if="isMenuOpen" class="dropdown-menu  link-bay" @click="handleItemClick">
             <div class="menu">
@@ -106,10 +107,15 @@
                 <RouterLink :to="listYourPropertyPath" class="dropdown-item">
                     <span>{{ listYourPropertyLabel }}</span>
                 </RouterLink>
-                <div v-for="(item, index) in items" :key="index" class="dropdown-item" @click="handleItemClick(item)">
-                    <a :href="item.url">{{ item.title }}</a>
-                </div>
-    
+                <RouterLink
+                    v-for="(item, index) in items"
+                    :key="index"
+                    :to="item.url"
+                    class="dropdown-item"
+                    @click="handleItemClick(item)"
+                >
+                    {{ item.title }}
+                </RouterLink>
             </div>
         </div>
         <div v-if="isMenuOpen" class="locked" @click="closeMenu"></div>
@@ -211,7 +217,8 @@ div.header-wrapper {
     align-items: center;
     border-bottom: .5px solid $grey_80;
     width: 100%;
-    padding: 5px 20px;
+    height: $headRoom;
+    padding: 10px 20px;
     /* Above .hyyp-wrapper (z-index: 1) so dropdowns aren’t covered by the scroll layer; below modals (.centered 9999). */
     z-index: 10;
     background: white;
@@ -262,12 +269,12 @@ div.mobile-header-wrapper {
     display: none;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: $mobileScreenSize) {
     div.header-wrapper {
         display: none;
     }
     div.mobile-header-wrapper {
-        /* Above Silktide #silktide-cookie-icon (z-index: 100000 in silktide-consent-manager.css) */
+        /* Above Silktide #silktide-cookie-icon (z-index: 100000 in site-prefs/prefs-ui.css) */
         position: fixed;
         top: 0;
         left: 0;
@@ -278,6 +285,7 @@ div.mobile-header-wrapper {
         align-items: stretch;
         background: transparent;
         border-bottom: .5px solid $grey_90;
+        padding: 5px 10px 5px;
         box-sizing: border-box;
         background: white;
         .mobile-header-bar {
@@ -285,7 +293,7 @@ div.mobile-header-wrapper {
             z-index: 20;
             display: flex;
             align-items: center;
-            justify-content: space-between;
+            justify-content: flex-start;
             width: 100%;
             height: 50px;
             box-sizing: border-box;

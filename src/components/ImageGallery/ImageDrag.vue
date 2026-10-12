@@ -93,7 +93,6 @@
     })
   </script>
 <style scoped lang="scss">
-@use "@/assets/variables.scss" as *;
     .dragArea {
         display: flex;
         justify-content: flex-start;
