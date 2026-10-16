@@ -1,5 +1,5 @@
 <template>
-    <footer class="footer">
+    <footer v-if="!isMobile" class="footer">
         <v-container fluid>
             <v-row class="d-flex align-center">
                 <v-col cols="12" sm="4">
@@ -9,16 +9,22 @@
                     </v-row>
                 </v-col>
                 <v-col cols="12" sm="8" class="d-flex justify-end">
+                    <!-- Discord -->
+                    <i class="fa-brands fa-discord" style="transform: scale(0.85);"></i>
                     <!-- LinkedIn -->
                     <v-icon icon="mdi-linkedin"></v-icon>
                     <!-- Instagram -->
                     <v-icon icon="mdi-instagram"></v-icon>
+                    
+
                 </v-col>
             </v-row>
         </v-container>
     </footer>
-    <footer v-if="!hideMobile" class="mobile-footer">
+    <footer v-else class="mobile-footer">
         <div class="row justify-center my-5">
+            <!-- Discord -->
+            <i class="fa-brands fa-discord"></i>
             <!-- LinkedIn -->
             <v-icon icon="mdi-linkedin"></v-icon>
             <!-- Instagram -->
@@ -35,13 +41,25 @@
 </template>
 
 <script setup>
-import { computed } from 'vue';
-import { useRoute } from 'vue-router';
+import { computed, onMounted, onUnmounted, ref } from 'vue';
 import Link from '../UI/Link.vue';
 
-const route = useRoute();
+const mobileQuery = typeof window !== 'undefined'
+    ? window.matchMedia('(max-width: 768px)')
+    : null;
+const isMobile = ref(mobileQuery?.matches ?? false);
 
-const hideMobile = computed(() => route.path.startsWith('/venues/'));
+function onMobileQueryChange(event) {
+    isMobile.value = event.matches;
+}
+
+onMounted(() => {
+    mobileQuery?.addEventListener('change', onMobileQueryChange);
+});
+
+onUnmounted(() => {
+    mobileQuery?.removeEventListener('change', onMobileQueryChange);
+});
 
 const currentYear = computed(() => new Date().getFullYear());
 const yearText = `© ${currentYear.value} Hyyp LLC.`
@@ -53,14 +71,16 @@ footer.footer {
     display: flex;
     align-items: center;
     flex-shrink: 0;
+    margin-top: auto;
     position: relative;
     width: 100%;
-    height: 50px;
+    min-height: 50px;
+    overflow: hidden;
     padding: 5px 20px;
     border-top: 1px solid rgba($grey_80, 0.5);
     background-color: white;
     i {
-        font-size: 2.25rem;
+        font-size: 1.75rem;
         margin: 0 10px;
         color: $gunMetal;
         &:hover {
@@ -76,29 +96,22 @@ footer.footer {
 }
 
 footer.mobile-footer {
-    display: none;
-}
-
-@media screen and (max-width: $mobileScreenSize) {
-    footer.footer {
-        display: none;
+    position: relative;
+    z-index: 8;
+    flex-shrink: 0;
+    margin-top: auto;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    border-top: 1px solid $grey_90;
+    background: white;
+    p {
+        width: max-content;
     }
-    footer.mobile-footer {
-        position: relative;
-        z-index: 8;
-        display: flex;
-        flex-direction: column;
-        padding: 20px;
-        border-top: 1px solid $grey_90;
-        background: white;
-        p {
-            width: max-content;
-        }
-        i {
-            font-size: 2.25rem;
-            margin: 0 10px;
-            color: $gunMetal;
-        }
+    i {
+        font-size: 1.75rem;
+        margin: 0 10px;
+        color: $gunMetal;
     }
 }
 </style>
