@@ -1,3 +1,4 @@
+<!-- eslint-disable vue/multi-word-component-names -->
 <template>
     <button type="button" :class="isSelected ? 'tag selected' : 'tag'" @click="toggleTag">
         <p>{{ props.tag }}</p>
@@ -8,11 +9,13 @@
 <script setup>
 const props = defineProps({
     tag: String,
+    /** Stored id. Falls back to the label when the tag is a plain string. */
+    value: String,
     isSelected: Boolean,
 });
 const emit = defineEmits(['toggleTag']);
 const toggleTag = () => {
-    emit('toggleTag', props.tag, props.isSelected);
+    emit('toggleTag', props.value || props.tag, props.isSelected);
 };
 
 

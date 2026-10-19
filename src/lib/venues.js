@@ -1,4 +1,5 @@
 import axiosInstance from '@/lib/axios'
+import { classifySearchTag } from '@/lib/tags'
 import roomSizeOptions from '@/composables/roomSizeLibrary.json'
 
 const sizeByToken = new Map()
@@ -165,39 +166,23 @@ function matchesCity(venue, city) {
   return value.includes(wanted)
 }
 
-const ACCOMMODATION_HOME_TAGS = {
-  bar: 'bar',
-  restaurant: 'bar',
-  hotel: 'hotel',
-  residence: 'residence',
-}
-
-const FACILITY_HOME_TAGS = {
-  outdoor: 'outdoor',
-  outdoors: 'outdoor',
-  indoor: 'indoor',
-  indoors: 'indoor',
-}
-
 /** Map homepage city + must-have tags onto the same filter object the map uses. */
-export function filtersFromHomeSearch({ tags = [], city = '' } = {}) {
+export function filtersFromHomeSearch({ tags = [], city = '', catalog = [] } = {}) {
   const accommodationTypes = []
   const facilityTypes = []
   const amenities = []
   for (const raw of tags) {
-    const tag = String(raw).toLowerCase().trim()
-    if (!tag) continue
-    if (ACCOMMODATION_HOME_TAGS[tag]) {
-      const value = ACCOMMODATION_HOME_TAGS[tag]
-      if (!accommodationTypes.includes(value)) accommodationTypes.push(value)
+    const classified = classifySearchTag(raw, catalog.length ? catalog : undefined)
+    if (!classified) continue
+    if (classified.kind === 'accommodation') {
+      if (!accommodationTypes.includes(classified.value)) accommodationTypes.push(classified.value)
       continue
     }
-    if (FACILITY_HOME_TAGS[tag]) {
-      const value = FACILITY_HOME_TAGS[tag]
-      if (!facilityTypes.includes(value)) facilityTypes.push(value)
+    if (classified.kind === 'facility') {
+      if (!facilityTypes.includes(classified.value)) facilityTypes.push(classified.value)
       continue
     }
-    amenities.push(tag)
+    amenities.push(classified.value)
   }
   const normalizedCity = String(city || '').trim()
   const invalidCity =

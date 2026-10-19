@@ -47,28 +47,21 @@
 </template>
 
 <script setup>
-import { ref, computed } from "vue";
+import { ref, computed, onMounted } from "vue";
 import { useRouter } from "vue-router";
 import Button from "@/components/Buttons/Button.vue";
 import CityDropdown from "@/components/UI/CityDropdown.vue";
 import TagContainer from "@/components/UI/TagContainer.vue";
 import { useVenueFilters } from "@/composables/useVenueFilters";
 import { filtersFromHomeSearch } from "@/lib/venues";
+import { fetchSearchTags, FALLBACK_TAGS } from "@/lib/tags";
 
 const placeholder = 'Try searching a few must-haves i.e. bar, outdoors, etc.';
 const location = ref('');
 const router = useRouter();
 const { setAppliedFilters } = useVenueFilters();
 const token = import.meta.env.VITE_MAPBOX_API_KEY;
-const allTagOptions = ref([
-    'bar',
-    'outdoors',
-    'food',
-    'music',
-    'dancefloor',
-    'theater',
-    'sports',
-]);
+const catalog = ref(FALLBACK_TAGS);
 const selectedTags = ref([]);
 const isSearching = ref(false);
 const searchQuery = ref('');
@@ -128,7 +121,13 @@ const showPosition = async (position) => {
 };
 
 // Search tag container functionality
-const sortedTags = computed(() => [...allTagOptions.value].sort());
+const sortedTags = computed(() =>
+    [...catalog.value].sort((a, b) => (a.sort ?? 0) - (b.sort ?? 0) || a.name.localeCompare(b.name))
+);
+
+onMounted(async () => {
+    catalog.value = await fetchSearchTags();
+});
 
 const toggleSearch = () => {
     isSearching.value = !isSearching.value;
@@ -144,7 +143,9 @@ const handleInput = (event) => {
 
 /* Handling tags adding, removing */
 function updateInputReadout() {
-    searchQuery.value = selectedTags.value.join(', ');
+    searchQuery.value = selectedTags.value
+        .map((value) => catalog.value.find((tag) => tag.value === value)?.name || value)
+        .join(', ');
 }
 
 function toggleTag(tag) {
@@ -172,6 +173,7 @@ function submitSearch() {
     setAppliedFilters(filtersFromHomeSearch({
         tags: selectedTags.value,
         city: location.value,
+        catalog: catalog.value,
     }));
     router.push({ name: 'MapPage' });
 }
@@ -263,7 +265,7 @@ form.search-wrapper {
         cursor: pointer;
     }
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: $mobileScreenSize) {
     form.search-wrapper {
         display: flex;
         width: calc(100%);
@@ -279,7 +281,7 @@ form.search-wrapper {
             margin-bottom: 20px;
             .search {
                 max-width: 100%;
-                max-height: 40px;
+                height: $button-height;
                 margin: 0;
                 margin-top: 10px;
                 padding: 0;

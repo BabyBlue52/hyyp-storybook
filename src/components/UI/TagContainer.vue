@@ -2,9 +2,10 @@
     <div ref="containerRef" class="tag-container">
         <Tag
             v-for="(tag, index) in tags"
-            :key="typeof tag === 'string' ? tag : tag?.id ?? index"
-            :tag="typeof tag === 'string' ? tag : (tag?.name ?? String(tag))"
-            :isSelected="selectedTags && selectedTags.includes(typeof tag === 'string' ? tag : (tag?.name ?? String(tag)))"
+            :key="tagValue(tag) || index"
+            :tag="tagLabel(tag)"
+            :value="tagValue(tag)"
+            :isSelected="selectedTags && selectedTags.includes(tagValue(tag))"
             @toggleTag="$emit('toggleTag', $event)"
             @addTag="$emit('addTag', $event)"
             @removeTag="$emit('removeTag', $event)"
@@ -32,6 +33,18 @@ const props = defineProps({
     }
 });
 const emit = defineEmits(['toggleTag', 'addTag', 'removeTag', 'close']);
+
+function tagLabel(tag) {
+    if (tag == null) return '';
+    if (typeof tag === 'string') return tag;
+    return tag.name || tag.value || '';
+}
+
+function tagValue(tag) {
+    if (tag == null) return '';
+    if (typeof tag === 'string') return tag;
+    return tag.value || tag.name || '';
+}
 
 const containerRef = ref(null);
 

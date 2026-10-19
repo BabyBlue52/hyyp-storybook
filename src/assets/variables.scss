@@ -64,19 +64,24 @@ $linearGradient: linear-gradient(155deg, #c756b8, #fd6767)border-box;
 
 /*
 =================
-Specialty COLOR Classes
+Specialty TEXT COLOR Classes
 =================
 */
-.black {
+.text-black {
   color:$black !important;
 }
-.grey {
+.text-grey {
   color: $grey_40 !important;
 }
 
+/*
+=================
+Specialty COLOR Classes
+=================
+*/
 ._hyypGradient {
   border: 4px solid transparent;
-  background:   linear-gradient($grey_40)padding-box, $linearGradient ;
+  background:   linear-gradient($grey_90)padding-box, $linearGradient ;
   background-clip: padding-box, border-box;
   overflow: hidden;
 }
@@ -98,9 +103,19 @@ $medium: 500;
 $bold: 600;
 $heavy: 700;
 
-$border-radius: 5px;
+$border-radius: 4px;
+// Box Shadow
 $boxShadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 $heavyShadow: 0 4px 12px rgba(0, 0, 0, 0.33);
+
+// Padding Tokens
+$padding-sm: 4px;
+$margin-sm: 4px;
+$padding-default: 8px;
+$margin-default: 8px;
+
+// Button Tokens
+$button-height: 40px;
 
 // Map Page Separators
 $cardWidth: 350px;
@@ -119,7 +134,7 @@ $mobileScreenSize: 768px;
 Animations 
 =================
 */
-$smooth: ease-in-out 260ms;
+$smooth: ease-in-out 270ms;
 
 
 /*

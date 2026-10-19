@@ -15,7 +15,7 @@
                 </div>
             </RouterLink>
             <RouterLink to="/map">
-                <Link :text="'Browse Venues'" />
+                <Link :url="'/map'" :text="'Browse Venues'" />
             </RouterLink>
         </div>
         <div class="right">
