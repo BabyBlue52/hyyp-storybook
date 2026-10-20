@@ -94,6 +94,8 @@ watch(() => [props.src,props.user?.avatar], () => {
 <style scoped lang="scss">
    .user-icon {
         @extend ._hyypGradient;
+        position: relative;
+        overflow: hidden;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -112,9 +114,11 @@ watch(() => [props.src,props.user?.avatar], () => {
         color: $grey_20;
     }   
     .user-icon > img {
-        width: inherit;
-        height: inherit;
-        border-radius: 50%;
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
         object-fit: cover;
+        object-position: center;
     }
 </style>
