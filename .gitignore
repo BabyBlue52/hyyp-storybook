@@ -72,9 +72,6 @@ jspm_packages/
 .cache/
 public
 
-# Storybook build outputs
-storybook-static
-
 # Temporary folders
 tmp/
 temp/
@@ -97,7 +94,3 @@ Thumbs.db
 
 # Ignore build
 iframe.html
-storybook-static/project.json
-storybook-static/iframe.html
-storybook-static/index.json
-storybook-static/project.json
